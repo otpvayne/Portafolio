@@ -1,97 +1,110 @@
+/* 🎨 Estilo general del cuerpo de la página */
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  line-height: 1.6;
-  background: #fff;
-  color: #333;
-  padding-top: 80px; /* Para no tapar contenido con header fijo */
+  font-family: 'Roboto', sans-serif;  /* Fuente moderna y profesional desde Google Fonts */
+  margin: 0;                          /* Quita el margen predeterminado del navegador */
+  line-height: 1.6;                   /* Espacio vertical entre líneas de texto */
+  background: #fff;                   /* Fondo blanco */
+  color: #333;                        /* Color del texto (gris oscuro) */
+  padding-top: 80px;                  /* Deja espacio arriba para que el header fijo no tape el contenido */
 }
 
+/* 📌 Barra superior fija (header) */
 .fixed-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: #111;
-  color: #fff;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;                   /* Hace que se quede pegado arriba al hacer scroll */
+  top: 0; left: 0; right: 0;         /* Ocupa todo el ancho de la pantalla */
+  z-index: 1000;                     /* Lo coloca por encima de todo lo demás */
+  background: #111;                  /* Fondo negro intenso */
+  color: #fff;                       /* Texto blanco */
+  padding: 1rem;                     /* Espaciado interno (arriba y abajo) */
+  display: flex;                     /* Usa Flexbox para organizar contenido horizontalmente */
+  justify-content: space-between;   /* Deja espacio entre el logo y el menú */
+  align-items: center;              /* Centra verticalmente el contenido */
 }
 
+/* 📷 Estilo de la imagen del logo */
 .logo-img {
-  height: 40px;
+  height: 40px;                      /* Altura del logo (puedes ajustarla si es necesario) */
 }
 
+/* 🍔 Estilo del botón hamburguesa */
 .hamburger {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  display: block;
+  background: none;                 /* Sin fondo */
+  border: none;                     /* Sin borde */
+  font-size: 1.5rem;                /* Tamaño grande del icono ☰ */
+  color: #fff;                      /* Color blanco */
+  cursor: pointer;                 /* Cambia el cursor al pasar por encima (manito) */
+  display: block;                   /* Siempre visible (en desktop y móvil) */
 }
 
+/* 🔗 Lista de navegación sin viñetas */
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;                /* Quita los puntos de la lista */
+  padding: 0;                      /* Quita el espacio interno */
+  margin: 0;                       /* Quita el espacio externo */
 }
 
+/* 📄 Estilo para cada ítem de la lista de navegación */
 nav li {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0;                /* Espacio vertical entre los enlaces (en versión móvil) */
 }
 
+/* 🔗 Estilo visual para los enlaces */
 nav a {
-  color: #fff;
-  text-decoration: none;
+  color: #fff;                     /* Color blanco */
+  text-decoration: none;          /* Quita el subrayado de los links */
 }
 
+/* 🙈 Clase que oculta elementos (como el menú hamburguesa cerrado) */
 .hidden {
   display: none;
 }
 
+/* 🧍‍♂️ Sección principal del perfil con imagen y datos centrados */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
+  display: flex;                   /* Activa Flexbox */
+  flex-direction: column;         /* Organiza en columna (imagen arriba, texto abajo) */
+  align-items: center;            /* Centra todo horizontalmente */
+  padding: 1rem;                  /* Espaciado interno general */
 }
 
+/* 📸 Estilo de la imagen de perfil */
 .hero img {
-  max-width: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+  max-width: 150px;               /* Ancho máximo de 150px (se adapta si es más pequeña) */
+  border-radius: 50%;             /* Redondea completamente para que sea un círculo */
+  margin-bottom: 1rem;            /* Espacio debajo de la imagen */
 }
 
+/* 📄 Estilo general del área principal */
 main {
-  padding: 1rem;
+  padding: 1rem;                  /* Espaciado interno a los lados del contenido */
 }
 
+/* 📦 Estilo básico para cada sección (espacio entre ellas) */
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem;           /* Espacio debajo de cada sección */
 }
 
+/* 💳 Estilo de tarjetas (experiencia y proyectos) */
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-  padding: 1rem;
-  margin-bottom: 1rem;
+  border: 1px solid #ccc;               /* Borde gris claro */
+  border-radius: 8px;                   /* Bordes suavemente redondeados */
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Sombra ligera para dar efecto de profundidad */
+  padding: 1rem;                        /* Espaciado interno */
+  margin-bottom: 1rem;                 /* Espacio debajo de cada tarjeta */
 }
 
+/* 🧾 Pie de página */
 footer {
-  background: #f4f4f4;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  background: #f4f4f4;                /* Fondo gris claro */
+  text-align: center;                 /* Centrado de texto */
+  padding: 1rem;                      /* Espacio interno */
+  font-size: 0.9rem;                  /* Letra un poco más pequeña */
 }
 
+/* 💻 ESTILOS SOLO PARA PANTALLAS GRANDES (Desktop ≥768px) */
 @media(min-width: 768px) {
   nav ul {
-    display: flex;
-    gap: 1rem;
+    display: flex;                   /* Muestra los enlaces en línea horizontal */
+    gap: 1rem;                       /* Espacio entre los enlaces */
   }
 }
