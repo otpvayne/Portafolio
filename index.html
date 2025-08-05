@@ -1,20 +1,41 @@
+<!-- Declaración del tipo de documento: HTML5 -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- Todo el contenido está en español -->
+
 <head>
+  <!-- Codificación de caracteres para soportar tildes, eñes, etc. -->
   <meta charset="UTF-8">
+  
+  <!-- Hace que la página se vea bien en móviles (diseño responsive) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título que aparece en la pestaña del navegador -->
   <title>CV Profesional - Ingeniero de Desarrollo</title>
+
+  <!-- Enlace al archivo de estilos CSS externo -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Fuente importada desde Google Fonts: Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header class="fixed-header">
+  <!-- ENCABEZADO FIJO CON LOGO, MENÚ HAMBURGUESA Y NAVEGACIÓN -->
+  <header class="fixed-header"> <!-- Barra fija en la parte superior -->
+
+    <!-- LOGO del sitio -->
     <div class="logo">
       <img src="images/logo.webp" alt="Logo" class="logo-img">
+      <!-- Imagen del logo -->
     </div>
+
+    <!-- Botón de menú hamburguesa visible en móvil y escritorio -->
     <button class="hamburger" id="hamburger">☰</button>
+
+    <!-- Menú de navegación (por defecto oculto con clase 'hidden') -->
     <nav id="nav" class="hidden">
       <ul>
+        <!-- Enlaces que al hacer clic llevan a las secciones del CV -->
         <li><a href="#perfil">Perfil</a></li>
         <li><a href="#tecnicas">Técnicas</a></li>
         <li><a href="#blandas">Blandas</a></li>
@@ -25,22 +46,27 @@
     </nav>
   </header>
 
+  <!-- CUERPO PRINCIPAL DEL CV -->
   <main>
+
+    <!-- Sección inicial: foto, nombre y contacto -->
     <section id="contacto" class="hero">
       <img src="images/foto-ejemplo.jpg" alt="Foto profesional">
       <div>
-        <h1>Diego Alejandro Medina Martinez</h1>
+        <h1>Diego Alejandro Medina Martinez</h1> <!-- Nombre completo -->
         <p>Ingeniero de Sofware</p>
         <p>Email: generalboomsycol@gmail.com</p>
         <p>Tel: +57 3017472421</p>
       </div>
     </section>
 
+    <!-- PERFIL PROFESIONAL -->
     <section id="perfil">
       <h2>Perfil Profesional</h2>
       <p>Ingeniero de software con experiencia en desarrollo full stack, especializado en aplicaciones web escalables y modernas.</p>
     </section>
 
+    <!-- HABILIDADES TÉCNICAS -->
     <section id="tecnicas">
       <h2>Competencias Técnicas</h2>
       <ul>
@@ -50,6 +76,7 @@
       </ul>
     </section>
 
+    <!-- HABILIDADES BLANDAS -->
     <section id="blandas">
       <h2>Competencias Blandas</h2>
       <ul>
@@ -59,18 +86,24 @@
       </ul>
     </section>
 
+    <!-- FORMACIÓN ACADÉMICA -->
     <section id="formacion">
       <h2>Formación Académica</h2>
-      <p><strong>Ingeniería de Sistemas</strong> - Universidad Manuela Beltran, 2022 - 2027</p>
+      <p><strong>Ingeniería de Sistemas</strong> - Universidad Manuela Beltrán, 2022 - 2027</p>
     </section>
 
+    <!-- EXPERIENCIA LABORAL EN TARJETAS -->
     <section id="experiencia">
       <h2>Experiencia Laboral</h2>
+
+      <!-- Primer trabajo -->
       <div class="card">
         <h3>Desarrollador Full Stack - Casa Del Kumis</h3>
         <p>2025 - Actualidad</p>
-        <p>Desarrollo de pagina web</p>
+        <p>Desarrollo de página web</p>
       </div>
+
+      <!-- Segundo trabajo -->
       <div class="card">
         <h3>Practicante Universitario - ######</h3>
         <p>###### - #####</p>
@@ -78,12 +111,17 @@
       </div>
     </section>
 
+    <!-- PROYECTOS DESTACADOS EN TARJETAS -->
     <section id="proyectos">
       <h2>Proyectos Destacados</h2>
+
+      <!-- Proyecto 1 -->
       <div class="card">
         <h3>Desarrollador Full Stack</h3>
-        <p>Pagina web informativa para la empresa la casa del Kumis</p>
+        <p>Página web informativa para la empresa La Casa del Kumis</p>
       </div>
+
+      <!-- Proyecto 2 -->
       <div class="card">
         <h3>Landing Page para Startup</h3>
         <p>Diseño e implementación de landing responsiva con HTML, CSS y JS.</p>
@@ -91,11 +129,13 @@
     </section>
   </main>
 
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p>&copy; 2025 Diego Medina. Todos los derechos reservados.</p>
     <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
   </footer>
 
+  <!-- Script JS que activa o desactiva el menú hamburguesa -->
   <script src="menu.js"></script>
 </body>
 </html>
