@@ -4,9 +4,15 @@ body {
   line-height: 1.6;
   background: #fff;
   color: #333;
+  padding-top: 80px; /* Para no tapar contenido con header fijo */
 }
 
-header {
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   background: #111;
   color: #fff;
   padding: 1rem;
@@ -15,11 +21,16 @@ header {
   align-items: center;
 }
 
+.logo-img {
+  height: 40px;
+}
+
 .hamburger {
   background: none;
   border: none;
   font-size: 1.5rem;
   color: #fff;
+  cursor: pointer;
   display: block;
 }
 
@@ -79,22 +90,8 @@ footer {
 }
 
 @media(min-width: 768px) {
-  .hamburger {
-    display: none;
-  }
-
-  nav {
-    display: block !important;
-  }
-
   nav ul {
     display: flex;
     gap: 1rem;
-  }
-
-  .hero {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
   }
 }
