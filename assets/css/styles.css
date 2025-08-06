@@ -72,6 +72,7 @@ nav a {
   max-width: 150px;               /* Ancho máximo de 150px (se adapta si es más pequeña) */
   border-radius: 50%;             /* Redondea completamente para que sea un círculo */
   margin-bottom: 1rem;            /* Espacio debajo de la imagen */
+
 }
 
 /* 📄 Estilo general del área principal */
