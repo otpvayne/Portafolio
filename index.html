@@ -1,41 +1,34 @@
-<!-- Declaración del tipo de documento: HTML5 -->
 <!DOCTYPE html>
-<html lang="es"> <!-- Todo el contenido está en español -->
+<html lang="es">
 
 <head>
-  <!-- Codificación de caracteres para soportar tildes, eñes, etc. -->
   <meta charset="UTF-8">
-  
-  <!-- Hace que la página se vea bien en móviles (diseño responsive) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Profesional - Diego Medina</title>
 
-  <!-- Título que aparece en la pestaña del navegador -->
-  <title>CV Profesional - Ingeniero de Desarrollo</title>
-
-  <!-- Enlace al archivo de estilos CSS externo -->
+  <!-- Estilos CSS -->
   <link rel="stylesheet" href="/assets/css/styles.css">
-
-  <!-- Fuente importada desde Google Fonts: Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- ENCABEZADO FIJO CON LOGO, MENÚ HAMBURGUESA Y NAVEGACIÓN -->
-  <header class="fixed-header"> <!-- Barra fija en la parte superior -->
-
-    <!-- LOGO del sitio -->
-    <div class="logo">
-      <img src="assets/images/logo.webp" alt="Logo" class="logo-img">
-      <!-- Imagen del logo -->
+  <!-- HERO SECCIÓN CON GIF + ANIMACIONES -->
+  <section class="hero-section">
+    <div class="overlay">
+      <h1 class="typing-text">DIEGO MEDINA</h1>
+      <h2 class="typing-subtext">SOFTWARE ENGINEER</h2>
+      <a href="/assets/docs/DiegoMedinaCV.pdf" download class="resume-btn">RESUME</a>
     </div>
+  </section>
 
-    <!-- Botón de menú hamburguesa visible en móvil y escritorio -->
+  <!-- HEADER (Menú de navegación fijo) -->
+  <header class="fixed-header">
+    <div class="logo">
+      <img src="/assets/images/logo.webp" alt="Logo" class="logo-img">
+    </div>
     <button class="hamburger" id="hamburger">☰</button>
-
-    <!-- Menú de navegación (por defecto oculto con clase 'hidden') -->
-    <nav id="nav" class="hidden">
+    <nav id="nav" class="nav">
       <ul>
-        <!-- Enlaces que al hacer clic llevan a las secciones del CV -->
         <li><a href="#perfil">Perfil</a></li>
         <li><a href="#tecnicas">Técnicas</a></li>
         <li><a href="#blandas">Blandas</a></li>
@@ -46,27 +39,23 @@
     </nav>
   </header>
 
-  <!-- CUERPO PRINCIPAL DEL CV -->
+  <!-- CUERPO DEL CV -->
   <main>
-
-    <!-- Sección inicial: foto, nombre y contacto -->
     <section id="contacto" class="hero">
       <img src="/assets/images/mono.webp" alt="Foto profesional">
       <div>
-        <h1>Diego Alejandro Medina Martinez</h1> <!-- Nombre completo -->
-        <p>Ingeniero de Sofware</p>
+        <h1>Diego Alejandro Medina Martinez</h1>
+        <p>Ingeniero de Software</p>
         <p>Email: generalboomsycol@gmail.com</p>
         <p>Tel: +57 3017472421</p>
       </div>
     </section>
 
-    <!-- PERFIL PROFESIONAL -->
     <section id="perfil">
       <h2>Perfil Profesional</h2>
       <p>Ingeniero de software con experiencia en desarrollo full stack, especializado en aplicaciones web escalables y modernas.</p>
     </section>
 
-    <!-- HABILIDADES TÉCNICAS -->
     <section id="tecnicas">
       <h2>Competencias Técnicas</h2>
       <ul>
@@ -76,7 +65,6 @@
       </ul>
     </section>
 
-    <!-- HABILIDADES BLANDAS -->
     <section id="blandas">
       <h2>Competencias Blandas</h2>
       <ul>
@@ -86,24 +74,18 @@
       </ul>
     </section>
 
-    <!-- FORMACIÓN ACADÉMICA -->
     <section id="formacion">
       <h2>Formación Académica</h2>
       <p><strong>Ingeniería de Sistemas</strong> - Universidad Manuela Beltrán, 2022 - 2027</p>
     </section>
 
-    <!-- EXPERIENCIA LABORAL EN TARJETAS -->
     <section id="experiencia">
       <h2>Experiencia Laboral</h2>
-
-      <!-- Primer trabajo -->
       <div class="card">
         <h3>Desarrollador Full Stack - Casa Del Kumis</h3>
         <p>2025 - Actualidad</p>
         <p>Desarrollo de página web</p>
       </div>
-
-      <!-- Segundo trabajo -->
       <div class="card">
         <h3>Practicante Universitario - ######</h3>
         <p>###### - #####</p>
@@ -111,17 +93,12 @@
       </div>
     </section>
 
-    <!-- PROYECTOS DESTACADOS EN TARJETAS -->
     <section id="proyectos">
       <h2>Proyectos Destacados</h2>
-
-      <!-- Proyecto 1 -->
       <div class="card">
         <h3>Desarrollador Full Stack</h3>
         <p>Página web informativa para la empresa La Casa del Kumis</p>
       </div>
-
-      <!-- Proyecto 2 -->
       <div class="card">
         <h3>Landing Page para Startup</h3>
         <p>Diseño e implementación de landing responsiva con HTML, CSS y JS.</p>
@@ -129,13 +106,12 @@
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA -->
   <footer>
     <p>&copy; 2025 Diego Medina. Todos los derechos reservados.</p>
     <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
   </footer>
 
-  <!-- Script JS que activa o desactiva el menú hamburguesa -->
-  <script src="menu.js"></script>
+  <!-- Scripts JS -->
+  <script src="/assets/js/menu.js"></script>
 </body>
 </html>
