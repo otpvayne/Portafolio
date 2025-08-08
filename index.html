@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV Profesional - Diego Medina</title>
 
-  <!-- Estilos CSS -->
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <!-- HERO SECCIÓN CON GIF + ANIMACIONES -->
+  <!-- HERO con GIF de fondo -->
   <section class="hero-section">
     <div class="overlay">
       <h1 class="typing-text">DIEGO MEDINA</h1>
@@ -21,12 +19,21 @@
     </div>
   </section>
 
-  <!-- HEADER (Menú de navegación fijo) -->
+  <!-- HEADER fijo -->
   <header class="fixed-header">
     <div class="logo">
-      <img src="/assets/images/logo.webp" alt="Logo" class="logo-img">
+      <img src="/assets/images/logo.webp" alt="Logo" class="logo-img" />
     </div>
-    <button class="hamburger" id="hamburger">☰</button>
+
+    <!-- Botón hamburguesa -->
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-controls="nav"
+      aria-expanded="false"
+      aria-label="Abrir menú">☰</button>
+
+    <!-- Menú (OJO: clase nav, sin 'hidden') -->
     <nav id="nav" class="nav">
       <ul>
         <li><a href="#perfil">Perfil</a></li>
@@ -39,10 +46,60 @@
     </nav>
   </header>
 
-  <!-- CUERPO DEL CV -->
+  <!-- MAIN -->
   <main>
+    <!-- ABOUT + SHOWCASE (debajo del hero) -->
+    <section id="about" class="about-showcase">
+      <!-- Columna izquierda: texto -->
+      <div class="about-text">
+        <h2 class="typing-about">About Me</h2>
+
+        <p>
+          Full stack software engineer with experience building web applications and custom systems across diverse contexts. I specialize in spotting real‑world needs and turning them into effective, user‑focused software—often inspired by situations I encounter throughout my day. I combine technical excellence with strategic thinking, integrating agile practices, architectural design, and clean, testable code. I work as a freelancer in my spare time and I'm currently building a tech startup. Committed to innovation, integrity, and quality in every project I undertake.
+        </p>
+
+        <!-- Etiquetas de habilidades (chips) -->
+        <ul class="skill-chips">
+          <li>React</li>
+          <li>TypeScript</li>
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>PostgreSQL</li>
+          <li>MongoDB</li>
+          <li>Docker</li>
+          <li>CI/CD</li>
+        </ul>
+      </div>
+
+      <!-- Columna derecha: animación de fotos -->
+      <div class="about-photos">
+        <div class="carousel">
+          <!-- Cada figura es un “slide” -->
+          <figure class="slide s1">
+            <img src="/assets/images/me-1.webp" alt="Diego Medina - Frontend UI" />
+            <figcaption>Frontend — UI/UX with React</figcaption>
+          </figure>
+
+          <figure class="slide s2">
+            <img src="/assets/images/me-2.webp" alt="Diego Medina - Backend APIs" />
+            <figcaption>Backend — APIs with Node.js</figcaption>
+          </figure>
+
+          <figure class="slide s3">
+            <img src="/assets/images/me-3.webp" alt="Diego Medina - DevOps" />
+            <figcaption>DevOps — Docker & CI/CD</figcaption>
+          </figure>
+
+          <figure class="slide s4">
+            <img src="/assets/images/me-4.webp" alt="Diego Medina - Data & Databases" />
+            <figcaption>Data — SQL / NoSQL</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section id="contacto" class="hero">
-      <img src="/assets/images/mono.webp" alt="Foto profesional">
+      <img src="/assets/images/mono.webp" alt="Foto profesional" />
       <div>
         <h1>Diego Alejandro Medina Martinez</h1>
         <p>Ingeniero de Software</p>
@@ -106,12 +163,13 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Diego Medina. Todos los derechos reservados.</p>
     <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
   </footer>
 
-  <!-- Scripts JS -->
+  <!-- Scripts -->
   <script src="/assets/js/menu.js"></script>
 </body>
 </html>
