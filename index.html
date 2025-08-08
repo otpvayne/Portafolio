@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV Profesional - Diego Medina</title>
 
   <!-- Estilos -->
@@ -15,7 +15,7 @@
     <div class="overlay">
       <h1 class="typing-text">DIEGO MEDINA</h1>
       <h2 class="typing-subtext">SOFTWARE ENGINEER</h2>
-      <a href="/assets/docs/DiegoMedinaCV.pdf" download class="resume-btn">RESUME</a>
+      <a href="/assets/docs/DiegoMedinaCV.pdf" download class="btn resume-btn">RESUME</a>
     </div>
   </section>
 
@@ -25,7 +25,6 @@
       <img src="/assets/images/logo.webp" alt="Logo" class="logo-img" />
     </div>
 
-    <!-- Botón hamburguesa -->
     <button
       class="hamburger"
       id="hamburger"
@@ -33,7 +32,6 @@
       aria-expanded="false"
       aria-label="Abrir menú">☰</button>
 
-    <!-- Menú (OJO: clase nav, sin 'hidden') -->
     <nav id="nav" class="nav">
       <ul>
         <li><a href="#about">About</a></li>
@@ -49,57 +47,53 @@
   <!-- MAIN -->
   <main>
     <!-- ABOUT + SHOWCASE (debajo del hero) -->
-    <section id="about" class="about-showcase">
-      <!-- Columna izquierda: texto -->
+    <section id="about" class="about-showcase container">
       <div class="about-text">
         <h2 class="typing-about">About Me</h2>
-
         <p>
           Full stack software engineer with experience building web applications and custom systems across diverse contexts. I specialize in spotting real‑world needs and turning them into effective, user‑focused software—often inspired by situations I encounter throughout my day. I combine technical excellence with strategic thinking, integrating agile practices, architectural design, and clean, testable code. I work as a freelancer in my spare time and I'm currently building a tech startup. Committed to innovation, integrity, and quality in every project I undertake.
         </p>
 
-        <!-- Etiquetas de habilidades (chips) -->
         <ul class="skill-chips">
-          <li>React</li>
-          <li>TypeScript</li>
-          <li>Node.js</li>
-          <li>Express</li>
-          <li>PostgreSQL</li>
-          <li>MongoDB</li>
-          <li>Docker</li>
-          <li>CI/CD</li>
+          <li class="chip">React</li>
+          <li class="chip">TypeScript</li>
+          <li class="chip">Node.js</li>
+          <li class="chip">Express</li>
+          <li class="chip">PostgreSQL</li>
+          <li class="chip">MongoDB</li>
+          <li class="chip">Docker</li>
+          <li class="chip">CI/CD</li>
         </ul>
       </div>
 
-      <!-- Columna derecha: animación de fotos -->
       <div class="about-photos">
         <div class="carousel">
-          <!-- Cada figura es un “slide” -->
           <figure class="slide s1">
-            <img src="/assets/images/me-1.webp" alt="Diego Medina - Frontend UI" />
+            <img src="/assets/images/me-1.webp" alt="Diego Medina - Frontend UI" loading="lazy" decoding="async" />
             <figcaption>Frontend — UI/UX with React</figcaption>
           </figure>
 
           <figure class="slide s2">
-            <img src="/assets/images/me-2.webp" alt="Diego Medina - Backend APIs" />
+            <img src="/assets/images/me-2.webp" alt="Diego Medina - Backend APIs" loading="lazy" decoding="async" />
             <figcaption>Backend — APIs with Node.js</figcaption>
           </figure>
 
           <figure class="slide s3">
-            <img src="/assets/images/me-3.webp" alt="Diego Medina - DevOps" />
+            <img src="/assets/images/me-3.webp" alt="Diego Medina - DevOps" loading="lazy" decoding="async" />
             <figcaption>DevOps — Docker & CI/CD</figcaption>
           </figure>
 
           <figure class="slide s4">
-            <img src="/assets/images/me-4.webp" alt="Diego Medina - Data & Databases" />
+            <img src="/assets/images/me-4.webp" alt="Diego Medina - Data & Databases" loading="lazy" decoding="async" />
             <figcaption>Data — SQL / NoSQL</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="hero">
-      <img src="/assets/images/mono.webp" alt="Foto profesional" />
+    <!-- Contact / Intro -->
+    <section id="contacto" class="hero container">
+      <img src="/assets/images/mono.webp" alt="Foto profesional" loading="lazy" decoding="async" />
       <div>
         <h1>Diego Alejandro Medina Martinez</h1>
         <p>Ingeniero de Software</p>
@@ -108,12 +102,8 @@
       </div>
     </section>
 
-    <section id="perfil">
-      <h2>Perfil Profesional</h2>
-      <p>Ingeniero de software con experiencia en desarrollo full stack, especializado en aplicaciones web escalables y modernas.</p>
-    </section>
-
-    <section id="tecnicas">
+    <!-- Técnicas -->
+    <section id="tecnicas" class="container">
       <h2>Competencias Técnicas</h2>
       <ul>
         <li>HTML5, CSS3, JavaScript</li>
@@ -122,7 +112,8 @@
       </ul>
     </section>
 
-    <section id="blandas">
+    <!-- Blandas -->
+    <section id="blandas" class="container">
       <h2>Competencias Blandas</h2>
       <ul>
         <li>Trabajo en equipo</li>
@@ -131,12 +122,14 @@
       </ul>
     </section>
 
-    <section id="formacion">
+    <!-- Formación -->
+    <section id="formacion" class="container">
       <h2>Formación Académica</h2>
       <p><strong>Ingeniería de Sistemas</strong> - Universidad Manuela Beltrán, 2022 - 2027</p>
     </section>
 
-    <section id="experiencia">
+    <!-- Experiencia -->
+    <section id="experiencia" class="container">
       <h2>Experiencia Laboral</h2>
       <div class="card">
         <h3>Desarrollador Full Stack - Casa Del Kumis</h3>
@@ -150,7 +143,8 @@
       </div>
     </section>
 
-    <section id="proyectos">
+    <!-- Proyectos -->
+    <section id="proyectos" class="container">
       <h2>Proyectos Destacados</h2>
       <div class="card">
         <h3>Desarrollador Full Stack</h3>
