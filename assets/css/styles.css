@@ -401,26 +401,28 @@ body.menu-open{
   .about-photos{ order: -1; } /* fotos arriba en mobile (opcional) */
 }
 /* ==== Animación máquina de escribir para About Me ==== */
+/* ==== Typing effect para "About Me" que NO se borra al terminar ==== */
 .typing-about {
   font-size: 2.2rem;
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
-  display: inline-block;  
+  display: inline-block;          /* importante para medir width en ch */
   border-right: 3px solid #58a6ff;
-  width: 0; /* empieza sin texto visible */
-  animation: typingAbout 2.5s steps(9), blinkAbout 0.7s infinite step-end alternate;
+  width: 0;                       /* inicia sin texto visible */
+  /* 8 caracteres: "About Me" (incluye el espacio). Si usas otro texto, cambia 8ch */
+  animation: typingAbout 2.2s steps(8) forwards, blinkAbout 0.7s step-end infinite;
   color: #58a6ff;
   margin-bottom: 1rem;
 }
 
-/* Efecto de escribir */
+/* Escribe de 0 a 8ch y conserva el estado final gracias a 'forwards' */
 @keyframes typingAbout {
   from { width: 0; }
-  to { width: 9ch; } /* 9 caracteres de "About Me" */
+  to   { width: 8ch; }
 }
 
-/* Efecto del cursor */
+/* Cursor parpadeante */
 @keyframes blinkAbout {
   from, to { border-color: transparent; }
   50% { border-color: #58a6ff; }
