@@ -62,3 +62,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', handleScroll);
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutTitle = document.querySelector(".typing-about");
+
+  if (aboutTitle) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          aboutTitle.classList.add("typing-active");
+          observer.unobserve(aboutTitle); // Evita que se repita
+        }
+      });
+    }, { threshold: 0.6 }); // 60% visible
+
+    observer.observe(aboutTitle);
+  }
+});
+s
