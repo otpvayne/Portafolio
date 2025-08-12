@@ -216,18 +216,21 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('touchend', reset);
   });
 });
-// Timeline reveal on scroll
-const timelineItems = document.querySelectorAll('.timeline-item');
+// ===== Experience: reveal on scroll + glow =====
+(function(){
+  const items = document.querySelectorAll('.timeline-item');
+  if(!items.length) return;
 
-function showOnScroll() {
-  const triggerBottom = window.innerHeight * 0.85;
-  timelineItems.forEach(item => {
-    const itemTop = item.getBoundingClientRect().top;
-    if (itemTop < triggerBottom) {
-      item.classList.add('show');
-    }
-  });
-}
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        observeredOnce.add(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: .2});
 
-window.addEventListener('scroll', showOnScroll);
-showOnScroll();
+  const observeredOnce = new WeakSet();
+  items.forEach(it=>io.observe(it));
+})();
