@@ -418,77 +418,49 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   </div>
-    <!-- Contact / Intro -->
-    <section id="contacto" class="hero container">
-      <img src="/assets/images/mono.webp" alt="Foto profesional" loading="lazy" decoding="async" />
-      <div>
-        <h1>Diego Alejandro Medina Martinez</h1>
-        <p>Ingeniero de Software</p>
-        <p>Email: generalboomsycol@gmail.com</p>
-        <p>Tel: +57 3017472421</p>
-      </div>
-    </section>
+    <!-- ============== CONTACT ============== -->
+<section id="contact" class="contact-section" aria-labelledby="contact-title">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <h2 id="contact-title">Let’s build something</h2>
+      <p class="contact-sub">
+        Do you have an idea, a product to launch or a system to improve?
+        I can help you turn it into reliable, scalable software.
+      </p>
 
-    <!-- Técnicas -->
-    <section id="tecnicas" class="container">
-      <h2>Competencias Técnicas</h2>
-      <ul>
-        <li>HTML5, CSS3, JavaScript</li>
-        <li>React, Node.js, Express</li>
-        <li>Git, GitHub, Docker</li>
+      <div class="contact-actions">
+        <!-- Copy email -->
+        <button class="btn ghost" id="copyEmailBtn" data-email="generalboomsycol@gmail.com" aria-label="Copy email">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
+          Copy email
+        </button>
+
+        <!-- Mailto directo -->
+        <a class="btn primary" href="mailto:generalboomsycol@gmail.com?subject=Project%20inquiry%20from%20website" aria-label="Send email">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v1l10 6l10-6V6a2 2 0 0 0-2-2Zm0 6.2L12 16L4 10.2V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.8Z"/></svg>
+          Email
+        </a>
+
+        <!-- WhatsApp con mensaje -->
+        <a class="btn outline" id="waBtn" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.37 15.15L2 22l4.99-1.63A9.93 9.93 0 1 0 12.04 2Zm5.85 14.21c-.25.7-1.28 1.26-1.76 1.3c-.45.05-1.02.07-1.64-.1c-.38-.12-.86-.28-1.49-.55c-2.62-1.13-4.32-3.79-4.45-3.96c-.13-.17-1.06-1.41-1.06-2.69s.67-1.9.91-2.16c.25-.26.55-.33.73-.33h.53c.17 0 .4-.03.62.47c.25.6.86 2.07.93 2.22c.08.17.13.36.03.53c-.09.18-.14.29-.28.45c-.14.16-.29.36-.41.49c-.13.14-.27.3-.11.56c.17.26.73 1.2 1.57 1.94c1.08.96 1.99 1.27 2.27 1.42c.29.14.46.13.64-.08c.2-.21.74-.86.94-1.16c.2-.3.4-.24.66-.14c.26.1 1.66.79 1.95.93c.29.14.48.21.55.32c.07.11.07.66-.18 1.36Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <ul class="contact-meta">
+        <li><strong>Email:</strong> <a href="mailto:generalboomsycol@gmail.com">generalboomsycol@gmail.com</a></li>
+        <li><strong>Based in:</strong> Colombia (UTC‑5)</li>
+        <li class="social">
+          <a href="https://github.com/otpvayne" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <span>·</span>
+          <a href="https://www.linkedin.com/in/diego-medina-software/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        </li>
       </ul>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Blandas -->
-    <section id="blandas" class="container">
-      <h2>Competencias Blandas</h2>
-      <ul>
-        <li>Trabajo en equipo</li>
-        <li>Comunicación efectiva</li>
-        <li>Resolución de problemas</li>
-      </ul>
-    </section>
-
-    <!-- Formación -->
-    <section id="formacion" class="container">
-      <h2>Formación Académica</h2>
-      <p><strong>Ingeniería de Sistemas</strong> - Universidad Manuela Beltrán, 2022 - 2027</p>
-    </section>
-
-    <!-- Experiencia -->
-    <section id="experiencia" class="container">
-      <h2>Experiencia Laboral</h2>
-      <div class="card">
-        <h3>Desarrollador Full Stack - Casa Del Kumis</h3>
-        <p>2025 - Actualidad</p>
-        <p>Desarrollo de página web</p>
-      </div>
-      <div class="card">
-        <h3>Practicante Universitario - ######</h3>
-        <p>###### - #####</p>
-        <p>Soporte en desarrollo backend con Node.js y MongoDB.</p>
-      </div>
-    </section>
-
-    <!-- Proyectos -->
-    <section id="proyectos" class="container">
-      <h2>Proyectos Destacados</h2>
-      <div class="card">
-        <h3>Desarrollador Full Stack</h3>
-        <p>Página web informativa para la empresa La Casa del Kumis</p>
-      </div>
-      <div class="card">
-        <h3>Landing Page para Startup</h3>
-        <p>Diseño e implementación de landing responsiva con HTML, CSS y JS.</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Diego Medina. Todos los derechos reservados.</p>
-    <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
-  </footer>
 
   <!-- Scripts -->
   <script src="/assets/js/menu.js"></script>

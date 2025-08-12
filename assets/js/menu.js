@@ -243,3 +243,29 @@ document.querySelectorAll(".tab-button").forEach(btn => {
     document.getElementById(btn.dataset.tab).classList.add("active");
   });
 });
+// ===== Contact actions =====
+document.addEventListener('DOMContentLoaded', () => {
+  // WhatsApp con mensaje prellenado
+  const waBtn = document.getElementById('waBtn');
+  if (waBtn) {
+    const phone = '573017472421'; // tu número sin +
+    const msg = encodeURIComponent("Hi Diego! I saw your portfolio and I'd like to talk about a project.");
+    waBtn.href = `https://wa.me/${phone}?text=${msg}`;
+  }
+
+  // Copy to clipboard (email)
+  const copyBtn = document.getElementById('copyEmailBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const email = copyBtn.dataset.email || 'generalboomsycol@gmail.com';
+      try {
+        await navigator.clipboard.writeText(email);
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => (copyBtn.textContent = 'Copy email'), 1200);
+      } catch {
+        copyBtn.textContent = 'Press Ctrl+C';
+        setTimeout(() => (copyBtn.textContent = 'Copy email'), 1500);
+      }
+    });
+  }
+});
