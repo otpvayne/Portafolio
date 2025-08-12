@@ -1,60 +1,62 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV Profesional - Diego Medina</title>
+<!DOCTYPE html> <!-- Declara el documento como HTML5 para que el navegador use el modo estándar -->
+<html lang="es"> <!-- Raíz del documento; 'lang' indica el idioma principal en español -->
+<head> <!-- Cabecera con metadatos y recursos externos -->
+  <meta charset="UTF-8" /> <!-- Codificación UTF-8 para soportar tildes, eñes y caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Hace la página responsive en móviles -->
+  <title>CV Profesional - Diego Medina</title> <!-- Título que se muestra en la pestaña del navegador -->
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" /> <!-- Enlace a tu hoja de estilos principal -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" /> <!-- Carga de Google Fonts (Roboto y Poppins) -->
 </head>
-<body>
+<body> <!-- Cuerpo del documento: lo visible por el usuario -->
+
   <!-- HERO con GIF de fondo -->
-  <section class="hero-section">
-    <div class="overlay">
-      <h1 class="typing-text">DIEGO MEDINA</h1>
-      <h2 class="typing-subtext">SOFTWARE ENGINEER</h2>
-      <a href="/assets/docs/DiegoMedinaCV.pdf" download class="btn resume-btn">RESUME</a>
+  <section class="hero-section"> <!-- Sección de portada con fondo animado (GIF) -->
+    <div class="overlay"> <!-- Capa centrada encima del fondo para el texto -->
+      <h1 class="typing-text">DIEGO MEDINA</h1> <!-- Título con animación de máquina de escribir -->
+      <h2 class="typing-subtext">SOFTWARE ENGINEER</h2> <!-- Subtítulo que entra con fade-in -->
+      <a href="/assets/docs/DiegoMedinaCV.pdf" download class="btn resume-btn">RESUME</a> <!-- Botón que descarga tu CV -->
     </div>
   </section>
 
   <!-- HEADER fijo -->
-  <header class="fixed-header">
-    <div class="logo">
-      <img src="/assets/images/logo.webp" alt="Logo" class="logo-img" />
+  <header class="fixed-header"> <!-- Cabecera pegada arriba (sticky) con logo y navegación -->
+    <div class="logo"> <!-- Contenedor del logo -->
+      <img src="/assets/images/logo.webp" alt="Logo" class="logo-img" /> <!-- Imagen del logo (WebP optimizado) -->
     </div>
 
     <button
-      class="hamburger"
-      id="hamburger"
-      aria-controls="nav"
-      aria-expanded="false"
-      aria-label="Abrir menú">☰</button>
+      class="hamburger" <!-- Botón hamburguesa visible en mobile -->
+      id="hamburger" <!-- ID para manipularlo con JS -->
+      aria-controls="nav" <!-- Accesibilidad: indica qué controla el botón -->
+      aria-expanded="false" <!-- Accesibilidad: estado del menú (cerrado) -->
+      aria-label="Abrir menú">☰</button> <!-- Texto accesible para lectores de pantalla -->
 
-    <nav id="nav" class="nav">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#formacion">Formación</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
+    <nav id="nav" class="nav"> <!-- Menú de navegación; en mobile es panel flotante -->
+      <ul> <!-- Lista de enlaces del menú -->
+        <li><a href="#about">About</a></li> <!-- Desplaza a sección About -->
+        <li><a href="#projects">Projects</a></li> <!-- Desplaza a Projects -->
+        <li><a href="#experience">Experience</a></li> <!-- Desplaza a Experience -->
+        <li><a href="#formacion">Formación</a></li> <!-- (Sección informativa) -->
+        <li><a href="#experiencia">Experiencia</a></li> <!-- (Sección informativa duplicada, puedes unificar más adelante) -->
+        <li><a href="#proyectos">Proyectos</a></li> <!-- (Sección informativa duplicada, puedes unificar más adelante) -->
       </ul>
     </nav>
   </header>
 
   <!-- MAIN -->
-  <main>
+  <main> <!-- Contenido principal del sitio -->
+
     <!-- ABOUT + SHOWCASE (debajo del hero) -->
-    <section id="about" class="about-showcase container">
-      <div class="about-text">
-        <h2 class="typing-about">About Me</h2>
+    <section id="about" class="about-showcase container"> <!-- Sección con texto + carrusel de fotos -->
+      <div class="about-text"> <!-- Columna izquierda con texto -->
+        <h2 class="typing-about">About Me</h2> <!-- Título con typing activado al entrar al viewport -->
         <p>
           Full stack software engineer with experience building web applications and custom systems across diverse contexts. I specialize in spotting real‑world needs and turning them into effective, user‑focused software—often inspired by situations I encounter throughout my day. I combine technical excellence with strategic thinking, integrating agile practices, architectural design, and clean, testable code. I work as a freelancer in my spare time and I'm currently building a tech startup. Committed to innovation, integrity, and quality in every project I undertake.
-        </p>
+        </p> <!-- Párrafo de presentación (gradiente de texto aplicado por CSS) -->
 
-        <ul class="skill-chips">
+        <ul class="skill-chips"> <!-- Chips/etiquetas de habilidades -->
           <li class="chip">React</li>
           <li class="chip">TypeScript</li>
           <li class="chip">Node.js</li>
@@ -66,403 +68,406 @@
         </ul>
       </div>
 
-      <div class="about-photos">
-        <div class="carousel">
-          <figure class="slide s1">
-            <img src="/assets/images/me-1.webp" alt="Diego Medina - Frontend UI" loading="lazy" decoding="async" />
-            <figcaption>Frontend — UI/UX with React</figcaption>
+      <div class="about-photos"> <!-- Columna derecha con carrusel -->
+        <div class="carousel"> <!-- Contenedor del carrusel (crossfade en CSS) -->
+          <figure class="slide s1"> <!-- Slide 1 (visible al inicio) -->
+            <img src="/assets/images/me-1.webp" alt="Diego Medina - Frontend UI" loading="lazy" decoding="async" /> <!-- Imagen optimizada -->
+            <figcaption>Frontend — UI/UX with React</figcaption> <!-- Pie de foto -->
           </figure>
 
-          <figure class="slide s2">
+          <figure class="slide s2"> <!-- Slide 2 -->
             <img src="/assets/images/me-2.webp" alt="Diego Medina - Backend APIs" loading="lazy" decoding="async" />
             <figcaption>Backend — APIs with Node.js</figcaption>
           </figure>
 
-          <figure class="slide s3">
+          <figure class="slide s3"> <!-- Slide 3 -->
             <img src="/assets/images/me-3.webp" alt="Diego Medina - DevOps" loading="lazy" decoding="async" />
             <figcaption>DevOps — Docker & CI/CD</figcaption>
           </figure>
 
-          <figure class="slide s4">
+          <figure class="slide s4"> <!-- Slide 4 -->
             <img src="/assets/images/me-4.webp" alt="Diego Medina - Data & Databases" loading="lazy" decoding="async" />
             <figcaption>Data — SQL / NoSQL</figcaption>
           </figure>
         </div>
       </div>
     </section>
+
     <!-- ============== PROJECTS ============== -->
-<section id="projects" class="container section projects">
-  <header class="projects-head">
-    <h2>Projects</h2>
-    <ul class="filters" role="tablist" aria-label="Filter projects by type">
-      <li><button class="filter is-active" data-filter="all">All</button></li>
-      <li><button class="filter" data-filter="web">Web</button></li>
-      <li><button class="filter" data-filter="erp">ERP</button></li>
-      <li><button class="filter" data-filter="landing">Landing</button></li>
-      <li><button class="filter" data-filter="api">API</button></li>
-    </ul>
-  </header>
+    <section id="projects" class="container section projects"> <!-- Sección de proyectos con filtros -->
+      <header class="projects-head"> <!-- Encabezado de la sección con filtros -->
+        <h2>Projects</h2> <!-- Título de la sección -->
+        <ul class="filters" role="tablist" aria-label="Filter projects by type"> <!-- Lista de filtros (tabs) -->
+          <li><button class="filter is-active" data-filter="all">All</button></li> <!-- Filtro: todos -->
+          <li><button class="filter" data-filter="web">Web</button></li> <!-- Filtro: web -->
+          <li><button class="filter" data-filter="erp">ERP</button></li> <!-- Filtro: erp -->
+          <li><button class="filter" data-filter="landing">Landing</button></li> <!-- Filtro: landing -->
+          <li><button class="filter" data-filter="api">API</button></li> <!-- Filtro: api -->
+        </ul>
+      </header>
 
-  <div class="projects-grid">
-    <!-- Proyecto 1: Casa del Kumis (Web/Landing) -->
-    <article class="p-card" data-tags="web landing seo html css js">
-      <div class="p-media" data-tilt>
-        <img
-          src="/assets/images/kumis-800.webp"
+      <div class="projects-grid"> <!-- Grilla responsive de tarjetas de proyecto -->
+        <!-- Proyecto 1: Casa del Kumis (Web/Landing) -->
+        <article class="p-card" data-tags="web landing seo html css js"> <!-- Card con tags para filtrar -->
+          <div class="p-media" data-tilt> <!-- Contenedor de imagen con efecto tilt (JS) -->
+            <img
+              src="/assets/images/kumis-800.webp" <!-- Imagen WebP responsive -->
+              sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw" <!-- Reglas responsive para el navegador -->
+              alt="Casa del Kumis — sitio web informativo"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="p-body"> <!-- Contenido textual de la card -->
+            <h3>Casa del Kumis — Website</h3> <!-- Título del proyecto -->
+            <p>Landing y sitio informativo responsive con foco en identidad, catálogo y SEO on‑page.</p> <!-- Descripción breve -->
+            <ul class="p-stack"> <!-- Tecnologías del proyecto -->
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO</li>
+            </ul>
+            <div class="p-actions"> <!-- Acciones de la card -->
+              <button class="btn btn-sm show-case" data-case="kumis">Case Study</button> <!-- Abre modal con detalle -->
+              <!-- Si tienes demo en vivo, reemplaza # por la URL -->
+              <a class="btn btn-sm" href="https://pagina-web-demo.onrender.com/index.html" target="_blank" rel="noopener" title="Demo soon">Live</a> <!-- Enlace a demo -->
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: ERP Ventas de Alimentos (Java/MVC) -->
+        <article class="p-card" data-tags="erp desktop java mvc mysql swing ai"> <!-- Card con tags para filtrar -->
+          <div class="p-media" data-tilt> <!-- Imagen con efecto tilt -->
+            <img
+              src="/assets/images/erp-800.webp"
+              sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              alt="ERP Ventas de Alimentos — Java MVC"
+              loading="lazy" decoding="async">
+          </div>
+          <div class="p-body">
+            <h3>ERP — Ventas de Alimentos</h3>
+            <p>Sistema ERP en Java (MVC) para ventas, clientes, stock y reportes. En desarrollo activo.</p>
+            <ul class="p-stack">
+              <li>Java SE</li><li>MySQL</li><li>Swing</li><li>MVC</li>
+            </ul>
+            <div class="p-actions">
+              <button class="btn btn-sm show-case" data-case="erp">Case Study</button> <!-- Abre modal con detalle -->
+              <a class="btn btn-sm" href="https://github.com/otpvayne/ERP-ventas-de-alimentos.git" target="_blank" rel="noopener">Repo</a> <!-- Enlace a repo -->
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- (La sección Experience viene embebida a continuación) -->
+      <section id="experience" class="experience-section"> <!-- Línea de tiempo de experiencia -->
+        <h2 class="section-title">Experience</h2> <!-- Título de sección -->
+
+        <div class="timeline"> <!-- Contenedor de timeline central -->
+
+          <!-- Item 1 -->
+          <div class="timeline-item left"> <!-- Evento alineado a la izquierda -->
+            <div class="timeline-content"> <!-- Tarjeta con detalles -->
+              <span class="date">2025 – Present</span> <!-- Fecha -->
+              <h3>Full Stack Developer — Casa del Kumis</h3> <!-- Rol -->
+              <ul> <!-- Logros / tareas -->
+                <li>Developed responsive website with SEO optimization and subtle animations.</li>
+                <li>Designed content structure and scalable components (mobile‑first).</li>
+                <li>Improved UX with fast WebP media and lazy loading.</li>
+              </ul>
+              <div class="tech-stack"> <!-- Chips de tecnologías -->
+                <span class="tech"> <!-- Chip con icono -->
+                  <!-- HTML -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 3h18l-2 16-7 2-7-2-2-16z" fill="#e44d26"></path>
+                    <path d="M12 5v14l5-1.4L18.5 5H12z" fill="#f16529"></path>
+                  </svg>
+                  HTML
+                </span>
+                <span class="tech">
+                  <!-- CSS -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 3h18l-2 16-7 2-7-2-2-16z" fill="#264de4"></path>
+                    <path d="M12 5v14l5-1.4L18.5 5H12z" fill="#2965f1"></path>
+                  </svg>
+                  CSS
+                </span>
+                <span class="tech">
+                  <!-- JS -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="3" fill="#f7df1e"></rect>
+                  </svg>
+                  JavaScript
+                </span>
+                <span class="tech">
+                  <!-- SEO -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" stroke="#58a6ff" stroke-width="2" fill="none"></circle>
+                    <line x1="16" y1="16" x2="21" y2="21" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"></line>
+                  </svg>
+                  SEO
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item right"> <!-- Evento alineado a la derecha -->
+            <div class="timeline-content">
+              <span class="date">2024 – 2025</span>
+              <h3>Java Developer — ERP Sales Food System</h3>
+              <ul>
+                <li>Built ERP to manage sales, inventory and customers (Java MVC + MySQL).</li>
+                <li>Desktop UI with Swing; JDBC persistence and Excel export (POI).</li>
+                <li>Experimental WhatsApp notifications on successful sales.</li>
+              </ul>
+              <div class="tech-stack">
+                <span class="tech">
+                  <!-- Java -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3c2.5 2.2-1.5 3.2 0 5 1.8 2 5-1 5 2 0 2.6-5 2.4-5 5" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 18c2 2 12 2 14 0" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  Java
+                </span>
+                <span class="tech">
+                  <!-- MySQL -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <ellipse cx="12" cy="6" rx="7" ry="3.5" fill="#f59e0b"/>
+                    <path d="M5 6v8c0 2 14 2 14 0V6" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                    <ellipse cx="12" cy="14" rx="7" ry="3.5" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                  </svg>
+                  MySQL
+                </span>
+                <span class="tech">
+                  <!-- JDBC -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="4" y="6" width="16" height="12" rx="2" fill="#22c55e"/>
+                    <path d="M7 9h10M7 12h6" stroke="#0b1b13" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  JDBC
+                </span>
+                <span class="tech">
+                  <!-- Swing -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="5" y="7" width="14" height="10" rx="2" fill="#a78bfa"/>
+                    <circle cx="9" cy="10" r="1" fill="#0d1117"/>
+                    <rect x="8" y="12" width="8" height="3" rx="1" fill="#0d1117"/>
+                  </svg>
+                  Swing
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="date">2023 – 2024</span>
+              <h3>Freelance Web Developer</h3>
+              <ul>
+                <li>Custom web solutions for small businesses (landing + e‑commerce MVPs).</li>
+                <li>Component systems and design tokens to scale UI consistency.</li>
+              </ul>
+              <div class="tech-stack">
+                <span class="tech">
+                  <!-- React -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="2" fill="#61dafb"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#61dafb" fill="none"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#61dafb" fill="none" transform="rotate(60 12 12)"/>
+                    <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#61dafb" fill="none" transform="rotate(120 12 12)"/>
+                  </svg>
+                  React
+                </span>
+                <span class="tech">
+                  <!-- Tailwind -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 12c2-4 5-6 9-6 4 0 5 2 7 3-2 4-5 6-9 6-4 0-5-2-7-3z" fill="#38bdf8"/>
+                    <path d="M5 15c2-4 5-6 9-6 4 0 5 2 7 3-2 4-5 6-9 6-4 0-5-2-7-3z" fill="#06b6d4" opacity=".8"/>
+                  </svg>
+                  Tailwind
+                </span>
+                <span class="tech">
+                  <!-- MongoDB -->
+                  <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3s5 5 5 10-3 8-5 8-5-3-5-8 5-10 5-10z" fill="#10b981"/>
+                    <path d="M12 3v18" stroke="#065f46" stroke-width="1.5"/>
+                  </svg>
+                  MongoDB
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /timeline -->
+      </section> <!-- /experience -->
+    </section> <!-- /projects -->
+
+    <section id="tools" class="tools-section"> <!-- Sección de herramientas con pestañas -->
+      <h2>🛠 Tools & Technologies</h2> <!-- Título de sección -->
+
+      <!-- Tabs -->
+      <div class="tabs"> <!-- Controles de pestañas -->
+        <button class="tab-button active" data-tab="mainstack">Main Stack</button>
+        <button class="tab-button" data-tab="frontend">Frontend</button>
+        <button class="tab-button" data-tab="backend">Backend</button>
+        <button class="tab-button" data-tab="devops">DevOps</button>
+      </div>
+
+      <!-- Main Stack -->
+      <div class="tab-content active" id="mainstack"> <!-- Contenido activo por defecto -->
+        <div class="tech-grid"> <!-- Grilla de tarjetas tecnológicas -->
+          <div class="tech-card">
+            <i class="devicon-html5-plain colored"></i> <!-- Icono Devicon -->
+            <p>HTML5</p>
+            <div class="skill-bar"><span style="width: 95%"></span></div> <!-- Barra de nivel -->
+          </div>
+          <div class="tech-card">
+            <i class="devicon-css3-plain colored"></i>
+            <p>CSS3</p>
+            <div class="skill-bar"><span style="width: 90%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-javascript-plain colored"></i>
+            <p>JavaScript</p>
+            <div class="skill-bar"><span style="width: 90%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-react-original colored"></i>
+            <p>React</p>
+            <div class="skill-bar"><span style="width: 60%"></span></div>
+          </div>
           
-          sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          alt="Casa del Kumis — sitio web informativo"
-          loading="lazy" decoding="async">
-      </div>
-      <div class="p-body">
-        <h3>Casa del Kumis — Website</h3>
-        <p>Landing y sitio informativo responsive con foco en identidad, catálogo y SEO on‑page.</p>
-        <ul class="p-stack">
-          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO</li>
-        </ul>
-        <div class="p-actions">
-          <button class="btn btn-sm show-case" data-case="kumis">Case Study</button>
-          <!-- Si tienes demo en vivo, reemplaza # por la URL -->
-          <a class="btn btn-sm" href="https://pagina-web-demo.onrender.com/index.html" target="_blank" rel="noopener" title="Demo soon">Live</a>
+          <div class="tech-card">
+            <i class="devicon-nodejs-plain colored"></i>
+            <p>Node.js</p>
+            <div class="skill-bar"><span style="width: 88%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-postgresql-plain colored"></i>
+            <p>PostgreSQL</p>
+            <div class="skill-bar"><span style="width: 90%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-docker-plain colored"></i>
+            <p>Docker</p>
+            <div class="skill-bar"><span style="width: 55%"></span></div>
+          </div>
         </div>
       </div>
-    </article>
 
-    <!-- Proyecto 2: ERP Ventas de Alimentos (Java/MVC) -->
-    <article class="p-card" data-tags="erp desktop java mvc mysql swing ai">
-      <div class="p-media" data-tilt>
-        <img
-          src="/assets/images/erp-800.webp"
-          
-          sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          alt="ERP Ventas de Alimentos — Java MVC"
-          loading="lazy" decoding="async">
-      </div>
-      <div class="p-body">
-        <h3>ERP — Ventas de Alimentos</h3>
-        <p>Sistema ERP en Java (MVC) para ventas, clientes, stock y reportes. En desarrollo activo.</p>
-        <ul class="p-stack">
-          <li>Java SE</li><li>MySQL</li><li>Swing</li><li>MVC</li>
-        </ul>
-        <div class="p-actions">
-          <button class="btn btn-sm show-case" data-case="erp">Case Study</button>
-          <!-- Si no hay live, puedes dejar solo Repo -->
-          <a class="btn btn-sm" href="https://github.com/otpvayne/ERP-ventas-de-alimentos.git" target="_blank" rel="noopener">Repo</a>
+      <!-- Frontend -->
+      <div class="tab-content" id="frontend">
+        <div class="tech-grid">
+          <div class="tech-card">
+            <i class="devicon-tailwindcss-plain colored"></i>
+            <p>Tailwind CSS</p>
+            <div class="skill-bar"><span style="width: 85%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-vitejs-plain colored"></i>
+            <p>Vite</p>
+            <div class="skill-bar"><span style="width: 60%"></span></div>
+          </div>
         </div>
       </div>
-    </article>
-  </div>
-  <section id="experience" class="experience-section">
-  <h2 class="section-title">Experience</h2>
 
-  <div class="timeline">
-    <!-- Item 1 -->
-    <div class="timeline-item left">
-      <div class="timeline-content">
-        <span class="date">2025 – Present</span>
-        <h3>Full Stack Developer — Casa del Kumis</h3>
-        <ul>
-          <li>Developed responsive website with SEO optimization and subtle animations.</li>
-          <li>Designed content structure and scalable components (mobile‑first).</li>
-          <li>Improved UX with fast WebP media and lazy loading.</li>
-        </ul>
-        <div class="tech-stack">
-          <span class="tech">
-            <!-- HTML -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 3h18l-2 16-7 2-7-2-2-16z" fill="#e44d26"></path>
-              <path d="M12 5v14l5-1.4L18.5 5H12z" fill="#f16529"></path>
-            </svg>
-            HTML
-          </span>
-          <span class="tech">
-            <!-- CSS -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 3h18l-2 16-7 2-7-2-2-16z" fill="#264de4"></path>
-              <path d="M12 5v14l5-1.4L18.5 5H12z" fill="#2965f1"></path>
-            </svg>
-            CSS
-          </span>
-          <span class="tech">
-            <!-- JS -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="3" fill="#f7df1e"></rect>
-            </svg>
-            JavaScript
-          </span>
-          <span class="tech">
-            <!-- SEO -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="11" cy="11" r="7" stroke="#58a6ff" stroke-width="2" fill="none"></circle>
-              <line x1="16" y1="16" x2="21" y2="21" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"></line>
-            </svg>
-            SEO
-          </span>
+      <!-- Backend -->
+      <div class="tab-content" id="backend">
+        <div class="tech-grid">
+          <div class="tech-card">
+            <i class="devicon-nodejs-plain colored"></i>
+            <p>Node.js</p>
+            <div class="skill-bar"><span style="width: 88%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-express-original"></i>
+            <p>Express</p>
+            <div class="skill-bar"><span style="width: 85%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-fastapi-plain colored"></i>
+            <p>FastAPI</p>
+            <div class="skill-bar"><span style="width: 78%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-nestjs-plain colored"></i>
+            <p>NestJS</p>
+            <div class="skill-bar"><span style="width: 55%"></span></div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Item 2 -->
-    <div class="timeline-item right">
-      <div class="timeline-content">
-        <span class="date">2024 – 2025</span>
-        <h3>Java Developer — ERP Sales Food System</h3>
-        <ul>
-          <li>Built ERP to manage sales, inventory and customers (Java MVC + MySQL).</li>
-          <li>Desktop UI with Swing; JDBC persistence and Excel export (POI).</li>
-          <li>Experimental WhatsApp notifications on successful sales.</li>
-        </ul>
-        <div class="tech-stack">
-          <span class="tech">
-            <!-- Java -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 3c2.5 2.2-1.5 3.2 0 5 1.8 2 5-1 5 2 0 2.6-5 2.4-5 5" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
-              <path d="M5 18c2 2 12 2 14 0" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            Java
-          </span>
-          <span class="tech">
-            <!-- MySQL -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <ellipse cx="12" cy="6" rx="7" ry="3.5" fill="#f59e0b"/>
-              <path d="M5 6v8c0 2 14 2 14 0V6" fill="none" stroke="#f59e0b" stroke-width="2"/>
-              <ellipse cx="12" cy="14" rx="7" ry="3.5" fill="none" stroke="#f59e0b" stroke-width="2"/>
-            </svg>
-            MySQL
-          </span>
-          <span class="tech">
-            <!-- JDBC -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="4" y="6" width="16" height="12" rx="2" fill="#22c55e"/>
-              <path d="M7 9h10M7 12h6" stroke="#0b1b13" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            JDBC
-          </span>
-          <span class="tech">
-            <!-- Swing -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="5" y="7" width="14" height="10" rx="2" fill="#a78bfa"/>
-              <circle cx="9" cy="10" r="1" fill="#0d1117"/>
-              <rect x="8" y="12" width="8" height="3" rx="1" fill="#0d1117"/>
-            </svg>
-            Swing
-          </span>
+      <!-- DevOps -->
+      <div class="tab-content" id="devops">
+        <div class="tech-grid">
+          <div class="tech-card">
+            <i class="devicon-git-plain colored"></i>
+            <p>Git</p>
+            <div class="skill-bar"><span style="width: 90%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-github-original colored"></i>
+            <p>GitHub</p>
+            <div class="skill-bar"><span style="width: 95%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-vercel-original colored"></i>
+            <p>Vercel</p>
+            <div class="skill-bar"><span style="width: 78%"></span></div>
+          </div>
+          <div class="tech-card">
+            <i class="devicon-linux-plain colored"></i>
+            <p>Linux CLI</p>
+            <div class="skill-bar"><span style="width: 45%"></span></div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Item 3 -->
-    <div class="timeline-item left">
-      <div class="timeline-content">
-        <span class="date">2023 – 2024</span>
-        <h3>Freelance Web Developer</h3>
-        <ul>
-          <li>Custom web solutions for small businesses (landing + e‑commerce MVPs).</li>
-          <li>Component systems and design tokens to scale UI consistency.</li>
-        </ul>
-        <div class="tech-stack">
-          <span class="tech">
-            <!-- React -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="2" fill="#61dafb"/>
-              <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#61dafb" fill="none"/>
-              <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#61dafb" fill="none" transform="rotate(60 12 12)"/>
-              <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#61dafb" fill="none" transform="rotate(120 12 12)"/>
-            </svg>
-            React
-          </span>
-          <span class="tech">
-            <!-- Tailwind -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 12c2-4 5-6 9-6 4 0 5 2 7 3-2 4-5 6-9 6-4 0-5-2-7-3z" fill="#38bdf8"/>
-              <path d="M5 15c2-4 5-6 9-6 4 0 5 2 7 3-2 4-5 6-9 6-4 0-5-2-7-3z" fill="#06b6d4" opacity=".8"/>
-            </svg>
-            Tailwind
-          </span>
-          <span class="tech">
-            <!-- MongoDB -->
-            <svg class="stack-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 3s5 5 5 10-3 8-5 8-5-3-5-8 5-10 5-10z" fill="#10b981"/>
-              <path d="M12 3v18" stroke="#065f46" stroke-width="1.5"/>
-            </svg>
-            MongoDB
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="tools" class="tools-section">
-  <h2>🛠 Tools & Technologies</h2>
+    <!-- Devicon CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"> <!-- Carga CDN de iconos Devicon -->
 
-  <!-- Tabs -->
-  <div class="tabs">
-    <button class="tab-button active" data-tab="mainstack">Main Stack</button>
-    <button class="tab-button" data-tab="frontend">Frontend</button>
-    <button class="tab-button" data-tab="backend">Backend</button>
-    <button class="tab-button" data-tab="devops">DevOps</button>
-  </div>
-
-  <!-- Main Stack -->
-  <div class="tab-content active" id="mainstack">
-    <div class="tech-grid">
-      <div class="tech-card">
-        <i class="devicon-html5-plain colored"></i>
-        <p>HTML5</p>
-        <div class="skill-bar"><span style="width: 95%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-css3-plain colored"></i>
-        <p>CSS3</p>
-        <div class="skill-bar"><span style="width: 90%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-javascript-plain colored"></i>
-        <p>JavaScript</p>
-        <div class="skill-bar"><span style="width: 90%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-react-original colored"></i>
-        <p>React</p>
-        <div class="skill-bar"><span style="width: 60%"></span></div>
-      </div>
-      
-      <div class="tech-card">
-        <i class="devicon-nodejs-plain colored"></i>
-        <p>Node.js</p>
-        <div class="skill-bar"><span style="width: 88%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-postgresql-plain colored"></i>
-        <p>PostgreSQL</p>
-        <div class="skill-bar"><span style="width: 90%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-docker-plain colored"></i>
-        <p>Docker</p>
-        <div class="skill-bar"><span style="width: 55%"></span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Frontend -->
-  <div class="tab-content" id="frontend">
-    <div class="tech-grid">
-      <div class="tech-card">
-        <i class="devicon-tailwindcss-plain colored"></i>
-        <p>Tailwind CSS</p>
-        <div class="skill-bar"><span style="width: 85%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-vitejs-plain colored"></i>
-        <p>Vite</p>
-        <div class="skill-bar"><span style="width: 60%"></span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Backend -->
-  <div class="tab-content" id="backend">
-    <div class="tech-grid">
-      <div class="tech-card">
-        <i class="devicon-nodejs-plain colored"></i>
-        <p>Node.js</p>
-        <div class="skill-bar"><span style="width: 88%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-express-original"></i>
-        <p>Express</p>
-        <div class="skill-bar"><span style="width: 85%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-fastapi-plain colored"></i>
-        <p>FastAPI</p>
-        <div class="skill-bar"><span style="width: 78%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-nestjs-plain colored"></i>
-        <p>NestJS</p>
-        <div class="skill-bar"><span style="width: 55%"></span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DevOps -->
-  <div class="tab-content" id="devops">
-    <div class="tech-grid">
-      <div class="tech-card">
-        <i class="devicon-git-plain colored"></i>
-        <p>Git</p>
-        <div class="skill-bar"><span style="width: 90%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-github-original colored"></i>
-        <p>GitHub</p>
-        <div class="skill-bar"><span style="width: 95%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-vercel-original colored"></i>
-        <p>Vercel</p>
-        <div class="skill-bar"><span style="width: 78%"></span></div>
-      </div>
-      <div class="tech-card">
-        <i class="devicon-linux-plain colored"></i>
-        <p>Linux CLI</p>
-        <div class="skill-bar"><span style="width: 45%"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Devicon CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-
-  </div>
+  </div> <!-- Cierre del contenedor abierto por error (ojo: sobra este </div> si no hay un <div> previo) -->
     <!-- ============== CONTACT ============== -->
-<section id="contact" class="contact-section" aria-labelledby="contact-title">
-  <div class="contact-wrap">
-    <div class="contact-info">
-      <h2 id="contact-title">Let’s build something</h2>
-      <p class="contact-sub">
-        Do you have an idea, a product to launch or a system to improve?
-        I can help you turn it into reliable, scalable software.
-      </p>
+    <section id="contact" class="contact-section" aria-labelledby="contact-title"> <!-- Sección de contacto sin formulario -->
+      <div class="contact-wrap"> <!-- Contenedor ancho fijo -->
+        <div class="contact-info"> <!-- Bloque de info y acciones -->
+          <h2 id="contact-title">Let’s build something</h2> <!-- Título -->
+          <p class="contact-sub">
+            Do you have an idea, a product to launch or a system to improve?
+            I can help you turn it into reliable, scalable software.
+          </p> <!-- Subtítulo descriptivo -->
 
-      <div class="contact-actions">
-        <!-- Copy email -->
-        <button class="btn ghost" id="copyEmailBtn" data-email="generalboomsycol@gmail.com" aria-label="Copy email">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>
-          Copy email
-        </button>
+          <div class="contact-actions"> <!-- Botones de acción -->
+            <!-- Copy email -->
+            <button class="btn ghost" id="copyEmailBtn" data-email="generalboomsycol@gmail.com" aria-label="Copy email"> <!-- Botón para copiar email -->
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg> <!-- Icono -->
+              Copy email
+            </button>
 
-        <!-- Mailto directo -->
-        <a class="btn primary" href="mailto:generalboomsycol@gmail.com?subject=Project%20inquiry%20from%20website" aria-label="Send email">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v1l10 6l10-6V6a2 2 0 0 0-2-2Zm0 6.2L12 16L4 10.2V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.8Z"/></svg>
-          Email
-        </a>
+            <!-- Mailto directo -->
+            <a class="btn primary" href="mailto:generalboomsycol@gmail.com?subject=Project%20inquiry%20from%20website" aria-label="Send email"> <!-- Link mailto -->
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v1l10 6l10-6V6a2 2 0 0 0-2-2Zm0 6.2L12 16L4 10.2V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.8Z"/></svg>
+              Email
+            </a>
 
-        <!-- WhatsApp con mensaje -->
-        <a class="btn outline" id="waBtn" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.37 15.15L2 22l4.99-1.63A9.93 9.93 0 1 0 12.04 2Zm5.85 14.21c-.25.7-1.28 1.26-1.76 1.3c-.45.05-1.02.07-1.64-.1c-.38-.12-.86-.28-1.49-.55c-2.62-1.13-4.32-3.79-4.45-3.96c-.13-.17-1.06-1.41-1.06-2.69s.67-1.9.91-2.16c.25-.26.55-.33.73-.33h.53c.17 0 .4-.03.62.47c.25.6.86 2.07.93 2.22c.08.17.13.36.03.53c-.09.18-.14.29-.28.45c-.14.16-.29.36-.41.49c-.13.14-.27.3-.11.56c.17.26.73 1.2 1.57 1.94c1.08.96 1.99 1.27 2.27 1.42c.29.14.46.13.64-.08c.2-.21.74-.86.94-1.16c.2-.3.4-.24.66-.14c.26.1 1.66.79 1.95.93c.29.14.48.21.55.32c.07.11.07.66-.18 1.36Z"/></svg>
-          WhatsApp
-        </a>
+            <!-- WhatsApp con mensaje -->
+            <a class="btn outline" id="waBtn" target="_blank" rel="noopener" aria-label="Open WhatsApp chat"> <!-- Link a WhatsApp configurado por JS -->
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.37 15.15L2 22l4.99-1.63A9.93 9.93 0 1 0 12.04 2Zm5.85 14.21c-.25.7-1.28 1.26-1.76 1.3c-.45.05-1.02.07-1.64-.1c-.38-.12-.86-.28-1.49-.55c-2.62-1.13-4.32-3.79-4.45-3.96c-.13-.17-1.06-1.41-1.06-2.69s.67-1.9.91-2.16c.25-.26.55-.33.73-.33h.53c.17 0 .4-.03.62.47c.25.6.86 2.07.93 2.22c.08.17.13.36.03.53c-.09.18-.14.29-.28.45c-.14.16-.29.36-.41.49c-.13.14-.27.3-.11.56c.17.26.73 1.2 1.57 1.94c1.08.96 1.99 1.27 2.27 1.42c.29.14.46.13.64-.08c.2-.21.74-.86.94-1.16c.2-.3.4-.24.66-.14c.26.1 1.66.79 1.95.93c.29.14.48.21.55.32c.07.11.07.66-.18 1.36Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+
+          <ul class="contact-meta"> <!-- Metadatos de contacto -->
+            <li><strong>Email:</strong> <a href="mailto:generalboomsycol@gmail.com">generalboomsycol@gmail.com</a></li> <!-- Email clickable -->
+            <li><strong>Based in:</strong> Colombia (UTC‑5)</li> <!-- Ubicación -->
+            <li class="social"> <!-- Redes sociales -->
+              <a href="https://github.com/otpvayne" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+              <span>·</span>
+              <a href="https://www.linkedin.com/in/diego-medina-software/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <ul class="contact-meta">
-        <li><strong>Email:</strong> <a href="mailto:generalboomsycol@gmail.com">generalboomsycol@gmail.com</a></li>
-        <li><strong>Based in:</strong> Colombia (UTC‑5)</li>
-        <li class="social">
-          <a href="https://github.com/otpvayne" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-          <span>·</span>
-          <a href="https://www.linkedin.com/in/diego-medina-software/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
+    </section>
 
   <!-- Scripts -->
-  <script src="/assets/js/menu.js"></script>
+  <script src="/assets/js/menu.js"></script> <!-- Archivo JS principal con interacciones -->
 </body>
 </html>
