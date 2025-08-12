@@ -90,6 +90,135 @@
         </div>
       </div>
     </section>
+    <!-- ============== PROJECTS ============== -->
+<section id="projects" class="container section projects">
+  <header class="projects-head">
+    <h2>Projects</h2>
+    <ul class="filters" role="tablist" aria-label="Filter projects by type">
+      <li><button class="filter is-active" data-filter="all">All</button></li>
+      <li><button class="filter" data-filter="web">Web</button></li>
+      <li><button class="filter" data-filter="erp">ERP</button></li>
+      <li><button class="filter" data-filter="landing">Landing</button></li>
+      <li><button class="filter" data-filter="api">API</button></li>
+    </ul>
+  </header>
+
+  <div class="projects-grid">
+    <!-- Proyecto 1: Casa del Kumis (Web/Landing) -->
+    <article class="p-card" data-tags="web landing seo html css js">
+      <div class="p-media" data-tilt>
+        <img
+          src="/assets/images/kumis-800.webp"
+          
+          sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          alt="Casa del Kumis — sitio web informativo"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="p-body">
+        <h3>Casa del Kumis — Website</h3>
+        <p>Landing y sitio informativo responsive con foco en identidad, catálogo y SEO on‑page.</p>
+        <ul class="p-stack">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO</li>
+        </ul>
+        <div class="p-actions">
+          <button class="btn btn-sm show-case" data-case="kumis">Case Study</button>
+          <!-- Si tienes demo en vivo, reemplaza # por la URL -->
+          <a class="btn btn-sm" href="https://pagina-web-demo.onrender.com/index.html" target="_blank" rel="noopener" title="Demo soon">Live</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Proyecto 2: ERP Ventas de Alimentos (Java/MVC) -->
+    <article class="p-card" data-tags="erp desktop java mvc mysql swing ai">
+      <div class="p-media" data-tilt>
+        <img
+          src="/assets/images/erp-800.webp"
+          
+          sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          alt="ERP Ventas de Alimentos — Java MVC"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="p-body">
+        <h3>ERP — Ventas de Alimentos</h3>
+        <p>Sistema ERP en Java (MVC) para ventas, clientes, stock y reportes. En desarrollo activo.</p>
+        <ul class="p-stack">
+          <li>Java SE</li><li>MySQL</li><li>Swing</li><li>MVC</li>
+        </ul>
+        <div class="p-actions">
+          <button class="btn btn-sm show-case" data-case="erp">Case Study</button>
+          <!-- Si no hay live, puedes dejar solo Repo -->
+          <a class="btn btn-sm" href="https://github.com/otpvayne/ERP-ventas-de-alimentos.git" target="_blank" rel="noopener">Repo</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<section id="experience" class="experience-section">
+  <h2 class="section-title">Experience</h2>
+  
+  <div class="timeline">
+    <!-- Item 1 -->
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <span class="date">2025 - Present</span>
+        <h3>Full Stack Developer — Casa del Kumis</h3>
+        <ul>
+          <li>Developed responsive website with SEO optimization and animations.</li>
+          <li>Implemented backend for content management with Node.js & Express.</li>
+          <li>Integrated dynamic product showcase and improved UX/UI.</li>
+        </ul>
+        <div class="tech-stack">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="timeline-item right">
+      <div class="timeline-content">
+        <span class="date">2024 - 2025</span>
+        <h3>Java Developer — ERP Sales Food System</h3>
+        <ul>
+          <li>Built ERP to manage food sales, inventory, and customers.</li>
+          <li>Applied MVC architecture with Java Swing & MySQL.</li>
+          <li>Integrated experimental WhatsApp notification API.</li>
+        </ul>
+        <div class="tech-stack">
+          <span>Java</span><span>MySQL</span><span>JDBC</span><span>Swing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="timeline-item left">
+      <div class="timeline-content">
+        <span class="date">2023 - 2024</span>
+        <h3>Freelance Web Developer</h3>
+        <ul>
+          <li>Created custom web solutions for small businesses.</li>
+          <li>Specialized in landing pages and e-commerce prototypes.</li>
+        </ul>
+        <div class="tech-stack">
+          <span>React</span><span>Tailwind</span><span>MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MODAL CASE STUDY ============== -->
+<dialog id="case-modal" class="case-modal" aria-labelledby="case-title">
+  <article class="case">
+    <button class="case-close" aria-label="Close">✕</button>
+    <header class="case-head">
+      <h3 id="case-title">Project Title</h3>
+      <ul class="p-stack" id="case-stack"></ul>
+    </header>
+    <div class="case-body" id="case-content"></div>
+    <footer class="case-foot" id="case-links"></footer>
+  </article>
+</dialog>
+
 
     <!-- Contact / Intro -->
     <section id="contacto" class="hero container">
