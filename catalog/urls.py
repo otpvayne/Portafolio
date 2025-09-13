@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import open_list, open_detail
+from . import views
+
 urlpatterns = [
-    path('', open_list, name='open_list'),
-    path('<slug:slug>/', open_detail, name='open_detail'),
+    path("", views.open_list, name="open_list"),
+    path("<slug:slug>/", views.open_detail, name="open_detail"),
 ]

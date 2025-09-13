@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Open — Colección{% endblock %}
+
+{% block content %}
+<section class="open-hero container">
+  <h1 class="open-title">Open</h1>
+  <p class="open-sub">Colección administrada desde el CMS: imagen, título, resumen, descripción, tags y detalle.</p>
+
+  <form class="open-toolbar" method="get" action=".">
+    <input
+      class="open-search"
+      type="search" name="q"
+      value="{{ q }}"
+      placeholder="Buscar por título, resumen, descripción o tag…"
+      aria-label="Buscar items"
+    />
+    {% if active_tag %}
+      <input type="hidden" name="tag" value="{{ active_tag }}">
+    {% endif %}
+    <button class="btn primary" type="submit">Buscar</button>
+    <a class="btn ghost" href="{% url 'open_list' %}">Limpiar</a>
+  </form>
+
+  {% if tags %}
+  <ul class="open-tags">
+    {% for t in tags %}
+      <li>
+        <a class="tag {% if active_tag == t %}is-active{% endif %}"
+           href="{% url 'open_list' %}?tag={{ t|urlencode }}{% if q %}&q={{ q|urlencode }}{% endif %}">
+          #{{ t }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+<section class="open-grid container" id="openGrid">
+  {% for item in items %}
+  <article class="open-card" data-title="{{ item.title|escape }}" data-tags="{{ item.keywords|default:''|escape }}">
+    <a class="open-thumb" href="{% url 'open_detail' item.slug %}" data-gtm="open_card_click" data-id="{{ item.id }}">
+      {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy" decoding="async">
+      {% endif %}
+    </a>
+    <div class="open-body">
+      <h3 class="open-card-title">
+        <a href="{% url 'open_detail' item.slug %}">{{ item.title }}</a>
+      </h3>
+      <p class="open-summary">{{ item.summary }}</p>
+      {% if item.tags %}
+      <ul class="open-card-tags">
+        {% for t in item.tags %}
+        <li><a href="{% url 'open_list' %}?tag={{ t|urlencode }}{% if q %}&q={{ q|urlencode }}{% endif %}">#{{ t }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <div class="open-actions">
+        <a class="btn btn-sm" href="{% url 'open_detail' item.slug %}">Ver detalle</a>
+        {% if item.link %}
+          <a class="btn btn-sm outline" href="{{ item.link }}" target="_blank" rel="noopener">Link</a>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+  {% empty %}
+    <p class="open-empty">No hay items publicados.</p>
+  {% endfor %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/assets/js/open.js"></script>
+{% endblock %}

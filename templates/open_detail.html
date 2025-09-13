@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ item.title }} — Open{% endblock %}
+
+{% block content %}
+<article class="open-detail container">
+  <header class="open-detail-head">
+    <a class="btn ghost" href="{% url 'open_list' %}">← Volver</a>
+    <h1>{{ item.title }}</h1>
+    <p class="open-detail-summary">{{ item.summary }}</p>
+  </header>
+
+  {% if item.image %}
+  <figure class="open-detail-media">
+    <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy" decoding="async">
+  </figure>
+  {% endif %}
+
+  <section class="open-detail-body">
+    <div class="prose">
+      {{ item.description|linebreaksbr }}
+    </div>
+
+    {% if item.tags %}
+    <ul class="open-tags">
+      {% for t in item.tags %}
+      <li><a class="tag" href="{% url 'open_list' %}?tag={{ t|urlencode }}">#{{ t }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if item.link %}
+    <p><a class="btn outline" href="{{ item.link }}" target="_blank" rel="noopener">Abrir link externo</a></p>
+    {% endif %}
+  </section>
+
+  {% if related %}
+  <footer class="open-related">
+    <h2>También te puede interesar</h2>
+    <div class="open-grid">
+      {% for r in related %}
+      <article class="open-card">
+        <a class="open-thumb" href="{% url 'open_detail' r.slug %}">
+          {% if r.image %}<img src="{{ r.image.url }}" alt="{{ r.title }}" loading="lazy">{% endif %}
+        </a>
+        <div class="open-body">
+          <h3 class="open-card-title"><a href="{% url 'open_detail' r.slug %}">{{ r.title }}</a></h3>
+          <p class="open-summary">{{ r.summary }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </footer>
+  {% endif %}
+</article>
+{% endblock %}
