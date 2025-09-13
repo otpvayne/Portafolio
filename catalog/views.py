@@ -1,23 +1,11 @@
-from django.db.models import Q
+# catalog/views.py
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
 from .models import OpenItem
 
-def _all_tags(queryset):
-    bucket = set()
-    for kw in queryset.values_list("keywords", flat=True):
-        if kw:
-            for t in [s.strip() for s in kw.split(",")]:
-                if t:
-                    bucket.add(t)
-    return sorted(bucket, key=str.lower)
-
 def open_list(request):
-    q = (request.GET.get("q") or "").strip()
-    tag = (request.GET.get("tag") or "").strip()
-
-    base_qs = OpenItem.objects.filter(is_published=True)
-
-    items = base_qs
+    items = OpenItem.objects.filter(is_published=True).order_by('-created_at')
+    q = (request.GET.get('q') or '').strip()
     if q:
         items = items.filter(
             Q(title__icontains=q) |
@@ -25,20 +13,12 @@ def open_list(request):
             Q(description__icontains=q) |
             Q(keywords__icontains=q)
         )
-    if tag:
-        items = items.filter(keywords__icontains=tag)
-
-    all_tags = _all_tags(base_qs)
-
-    ctx = {
-        "items": items,
-        "q": q,
-        "active_tag": tag,
-        "tags": all_tags,
-    }
-    return render(request, "open_list.html", ctx)
+    ctx = {"items": items, "q": q}
+    return render(request, 'open/index.html', ctx)  # ← asegúrate de crear este template
 
 def open_detail(request, slug):
     item = get_object_or_404(OpenItem, slug=slug, is_published=True)
-    related = OpenItem.objects.filter(is_published=True).exclude(id=item.id)[:6]
-    return render(request, "open_detail.html", {"item": item, "related": related})
+    # keywords a lista (si vienen coma-separadas)
+    tags = [k.strip() for k in (item.keywords or '').split(',') if k.strip()]
+    ctx = {"item": item, "tags": tags}
+    return render(request, 'open/detail.html', ctx)  # ← y este template también
