@@ -13,17 +13,14 @@ services:
 from django.contrib.auth import get_user_model
 import os
 User = get_user_model()
-u = os.environ.get('DJANGO_SUPERUSER_USERNAME')
-e = os.environ.get('DJANGO_SUPERUSER_EMAIL') or ''
-p = os.environ.get('DJANGO_SUPERUSER_PASSWORD')
-if u and p:
-    if not User.objects.filter(username=u).exists():
-        User.objects.create_superuser(u, e, p)
-        print("✅ Superuser created:", u)
-    else:
-        print("ℹ️ Superuser already exists:", u)
+u = os.environ.get('DJANGO_SUPERUSER_USERNAME', 'admin')
+e = os.environ.get('DJANGO_SUPERUSER_EMAIL', 'you@example.com')
+p = os.environ.get('DJANGO_SUPERUSER_PASSWORD', 'Admin123!2025')
+if not User.objects.filter(username=u).exists():
+    User.objects.create_superuser(u, e, p)
+    print("Superuser created:", u)
 else:
-    print("⚠️ Missing DJANGO_SUPERUSER_* envs; skipping superuser creation")
+    print("Superuser already exists:", u)
 PY
     startCommand: gunicorn portfolio.wsgi:application
     healthCheckPath: /
@@ -40,17 +37,17 @@ PY
         fromDatabase:
           name: portfolio-db
           property: connectionString
-      # si usas Cloudinary para media:
+      # Si usas Cloudinary, descomenta y pon tu URL:
       - key: CLOUDINARY_URL
-       value: ""
-      #   value: cloudinary://API_KEY:API_SECRET@CLOUD_NAME
-      # credenciales para crear el superusuario:
+        value: cloudinary://894879829965278:FQZgePwXoPUyTKA8W7FBUu9BLQM@dgkhksmoh
+      # Credenciales para crear el superusuario (se usan en el bloque de arriba)
       - key: DJANGO_SUPERUSER_USERNAME
         value: admin
       - key: DJANGO_SUPERUSER_EMAIL
-        value: tu@email.com
+        value: you@example.com
       - key: DJANGO_SUPERUSER_PASSWORD
-        value: UnaClaveFuerte123!
+        value: Admin123!2025
+
 databases:
   - name: portfolio-db
     plan: free
