@@ -1,0 +1,28 @@
+# DB local
+db.sqlite3
+*.sqlite3
+
+# Entornos/secretos
+.env
+.env.*
+
+# Compilados Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Estáticos generados (collectstatic)
+staticfiles/
+
+# Subidas locales (si NO quieres versionarlas)
+media/
+
+# Entornos virtuales
+venv/
+.venv/
+
+# Sistemas/editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
