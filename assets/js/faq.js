@@ -25,21 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const h = ans.scrollHeight;
       ans.style.maxHeight = h + 'px';
       ans.classList.add('show');
-      // Evento para GTM/GA4 (cumple la rúbrica de eventos)
+      // Evento para GTM/GA4
       dataLayer.push({ event: 'faq_open', faq_id: id, faq_question: btn.querySelector('.q-text')?.textContent?.trim() || '' });
-      // Actualiza hash (deep-link)
+      // Deep-link
       history.replaceState(null, '', '#' + item.id);
     } else {
-      ans.style.maxHeight = ans.scrollHeight + 'px'; // set current to enable transition
+      ans.style.maxHeight = ans.scrollHeight + 'px';
       requestAnimationFrame(() => {
         ans.style.maxHeight = '0px';
         ans.classList.remove('show');
-        // Quita hash si era el activo
         if (location.hash === '#' + item.id) {
           history.replaceState(null, '', location.pathname + location.search);
         }
       });
-      // al terminar, oculta para accesibilidad
       ans.addEventListener('transitionend', () => {
         if (btn.getAttribute('aria-expanded') === 'false') ans.hidden = true;
       }, { once: true });
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function toggleOne(btn){
     const open = btn.getAttribute('aria-expanded') !== 'true';
-    // cierra los demás (acordeón exclusivo)
+    // acordeón exclusivo
     qs.forEach(b => { if (b !== btn && b.getAttribute('aria-expanded') === 'true') setExpanded(b, false); });
     setExpanded(btn, open);
   }

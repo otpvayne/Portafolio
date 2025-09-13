@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Preguntas Frecuentes (FYQ){% endblock %}
+{% block title %}FYQ - Preguntas frecuentes{% endblock %}
 
 {% block content %}
 <section class="faq-hero container" aria-labelledby="faq-title">
@@ -16,26 +16,25 @@
 </section>
 
 <section class="faq-list container" id="faqList">
-  {% comment %} Itera FAQs gestionadas desde el admin {% endcomment %}
-  {% for faq in faqs %}
-  <article class="faq-item" id="q-{{ faq.id }}">
+  {% for q in questions %}
+  <article class="faq-item" id="q-{{ q.id }}">
     <h3 class="faq-q-wrap">
       <button
         class="faq-q"
         aria-expanded="false"
-        aria-controls="a-{{ faq.id }}"
-        data-faq-id="{{ faq.id }}"
+        aria-controls="a-{{ q.id }}"
+        data-faq-id="{{ q.id }}"
       >
         <span class="q-bullet" aria-hidden="true">Q</span>
-        <span class="q-text">{{ faq.question }}</span>
+        <span class="q-text">{{ q.title }}</span>
         <svg class="q-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </h3>
-    <div id="a-{{ faq.id }}" class="faq-a" hidden>
+    <div id="a-{{ q.id }}" class="faq-a" hidden>
       <div class="faq-a-inner">
-        {{ faq.answer|linebreaksbr }}
+        {{ q.answer|linebreaksbr }}
       </div>
     </div>
   </article>
@@ -54,11 +53,11 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {% for faq in faqs %}
+      {% for q in questions %}
       {
         "@type":"Question",
-        "name":"{{ faq.question|escapejs }}",
-        "acceptedAnswer":{"@type":"Answer","text":"{{ faq.answer|escapejs }}"}
+        "name":"{{ q.title|escapejs }}",
+        "acceptedAnswer":{"@type":"Answer","text":"{{ q.answer|escapejs }}"}
       }{% if not forloop.last %},{% endif %}
       {% endfor %}
     ]
