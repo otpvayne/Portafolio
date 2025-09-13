@@ -31,8 +31,12 @@ SECURE_SSL_REDIRECT  = not DEBUG
 INSTALLED_APPS = [
     'django.contrib.admin','django.contrib.auth','django.contrib.contenttypes',
     'django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles',
+    # storage para media en la nube
+    'cloudinary_storage', 'cloudinary',
+    # tus apps
     'core','catalog','contact',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,6 +67,11 @@ TEMPLATES = [
         },
     },
 ]
+# Si existe CLOUDINARY_URL => usa Cloudinary para MEDIA en producción
+if os.getenv('CLOUDINARY_URL'):
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    # MEDIA_URL será absoluto (Cloudinary lo genera). Dejamos este valor por compatibilidad:
+    MEDIA_URL = '/media/'
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
