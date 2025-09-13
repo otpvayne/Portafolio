@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Open - Recetas{% endblock %}
+{% block content %}
+<h1>Recetas</h1>
+<section class="grid">
+  {% for r in recipes %}
+  <article class="card">
+    {% if r.image %}<img src="{{ r.image.url }}" alt="{{ r.title }}">{% endif %}
+    <h3>{{ r.title }}</h3>
+    <p>{{ r.summary }}</p>
+    <a href="{% url 'open_detail' r.slug %}">Ver detalle</a>
+  </article>
+  {% empty %}
+  <p>No hay elementos registrados.</p>
+  {% endfor %}
+</section>
+{% endblock %}

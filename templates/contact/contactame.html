@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block title %}Contáctame{% endblock %}
+
+{% block content %}
+<section class="contact-hero">
+  <div class="contact-card">
+    <div class="contact-aside">
+      <h1>Hablemos 🚀</h1>
+      <p>¿Tienes una idea o proyecto? Construyámoslo con calidad, performance y una UX que enamore.</p>
+
+      <ul class="contact-highlights">
+        <li>✦ Respuesta en <strong>24–48h</strong></li>
+        <li>✦ Enfoque <strong>product-oriented</strong></li>
+        <li>✦ Entregas <strong>iterativas</strong> y medibles</li>
+      </ul>
+
+      <div class="contact-meta">
+        <a href="mailto:generalboomsycol@gmail.com">generalboomsycol@gmail.com</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/diego-medina-software/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>•</span>
+        <a href="https://github.com/otpvayne" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <form id="contact-form" class="contact-form" method="post" action="">
+      {% csrf_token %}
+      <!-- Honeypot -->
+      <input type="text" name="website" class="hp" autocomplete="off" tabindex="-1">
+
+      <!-- UTM ocultos -->
+      <input type="hidden" name="utm_source">
+      <input type="hidden" name="utm_medium">
+      <input type="hidden" name="utm_campaign">
+
+      <div class="f-field">
+        <input id="name" name="name" type="text" required minlength="2" maxlength="100" placeholder=" " />
+        <label for="name">Nombre</label>
+        <small class="f-msg"></small>
+      </div>
+
+      <div class="f-field">
+        <input id="email" name="email" type="email" required placeholder=" " />
+        <label for="email">Correo</label>
+        <small class="f-msg"></small>
+      </div>
+
+      <div class="f-field">
+        <textarea id="message" name="message" required minlength="10" maxlength="1000" placeholder=" " rows="5"></textarea>
+        <label for="message">Mensaje</label>
+        <small class="f-msg"></small>
+      </div>
+
+      <button class="btn primary f-submit" type="submit">
+        <span class="spinner" aria-hidden="true"></span>
+        Enviar mensaje
+      </button>
+
+      <p class="privacy">Al enviar aceptas tratamiento básico de tus datos para contacto. 💙</p>
+      <div class="form-status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(() => {
+  // Dump UTM → inputs
+  const p = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign'].forEach(k=>{
+    const el = document.querySelector('input[name="'+k+'"]');
+    if (el && p.get(k)) el.value = p.get(k);
+  });
+
+  const form = document.getElementById('contact-form');
+  const statusEl = document.querySelector('.form-status');
+  const btn = form.querySelector('.f-submit');
+
+  function validate() {
+    let ok = true;
+    // Honeypot
+    if (form.website.value) return false;
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim());
+    setMsg('email', emailOk ? '' : 'Correo no válido');
+    ok = ok && emailOk;
+
+    const nameOk = (form.name.value.trim().length >= 2);
+    setMsg('name', nameOk ? '' : 'Escribe tu nombre');
+    ok = ok && nameOk;
+
+    const msgOk = (form.message.value.trim().length >= 10);
+    setMsg('message', msgOk ? '' : 'Mensaje muy corto (min. 10)');
+    ok = ok && msgOk;
+
+    return ok;
+  }
+
+  function setMsg(fieldId, text){
+    const f = document.getElementById(fieldId)?.closest('.f-field');
+    if(!f) return;
+    const small = f.querySelector('.f-msg');
+    small.textContent = text || '';
+    f.classList.toggle('has-error', Boolean(text));
+  }
+
+  form.addEventListener('submit', (e) => {
+    if (!validate()) {
+      e.preventDefault();
+      statusEl.textContent = 'Por favor corrige los campos marcados.';
+      return;
+    }
+    // UX: loading + evento GTM
+    btn.classList.add('is-loading');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event:'contact_submit', form_name:'contactame', ts: Date.now() });
+  });
+
+  // Floating label: marca como "filled" cuando hay valor
+  form.querySelectorAll('.f-field input, .f-field textarea').forEach(el=>{
+    el.addEventListener('input', ()=>{
+      el.parentElement.classList.toggle('filled', !!el.value.trim());
+    });
+  });
+})();
+</script>
+{% endblock %}

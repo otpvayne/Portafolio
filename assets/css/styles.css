@@ -423,3 +423,187 @@ body.menu-open{ overflow:hidden; overscroll-behavior:contain; } /* Evita scroll 
 @media (min-width:900px){
   .contact-wrap{ display:grid; grid-template-columns:1fr; } /* Layout simple desktop */
 }
+/* ===== Banners con UTM ===== */
+.banner-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.banner-card{
+  display:inline-block;padding:.7rem 1rem;border-radius:10px;
+  background:#1e293b;color:#fff;text-decoration:none;font-weight:600;
+  border:1px solid #2b3a4b;transition:transform .15s, background .25s, box-shadow .25s
+}
+.banner-card:hover{background:#223042;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.nav ul { flex-wrap: wrap; }
+/* ===========================
+   📱 RESPONSIVE
+=========================== */
+@media (min-width:769px){
+  .hamburger{ display:none; } /* Esconde hamburguesa en desktop */
+
+  /* 🔧 Desktop: anula límites del panel móvil */
+  .nav{
+    position:static;
+    display:block;
+    background:transparent;
+    padding:0;
+    box-shadow:none;
+    width:auto;
+    max-width:none;         /* <- antes heredaba 320px; aquí lo anulamos */
+    max-height:none;
+    overflow:visible;
+  }
+  .nav ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:row;
+    gap:1.25rem;
+    flex-wrap:wrap;         /* <- permite que salte de línea si hace falta */
+  }
+  .nav a{
+    background:transparent;
+    padding:0;
+  }
+}
+/* ===== Contact form — Glass card / Floating labels ===== */
+.contact-hero{
+  padding: clamp(40px, 6vw, 80px) 16px;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #22304255, transparent 60%),
+    radial-gradient(1000px 600px at 110% 10%, #0b5fff22, transparent 60%),
+    linear-gradient(180deg, #0f141b, #0d1117);
+  border-top:1px solid #1f2730;
+}
+.contact-card{
+  max-width:1100px;margin:0 auto;display:grid;gap:22px;
+  grid-template-columns: 1.1fr 1fr;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid #2b3a4b; border-radius:18px; box-shadow: var(--shadow);
+  backdrop-filter: blur(10px); padding: clamp(18px, 2.5vw, 30px);
+}
+@media (max-width: 900px){ .contact-card{ grid-template-columns:1fr; } }
+
+.contact-aside h1{ margin:0 0 .4rem; font-size:clamp(1.6rem,3vw,2rem); color:#e6edf3; }
+.contact-aside p{ color:#c9d1d9; margin:0 0 1rem; }
+.contact-highlights{ list-style:none; padding:0; margin:0 0 1rem; color:#c3cad3; }
+.contact-highlights li{ margin:.25rem 0; }
+.contact-meta{ display:flex; gap:.6rem; flex-wrap:wrap; color:#9fc3ff; }
+.contact-meta a{ color:#9fc3ff; text-decoration:none; }
+
+.contact-form{ display:grid; gap:14px; align-content:start; }
+.f-field{ position:relative; }
+.f-field input,.f-field textarea{
+  width:100%; padding:14px 14px; border-radius:12px; background:#0f1824;
+  border:1px solid #2b3a4b; color:#e6edf3; outline:none;
+  transition:border .2s, box-shadow .2s, background .2s;
+}
+.f-field textarea{ resize:vertical; min-height:120px; }
+.f-field input:focus,.f-field textarea:focus{ border-color:#58a6ff; box-shadow:0 0 0 4px #58a6ff22; }
+
+.f-field label{
+  position:absolute; left:12px; top:10px; padding:0 6px;
+  color:#9fb4cc; font-size:.95rem; pointer-events:none;
+  background:linear-gradient(180deg, #0f1824 50%, transparent 50%);
+  transform-origin:left top; transition: transform .15s ease, color .2s ease, top .15s ease;
+}
+.f-field input::placeholder, .f-field textarea::placeholder{ color:transparent; }
+.f-field input:placeholder-shown + label,
+.f-field textarea:placeholder-shown + label{ top:14px; transform:none; color:#8ba0b8; }
+.f-field input:not(:placeholder-shown) + label,
+.f-field textarea:not(:placeholder-shown) + label,
+.f-field.filled label,
+.f-field input:focus + label,
+.f-field textarea:focus + label{
+  top:-10px; transform: scale(.85) translateY(-2px);
+  background: #0f1824; color:#cfe3ff;
+}
+
+.f-field .f-msg{ display:block; margin-top:6px; min-height:16px; color:#ff8b8b; font-size:.85rem; }
+.f-field.has-error input, .f-field.has-error textarea{ border-color:#ff8b8b; box-shadow:0 0 0 3px #ff8b8b22; }
+
+.f-submit{ display:inline-flex; align-items:center; gap:.6rem; position:relative; }
+.f-submit .spinner{
+  width:16px; height:16px; border-radius:50%; border:2px solid #0d1117; border-top-color:transparent;
+  opacity:0; transition:opacity .15s ease;
+}
+.f-submit.is-loading .spinner{ opacity:1; animation:spin 1s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg) } }
+
+.privacy{ color:#8ea5bd; font-size:.9rem; margin:.25rem 0 0; }
+.form-status{ margin-top:.4rem; color:#cfe3ff; min-height:1em; }
+
+.hp{ display:none; }
+/* ===== Friend banners (glass + gradient border + glow) ===== */
+.friend-banners{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+
+.friend-card{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  border-radius:16px;
+  padding:2px;                 /* borde degradado (truco background-dual) */
+  border:1px solid transparent;
+  transition:transform .18s ease, box-shadow .25s ease, filter .25s ease;
+  background:
+    linear-gradient(#0f1622,#0f1622) padding-box,
+    linear-gradient(135deg, #6ee7ff, #a78bfa 40%, #f472b6 80%) border-box;
+  isolation:isolate;           /* para que el glow no “fugue” */
+}
+.friend-card::after{
+  content:"";
+  position:absolute; inset:-6px;
+  border-radius:inherit;
+  background:conic-gradient(from 0deg, #7dd3fc, #a78bfa, #f472b6, #7dd3fc);
+  filter:blur(18px);
+  opacity:.0; transition:opacity .25s ease; z-index:-1;
+}
+.friend-card:hover{ transform:translateY(-2px) scale(1.01); box-shadow:0 14px 44px rgba(0,0,0,.35); }
+.friend-card:hover::after{ opacity:.35; }
+
+.friend-card .fc-content{
+  display:grid;
+  grid-template-columns:52px 1fr auto;
+  gap:12px; align-items:center;
+  padding:14px 16px;
+  border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  backdrop-filter:blur(10px);
+  border:1px solid #273445;
+}
+.fc-avatar{
+  width:52px; height:52px; border-radius:50%;
+  display:grid; place-items:center; font-weight:800;
+  color:#0d1117;
+  background:radial-gradient(120% 120% at 30% 30%, #ffffff, #e2f2ff 40%, #93c5fd 90%);
+}
+.fc-avatar.img{ object-fit:cover; overflow:hidden; }
+.fc-text h3{ margin:0; font-size:1.02rem; color:#e6edf3; }
+.fc-text p{ margin:.2rem 0 0; color:#9fb4cc; font-size:.9rem; }
+.fc-cta{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.5rem .9rem; border-radius:999px;
+  font-weight:700; border:1px solid #2b3a4b; color:#9fc3ff;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.friend-card:hover .fc-cta{ background:#0f1824; color:#cfe3ff; border-color:#3a4f66; }
+
+/* Temas de color */
+.theme-ice{
+  background:
+    linear-gradient(#0f1622,#0f1622) padding-box,
+    linear-gradient(135deg,#67e8f9,#60a5fa 45%,#a78bfa 85%) border-box;
+}
+.theme-sunset{
+  background:
+    linear-gradient(#0f1622,#0f1622) padding-box,
+    linear-gradient(135deg,#f59e0b,#ec4899 45%,#8b5cf6 85%) border-box;
+}
+
+/* Motion safe */
+@media (prefers-reduced-motion:reduce){
+  .friend-card, .friend-card::after{ transition:none !important; }
+}

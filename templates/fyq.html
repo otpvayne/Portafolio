@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}FYQ - Preguntas frecuentes{% endblock %}
+{% block content %}
+<h1>Preguntas frecuentes</h1>
+<section class="faq">
+  {% for q in questions %}
+  <details class="faq-item" {% if forloop.first %}open{% endif %}>
+    <summary>{{ q.title }}</summary>
+    <div class="answer">{{ q.answer|linebreaks }}</div>
+  </details>
+  {% empty %}
+  <p>No hay preguntas registradas.</p>
+  {% endfor %}
+</section>
+{% endblock %}
+

@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+{% block title %}CV Profesional - Diego Medina{% endblock %}
+{% block content %}
+
+  <!-- HERO con GIF de fondo -->
+  <section class="hero-section">
+    <div class="overlay">
+      <h1 class="typing-text">DIEGO MEDINA</h1>
+      <h2 class="typing-subtext">SOFTWARE ENGINEER</h2>
+      <a href="/assets/docs/CV_Diego_Medina_v2.pdf" download class="btn resume-btn">RESUME</a>
+    </div>
+  </section>
+
+  <!-- ABOUT + SHOWCASE -->
+  <section id="about" class="about-showcase container">
+    <div class="about-text">
+      <h2 class="typing-about">About Me</h2>
+      <p>
+        Full stack software engineer with experience building web applications and custom systems across diverse contexts. I specialize in spotting real-world needs and turning them into effective, user-focused software—often inspired by situations I encounter throughout my day. I combine technical excellence with strategic thinking, integrating agile practices, architectural design, and clean, testable code. I work as a freelancer in my spare time and I'm currently building a tech startup. Committed to innovation, integrity, and quality in every project I undertake.
+      </p>
+      <ul class="skill-chips">
+        <li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Node.js</li>
+        <li class="chip">Express</li><li class="chip">PostgreSQL</li><li class="chip">MongoDB</li>
+        <li class="chip">Docker</li><li class="chip">CI/CD</li>
+      </ul>
+    </div>
+
+    <div class="about-photos">
+      <div class="carousel">
+        <figure class="slide s1">
+          <img src="/assets/images/me-1.webp" alt="Diego Medina - Frontend UI" loading="lazy" decoding="async" />
+          <figcaption>Frontend — UI/UX with React</figcaption>
+        </figure>
+        <figure class="slide s2">
+          <img src="/assets/images/me-2.webp" alt="Diego Medina - Backend APIs" loading="lazy" decoding="async" />
+          <figcaption>Backend — APIs with Node.js</figcaption>
+        </figure>
+        <figure class="slide s3">
+          <img src="/assets/images/me-3.webp" alt="Diego Medina - DevOps" loading="lazy" decoding="async" />
+          <figcaption>DevOps — Docker & CI/CD</figcaption>
+        </figure>
+        <figure class="slide s4">
+          <img src="/assets/images/me-4.webp" alt="Diego Medina - Data & Databases" loading="lazy" decoding="async" />
+          <figcaption>Data — SQL / NoSQL</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="container section projects">
+    <header class="projects-head">
+      <h2>Projects</h2>
+      <ul class="filters" role="tablist" aria-label="Filter projects by type">
+        <li><button class="filter is-active" data-filter="all">All</button></li>
+        <li><button class="filter" data-filter="web">Web</button></li>
+        <li><button class="filter" data-filter="erp">ERP</button></li>
+        <li><button class="filter" data-filter="landing">Landing</button></li>
+        <li><button class="filter" data-filter="api">API</button></li>
+      </ul>
+    </header>
+
+    <div class="projects-grid">
+      <!-- Proyecto 1 -->
+      <article class="p-card" data-tags="web landing seo html css js">
+        <div class="p-media" data-tilt>
+          <img
+            src="/assets/images/kumis-800.webp"
+            sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            alt="Casa del Kumis — sitio web informativo"
+            loading="lazy" decoding="async">
+        </div>
+        <div class="p-body">
+          <h3>Casa del Kumis — Website</h3>
+          <p>Landing y sitio informativo responsive con foco en identidad, catálogo y SEO on-page.</p>
+          <ul class="p-stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO</li></ul>
+          <div class="p-actions">
+            <button class="btn btn-sm show-case" data-case="kumis">Case Study</button>
+            <a class="btn btn-sm" href="https://pagina-web-demo.onrender.com/index.html" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Proyecto 2 -->
+      <article class="p-card" data-tags="erp desktop java mvc mysql swing ai">
+        <div class="p-media" data-tilt>
+          <img
+            src="/assets/images/erp-800.webp"
+            sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            alt="ERP Ventas de Alimentos — Java MVC"
+            loading="lazy" decoding="async">
+        </div>
+        <div class="p-body">
+          <h3>ERP — Ventas de Alimentos</h3>
+          <p>Sistema ERP en Java (MVC) para ventas, clientes, stock y reportes. En desarrollo activo.</p>
+          <ul class="p-stack"><li>Java SE</li><li>MySQL</li><li>Swing</li><li>MVC</li></ul>
+          <div class="p-actions">
+            <button class="btn btn-sm show-case" data-case="erp">Case Study</button>
+            <a class="btn btn-sm" href="https://github.com/otpvayne/ERP-ventas-de-alimentos.git" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- BANNERS con UTM (UNA vez) -->
+    <!-- ===== Portafolios de compañeros ===== -->
+<section class="friend-banners container" aria-label="Portafolios de compañeros">
+  <!-- Banner 1 -->
+  <a
+    class="friend-card theme-ice"
+    data-friend="Ana"
+    data-tilt
+    href="https://PORTAFOLIO_COMP1.com/?utm_source=portfolio&utm_medium=banner&utm_campaign=referidos"
+    target="_blank" rel="noopener"
+    aria-label="Abrir portafolio de Andres">
+    <div class="fc-content">
+      <div class="fc-avatar">A</div>
+      <div class="fc-text">
+        <h3>Portafolio de Andres</h3>
+        <p>Full Stack</p>
+      </div>
+      <span class="fc-cta">Visitar</span>
+    </div>
+  </a>
+
+  <!-- Banner 2 -->
+  <a
+    class="friend-card theme-sunset"
+    data-friend="Santiago"
+    data-tilt
+    href="https://PORTAFOLIO_COMP2.com/?utm_source=portfolio&utm_medium=banner&utm_campaign=referidos"
+    target="_blank" rel="noopener"
+    aria-label="Abrir portafolio de Santiago">
+    <div class="fc-content">
+      <div class="fc-avatar">S</div> <!--<div class="fc-avatar">A</div> por
+<img class="fc-avatar img" src="/assets/images/ana-logo.png" alt="Ana">-->
+      <div class="fc-text">
+        <h3>Portafolio de Santiago</h3>
+        <p>Full Stack • Scrum</p>
+      </div>
+      <span class="fc-cta">Visitar</span>
+    </div>
+  </a>
+</section>
+
+
+  <!-- EXPERIENCE (fuera de Projects) -->
+  <section id="experience" class="experience-section">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="timeline">
+
+      <!-- Item 1 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <span class="date">2025 – Present</span>
+          <h3>Full Stack Developer — Casa del Kumis</h3>
+          <ul>
+            <li>Developed responsive website with SEO optimization and subtle animations.</li>
+            <li>Designed content structure and scalable components (mobile-first).</li>
+            <li>Improved UX with fast WebP media and lazy loading.</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">HTML</span>
+            <span class="tech">CSS</span>
+            <span class="tech">JavaScript</span>
+            <span class="tech">SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <span class="date">2024 – 2025</span>
+          <h3>Java Developer — ERP Sales Food System</h3>
+          <ul>
+            <li>Built ERP to manage sales, inventory and customers (Java MVC + MySQL).</li>
+            <li>Desktop UI with Swing; JDBC persistence and Excel export (POI).</li>
+            <li>Experimental WhatsApp notifications on successful sales.</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">Java</span>
+            <span class="tech">MySQL</span>
+            <span class="tech">JDBC</span>
+            <span class="tech">Swing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <span class="date">2023 – 2024</span>
+          <h3>Freelance Web Developer</h3>
+          <ul>
+            <li>Custom web solutions for small businesses (landing + e-commerce MVPs).</li>
+            <li>Component systems and design tokens to scale UI consistency.</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech">React</span>
+            <span class="tech">Tailwind</span>
+            <span class="tech">MongoDB</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools" class="tools-section">
+    <h2>🛠 Tools & Technologies</h2>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="mainstack">Main Stack</button>
+      <button class="tab-button" data-tab="frontend">Frontend</button>
+      <button class="tab-button" data-tab="backend">Backend</button>
+      <button class="tab-button" data-tab="devops">DevOps</button>
+    </div>
+
+    <div class="tab-content active" id="mainstack">
+      <div class="tech-grid">
+        <div class="tech-card"><i class="devicon-html5-plain colored"></i><p>HTML5</p><div class="skill-bar"><span style="width:95%"></span></div></div>
+        <div class="tech-card"><i class="devicon-css3-plain colored"></i><p>CSS3</p><div class="skill-bar"><span style="width:90%"></span></div></div>
+        <div class="tech-card"><i class="devicon-javascript-plain colored"></i><p>JavaScript</p><div class="skill-bar"><span style="width:90%"></span></div></div>
+        <div class="tech-card"><i class="devicon-react-original colored"></i><p>React</p><div class="skill-bar"><span style="width:60%"></span></div></div>
+        <div class="tech-card"><i class="devicon-nodejs-plain colored"></i><p>Node.js</p><div class="skill-bar"><span style="width:88%"></span></div></div>
+        <div class="tech-card"><i class="devicon-postgresql-plain colored"></i><p>PostgreSQL</p><div class="skill-bar"><span style="width:90%"></span></div></div>
+        <div class="tech-card"><i class="devicon-docker-plain colored"></i><p>Docker</p><div class="skill-bar"><span style="width:55%"></span></div></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="frontend">
+      <div class="tech-grid">
+        <div class="tech-card"><i class="devicon-tailwindcss-plain colored"></i><p>Tailwind CSS</p><div class="skill-bar"><span style="width:85%"></span></div></div>
+        <div class="tech-card"><i class="devicon-vitejs-plain colored"></i><p>Vite</p><div class="skill-bar"><span style="width:60%"></span></div></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="backend">
+      <div class="tech-grid">
+        <div class="tech-card"><i class="devicon-nodejs-plain colored"></i><p>Node.js</p><div class="skill-bar"><span style="width:88%"></span></div></div>
+        <div class="tech-card"><i class="devicon-express-original"></i><p>Express</p><div class="skill-bar"><span style="width:85%"></span></div></div>
+        <div class="tech-card"><i class="devicon-fastapi-plain colored"></i><p>FastAPI</p><div class="skill-bar"><span style="width:78%"></span></div></div>
+        <div class="tech-card"><i class="devicon-nestjs-plain colored"></i><p>NestJS</p><div class="skill-bar"><span style="width:55%"></span></div></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="devops">
+      <div class="tech-grid">
+        <div class="tech-card"><i class="devicon-git-plain colored"></i><p>Git</p><div class="skill-bar"><span style="width:90%"></span></div></div>
+        <div class="tech-card"><i class="devicon-github-original colored"></i><p>GitHub</p><div class="skill-bar"><span style="width:95%"></span></div></div>
+        <div class="tech-card"><i class="devicon-vercel-original colored"></i><p>Vercel</p><div class="skill-bar"><span style="width:78%"></span></div></div>
+        <div class="tech-card"><i class="devicon-linux-plain colored"></i><p>Linux CLI</p><div class="skill-bar"><span style="width:45%"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (sin formulario) -->
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h2 id="contact-title">Let’s build something</h2>
+        <p class="contact-sub">
+          Do you have an idea, a product to launch or a system to improve?
+          I can help you turn it into reliable, scalable software.
+        </p>
+
+        <div class="contact-actions">
+          <button class="btn ghost" id="copyEmailBtn" data-email="generalboomsycol@gmail.com" aria-label="Copy email">Copy email</button>
+          <a class="btn primary" href="mailto:generalboomsycol@gmail.com?subject=Project%20inquiry%20from%20website" aria-label="Send email">Email</a>
+          <a class="btn outline" id="waBtn" target="_blank" rel="noopener" aria-label="Open WhatsApp chat">WhatsApp</a>
+        </div>
+
+        <ul class="contact-meta">
+          <li><strong>Email:</strong> <a href="mailto:generalboomsycol@gmail.com">generalboomsycol@gmail.com</a></li>
+          <li><strong>Based in:</strong> Colombia (UTC-5)</li>
+          <li class="social">
+            <a href="https://github.com/otpvayne" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+            <span>·</span>
+            <a href="https://www.linkedin.com/in/diego-medina-software/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block scripts %}<script>
+document.querySelectorAll('.friend-card').forEach(a => {
+  a.addEventListener('click', () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'friend_banner_click',
+      friend: a.dataset.friend,                 // "Nino" / "Andres"
+      url: a.href
+    });
+  });
+});
+</script>
+{% endblock %}
