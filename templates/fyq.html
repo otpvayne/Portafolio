@@ -1,16 +1,67 @@
-{% extends 'base.html' %}
-{% block title %}FYQ - Preguntas frecuentes{% endblock %}
+{% extends "base.html" %}
+{% block title %}Preguntas Frecuentes (FYQ){% endblock %}
+
 {% block content %}
-<h1>Preguntas frecuentes</h1>
-<section class="faq">
-  {% for q in questions %}
-  <details class="faq-item" {% if forloop.first %}open{% endif %}>
-    <summary>{{ q.title }}</summary>
-    <div class="answer">{{ q.answer|linebreaks }}</div>
-  </details>
+<section class="faq-hero container" aria-labelledby="faq-title">
+  <h1 id="faq-title" class="faq-title">Preguntas Frecuentes</h1>
+  <p class="faq-sub">Respuestas rápidas sobre mi trabajo, proceso y servicios.</p>
+
+  <div class="faq-controls">
+    <input id="faqSearch" class="faq-search" type="search" placeholder="Buscar en las preguntas…" aria-label="Buscar preguntas" />
+    <div class="faq-actions">
+      <button id="btnExpandAll" class="btn outline" type="button">Expandir todo</button>
+      <button id="btnCollapseAll" class="btn ghost" type="button">Contraer todo</button>
+    </div>
+  </div>
+</section>
+
+<section class="faq-list container" id="faqList">
+  {% comment %} Itera FAQs gestionadas desde el admin {% endcomment %}
+  {% for faq in faqs %}
+  <article class="faq-item" id="q-{{ faq.id }}">
+    <h3 class="faq-q-wrap">
+      <button
+        class="faq-q"
+        aria-expanded="false"
+        aria-controls="a-{{ faq.id }}"
+        data-faq-id="{{ faq.id }}"
+      >
+        <span class="q-bullet" aria-hidden="true">Q</span>
+        <span class="q-text">{{ faq.question }}</span>
+        <svg class="q-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </h3>
+    <div id="a-{{ faq.id }}" class="faq-a" hidden>
+      <div class="faq-a-inner">
+        {{ faq.answer|linebreaksbr }}
+      </div>
+    </div>
+  </article>
   {% empty %}
-  <p>No hay preguntas registradas.</p>
+  <p id="faq-empty" class="faq-empty">Aún no hay preguntas cargadas.</p>
   {% endfor %}
 </section>
 {% endblock %}
 
+{% block scripts %}
+  <script src="/assets/js/faq.js"></script>
+
+  {# SEO: JSON-LD FAQPage #}
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {% for faq in faqs %}
+      {
+        "@type":"Question",
+        "name":"{{ faq.question|escapejs }}",
+        "acceptedAnswer":{"@type":"Answer","text":"{{ faq.answer|escapejs }}"}
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+{% endblock %}
