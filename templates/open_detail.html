@@ -12,7 +12,7 @@
   {% if item.image %}
   <figure class="open-detail-media">
     <img
-      src="{{ item.image|trim }}" alt="{{ item.title }}" loading="lazy" decoding="async"
+      src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" decoding="async"
       referrerpolicy="no-referrer"
       onerror="this.onerror=null;this.src='/assets/images/erp-1200.webp';"
     >
@@ -32,8 +32,8 @@
     </ul>
     {% endif %}
 
-    {% if item.link %}
-    <p><a class="btn outline" href="{{ item.link }}" target="_blank" rel="noopener">Abrir link externo</a></p>
+    {% if item.external_link %}
+    <p><a class="btn outline" href="{{ item.external_link }}" target="_blank" rel="noopener">Abrir link externo</a></p>
     {% endif %}
   </section>
 
@@ -46,7 +46,7 @@
         <a class="open-thumb" href="{% url 'open_detail' r.slug %}">
           {% if r.image %}
           <img
-            src="{{ r.image|trim }}" alt="{{ r.title }}" loading="lazy"
+            src="{{ r.image }}" alt="{{ r.title }}" loading="lazy"
             referrerpolicy="no-referrer"
             onerror="this.onerror=null;this.src='/assets/images/kumis-800.webp';"
           >
