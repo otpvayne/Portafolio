@@ -40,7 +40,11 @@
   <article class="open-card" data-title="{{ item.title|escape }}" data-tags="{{ item.keywords|default:''|escape }}">
     <a class="open-thumb" href="{% url 'open_detail' item.slug %}" data-gtm="open_card_click" data-id="{{ item.id }}">
       {% if item.image %}
-        <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy" decoding="async">
+        <img
+          src="{{ item.image|trim }}" alt="{{ item.title }}" loading="lazy" decoding="async"
+          referrerpolicy="no-referrer"
+          onerror="this.onerror=null;this.src='/assets/images/kumis-800.webp';"
+        >
       {% endif %}
     </a>
     <div class="open-body">
@@ -48,6 +52,7 @@
         <a href="{% url 'open_detail' item.slug %}">{{ item.title }}</a>
       </h3>
       <p class="open-summary">{{ item.summary }}</p>
+
       {% if item.tags %}
       <ul class="open-card-tags">
         {% for t in item.tags %}
@@ -55,6 +60,7 @@
         {% endfor %}
       </ul>
       {% endif %}
+
       <div class="open-actions">
         <a class="btn btn-sm" href="{% url 'open_detail' item.slug %}">Ver detalle</a>
         {% if item.link %}

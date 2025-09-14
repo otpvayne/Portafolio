@@ -11,7 +11,11 @@
 
   {% if item.image %}
   <figure class="open-detail-media">
-    <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy" decoding="async">
+    <img
+      src="{{ item.image|trim }}" alt="{{ item.title }}" loading="lazy" decoding="async"
+      referrerpolicy="no-referrer"
+      onerror="this.onerror=null;this.src='/assets/images/erp-1200.webp';"
+    >
   </figure>
   {% endif %}
 
@@ -40,7 +44,13 @@
       {% for r in related %}
       <article class="open-card">
         <a class="open-thumb" href="{% url 'open_detail' r.slug %}">
-          {% if r.image %}<img src="{{ r.image.url }}" alt="{{ r.title }}" loading="lazy">{% endif %}
+          {% if r.image %}
+          <img
+            src="{{ r.image|trim }}" alt="{{ r.title }}" loading="lazy"
+            referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='/assets/images/kumis-800.webp';"
+          >
+          {% endif %}
         </a>
         <div class="open-body">
           <h3 class="open-card-title"><a href="{% url 'open_detail' r.slug %}">{{ r.title }}</a></h3>
