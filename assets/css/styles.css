@@ -857,3 +857,32 @@ body.menu-open{ overflow:hidden; overscroll-behavior:contain; } /* Evita scroll 
 }
 .prose p { margin: .65rem 0; }
 .prose a { color: #8ecbff; text-decoration: underline; }
+/* ── OPEN DETAIL: imagen más pequeña ─────────────────────────── */
+.open-detail-media {
+  display: grid;
+  place-items: center;     /* centrada siempre */
+  margin: 1rem 0 2rem;
+}
+
+/* Tamaño del contenedor de la imagen */
+.open-detail .media-frame{
+  /* ancho máximo MUCHO menor que antes */
+  width: clamp(280px, 42vw, 640px); /* <– ajusta 640 si la quieres aún más chica */
+  aspect-ratio: 4 / 3;              /* relación más compacta (antes 16/9) */
+  border-radius: 18px;
+}
+
+/* En pantallas anchas, todavía más discreta */
+@media (min-width: 1200px){
+  .open-detail .media-frame{
+    width: 560px;                    /* fuerza un techo en desktop grande */
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* La imagen como tal no cambia: se adapta al frame */
+.open-detail .media-frame img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
