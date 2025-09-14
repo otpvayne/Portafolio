@@ -1,55 +1,49 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block title %}{{ item.title }} — Open{% endblock %}
 
 {% block content %}
-<article class="open-detail container">
-  <header class="open-detail-head">
-    <a class="btn ghost" href="{% url 'open_list' %}">← Volver</a>
-    <h1>{{ item.title }}</h1>
-    <p class="open-detail-summary">{{ item.summary }}</p>
-  </header>
+<a href="{% url 'open_list' %}" class="back">← Volver</a>
 
-  {% if item.image %}
-  <figure class="open-detail-media">
-    <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy" decoding="async">
-  </figure>
+<article class="open-detail">
+  <h1 class="open-detail__title">{{ item.title }}</h1>
+  {% if item.summary %}<p class="open-detail__summary">{{ item.summary }}</p>{% endif %}
+
+  {% with u=item.image|default_if_none:'' %}
+    <img
+      class="open-detail__image"
+      src="{{ u|trim }}"
+      alt="{{ item.title }}"
+      loading="lazy" decoding="async"
+      referrerpolicy="no-referrer"
+      onerror="this.onerror=null;this.src='/assets/images/erp-1200.webp';"
+    >
+  {% endwith %}
+
+  {% if item.description %}
+    <div class="open-detail__body">{{ item.description|linebreaks }}</div>
   {% endif %}
 
-  <section class="open-detail-body">
-    <div class="prose">
-      {{ item.description|linebreaksbr }}
-    </div>
-
-    {% if item.tags %}
-    <ul class="open-tags">
-      {% for t in item.tags %}
-      <li><a class="tag" href="{% url 'open_list' %}?tag={{ t|urlencode }}">#{{ t }}</a></li>
-      {% endfor %}
+  {% if tags %}
+    <ul class="open-detail__tags">
+      {% for t in tags %}<li>#{{ t }}</li>{% endfor %}
     </ul>
-    {% endif %}
+  {% endif %}
 
-    {% if item.link %}
-    <p><a class="btn outline" href="{{ item.link }}" target="_blank" rel="noopener">Abrir link externo</a></p>
-    {% endif %}
-  </section>
-
-  {% if related %}
-  <footer class="open-related">
-    <h2>También te puede interesar</h2>
-    <div class="open-grid">
-      {% for r in related %}
-      <article class="open-card">
-        <a class="open-thumb" href="{% url 'open_detail' r.slug %}">
-          {% if r.image %}<img src="{{ r.image.url }}" alt="{{ r.title }}" loading="lazy">{% endif %}
-        </a>
-        <div class="open-body">
-          <h3 class="open-card-title"><a href="{% url 'open_detail' r.slug %}">{{ r.title }}</a></h3>
-          <p class="open-summary">{{ r.summary }}</p>
-        </div>
-      </article>
-      {% endfor %}
-    </div>
-  </footer>
+  {% if item.external_link %}
+    <p class="open-detail__out"><a href="{{ item.external_link }}" target="_blank" rel="noopener">Abrir recurso externo ↗</a></p>
   {% endif %}
 </article>
+{% endblock %}
+
+{% block head %}
+<style>
+.back{display:inline-block;margin:1.25rem 0 .75rem;padding:.6rem .9rem;border:1px solid #1f2937;border-radius:.8rem;background:#0b0f17;color:#9cc2ff;text-decoration:none}
+.open-detail__title{font-size:clamp(1.6rem,2.2vw,2.6rem);margin:.5rem 0;color:#c7d2fe}
+.open-detail__summary{color:#cbd5e1;margin:.25rem 0 1rem}
+.open-detail__image{width:100%;max-width:1100px;display:block;margin:1rem 0 1.25rem;border-radius:1rem;aspect-ratio:16/9;object-fit:cover;border:1px solid #1f2937}
+.open-detail__body{color:#d1d5db;line-height:1.75}
+.open-detail__tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0;padding:0;list-style:none}
+.open-detail__tags li{padding:.35rem .6rem;border:1px solid #334155;border-radius:999px;background:#0b0f17;color:#9ca3af;font-size:.85rem}
+.open-detail__out a{color:#60a5fa}
+</style>
 {% endblock %}

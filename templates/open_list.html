@@ -1,74 +1,60 @@
-{% extends "base.html" %}
-{% block title %}Open — Colección{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Open — Recetas de Código{% endblock %}
 
 {% block content %}
-<section class="open-hero container">
-  <h1 class="open-title">Open</h1>
-  <p class="open-sub">Colección administrada desde el CMS: imagen, título, resumen, descripción, tags y detalle.</p>
+<section class="open">
+  <header class="open__head">
+    <h1>Recetas de código (Open)</h1>
+    <form class="open__search" method="get" action="">
+      <input type="search" name="q" value="{{ q }}" placeholder="Buscar por título, descripción o tags…">
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
 
-  <form class="open-toolbar" method="get" action=".">
-    <input
-      class="open-search"
-      type="search" name="q"
-      value="{{ q }}"
-      placeholder="Buscar por título, resumen, descripción o tag…"
-      aria-label="Buscar items"
-    />
-    {% if active_tag %}
-      <input type="hidden" name="tag" value="{{ active_tag }}">
-    {% endif %}
-    <button class="btn primary" type="submit">Buscar</button>
-    <a class="btn ghost" href="{% url 'open_list' %}">Limpiar</a>
-  </form>
-
-  {% if tags %}
-  <ul class="open-tags">
-    {% for t in tags %}
-      <li>
-        <a class="tag {% if active_tag == t %}is-active{% endif %}"
-           href="{% url 'open_list' %}?tag={{ t|urlencode }}{% if q %}&q={{ q|urlencode }}{% endif %}">
-          #{{ t }}
+  {% if items %}
+  <ul class="open__grid">
+    {% for item in items %}
+      <li class="card">
+        <a class="card__link" href="{% url 'open_detail' item.slug %}" aria-label="{{ item.title }}">
+          {% with u=item.image|default_if_none:'' %}
+            <img
+              class="card__image"
+              src="{{ u|trim }}"
+              alt="{{ item.title }}"
+              loading="lazy" decoding="async"
+              referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='/assets/images/kumis-800.webp';"
+            >
+          {% endwith %}
+          <div class="card__body">
+            <h2 class="card__title">{{ item.title }}</h2>
+            {% if item.summary %}<p class="card__summary">{{ item.summary }}</p>{% endif %}
+            <span class="card__cta">Ver detalle</span>
+          </div>
         </a>
       </li>
     {% endfor %}
   </ul>
+  {% else %}
+    <p class="empty">Aún no hay elementos publicados.</p>
   {% endif %}
-</section>
-
-<section class="open-grid container" id="openGrid">
-  {% for item in items %}
-  <article class="open-card" data-title="{{ item.title|escape }}" data-tags="{{ item.keywords|default:''|escape }}">
-    <a class="open-thumb" href="{% url 'open_detail' item.slug %}" data-gtm="open_card_click" data-id="{{ item.id }}">
-      {% if item.image %}
-        <img src="{{ item.image.url }}" alt="{{ item.title }}" loading="lazy" decoding="async">
-      {% endif %}
-    </a>
-    <div class="open-body">
-      <h3 class="open-card-title">
-        <a href="{% url 'open_detail' item.slug %}">{{ item.title }}</a>
-      </h3>
-      <p class="open-summary">{{ item.summary }}</p>
-      {% if item.tags %}
-      <ul class="open-card-tags">
-        {% for t in item.tags %}
-        <li><a href="{% url 'open_list' %}?tag={{ t|urlencode }}{% if q %}&q={{ q|urlencode }}{% endif %}">#{{ t }}</a></li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      <div class="open-actions">
-        <a class="btn btn-sm" href="{% url 'open_detail' item.slug %}">Ver detalle</a>
-        {% if item.link %}
-          <a class="btn btn-sm outline" href="{{ item.link }}" target="_blank" rel="noopener">Link</a>
-        {% endif %}
-      </div>
-    </div>
-  </article>
-  {% empty %}
-    <p class="open-empty">No hay items publicados.</p>
-  {% endfor %}
 </section>
 {% endblock %}
 
-{% block scripts %}
-<script src="/assets/js/open.js"></script>
+{% block head %}
+<style>
+.open__head{display:flex;gap:1rem;align-items:end;justify-content:space-between;margin:2rem 0 1rem}
+.open__search{display:flex;gap:.5rem}
+.open__search input{min-width:260px;padding:.65rem .9rem;border-radius:.75rem;border:1px solid #1f2937;background:#0b0f17;color:#cbd5e1}
+.open__search button{padding:.65rem .9rem;border-radius:.75rem;border:1px solid #334155;background:#111827;color:#e5e7eb}
+.open__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin:1rem 0 3rem;list-style:none;padding:0}
+.card{border:1px solid #1f2937;background:linear-gradient(180deg,#0b0f17,#0c121c);border-radius:1rem;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.card__link{display:block;color:inherit;text-decoration:none}
+.card__image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:radial-gradient(120% 120% at 0% 0%, #0b1220 0%, #09101a 100%)}
+.card__body{padding:1rem 1.1rem 1.25rem}
+.card__title{font-size:1.05rem;line-height:1.35;margin:0 0 .45rem;color:#c7d2fe}
+.card__summary{margin:.25rem 0 1rem;color:#cbd5e1}
+.card__cta{font-weight:600;color:#60a5fa}
+.empty{opacity:.75;margin:3rem 0}
+</style>
 {% endblock %}
