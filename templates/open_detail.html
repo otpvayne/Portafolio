@@ -3,53 +3,70 @@
 
 {% block content %}
 <article class="open-detail container">
+
+  <!-- Barra superior -->
   <header class="open-detail-head">
     <a class="btn ghost" href="{% url 'open_list' %}">← Volver</a>
-    <h1>{{ item.title }}</h1>
-    <p class="open-detail-summary">{{ item.summary }}</p>
+    <h1 class="open-detail-title">{{ item.title }}</h1>
+    {% if item.summary %}
+      <p class="open-detail-lead">{{ item.summary }}</p>
+    {% endif %}
+
+    {% if item.tags %}
+    <ul class="open-detail-tags">
+      {% for t in item.tags %}
+        <li><a class="chip" href="{% url 'open_list' %}?tag={{ t|urlencode }}">#{{ t }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </header>
 
+  <!-- Media con glow / máscara -->
   {% if item.image %}
-  <figure class="open-detail-media">
-    <img
-      src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" decoding="async"
-      referrerpolicy="no-referrer"
-      onerror="this.onerror=null;this.src='/assets/images/erp-1200.webp';"
-    >
+  <figure class="open-detail-media" aria-label="Imagen principal">
+    <div class="media-frame">
+      <img
+        src="{{ item.image }}"
+        alt="{{ item.title }}"
+        loading="lazy"
+        decoding="async"
+        referrerpolicy="no-referrer"
+        onerror="this.onerror=null;this.src='/assets/images/erp-1200.webp';"
+      />
+    </div>
   </figure>
   {% endif %}
 
+  <!-- Contenido -->
   <section class="open-detail-body">
     <div class="prose">
       {{ item.description|linebreaksbr }}
     </div>
 
-    {% if item.tags %}
-    <ul class="open-tags">
-      {% for t in item.tags %}
-      <li><a class="tag" href="{% url 'open_list' %}?tag={{ t|urlencode }}">#{{ t }}</a></li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-
-    {% if item.external_link %}
-    <p><a class="btn outline" href="{{ item.external_link }}" target="_blank" rel="noopener">Abrir link externo</a></p>
-    {% endif %}
+    <div class="open-detail-actions">
+      {% if item.external_link %}
+        <a class="btn primary" href="{{ item.external_link }}" target="_blank" rel="noopener">Ver demo / enlace</a>
+      {% endif %}
+      <button class="btn outline" id="copyLinkBtn" type="button" data-url="{{ request.build_absolute_uri }}">Copiar enlace</button>
+    </div>
   </section>
 
+  <!-- Relacionados -->
   {% if related %}
   <footer class="open-related">
-    <h2>También te puede interesar</h2>
+    <h2 class="open-related-title">También te puede interesar</h2>
     <div class="open-grid">
       {% for r in related %}
       <article class="open-card">
         <a class="open-thumb" href="{% url 'open_detail' r.slug %}">
           {% if r.image %}
-          <img
-            src="{{ r.image }}" alt="{{ r.title }}" loading="lazy"
-            referrerpolicy="no-referrer"
-            onerror="this.onerror=null;this.src='/assets/images/kumis-800.webp';"
-          >
+            <img
+              src="{{ r.image }}"
+              alt="{{ r.title }}"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              onerror="this.onerror=null;this.src='/assets/images/kumis-800.webp';"
+            />
           {% endif %}
         </a>
         <div class="open-body">
@@ -62,4 +79,23 @@
   </footer>
   {% endif %}
 </article>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Copiar enlace
+  (function () {
+    const btn = document.getElementById('copyLinkBtn');
+    if (!btn) return;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.url);
+        btn.textContent = '¡Enlace copiado!';
+        setTimeout(() => btn.textContent = 'Copiar enlace', 1800);
+      } catch (e) {
+        alert('No se pudo copiar el enlace.');
+      }
+    });
+  }());
+</script>
 {% endblock %}

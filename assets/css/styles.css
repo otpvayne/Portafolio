@@ -717,3 +717,143 @@ body.menu-open{ overflow:hidden; overscroll-behavior:contain; } /* Evita scroll 
 .open-detail-body .prose{line-height:1.85}
 .open-related{margin-top:28px}
 .open-related h2{font-size:1.2rem;margin:0 0 10px}
+/* ========== OPEN DETAIL – Modern Glass / Neon ========== */
+
+.open-detail { 
+  max-width: 1100px;
+  margin: 3.5rem auto 5rem;
+}
+
+.open-detail-head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.open-detail-title {
+  margin: .25rem 0 0 0;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  /* gradiente en texto */
+  background: linear-gradient(90deg,#c7d2fe 0%,#80d0ff 60%,#a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.open-detail-lead {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: #b8c0cc;
+  margin: 0 0 .25rem 0;
+}
+
+/* Chips */
+.open-detail-tags {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  list-style: none; padding: 0; margin: .25rem 0 0;
+}
+
+.chip {
+  display: inline-block;
+  padding: .4rem .7rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  text-decoration: none;
+  color: #cde7ff;
+  background:
+    radial-gradient(70% 120% at 30% 10%, rgba(164,219,255,.25), transparent 70%),
+    rgba(47,65,91,.35);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(121,162,255,.25);
+  transition: transform .15s ease, border-color .2s ease;
+}
+.chip:hover { transform: translateY(-1px); border-color: rgba(121,162,255,.45); }
+
+/* Media: tarjeta con glow + máscara */
+.open-detail-media {
+  position: relative;
+  margin: 1.25rem 0 2rem;
+}
+
+.media-frame {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;           /* controlamos altura */
+  /* “neon glow” suave */
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.55),
+    0 0 0 1px rgba(148,163,184,.09);
+  isolation: isolate;
+}
+.media-frame::before {
+  content: "";
+  position: absolute; inset: -30%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(94,234,212,.18), transparent 60%),
+              radial-gradient(40% 60% at 75% 10%, rgba(125,211,252,.18), transparent 60%),
+              radial-gradient(60% 40% at 20% 90%, rgba(167,139,250,.20), transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+}
+.media-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;               /* evita que la imagen “se deforme” */
+  transform: scale(1.01);
+  transition: transform .35s ease;
+  border-radius: inherit;
+}
+.media-frame:hover img { transform: scale(1.04); }
+
+/* Cuerpo */
+.open-detail-body {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: .25rem;
+}
+
+.open-detail-actions {
+  display: flex; flex-wrap: wrap; gap: .75rem;
+}
+
+/* Related */
+.open-related { margin-top: 3rem; }
+.open-related-title {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  margin: 0 0 1rem;
+  color: #cfd8e3;
+}
+
+/* Cards relacionados (reusa estilos de tu grid) */
+.open-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.open-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(20, 25, 35, 0.55);
+  border: 1px solid rgba(148,163,184,.12);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.open-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(148,163,184,.25);
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+.open-thumb img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.open-body { padding: .9rem .95rem 1.05rem; }
+.open-card-title { margin: 0 0 .35rem; font-size: 1.05rem; }
+.open-summary { margin: 0; color: #a7b0bd; }
+
+/* Tipografía para el contenido largo */
+.prose {
+  color: #d6deea;
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+.prose p { margin: .65rem 0; }
+.prose a { color: #8ecbff; text-decoration: underline; }
