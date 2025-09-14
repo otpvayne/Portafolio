@@ -1,16 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
 from core.views import home
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('fyq/', include('core.urls')),
-    path('open_list/', include('catalog.urls')),
+    path('open/', include('catalog.urls')),              # ← importante
     path('contactame/', include('contact.urls')),
-]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # redirige /open_list/ -> /open/
+    path('open_list/', RedirectView.as_view(pattern_name='open_list', permanent=True)),
+]
