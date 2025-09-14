@@ -13,12 +13,9 @@ def open_list(request):
             Q(description__icontains=q) |
             Q(keywords__icontains=q)
         )
-    ctx = {"items": items, "q": q}
-    return render(request, 'open/index.html', ctx)  # ← asegúrate de crear este template
+    return render(request, 'open_list.html', {"items": items, "q": q})
 
 def open_detail(request, slug):
     item = get_object_or_404(OpenItem, slug=slug, is_published=True)
-    # keywords a lista (si vienen coma-separadas)
     tags = [k.strip() for k in (item.keywords or '').split(',') if k.strip()]
-    ctx = {"item": item, "tags": tags}
-    return render(request, 'open/detail.html', ctx)  # ← y este template también
+    return render(request, 'open_detail.html', {"item": item, "tags": tags})
