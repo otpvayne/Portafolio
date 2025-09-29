@@ -46,3 +46,4 @@ LinkedIn: https://www.linkedin.com/in/diego-medina-software/
 
 📄 Licencia
 Uso personal/portafolio. Si deseas reutilizar partes, menciona autoría.
+LINK DESPLEGADO: https://portfolio-ont5.onrender.com/
