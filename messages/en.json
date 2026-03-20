@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "experience": "Experience",
+    "stack": "Stack",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "SOFTWARE ENGINEER",
+    "resume": "DOWNLOAD CV"
+  },
+  "about": {
+    "title": "About Me",
+    "body": "Full stack software engineer with experience building web applications and custom systems across diverse contexts. I specialize in spotting real-world needs and turning them into effective, user-focused software. I combine technical excellence with strategic thinking, integrating agile practices, architectural design, and clean, testable code. I work as a freelancer in my spare time and I'm currently building a tech startup.",
+    "slides": [
+      "Frontend — UI/UX with React",
+      "Backend — APIs with Node.js",
+      "DevOps — Docker & CI/CD",
+      "Data — SQL / NoSQL"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "filters": {
+      "all": "All",
+      "web": "Web",
+      "pos": "POS",
+      "fintech": "Fintech",
+      "erp": "ERP",
+      "api": "API"
+    },
+    "caseStudy": "Case Study",
+    "live": "Live",
+    "repo": "Repository",
+    "items": [
+      {
+        "id": "kumis",
+        "title": "Casa del Kumis — Website",
+        "description": "Responsive landing and informational site focused on brand identity, catalog and on-page SEO.",
+        "stack": ["HTML", "CSS", "JavaScript", "SEO"],
+        "tags": ["web", "landing"],
+        "live": "https://pagina-web-demo.onrender.com/index.html",
+        "image": "/assets/images/kumis-800.webp"
+      },
+      {
+        "id": "pos",
+        "title": "POS — Casa del Kumis",
+        "description": "Point-of-sale system running in production across 18 branches. Billing integrated with Credinbanco API for card payments via payment terminal.",
+        "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
+        "tags": ["pos", "web", "api", "fintech"],
+        "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
+        "image": "/assets/images/kumis-800.webp"
+      },
+      {
+        "id": "punteo",
+        "title": "Bank Reconciliation Tool",
+        "description": "Financial tool that cross-references payment vouchers against bank statements in detail to verify everything is in order.",
+        "stack": ["React", "Render", "Vercel", "APIs"],
+        "tags": ["fintech", "web", "api"],
+        "repo": "https://github.com/otpvayne/casa-del-kumis.git",
+        "image": "/assets/images/kumis-800.webp"
+      },
+      {
+        "id": "erp",
+        "title": "ERP — Food Sales System",
+        "description": "Java MVC ERP system for managing sales, customers, inventory and reports. Actively in development.",
+        "stack": ["Java SE", "MySQL", "Swing", "MVC"],
+        "tags": ["erp"],
+        "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
+        "image": "/assets/images/erp-800.webp"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "date": "2025 – Present",
+        "role": "Software Developer",
+        "company": "Casa del Kumis",
+        "bullets": [
+          "POS system deployed across 18 active branches with Credinbanco API integration for card payments via terminal.",
+          "Bank reconciliation tool (punteo) that automatically matches vouchers against bank statements to detect discrepancies.",
+          "Maintained company website with SEO optimization, WebP media and mobile-first responsive design."
+        ],
+        "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
+      },
+      {
+        "date": "2024 – 2025",
+        "role": "Java Developer",
+        "company": "ERP Sales Food System",
+        "bullets": [
+          "Built ERP to manage sales, inventory and customers (Java MVC + MySQL).",
+          "Desktop UI with Swing; JDBC persistence and Excel export (POI).",
+          "Experimental WhatsApp notifications on successful sales."
+        ],
+        "stack": ["Java", "MySQL", "JDBC", "Swing"]
+      },
+      {
+        "date": "2023 – 2024",
+        "role": "Freelance Web Developer",
+        "company": "Independent",
+        "bullets": [
+          "Custom web solutions for small businesses (landing + e-commerce MVPs).",
+          "Component systems and design tokens to scale UI consistency."
+        ],
+        "stack": ["React", "Tailwind", "MongoDB"]
+      }
+    ]
+  },
+  "tools": {
+    "title": "Tools & Technologies",
+    "tabs": {
+      "mainstack": "Main Stack",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps"
+    }
+  },
+  "contact": {
+    "title": "Let's build something",
+    "subtitle": "Do you have an idea, a product to launch or a system to improve? I can help you turn it into reliable, scalable software.",
+    "copyEmail": "Copy email",
+    "copied": "Copied!",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "basedIn": "Based in",
+    "location": "Colombia (UTC-5)"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about how I work.",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+    "searchPlaceholder": "Search question...",
+    "noResults": "No questions found."
+  },
+  "contactPage": {
+    "title": "Let's talk",
+    "subtitle": "Do you have an idea or project? Let's build it with quality, performance and a UX people will love.",
+    "highlights": [
+      "Response within 24–48h",
+      "Product-oriented approach",
+      "Iterative and measurable deliveries"
+    ],
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "privacy": "By submitting you accept basic data processing for contact purposes.",
+    "nameError": "Please enter your name",
+    "emailError": "Invalid email address",
+    "messageError": "Message too short (min. 10 characters)"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "friends": {
+    "title": "Fellow developers",
+    "visit": "Visit",
+    "items": [
+      {
+        "name": "Andres",
+        "role": "Full Stack",
+        "url": "https://portafolio-fson.vercel.app/?utm_source=diego-portfolio&utm_medium=banner&utm_campaign=referidos",
+        "theme": "ice"
+      },
+      {
+        "name": "Santiago",
+        "role": "Full Stack · Scrum",
+        "url": "https://ninonkn.github.io/Portafolio-Nino/?utm_source=monkey&utm_medium=banner&utm_campaign=portafolio2025",
+        "theme": "sunset"
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card2: #1a1a26;
+  --accent: #7c6af7;
+  --accent2: #a78bfa;
+  --text: #e2e2f0;
+  --text-muted: #8888aa;
+  --border: #2a2a3d;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--accent); color: white; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* Typing cursor */
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.cursor { display:inline-block; animation: blink 1s step-end infinite; }
+
+/* Hero background */
+.hero-bg {
+  background-image: url('/assets/images/mi-fondo.gif');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Skill bar animation */
+@keyframes fillBar {
+  from { width: 0; }
+}
+.skill-bar-fill { animation: fillBar 1s ease forwards; }
+
+/* Timeline connector */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  transform: translateX(-50%);
+}
+
+/* Card glow on hover */
+.card-glow:hover {
+  box-shadow: 0 0 24px 2px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* Glass card */
+.glass {
+  background: color-mix(in srgb, var(--bg-card) 80%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}

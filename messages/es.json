@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "stack": "Stack",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "role": "SOFTWARE ENGINEER",
+    "resume": "DESCARGAR CV"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "body": "Ingeniero de software full stack con experiencia construyendo aplicaciones web y sistemas personalizados. Me especializo en detectar necesidades reales y convertirlas en software efectivo centrado en el usuario. Combino excelencia técnica con pensamiento estratégico, integrando prácticas ágiles, diseño arquitectural y código limpio. Trabajo como freelancer en mi tiempo libre y actualmente construyo una startup tecnológica.",
+    "slides": [
+      "Frontend — UI/UX con React",
+      "Backend — APIs con Node.js",
+      "DevOps — Docker & CI/CD",
+      "Data — SQL / NoSQL"
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "filters": {
+      "all": "Todos",
+      "web": "Web",
+      "pos": "POS",
+      "fintech": "Fintech",
+      "erp": "ERP",
+      "api": "API"
+    },
+    "caseStudy": "Caso de estudio",
+    "live": "En vivo",
+    "repo": "Repositorio",
+    "items": [
+      {
+        "id": "kumis",
+        "title": "Casa del Kumis — Sitio Web",
+        "description": "Landing y sitio informativo responsive con foco en identidad, catálogo y SEO on-page.",
+        "stack": ["HTML", "CSS", "JavaScript", "SEO"],
+        "tags": ["web", "landing"],
+        "live": "https://pagina-web-demo.onrender.com/index.html",
+        "image": "/assets/images/kumis-800.webp"
+      },
+      {
+        "id": "pos",
+        "title": "POS — Casa del Kumis",
+        "description": "Sistema de punto de venta en producción en 18 sucursales. Facturación integrada con API de Credinbanco para pagos con datáfono.",
+        "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
+        "tags": ["pos", "web", "api", "fintech"],
+        "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
+        "image": "/assets/images/kumis-800.webp"
+      },
+      {
+        "id": "punteo",
+        "title": "Software de Punteo",
+        "description": "Herramienta de conciliación bancaria que cruza vauchers con extractos bancarios para verificar que todo esté en orden.",
+        "stack": ["React", "Render", "Vercel", "APIs"],
+        "tags": ["fintech", "web", "api"],
+        "repo": "https://github.com/otpvayne/casa-del-kumis.git",
+        "image": "/assets/images/kumis-800.webp"
+      },
+      {
+        "id": "erp",
+        "title": "ERP — Ventas de Alimentos",
+        "description": "Sistema ERP en Java (MVC) para ventas, clientes, stock y reportes. En desarrollo activo.",
+        "stack": ["Java SE", "MySQL", "Swing", "MVC"],
+        "tags": ["erp"],
+        "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
+        "image": "/assets/images/erp-800.webp"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experiencia",
+    "items": [
+      {
+        "date": "2025 – Presente",
+        "role": "Software Developer",
+        "company": "Casa del Kumis",
+        "bullets": [
+          "POS en producción en 18 sucursales con integración de API Credinbanco para pagos con datáfono.",
+          "Herramienta de conciliación bancaria (punteo) que cruza vauchers con extractos bancarios.",
+          "Sitio web responsive con optimización SEO, imágenes WebP y diseño mobile-first."
+        ],
+        "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
+      },
+      {
+        "date": "2024 – 2025",
+        "role": "Java Developer",
+        "company": "ERP Sales Food System",
+        "bullets": [
+          "ERP para gestionar ventas, inventario y clientes (Java MVC + MySQL).",
+          "UI de escritorio con Swing; persistencia JDBC y exportación a Excel (POI).",
+          "Notificaciones experimentales por WhatsApp en ventas exitosas."
+        ],
+        "stack": ["Java", "MySQL", "JDBC", "Swing"]
+      },
+      {
+        "date": "2023 – 2024",
+        "role": "Freelance Web Developer",
+        "company": "Independiente",
+        "bullets": [
+          "Soluciones web personalizadas para pequeñas empresas (landing + MVPs de e-commerce).",
+          "Sistemas de componentes y tokens de diseño para escalar consistencia de UI."
+        ],
+        "stack": ["React", "Tailwind", "MongoDB"]
+      }
+    ]
+  },
+  "tools": {
+    "title": "Herramientas & Tecnologías",
+    "tabs": {
+      "mainstack": "Stack Principal",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps"
+    }
+  },
+  "contact": {
+    "title": "Construyamos algo",
+    "subtitle": "¿Tienes una idea, un producto que lanzar o un sistema que mejorar? Puedo ayudarte a convertirlo en software confiable y escalable.",
+    "copyEmail": "Copiar email",
+    "copied": "¡Copiado!",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "basedIn": "Ubicación",
+    "location": "Colombia (UTC-5)"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre cómo trabajo.",
+    "expandAll": "Expandir todo",
+    "collapseAll": "Colapsar todo",
+    "searchPlaceholder": "Buscar pregunta...",
+    "noResults": "No se encontraron preguntas."
+  },
+  "contactPage": {
+    "title": "Hablemos",
+    "subtitle": "¿Tienes una idea o proyecto? Construyámoslo con calidad, performance y una UX que enamore.",
+    "highlights": [
+      "Respuesta en 24–48h",
+      "Enfoque product-oriented",
+      "Entregas iterativas y medibles"
+    ],
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado! Te respondo pronto.",
+    "error": "Hubo un error. Intenta de nuevo.",
+    "privacy": "Al enviar aceptas tratamiento básico de tus datos para contacto.",
+    "nameError": "Escribe tu nombre",
+    "emailError": "Correo no válido",
+    "messageError": "Mensaje muy corto (mín. 10 caracteres)"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "friends": {
+    "title": "Portafolios de compañeros",
+    "visit": "Visitar",
+    "items": [
+      {
+        "name": "Andres",
+        "role": "Full Stack",
+        "url": "https://portafolio-fson.vercel.app/?utm_source=diego-portfolio&utm_medium=banner&utm_campaign=referidos",
+        "theme": "ice"
+      },
+      {
+        "name": "Santiago",
+        "role": "Full Stack · Scrum",
+        "url": "https://ninonkn.github.io/Portafolio-Nino/?utm_source=monkey&utm_medium=banner&utm_campaign=portafolio2025",
+        "theme": "sunset"
+      }
+    ]
+  }
+}
