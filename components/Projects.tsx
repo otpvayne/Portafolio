@@ -28,16 +28,23 @@ export default function Projects() {
     : projects.filter((p) => p.tags.includes(active));
 
   return (
-    <section id="projects" className="py-24 px-6 bg-[var(--bg-card)]/40">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-32 px-6 bg-[var(--bg-card)]/40">
+      <div className="w-full max-w-5xl mx-auto">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-white text-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {t("title")}
+        </motion.h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">{t("title")}</h2>
-          <ul className="flex flex-wrap gap-2" role="tablist">
+          <ul className="flex flex-wrap justify-center gap-2" role="tablist">
             {filterKeys.map((k) => (
               <li key={k}>
                 <button

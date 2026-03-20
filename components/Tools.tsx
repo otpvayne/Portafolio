@@ -43,8 +43,8 @@ export default function Tools() {
   const [tab, setTab] = useState<Tabs>("mainstack");
 
   return (
-    <section id="tools" className="py-24 px-6 bg-[var(--bg-card)]/40">
-      <div className="max-w-5xl mx-auto">
+    <section id="tools" className="py-32 px-6 bg-[var(--bg-card)]/40">
+      <div className="w-full max-w-4xl mx-auto">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-white text-center mb-10"
           initial={{ opacity: 0, y: 20 }}

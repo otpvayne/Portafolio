@@ -48,7 +48,7 @@ export default function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <Image src="/assets/images/logo.webp" alt="Logo Diego Medina" width={36} height={36} className="rounded-full" />
+          <Image src="/assets/images/logo.webp" alt="Logo Diego Medina" width={52} height={52} className="rounded-full" />
         </a>
 
         {/* Desktop nav */}
