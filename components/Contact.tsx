@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Copy, Check, Mail, MessageCircle, MapPin, Github, Linkedin } from "lucide-react";
 
 const EMAIL = "generalboomsycol@gmail.com";
-const WA_NUMBER = "573001234567"; // Reemplaza con tu número real
+const WA_NUMBER = "573017472421";
 
 export default function Contact() {
   const t = useTranslations("contact");

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#0f0900"/>
+  <!-- Top bar -->
+  <rect width="800" height="44" fill="#1a1000"/>
+  <circle cx="20" cy="22" r="7" fill="#ff5f57"/>
+  <circle cx="42" cy="22" r="7" fill="#febc2e"/>
+  <circle cx="64" cy="22" r="7" fill="#28c840"/>
+  <text x="400" y="28" font-family="monospace" font-size="13" fill="#fbbf24" text-anchor="middle" font-weight="600">Facturas App — OCR Pipeline · FastAPI</text>
+  <!-- Left: invoice image mockup -->
+  <rect x="12" y="56" width="340" height="408" rx="8" fill="#1a1000" stroke="#3d2800" stroke-width="1"/>
+  <text x="182" y="78" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">IMAGEN DE ENTRADA</text>
+  <!-- Fake invoice document -->
+  <rect x="36" y="88" width="292" height="356" rx="4" fill="#fef9ed" stroke="#d4a017" stroke-width="1"/>
+  <rect x="36" y="88" width="292" height="40" rx="4" fill="#f59e0b"/>
+  <text x="182" y="113" font-family="monospace" font-size="12" fill="white" text-anchor="middle" font-weight="700">FACTURA DE VENTA</text>
+  <text x="56" y="148" font-family="monospace" font-size="8" fill="#78350f">NIT: 900.123.456-7</text>
+  <text x="56" y="162" font-family="monospace" font-size="8" fill="#78350f">Empresa: Distribuidora XYZ S.A.S</text>
+  <text x="56" y="176" font-family="monospace" font-size="8" fill="#78350f">Fecha: 2025-04-15</text>
+  <text x="56" y="190" font-family="monospace" font-size="8" fill="#78350f">No. Factura: FV-004892</text>
+  <!-- Table header -->
+  <rect x="48" y="202" width="268" height="18" fill="#fde68a"/>
+  <text x="56" y="215" font-family="monospace" font-size="7" fill="#78350f" font-weight="700">DESCRIPCIÓN</text>
+  <text x="220" y="215" font-family="monospace" font-size="7" fill="#78350f" font-weight="700">CANT</text>
+  <text x="270" y="215" font-family="monospace" font-size="7" fill="#78350f" font-weight="700">VALOR</text>
+  <!-- Rows -->
+  <text x="56" y="232" font-family="monospace" font-size="7" fill="#3d1f00">Kumis 250ml caja × 12</text>
+  <text x="220" y="232" font-family="monospace" font-size="7" fill="#3d1f00">5</text>
+  <text x="270" y="232" font-family="monospace" font-size="7" fill="#3d1f00">$150.000</text>
+  <text x="56" y="246" font-family="monospace" font-size="7" fill="#3d1f00">Avena 1L unidad</text>
+  <text x="220" y="246" font-family="monospace" font-size="7" fill="#3d1f00">24</text>
+  <text x="270" y="246" font-family="monospace" font-size="7" fill="#3d1f00">$124.800</text>
+  <text x="56" y="260" font-family="monospace" font-size="7" fill="#3d1f00">Maizena 500g paquete</text>
+  <text x="220" y="260" font-family="monospace" font-size="7" fill="#3d1f00">10</text>
+  <text x="270" y="260" font-family="monospace" font-size="7" fill="#3d1f00">$42.000</text>
+  <line x1="48" y1="272" x2="316" y2="272" stroke="#d4a017" stroke-width="0.5"/>
+  <text x="220" y="288" font-family="monospace" font-size="8" fill="#78350f" font-weight="700">SUBTOTAL</text>
+  <text x="316" y="288" font-family="monospace" font-size="8" fill="#78350f" text-anchor="end">$316.800</text>
+  <text x="220" y="302" font-family="monospace" font-size="8" fill="#78350f">IVA 19%</text>
+  <text x="316" y="302" font-family="monospace" font-size="8" fill="#78350f" text-anchor="end">$60.192</text>
+  <rect x="48" y="310" width="268" height="22" fill="#fde68a"/>
+  <text x="220" y="326" font-family="monospace" font-size="9" fill="#78350f" font-weight="700">TOTAL</text>
+  <text x="316" y="326" font-family="monospace" font-size="9" fill="#78350f" text-anchor="end" font-weight="700">$376.992</text>
+  <!-- OCR scan lines overlay -->
+  <rect x="36" y="88" width="292" height="356" rx="4" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,3" opacity="0.4"/>
+  <line x1="36" y1="200" x2="328" y2="200" stroke="#f59e0b" stroke-width="1" opacity="0.6"/>
+  <!-- Right: extracted fields panel -->
+  <rect x="364" y="56" width="424" height="408" rx="8" fill="#1a1000" stroke="#3d2800" stroke-width="1"/>
+  <text x="576" y="78" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">CAMPOS EXTRAÍDOS · OCR</text>
+  <!-- Status -->
+  <rect x="376" y="88" width="400" height="28" rx="6" fill="#1c2a00" stroke="#65a30d" stroke-width="1"/>
+  <text x="576" y="107" font-family="monospace" font-size="10" fill="#84cc16" text-anchor="middle">✓ Factura procesada con éxito · confianza 94.7%</text>
+  <!-- Fields -->
+  <rect x="376" y="124" width="400" height="38" rx="5" fill="#1a1200"/>
+  <text x="388" y="140" font-family="monospace" font-size="9" fill="#f59e0b">NIT</text>
+  <text x="388" y="155" font-family="monospace" font-size="11" fill="#fef3c7" font-weight="600">900.123.456-7</text>
+  <rect x="376" y="170" width="192" height="38" rx="5" fill="#1a1200"/>
+  <text x="388" y="186" font-family="monospace" font-size="9" fill="#f59e0b">FECHA</text>
+  <text x="388" y="201" font-family="monospace" font-size="11" fill="#fef3c7" font-weight="600">2025-04-15</text>
+  <rect x="576" y="170" width="200" height="38" rx="5" fill="#1a1200"/>
+  <text x="588" y="186" font-family="monospace" font-size="9" fill="#f59e0b">N° FACTURA</text>
+  <text x="588" y="201" font-family="monospace" font-size="11" fill="#fef3c7" font-weight="600">FV-004892</text>
+  <rect x="376" y="216" width="400" height="38" rx="5" fill="#1a1200"/>
+  <text x="388" y="232" font-family="monospace" font-size="9" fill="#f59e0b">EMPRESA</text>
+  <text x="388" y="247" font-family="monospace" font-size="11" fill="#fef3c7" font-weight="600">Distribuidora XYZ S.A.S</text>
+  <rect x="376" y="262" width="192" height="38" rx="5" fill="#1a1200"/>
+  <text x="388" y="278" font-family="monospace" font-size="9" fill="#f59e0b">SUBTOTAL</text>
+  <text x="388" y="293" font-family="monospace" font-size="11" fill="#fef3c7" font-weight="600">$316.800</text>
+  <rect x="576" y="262" width="200" height="38" rx="5" fill="#1a1200"/>
+  <text x="588" y="278" font-family="monospace" font-size="9" fill="#f59e0b">IVA</text>
+  <text x="588" y="293" font-family="monospace" font-size="11" fill="#fef3c7" font-weight="600">$60.192</text>
+  <rect x="376" y="308" width="400" height="44" rx="5" fill="#1c2a00" stroke="#f59e0b" stroke-width="1"/>
+  <text x="388" y="326" font-family="monospace" font-size="9" fill="#f59e0b">TOTAL FACTURA</text>
+  <text x="388" y="344" font-family="monospace" font-size="16" fill="#fbbf24" font-weight="700">$376.992</text>
+  <!-- JSON output preview -->
+  <rect x="376" y="362" width="400" height="88" rx="5" fill="#0a0800" stroke="#3d2800" stroke-width="1"/>
+  <text x="388" y="378" font-family="monospace" font-size="9" fill="#f59e0b">RESPUESTA JSON · FastAPI</text>
+  <text x="388" y="396" font-family="monospace" font-size="9" fill="#84cc16">{"nit": "900.123.456-7",</text>
+  <text x="388" y="410" font-family="monospace" font-size="9" fill="#84cc16">  "total": 376992, "fecha": "2025-04-15",</text>
+  <text x="388" y="424" font-family="monospace" font-size="9" fill="#84cc16">  "confianza": 0.947, "items": [...]}</text>
+  <!-- Footer -->
+  <rect x="0" y="440" width="800" height="40" fill="#1a1000"/>
+  <text x="20" y="465" font-family="monospace" font-size="10" fill="#f59e0b">● Python · FastAPI · PostgreSQL · OpenCV · OCR — Proyecto de Tesis</text>
+</svg>

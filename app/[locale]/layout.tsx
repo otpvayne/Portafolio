@@ -34,6 +34,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

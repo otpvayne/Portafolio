@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#0a0a0f"/>
+  <!-- Browser chrome -->
+  <rect width="800" height="44" fill="#12121a" stroke="#2a2a3d" stroke-width="1"/>
+  <circle cx="20" cy="22" r="7" fill="#ff5f57"/>
+  <circle cx="42" cy="22" r="7" fill="#febc2e"/>
+  <circle cx="64" cy="22" r="7" fill="#28c840"/>
+  <!-- URL bar -->
+  <rect x="88" y="10" width="500" height="24" rx="12" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <text x="338" y="27" font-family="monospace" font-size="11" fill="#8888aa" text-anchor="middle">portafolio-sandy-phi-49.vercel.app</text>
+  <!-- Nav bar inside page -->
+  <rect x="0" y="44" width="800" height="44" fill="#0d0d16" stroke="#2a2a3d" stroke-width="0.5"/>
+  <text x="28" y="72" font-family="monospace" font-size="13" fill="#a78bfa" font-weight="700">DM</text>
+  <text x="440" y="72" font-family="monospace" font-size="11" fill="#8888aa">Sobre mí</text>
+  <text x="520" y="72" font-family="monospace" font-size="11" fill="#8888aa">Proyectos</text>
+  <text x="612" y="72" font-family="monospace" font-size="11" fill="#8888aa">Experiencia</text>
+  <text x="710" y="72" font-family="monospace" font-size="11" fill="#a78bfa" font-weight="600">Contacto</text>
+  <!-- Hero section -->
+  <rect x="0" y="88" width="800" height="200" fill="#0a0a0f"/>
+  <!-- Background dots pattern -->
+  <circle cx="100" cy="140" r="1.5" fill="#2a2a3d"/>
+  <circle cx="160" cy="120" r="1.5" fill="#2a2a3d"/>
+  <circle cx="220" cy="160" r="1.5" fill="#2a2a3d"/>
+  <circle cx="680" cy="130" r="1.5" fill="#2a2a3d"/>
+  <circle cx="740" cy="150" r="1.5" fill="#2a2a3d"/>
+  <circle cx="700" cy="180" r="1.5" fill="#2a2a3d"/>
+  <!-- Hero text -->
+  <text x="400" y="160" font-family="monospace" font-size="36" fill="white" text-anchor="middle" font-weight="700" letter-spacing="6">DIEGO MEDINA</text>
+  <text x="400" y="194" font-family="monospace" font-size="16" fill="#a78bfa" text-anchor="middle">SOFTWARE ENGINEER<text font-size="16" fill="#7c6af7">|</text></text>
+  <!-- CTA button -->
+  <rect x="330" y="208" width="140" height="36" rx="18" fill="none" stroke="#7c6af7" stroke-width="1.5"/>
+  <text x="400" y="231" font-family="monospace" font-size="10" fill="#a78bfa" text-anchor="middle" letter-spacing="2">DESCARGAR CV</text>
+  <!-- Projects section -->
+  <rect x="0" y="288" width="800" height="180" fill="#12121a"/>
+  <text x="400" y="316" font-family="monospace" font-size="14" fill="white" text-anchor="middle" font-weight="700">Proyectos</text>
+  <!-- Filter chips -->
+  <rect x="270" y="326" width="44" height="20" rx="10" fill="#7c6af7"/>
+  <text x="292" y="340" font-family="monospace" font-size="8" fill="white" text-anchor="middle">Todos</text>
+  <rect x="322" y="326" width="36" height="20" rx="10" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <text x="340" y="340" font-family="monospace" font-size="8" fill="#8888aa" text-anchor="middle">Web</text>
+  <rect x="366" y="326" width="36" height="20" rx="10" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <text x="384" y="340" font-family="monospace" font-size="8" fill="#8888aa" text-anchor="middle">POS</text>
+  <rect x="410" y="326" width="50" height="20" rx="10" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <text x="435" y="340" font-family="monospace" font-size="8" fill="#8888aa" text-anchor="middle">Fintech</text>
+  <!-- Project cards -->
+  <rect x="20" y="354" width="176" height="100" rx="8" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <rect x="20" y="354" width="176" height="48" rx="8" fill="#1e1828"/>
+  <text x="108" y="386" font-family="monospace" font-size="9" fill="#a78bfa" text-anchor="middle" font-weight="600">Casa del Kumis</text>
+  <text x="30" y="416" font-family="monospace" font-size="7" fill="#8888aa">HTML · CSS · JS · SEO</text>
+  <rect x="206" y="354" width="176" height="100" rx="8" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <rect x="206" y="354" width="176" height="48" rx="8" fill="#121c28"/>
+  <text x="294" y="386" font-family="monospace" font-size="9" fill="#60a5fa" text-anchor="middle" font-weight="600">POS System</text>
+  <text x="216" y="416" font-family="monospace" font-size="7" fill="#8888aa">React · SQL · Credinbanco</text>
+  <rect x="392" y="354" width="176" height="100" rx="8" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <rect x="392" y="354" width="176" height="48" rx="8" fill="#12201a"/>
+  <text x="480" y="386" font-family="monospace" font-size="9" fill="#4ade80" text-anchor="middle" font-weight="600">Punteo Bancario</text>
+  <text x="402" y="416" font-family="monospace" font-size="7" fill="#8888aa">React · Render · APIs</text>
+  <rect x="578" y="354" width="200" height="100" rx="8" fill="#1a1a26" stroke="#2a2a3d" stroke-width="1"/>
+  <rect x="578" y="354" width="200" height="48" rx="8" fill="#201a10"/>
+  <text x="678" y="386" font-family="monospace" font-size="9" fill="#fbbf24" text-anchor="middle" font-weight="600">Facturas OCR</text>
+  <text x="588" y="416" font-family="monospace" font-size="7" fill="#8888aa">Python · FastAPI · OCR</text>
+  <!-- Footer bar -->
+  <rect x="0" y="454" width="800" height="26" fill="#0d0d16" stroke="#2a2a3d" stroke-width="0.5"/>
+  <text x="400" y="471" font-family="monospace" font-size="9" fill="#2a2a3d" text-anchor="middle">● Next.js 15 · TypeScript · Tailwind v4 · Framer Motion · Vercel</text>
+</svg>

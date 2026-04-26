@@ -13,7 +13,7 @@
   },
   "about": {
     "title": "Sobre mí",
-    "body": "Ingeniero de software full stack con experiencia construyendo aplicaciones web y sistemas personalizados. Me especializo en detectar necesidades reales y convertirlas en software efectivo centrado en el usuario. Combino excelencia técnica con pensamiento estratégico, integrando prácticas ágiles, diseño arquitectural y código limpio. Trabajo como freelancer en mi tiempo libre y actualmente construyo una startup tecnológica.",
+    "body": "Ingeniero de software full stack con experiencia construyendo aplicaciones web y sistemas personalizados. Me especializo en detectar necesidades reales y convertirlas en software efectivo centrado en el usuario. Combino excelencia técnica con pensamiento estratégico, integrando prácticas ágiles, diseño arquitectural y código limpio. Trabajo como desarrollador independiente y disfruto construir productos que resuelven problemas reales.",
     "slides": [
       "Frontend — UI/UX con React",
       "Backend — APIs con Node.js",
@@ -29,7 +29,8 @@
       "pos": "POS",
       "fintech": "Fintech",
       "erp": "ERP",
-      "api": "API"
+      "api": "API",
+      "python": "Python"
     },
     "caseStudy": "Caso de estudio",
     "live": "En vivo",
@@ -51,7 +52,7 @@
         "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
         "tags": ["pos", "web", "api", "fintech"],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
-        "image": "/assets/images/kumis-800.webp"
+        "image": "/assets/images/pos-preview.svg"
       },
       {
         "id": "punteo",
@@ -60,7 +61,7 @@
         "stack": ["React", "Render", "Vercel", "APIs"],
         "tags": ["fintech", "web", "api"],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
-        "image": "/assets/images/kumis-800.webp"
+        "image": "/assets/images/punteo-preview.svg"
       },
       {
         "id": "erp",
@@ -70,6 +71,25 @@
         "tags": ["erp"],
         "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
         "image": "/assets/images/erp-800.webp"
+      },
+      {
+        "id": "facturas",
+        "title": "Facturas App — OCR de Facturas",
+        "description": "Backend de tesis: procesa imágenes de facturas con pipelines de visión por computadora y extrae campos clave (NIT, total, fecha) usando OCR y FastAPI.",
+        "stack": ["Python", "FastAPI", "PostgreSQL", "OpenCV", "OCR"],
+        "tags": ["api", "python"],
+        "repo": "https://github.com/otpvayne/facturas-app",
+        "image": "/assets/images/facturas-preview.svg"
+      },
+      {
+        "id": "portafolio",
+        "title": "Portafolio Personal",
+        "description": "Este mismo portafolio: Next.js 15 con i18n (ES/EN), Framer Motion, Tailwind v4 y envío de emails con Resend. Desplegado en Vercel.",
+        "stack": ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+        "tags": ["web"],
+        "live": "https://portafolio-sandy-phi-49.vercel.app/",
+        "repo": "https://github.com/otpvayne/portafolio-next",
+        "image": "/assets/images/portafolio-preview.svg"
       }
     ]
   },
@@ -90,7 +110,7 @@
       {
         "date": "2024 – 2025",
         "role": "Java Developer",
-        "company": "ERP Sales Food System",
+        "company": "Proyecto Propio",
         "bullets": [
           "ERP para gestionar ventas, inventario y clientes (Java MVC + MySQL).",
           "UI de escritorio con Swing; persistencia JDBC y exportación a Excel (POI).",

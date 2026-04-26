@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
-const WORDS = ["SOFTWARE ENGINEER", "FULL STACK DEV", "FREELANCER", "STARTUP BUILDER"];
+const WORDS = ["SOFTWARE ENGINEER", "FULL STACK DEV", "FREELANCER", "PROBLEM SOLVER"];
 
 export default function Hero() {
   const t = useTranslations("hero");

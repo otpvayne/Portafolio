@@ -21,7 +21,7 @@ export default function Projects() {
   const projects = t.raw("items") as Project[];
   const [active, setActive] = useState("all");
 
-  const filterKeys = ["all", "web", "pos", "fintech", "erp", "api"] as const;
+  const filterKeys = ["all", "web", "pos", "fintech", "erp", "api", "python"] as const;
 
   const visible = active === "all"
     ? projects
