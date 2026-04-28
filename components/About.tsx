@@ -80,7 +80,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.1 }}
-            className="card-base overflow-hidden p-6 sm:p-8"
+            className="card-base p-6 sm:p-8"
           >
             <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
               <div className="relative min-h-[400px] overflow-hidden rounded-[var(--radius-xl)]">

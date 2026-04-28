@@ -135,7 +135,7 @@ export default function Hero() {
           transition={{ duration: 0.88, delay: 0.18 }}
           className="relative z-10"
         >
-          <div className="panel soft-ring relative overflow-hidden rounded-[32px] p-4 sm:p-5">
+          <div className="panel soft-ring relative rounded-[32px] p-4 sm:p-5">
             <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[var(--accent-soft)]/18 blur-3xl" />
             <div className="absolute bottom-0 left-0 right-0 top-0 opacity-65">
               <CelestialSphere

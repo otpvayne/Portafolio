@@ -66,7 +66,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08 }}
-              className="panel group overflow-hidden rounded-[32px] text-left"
+              className="panel group rounded-[32px] text-left"
             >
               <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
                 <div className="relative min-h-[260px] overflow-hidden">
