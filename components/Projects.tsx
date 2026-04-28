@@ -1,9 +1,10 @@
 "use client";
+
 import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { GlowCard } from "@/components/ui/spotlight-card";
 import ProjectModal from "@/components/ProjectModal";
 
@@ -31,121 +32,180 @@ const FILTER_KEYS = ["all", "web", "pos", "fintech", "erp", "api", "python"] as 
 export default function Projects() {
   const t = useTranslations("projects");
   const projects = t.raw("items") as Project[];
-  const [active, setActive] = useState("all");
+  const featured = projects.slice(0, 2);
+  const [active, setActive] = useState<string>("all");
   const [selected, setSelected] = useState<Project | null>(null);
 
-  const visible =
-    active === "all" ? projects : projects.filter((p) => p.tags.includes(active));
+  const visible = active === "all" ? projects : projects.filter((project) => project.tags.includes(active));
 
   return (
-    <section id="projects" className="py-48 px-4 sm:px-8 lg:px-16 relative">
-      {/* Subtle separator top */}
-      <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+    <section id="projects" className="px-4 py-48 sm:px-8 lg:px-20">
+      <div className="section-shell">
+        <div className="section-divider mb-12" />
 
-      <div className="w-full max-w-7xl mx-auto">
+        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl space-y-5">
+            <span className="eyebrow">{t("kicker")}</span>
+            <h2 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+              {t("title")}
+            </h2>
+            <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
+          </div>
+          <div className="rounded-[28px] border border-[var(--line)] bg-white/65 px-5 py-4 text-sm text-[var(--text-muted)] shadow-sm backdrop-blur-sm">
+            <span className="font-semibold text-[var(--text)]">{t("featuredLabel")}</span> {t("featuredBody")}
+          </div>
+        </div>
 
-        {/* Title */}
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {t("title")}
-        </motion.h2>
+        <div className="mb-10 grid gap-5 lg:grid-cols-2">
+          {featured.map((project, index) => (
+            <motion.button
+              key={project.id}
+              type="button"
+              onClick={() => setSelected(project)}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: index * 0.08 }}
+              className="panel group overflow-hidden rounded-[32px] text-left"
+            >
+              <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
+                <div className="relative min-h-[260px] overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.76)] via-transparent to-transparent" />
+                </div>
+                <div className="flex flex-col gap-5 p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                      {t("featuredBadge")}
+                    </p>
+                    <ArrowUpRight size={18} className="text-[var(--text-muted)]" />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-bold tracking-tight text-[var(--text)]">{project.title}</h3>
+                    <p className="text-sm leading-7 text-[var(--text-muted)]">{project.description}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-[var(--line)] bg-white/70 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.button>
+          ))}
+        </div>
 
-        {/* Filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-3 mb-16"
-        >
-          {FILTER_KEYS.map((k) => (
+        <div className="mb-10 flex flex-wrap gap-3">
+          {FILTER_KEYS.map((key) => (
             <button
-              key={k}
-              onClick={() => setActive(k)}
-              aria-pressed={active === k}
-              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                active === k
-                  ? "bg-[var(--accent)] text-white shadow-[0_0_14px_var(--accent)] shadow-[var(--accent)]/30"
-                  : "border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)]"
+              key={key}
+              onClick={() => setActive(key)}
+              aria-pressed={active === key}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                active === key
+                  ? "bg-[var(--surface-ink)] text-white"
+                  : "border border-[var(--line)] bg-white/72 text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
               }`}
             >
-              {t(`filters.${k}`)}
+              {t(`filters.${key}`)}
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           <AnimatePresence mode="popLayout">
-            {visible.map((p, i) => (
+            {visible.map((project, index) => (
               <motion.div
-                key={p.id}
+                key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.94, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.94 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                onClick={() => p.caseStudy && setSelected(p)}
-                className={p.caseStudy ? "cursor-pointer" : ""}
+                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                transition={{ duration: 0.28, delay: index * 0.03 }}
               >
-                <GlowCard className="h-full group" glowColor="purple">
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden rounded-t-2xl shrink-0">
+                <GlowCard className="h-full overflow-hidden rounded-[28px]">
+                  <div className="relative h-56 overflow-hidden">
                     <Image
-                      src={p.image}
-                      alt={p.title}
+                      src={project.image}
+                      alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-[var(--bg-card)]/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.84)] via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+                      {project.tags.slice(0, 1).map((tag) => (
+                        <span
+                          key={`${project.id}-${tag}`}
+                          className="rounded-full bg-white/88 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--surface-ink)]"
+                        >
+                          {t(`filters.${tag}`)}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Info */}
-                  <div className="flex flex-col flex-1 p-6 gap-4">
-                    <h3 className="text-base font-bold text-white leading-snug">{p.title}</h3>
-                    <p className="text-sm text-[var(--text-muted)] leading-relaxed flex-1">{p.description}</p>
+                  <div className="flex h-full flex-col gap-5 p-6">
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-bold tracking-tight text-[var(--text)]">{project.title}</h3>
+                      <p className="text-sm leading-7 text-[var(--text-muted)]">{project.description}</p>
+                    </div>
 
-                    {/* Stack */}
                     <div className="flex flex-wrap gap-2">
-                      {p.stack.slice(0, 4).map((s) => (
+                      {project.stack.slice(0, 4).map((item) => (
                         <span
-                          key={s}
-                          className="px-2.5 py-1 rounded text-[10px] font-semibold bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
+                          key={item}
+                          className="rounded-full border border-[var(--line)] bg-white/75 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
                         >
-                          {s}
+                          {item}
                         </span>
                       ))}
                     </div>
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-2.5 pt-2">
-                      {p.live && (
-                        <a
-                          href={p.live}
-                          target="_blank"
-                          rel="noopener"
-                          onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
+                    <div className="mt-auto flex items-center gap-3 pt-2">
+                      {project.caseStudy && (
+                        <button
+                          type="button"
+                          onClick={() => setSelected(project)}
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)] transition-colors hover:text-[var(--accent)]"
                         >
-                          <ExternalLink size={13} /> {t("live")}
-                        </a>
+                          {t("openCaseStudy")}
+                          <ArrowUpRight size={15} />
+                        </button>
                       )}
-                      {p.repo && (
-                        <a
-                          href={p.repo}
-                          target="_blank"
-                          rel="noopener"
-                          onClick={(e) => e.stopPropagation()}
-                          className="ml-auto text-[var(--text-muted)] hover:text-[var(--accent2)] transition-colors"
-                          aria-label="GitHub"
-                        >
-                          <Github size={16} />
-                        </a>
-                      )}
+                      <div className="ml-auto flex items-center gap-2">
+                        {project.live && (
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-white/80 text-[var(--text-muted)] transition-all hover:border-[var(--accent)] hover:text-[var(--text)]"
+                            aria-label={t("live")}
+                          >
+                            <ExternalLink size={16} />
+                          </a>
+                        )}
+                        {project.repo && (
+                          <a
+                            href={project.repo}
+                            target="_blank"
+                            rel="noopener"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] bg-white/80 text-[var(--text-muted)] transition-all hover:border-[var(--accent)] hover:text-[var(--text)]"
+                            aria-label={t("repo")}
+                          >
+                            <Github size={16} />
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </GlowCard>
@@ -153,13 +213,9 @@ export default function Projects() {
             ))}
           </AnimatePresence>
         </div>
+
+        <ProjectModal project={selected} onClose={() => setSelected(null)} />
       </div>
-
-      {/* Case study modal */}
-      <ProjectModal project={selected} onClose={() => setSelected(null)} />
-
-      {/* Subtle separator bottom */}
-      <div className="absolute bottom-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

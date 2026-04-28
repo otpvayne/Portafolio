@@ -1,107 +1,137 @@
 "use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { useState, useEffect } from "react";
 
-const CHIPS = ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "MongoDB", "Docker", "CI/CD"];
+const CHIPS = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "PostgreSQL",
+  "Python",
+  "Docker",
+  "UX systems",
+];
+
 const SLIDES = [
-  { img: "/assets/images/me-1.webp", alt: "Diego Medina Frontend" },
-  { img: "/assets/images/me-2.webp", alt: "Diego Medina Backend" },
-  { img: "/assets/images/me-3.webp", alt: "Diego Medina DevOps" },
-  { img: "/assets/images/me-4.webp", alt: "Diego Medina Data" },
+  { img: "/assets/images/me-1.webp", alt: "Diego Medina building interfaces" },
+  { img: "/assets/images/me-2.webp", alt: "Diego Medina backend work" },
+  { img: "/assets/images/me-3.webp", alt: "Diego Medina product thinking" },
+  { img: "/assets/images/me-4.webp", alt: "Diego Medina engineering portrait" },
 ];
 
 export default function About() {
   const t = useTranslations("about");
   const slides = t.raw("slides") as string[];
+  const stats = t.raw("stats") as Array<{ value: string; label: string }>;
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setCurrent((c) => (c + 1) % SLIDES.length), 3500);
-    return () => clearInterval(id);
+    const timer = setInterval(() => setCurrent((value) => (value + 1) % SLIDES.length), 3600);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <section id="about" className="py-48 px-4 sm:px-8 lg:px-16 relative">
-      {/* Subtle separator top */}
-      <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+    <section id="about" className="px-4 py-48 sm:px-8 lg:px-20">
+      <div className="section-shell">
+        <div className="section-divider mb-12" />
 
-      <div className="w-full max-w-6xl mx-auto">
-
-        {/* Título centrado */}
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {t("title")}
-        </motion.h2>
-
-        {/* Grid centrado: texto izq, foto der */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-
-          {/* Columna texto — centrada dentro de su celda */}
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <motion.div
-            className="flex flex-col items-center md:items-start text-center md:text-left"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            className="space-y-7"
           >
-            <p className="text-[var(--text-muted)] leading-relaxed mb-8 max-w-md">
-              {t("body")}
-            </p>
-            <ul className="flex flex-wrap gap-2 justify-center md:justify-start">
-              {CHIPS.map((c) => (
+            <span className="eyebrow">{t("kicker")}</span>
+            <div className="space-y-5">
+              <h2 className="max-w-xl text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+                {t("title")}
+              </h2>
+              <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)]">{t("body")}</p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {stats.map((stat) => (
+                <div key={stat.label} className="rounded-[24px] border border-[var(--line)] bg-white/60 p-5">
+                  <p className="text-2xl font-extrabold text-[var(--surface-ink)]">{stat.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <ul className="flex flex-wrap gap-2.5">
+              {CHIPS.map((chip) => (
                 <li
-                  key={c}
-                  className="px-3 py-1 rounded-full text-xs font-semibold bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
+                  key={chip}
+                  className="rounded-full border border-[var(--line)] bg-white/72 px-4 py-2 text-sm font-medium text-[var(--text)]"
                 >
-                  {c}
+                  {chip}
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Columna foto */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative h-80 md:h-96"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ delay: 0.1 }}
+            className="panel overflow-hidden rounded-[32px] p-4 sm:p-5"
           >
-            {SLIDES.map((s, i) => (
-              <div
-                key={i}
-                className={`absolute inset-0 transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
-              >
-                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[var(--border)] card-glow">
-                  <Image src={s.img} alt={s.alt} fill className="object-cover" />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 px-4 py-3">
-                    <p className="text-sm text-[var(--accent2)] font-semibold">{slides[i]}</p>
+            <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="relative min-h-[360px] overflow-hidden rounded-[28px]">
+                {SLIDES.map((slide, index) => (
+                  <div
+                    key={slide.img}
+                    className={`absolute inset-0 transition-opacity duration-700 ${
+                      index === current ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <Image src={slide.img} alt={slide.alt} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.78)] via-transparent to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <p className="max-w-xs text-sm font-semibold text-white">{slides[index]}</p>
+                    </div>
                   </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col justify-between gap-4">
+                <div className="rounded-[28px] bg-[var(--surface-ink)] p-6 text-white">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/65">
+                    {t("focusTitle")}
+                  </p>
+                  <p className="mt-4 text-lg leading-8 text-white/82">{t("focusBody")}</p>
+                </div>
+
+                <div className="rounded-[28px] border border-[var(--line)] bg-white/72 p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                    {t("approachTitle")}
+                  </p>
+                  <p className="mt-4 text-base leading-7 text-[var(--text-muted)]">{t("approachBody")}</p>
+                </div>
+
+                <div className="flex gap-2">
+                  {SLIDES.map((slide, index) => (
+                    <button
+                      key={slide.img}
+                      aria-label={`Slide ${index + 1}`}
+                      onClick={() => setCurrent(index)}
+                      className={`h-2 rounded-full transition-all ${
+                        index === current ? "w-12 bg-[var(--accent)]" : "w-6 bg-[var(--line-strong)]"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
-            ))}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-[var(--accent)] w-6" : "bg-[var(--border)]"}`}
-                />
-              ))}
             </div>
           </motion.div>
-
         </div>
       </div>
-
-      {/* Subtle separator bottom */}
-      <div className="absolute bottom-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

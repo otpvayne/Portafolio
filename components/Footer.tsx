@@ -1,11 +1,22 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const t = useTranslations("footer");
   const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-[var(--border)] py-6 px-6 text-center text-xs text-[var(--text-muted)]">
-      © {year} Diego Medina — {t("rights")}
+    <footer className="px-4 py-12 sm:px-8 lg:px-20">
+      <div className="section-shell">
+        <div className="section-divider mb-6" />
+        <div className="flex flex-col gap-3 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-medium text-[var(--text)]">Diego Medina</p>
+          <p>
+            {year} | {t("rights")}
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
