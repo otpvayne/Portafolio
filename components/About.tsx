@@ -23,12 +23,15 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-32 px-6">
-      <div className="w-full max-w-5xl mx-auto">
+    <section id="about" className="py-40 px-4 sm:px-6 relative">
+      {/* Subtle separator top */}
+      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+
+      <div className="w-full max-w-6xl mx-auto">
 
         {/* Título centrado */}
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-16"
+          className="text-3xl md:text-4xl font-bold text-white text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -96,6 +99,9 @@ export default function About() {
 
         </div>
       </div>
+
+      {/* Subtle separator bottom */}
+      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

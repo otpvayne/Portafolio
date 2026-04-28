@@ -43,10 +43,13 @@ export default function Tools() {
   const [tab, setTab] = useState<Tabs>("mainstack");
 
   return (
-    <section id="tools" className="py-28 px-4 sm:px-6 bg-[var(--bg-card)]/30">
-      <div className="w-full max-w-5xl mx-auto">
+    <section id="tools" className="py-40 px-4 sm:px-6 bg-[var(--bg-card)]/30 relative">
+      {/* Subtle separator top */}
+      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+
+      <div className="w-full max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-10"
+          className="text-3xl md:text-4xl font-bold text-white text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,7 +58,7 @@ export default function Tools() {
         </motion.h2>
 
         {/* Tab bar */}
-        <div className="flex justify-center gap-2 flex-wrap mb-12">
+        <div className="flex justify-center gap-3 flex-wrap mb-16">
           {(["mainstack", "frontend", "backend", "devops"] as Tabs[]).map((k) => (
             <button
               key={k}
@@ -78,7 +81,7 @@ export default function Tools() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -14 }}
             transition={{ duration: 0.28 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
           >
             {TOOLS[tab].map((tool, i) => (
               <motion.div
@@ -107,6 +110,9 @@ export default function Tools() {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Subtle separator bottom */}
+      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

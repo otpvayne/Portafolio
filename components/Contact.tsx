@@ -18,7 +18,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 px-4 sm:px-6 overflow-hidden">
+    <section id="contact" className="relative py-40 px-4 sm:px-6 overflow-hidden">
+      {/* Subtle separator top */}
+      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+
       {/* Subtle radial glow */}
       <div
         className="pointer-events-none absolute inset-0 -z-0"
@@ -28,10 +31,10 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Heading */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,19 +64,19 @@ export default function Contact() {
               <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-1">Email</p>
               <p className="text-sm text-white break-all">{EMAIL}</p>
             </div>
-            <div className="flex gap-2 mt-auto w-full">
+            <div className="flex gap-3 mt-auto w-full">
               <button
                 onClick={copyEmail}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-semibold border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
               >
-                {copied ? <Check size={12} className="text-green-400" /> : <Copy size={12} />}
+                {copied ? <Check size={13} className="text-green-400" /> : <Copy size={13} />}
                 {copied ? t("copied") : t("copyEmail")}
               </button>
               <a
                 href={`mailto:${EMAIL}?subject=Proyecto`}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent2)] transition-colors"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-semibold bg-[var(--accent)] text-white hover:bg-[var(--accent2)] transition-colors"
               >
-                <Mail size={12} /> {t("email")}
+                <Mail size={13} /> {t("email")}
               </a>
             </div>
           </div>
@@ -91,9 +94,9 @@ export default function Contact() {
               href={`https://wa.me/${WA_NUMBER}?text=Hola%20Diego%2C%20vi%20tu%20portafolio`}
               target="_blank"
               rel="noopener"
-              className="mt-auto w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500 hover:text-white hover:border-green-500 transition-all"
+              className="mt-auto w-full flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-xs font-semibold bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500 hover:text-white hover:border-green-500 transition-all"
             >
-              <MessageCircle size={12} /> {t("whatsapp")}
+              <MessageCircle size={13} /> {t("whatsapp")}
             </a>
           </div>
 
@@ -145,6 +148,9 @@ export default function Contact() {
           </a>
         </motion.p>
       </div>
+
+      {/* Subtle separator bottom */}
+      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

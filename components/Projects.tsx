@@ -38,12 +38,15 @@ export default function Projects() {
     active === "all" ? projects : projects.filter((p) => p.tags.includes(active));
 
   return (
-    <section id="projects" className="py-28 px-4 sm:px-6">
-      <div className="w-full max-w-6xl mx-auto">
+    <section id="projects" className="py-40 px-4 sm:px-6 relative">
+      {/* Subtle separator top */}
+      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+
+      <div className="w-full max-w-7xl mx-auto">
 
         {/* Title */}
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-8"
+          className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -56,14 +59,14 @@ export default function Projects() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-16"
         >
           {FILTER_KEYS.map((k) => (
             <button
               key={k}
               onClick={() => setActive(k)}
               aria-pressed={active === k}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
+              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
                 active === k
                   ? "bg-[var(--accent)] text-white shadow-[0_0_14px_var(--accent)] shadow-[var(--accent)]/30"
                   : "border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)]"
@@ -75,7 +78,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {visible.map((p, i) => (
               <motion.div
@@ -85,10 +88,12 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.94 }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
+                onClick={() => p.caseStudy && setSelected(p)}
+                className={p.caseStudy ? "cursor-pointer" : ""}
               >
-                <GlowCard className="h-full cursor-pointer group" glowColor="purple">
+                <GlowCard className="h-full group" glowColor="purple">
                   {/* Image */}
-                  <div className="relative h-44 overflow-hidden rounded-t-2xl shrink-0">
+                  <div className="relative h-48 overflow-hidden rounded-t-2xl shrink-0">
                     <Image
                       src={p.image}
                       alt={p.title}
@@ -100,16 +105,16 @@ export default function Projects() {
                   </div>
 
                   {/* Info */}
-                  <div className="flex flex-col flex-1 p-5 gap-3">
+                  <div className="flex flex-col flex-1 p-6 gap-4">
                     <h3 className="text-base font-bold text-white leading-snug">{p.title}</h3>
                     <p className="text-sm text-[var(--text-muted)] leading-relaxed flex-1">{p.description}</p>
 
                     {/* Stack */}
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {p.stack.slice(0, 4).map((s) => (
                         <span
                           key={s}
-                          className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
+                          className="px-2.5 py-1 rounded text-[10px] font-semibold bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
                         >
                           {s}
                         </span>
@@ -117,24 +122,16 @@ export default function Projects() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-2 pt-1">
-                      {p.caseStudy && (
-                        <button
-                          onClick={() => setSelected(p)}
-                          className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 text-[var(--accent2)] hover:bg-[var(--accent)] hover:text-white hover:border-[var(--accent)] transition-all"
-                        >
-                          {t("caseStudy")} <ArrowUpRight size={11} />
-                        </button>
-                      )}
+                    <div className="flex items-center gap-2.5 pt-2">
                       {p.live && (
                         <a
                           href={p.live}
                           target="_blank"
                           rel="noopener"
                           onClick={(e) => e.stopPropagation()}
-                          className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
+                          className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
                         >
-                          <ExternalLink size={11} /> {t("live")}
+                          <ExternalLink size={13} /> {t("live")}
                         </a>
                       )}
                       {p.repo && (
@@ -146,7 +143,7 @@ export default function Projects() {
                           className="ml-auto text-[var(--text-muted)] hover:text-[var(--accent2)] transition-colors"
                           aria-label="GitHub"
                         >
-                          <Github size={15} />
+                          <Github size={16} />
                         </a>
                       )}
                     </div>
@@ -160,6 +157,9 @@ export default function Projects() {
 
       {/* Case study modal */}
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
+
+      {/* Subtle separator bottom */}
+      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }
