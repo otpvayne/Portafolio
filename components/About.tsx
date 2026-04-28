@@ -35,7 +35,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="px-4 py-48 sm:px-8 lg:px-20">
+    <section id="about" className="px-4 py-56 sm:px-8 lg:px-20">
       <div className="section-shell">
         <div className="section-divider mb-12" />
 
@@ -80,10 +80,10 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.1 }}
-            className="panel overflow-hidden rounded-[32px] p-4 sm:p-5"
+            className="card-base overflow-hidden p-6 sm:p-8"
           >
-            <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="relative min-h-[360px] overflow-hidden rounded-[28px]">
+            <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="relative min-h-[400px] overflow-hidden rounded-[var(--radius-xl)]">
                 {SLIDES.map((slide, index) => (
                   <div
                     key={slide.img}
@@ -101,21 +101,21 @@ export default function About() {
               </div>
 
               <div className="flex flex-col justify-between gap-4">
-                <div className="card-base bg-[var(--color-primary)] text-white p-6">
+                <div className="card-base bg-[var(--color-primary)] text-white p-6 sm:p-7">
                   <p className="text-label text-white">
                     {t("focusTitle")}
                   </p>
                   <p className="mt-4 text-lg leading-8">{t("focusBody")}</p>
                 </div>
 
-                <div className="card-base p-6">
+                <div className="card-base p-6 sm:p-7">
                   <p className="text-label">
                     {t("approachTitle")}
                   </p>
                   <p className="mt-4 text-base leading-7 text-[var(--color-text-secondary)]">{t("approachBody")}</p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex gap-3 mt-2">
                   {SLIDES.map((slide, index) => (
                     <button
                       key={slide.img}
