@@ -191,7 +191,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                     ].map((item, index) => (
                       <div
                         key={item.label}
-                        className={`rounded-[var(--radius-md)] p-5 overflow-hidden ${
+                        className={`rounded-[var(--radius-md)] p-5 ${
                           index === 1
                             ? "bg-[var(--color-primary)] text-white"
                             : "border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)]"

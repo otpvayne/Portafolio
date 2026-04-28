@@ -94,7 +94,7 @@ export default function About() {
                     <Image src={slide.img} alt={slide.alt} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.78)] via-transparent to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-sm font-semibold text-white break-words overflow-hidden">{slides[index]}</p>
+                      <p className="text-sm font-semibold text-white">{slides[index]}</p>
                     </div>
                   </div>
                 ))}
@@ -102,7 +102,7 @@ export default function About() {
 
               <div className="flex flex-col justify-between gap-4">
                 <div className="card-base bg-[var(--color-primary)] text-white p-6 sm:p-7">
-                  <p className="text-label text-white">
+                  <p className="text-xs font-semibold uppercase letter-spacing-[0.04em] text-white/85">
                     {t("focusTitle")}
                   </p>
                   <p className="mt-4 text-lg leading-8">{t("focusBody")}</p>
