@@ -3,7 +3,16 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { GlowCard } from "@/components/ui/spotlight-card";
+import ProjectModal from "@/components/ProjectModal";
+
+type CaseStudy = {
+  problem: string;
+  solution: string;
+  impact: string;
+  gallery: string[];
+};
 
 type Project = {
   id: string;
@@ -14,22 +23,25 @@ type Project = {
   live?: string;
   repo?: string;
   image: string;
+  caseStudy?: CaseStudy;
 };
+
+const FILTER_KEYS = ["all", "web", "pos", "fintech", "erp", "api", "python"] as const;
 
 export default function Projects() {
   const t = useTranslations("projects");
   const projects = t.raw("items") as Project[];
   const [active, setActive] = useState("all");
+  const [selected, setSelected] = useState<Project | null>(null);
 
-  const filterKeys = ["all", "web", "pos", "fintech", "erp", "api", "python"] as const;
-
-  const visible = active === "all"
-    ? projects
-    : projects.filter((p) => p.tags.includes(active));
+  const visible =
+    active === "all" ? projects : projects.filter((p) => p.tags.includes(active));
 
   return (
-    <section id="projects" className="py-32 px-6 bg-[var(--bg-card)]/40">
-      <div className="w-full max-w-5xl mx-auto">
+    <section id="projects" className="py-28 px-4 sm:px-6">
+      <div className="w-full max-w-6xl mx-auto">
+
+        {/* Title */}
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-white text-center mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -38,82 +50,116 @@ export default function Projects() {
         >
           {t("title")}
         </motion.h2>
+
+        {/* Filters */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-2 mb-12"
         >
-          <ul className="flex flex-wrap justify-center gap-2" role="tablist">
-            {filterKeys.map((k) => (
-              <li key={k}>
-                <button
-                  role="tab"
-                  aria-selected={active === k}
-                  onClick={() => setActive(k)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all ${
-                    active === k
-                      ? "bg-[var(--accent)] text-white"
-                      : "border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)]"
-                  }`}
-                >
-                  {t(`filters.${k}`)}
-                </button>
-              </li>
-            ))}
-          </ul>
+          {FILTER_KEYS.map((k) => (
+            <button
+              key={k}
+              onClick={() => setActive(k)}
+              aria-pressed={active === k}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all ${
+                active === k
+                  ? "bg-[var(--accent)] text-white shadow-[0_0_14px_var(--accent)] shadow-[var(--accent)]/30"
+                  : "border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)]"
+              }`}
+            >
+              {t(`filters.${k}`)}
+            </button>
+          ))}
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
           <AnimatePresence mode="popLayout">
-            {visible.map((p) => (
-              <motion.article
+            {visible.map((p, i) => (
+              <motion.div
                 key={p.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="glass rounded-2xl overflow-hidden card-glow group"
+                initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.94 }}
+                transition={{ duration: 0.3, delay: i * 0.05 }}
               >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2">{p.title}</h3>
-                  <p className="text-sm text-[var(--text-muted)] mb-4 leading-relaxed">{p.description}</p>
-                  <ul className="flex flex-wrap gap-1.5 mb-5">
-                    {p.stack.map((s) => (
-                      <li key={s} className="px-2 py-0.5 rounded text-xs bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]">
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex gap-3">
-                    {p.live && (
-                      <a href={p.live} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-[var(--accent)] text-white hover:bg-[var(--accent2)] transition-colors">
-                        <ExternalLink size={13} /> {t("live")}
-                      </a>
-                    )}
-                    {p.repo && (
-                      <a href={p.repo} target="_blank" rel="noopener" className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--text-muted)] hover:text-[var(--accent2)] hover:border-[var(--accent)] transition-colors">
-                        <Github size={13} /> {t("repo")}
-                      </a>
-                    )}
+                <GlowCard className="h-full cursor-pointer group" glowColor="purple">
+                  {/* Image */}
+                  <div className="relative h-44 overflow-hidden rounded-t-2xl shrink-0">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-[var(--bg-card)]/10 to-transparent" />
                   </div>
-                </div>
-              </motion.article>
+
+                  {/* Info */}
+                  <div className="flex flex-col flex-1 p-5 gap-3">
+                    <h3 className="text-base font-bold text-white leading-snug">{p.title}</h3>
+                    <p className="text-sm text-[var(--text-muted)] leading-relaxed flex-1">{p.description}</p>
+
+                    {/* Stack */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {p.stack.slice(0, 4).map((s) => (
+                        <span
+                          key={s}
+                          className="px-2 py-0.5 rounded text-[10px] font-semibold bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2 pt-1">
+                      {p.caseStudy && (
+                        <button
+                          onClick={() => setSelected(p)}
+                          className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 text-[var(--accent2)] hover:bg-[var(--accent)] hover:text-white hover:border-[var(--accent)] transition-all"
+                        >
+                          {t("caseStudy")} <ArrowUpRight size={11} />
+                        </button>
+                      )}
+                      {p.live && (
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noopener"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-1 text-xs font-semibold px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
+                        >
+                          <ExternalLink size={11} /> {t("live")}
+                        </a>
+                      )}
+                      {p.repo && (
+                        <a
+                          href={p.repo}
+                          target="_blank"
+                          rel="noopener"
+                          onClick={(e) => e.stopPropagation()}
+                          className="ml-auto text-[var(--text-muted)] hover:text-[var(--accent2)] transition-colors"
+                          aria-label="GitHub"
+                        >
+                          <Github size={15} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </GlowCard>
+              </motion.div>
             ))}
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Case study modal */}
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }

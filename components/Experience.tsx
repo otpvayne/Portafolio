@@ -15,8 +15,8 @@ export default function Experience() {
   const items = t.raw("items") as ExperienceItem[];
 
   return (
-    <section id="experience" className="py-32 px-6">
-      <div className="w-full max-w-4xl mx-auto">
+    <section id="experience" className="py-28 px-4 sm:px-6">
+      <div className="w-full max-w-3xl mx-auto">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-white text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -26,38 +26,52 @@ export default function Experience() {
           {t("title")}
         </motion.h2>
 
-        <div className="relative">
-          {/* Center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--accent)] via-[var(--border)] to-transparent -translate-x-1/2" />
+        <div className="relative pl-6 sm:pl-8">
+          {/* Vertical timeline line */}
+          <div className="absolute left-0 top-2 bottom-4 w-px bg-gradient-to-b from-[var(--accent)] via-[var(--border)] to-transparent" />
 
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-10">
             {items.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`md:w-[47%] ${i % 2 === 0 ? "md:self-start" : "md:self-end"}`}
+                transition={{ duration: 0.55, delay: i * 0.12 }}
+                className="relative"
               >
-                {/* Dot */}
-                <div className={`hidden md:block absolute w-3 h-3 rounded-full bg-[var(--accent)] border-2 border-[var(--bg)] top-6 ${i % 2 === 0 ? "left-[calc(50%-6px)]" : "left-[calc(50%-6px)]"}`} />
+                {/* Timeline dot */}
+                <span className="absolute -left-[25px] sm:-left-[29px] top-5 w-3 h-3 rounded-full bg-[var(--accent)] border-2 border-[var(--bg)] ring-2 ring-[var(--accent)]/30 shrink-0" />
 
-                <div className="glass rounded-2xl p-6 card-glow">
-                  <span className="text-xs font-mono text-[var(--accent2)] mb-2 block">{item.date}</span>
-                  <h3 className="text-lg font-bold text-white">{item.role}</h3>
-                  <p className="text-sm text-[var(--accent)] font-semibold mb-4">{item.company}</p>
+                <div className="glass rounded-2xl p-5 sm:p-6 card-glow hover:border-[var(--accent)]/40 transition-colors">
+                  {/* Date */}
+                  <span className="inline-block text-xs font-mono text-[var(--accent2)] bg-[var(--accent)]/10 px-2.5 py-0.5 rounded-full mb-3">
+                    {item.date}
+                  </span>
+
+                  {/* Role + Company */}
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold text-white leading-tight">{item.role}</h3>
+                    <p className="text-sm text-[var(--accent)] font-semibold mt-0.5">{item.company}</p>
+                  </div>
+
+                  {/* Bullets */}
                   <ul className="space-y-2 mb-5">
                     {item.bullets.map((b, j) => (
-                      <li key={j} className="flex gap-2 text-sm text-[var(--text-muted)]">
-                        <span className="text-[var(--accent)] mt-1 shrink-0">▸</span>
+                      <li key={j} className="flex gap-2.5 text-sm text-[var(--text-muted)] leading-relaxed">
+                        <span className="text-[var(--accent)] mt-1 shrink-0 text-xs">▸</span>
                         {b}
                       </li>
                     ))}
                   </ul>
+
+                  {/* Stack */}
                   <div className="flex flex-wrap gap-1.5">
                     {item.stack.map((s) => (
-                      <span key={s} className="px-2 py-0.5 rounded text-xs bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]">
+                      <span
+                        key={s}
+                        className="px-2 py-0.5 rounded text-xs bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
+                      >
                         {s}
                       </span>
                     ))}

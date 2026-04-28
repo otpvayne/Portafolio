@@ -35,6 +35,11 @@
     "caseStudy": "Caso de estudio",
     "live": "En vivo",
     "repo": "Repositorio",
+    "close": "Cerrar",
+    "problem": "El problema",
+    "solution": "La solución",
+    "impact": "Resultado",
+    "gallery": "Capturas",
     "items": [
       {
         "id": "kumis",
@@ -43,7 +48,13 @@
         "stack": ["HTML", "CSS", "JavaScript", "SEO"],
         "tags": ["web", "landing"],
         "live": "https://pagina-web-demo.onrender.com/index.html",
-        "image": "/assets/images/kumis-800.webp"
+        "image": "/assets/images/kumis-800.webp",
+        "caseStudy": {
+          "problem": "La empresa necesitaba presencia digital profesional con catálogo de productos y optimización para búsquedas locales.",
+          "solution": "Sitio responsive con HTML/CSS/JS, imágenes WebP optimizadas, estructura semántica y meta tags para SEO on-page.",
+          "impact": "Presencia digital activa con puntuación Lighthouse superior a 90 en rendimiento y accesibilidad.",
+          "gallery": ["/assets/images/kumis-800.webp", "/assets/images/kumis-1200.webp"]
+        }
       },
       {
         "id": "pos",
@@ -52,7 +63,13 @@
         "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
         "tags": ["pos", "web", "api", "fintech"],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
-        "image": "/assets/images/pos-preview.svg"
+        "image": "/assets/images/pos-preview.svg",
+        "caseStudy": {
+          "problem": "18 sucursales operaban con registros manuales sin integración de pagos electrónicos ni control centralizado de ventas.",
+          "solution": "Sistema POS en React con gestión de pedidos en tiempo real e integración a la API de Credinbanco para pagos con datáfono.",
+          "impact": "Sistema en producción en las 18 sucursales desde el primer día con pagos digitales completamente integrados.",
+          "gallery": ["/assets/images/pos-preview.svg"]
+        }
       },
       {
         "id": "punteo",
@@ -61,7 +78,13 @@
         "stack": ["React", "Render", "Vercel", "APIs"],
         "tags": ["fintech", "web", "api"],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
-        "image": "/assets/images/punteo-preview.svg"
+        "image": "/assets/images/punteo-preview.svg",
+        "caseStudy": {
+          "problem": "El proceso de conciliación bancaria era manual, tardaba varias horas y era propenso a errores humanos por período.",
+          "solution": "Herramienta web que cruza automáticamente los vauchers de Credinbanco con el extracto bancario y resalta diferencias en tiempo real.",
+          "impact": "El tiempo de conciliación se redujo de horas a minutos por período contable.",
+          "gallery": ["/assets/images/punteo-preview.svg"]
+        }
       },
       {
         "id": "erp",
@@ -70,7 +93,13 @@
         "stack": ["Java SE", "MySQL", "Swing", "MVC"],
         "tags": ["erp"],
         "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
-        "image": "/assets/images/erp-800.webp"
+        "image": "/assets/images/erp-800.webp",
+        "caseStudy": {
+          "problem": "Pequeñas empresas de distribución de alimentos no contaban con un sistema integrado de ventas, inventario y clientes.",
+          "solution": "ERP de escritorio en Java MVC con interfaz Swing, persistencia JDBC/MySQL y exportación a Excel con Apache POI.",
+          "impact": "Sistema funcional con módulos de ventas, inventario, clientes y reportes exportables en formato Excel.",
+          "gallery": ["/assets/images/erp-800.webp"]
+        }
       },
       {
         "id": "facturas",
@@ -79,7 +108,13 @@
         "stack": ["Python", "FastAPI", "PostgreSQL", "OpenCV", "OCR"],
         "tags": ["api", "python"],
         "repo": "https://github.com/otpvayne/facturas-app",
-        "image": "/assets/images/facturas-preview.svg"
+        "image": "/assets/images/facturas-preview.svg",
+        "caseStudy": {
+          "problem": "El procesamiento manual de facturas para extracción de datos era lento, repetitivo y no escalable para volúmenes altos.",
+          "solution": "Backend en Python con FastAPI que procesa imágenes de facturas usando OCR y visión por computadora para extraer NIT, fecha, total e ítems.",
+          "impact": "Procesamiento automatizado con más del 94% de precisión en los campos clave extraídos.",
+          "gallery": ["/assets/images/facturas-preview.svg"]
+        }
       },
       {
         "id": "portafolio",
@@ -89,7 +124,13 @@
         "tags": ["web"],
         "live": "https://portafolio-sandy-phi-49.vercel.app/",
         "repo": "https://github.com/otpvayne/portafolio-next",
-        "image": "/assets/images/portafolio-preview.svg"
+        "image": "/assets/images/portafolio-preview.svg",
+        "caseStudy": {
+          "problem": "Necesitaba un portafolio profesional moderno, bilingüe y con buen rendimiento que reflejara mis capacidades técnicas.",
+          "solution": "Next.js 15 con App Router, next-intl para i18n, Tailwind v4, Framer Motion y Resend para el formulario de contacto.",
+          "impact": "Portafolio desplegado en Vercel con soporte ES/EN, animaciones fluidas y fondo WebGL interactivo.",
+          "gallery": ["/assets/images/portafolio-preview.svg"]
+        }
       }
     ]
   },
@@ -97,7 +138,7 @@
     "title": "Experiencia",
     "items": [
       {
-        "date": "2025 – Presente",
+        "date": "2025 – 2026",
         "role": "Software Developer",
         "company": "Casa del Kumis",
         "bullets": [
@@ -141,13 +182,14 @@
   },
   "contact": {
     "title": "Construyamos algo",
-    "subtitle": "¿Tienes una idea, un producto que lanzar o un sistema que mejorar? Puedo ayudarte a convertirlo en software confiable y escalable.",
+    "subtitle": "Tienes una idea, un producto que lanzar o un sistema que mejorar. Puedo ayudarte a convertirlo en software confiable y escalable.",
     "copyEmail": "Copiar email",
-    "copied": "¡Copiado!",
+    "copied": "Copiado",
     "email": "Email",
     "whatsapp": "WhatsApp",
     "basedIn": "Ubicación",
-    "location": "Colombia (UTC-5)"
+    "location": "Colombia (UTC-5)",
+    "orEmail": "O escríbeme directamente"
   },
   "faq": {
     "title": "Preguntas frecuentes",
@@ -159,20 +201,20 @@
   },
   "contactPage": {
     "title": "Hablemos",
-    "subtitle": "¿Tienes una idea o proyecto? Construyámoslo con calidad, performance y una UX que enamore.",
+    "subtitle": "Tienes una idea o proyecto. Construyámoslo con calidad, performance y una UX que enamore.",
     "highlights": [
-      "Respuesta en 24–48h",
-      "Enfoque product-oriented",
-      "Entregas iterativas y medibles"
+      "**Respuesta en 24–48h** — sin demoras",
+      "**Enfoque product-oriented** — entiendo el negocio",
+      "**Entregas iterativas** — resultados medibles desde el día uno"
     ],
     "name": "Nombre",
     "email": "Correo",
     "message": "Mensaje",
     "send": "Enviar mensaje",
     "sending": "Enviando...",
-    "success": "¡Mensaje enviado! Te respondo pronto.",
+    "success": "Mensaje enviado. Te respondo pronto.",
     "error": "Hubo un error. Intenta de nuevo.",
-    "privacy": "Al enviar aceptas tratamiento básico de tus datos para contacto.",
+    "privacy": "Tus datos se usan únicamente para responderte.",
     "nameError": "Escribe tu nombre",
     "emailError": "Correo no válido",
     "messageError": "Mensaje muy corto (mín. 10 caracteres)"

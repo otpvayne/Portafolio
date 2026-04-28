@@ -35,6 +35,11 @@
     "caseStudy": "Case Study",
     "live": "Live",
     "repo": "Repository",
+    "close": "Close",
+    "problem": "The Problem",
+    "solution": "The Solution",
+    "impact": "Impact",
+    "gallery": "Screenshots",
     "items": [
       {
         "id": "kumis",
@@ -43,7 +48,13 @@
         "stack": ["HTML", "CSS", "JavaScript", "SEO"],
         "tags": ["web", "landing"],
         "live": "https://pagina-web-demo.onrender.com/index.html",
-        "image": "/assets/images/kumis-800.webp"
+        "image": "/assets/images/kumis-800.webp",
+        "caseStudy": {
+          "problem": "The company needed a professional digital presence with a product catalog and optimization for local searches.",
+          "solution": "Responsive site with HTML/CSS/JS, optimized WebP images, semantic structure and meta tags for on-page SEO.",
+          "impact": "Active digital presence with Lighthouse scores above 90 in performance and accessibility.",
+          "gallery": ["/assets/images/kumis-800.webp", "/assets/images/kumis-1200.webp"]
+        }
       },
       {
         "id": "pos",
@@ -52,7 +63,13 @@
         "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
         "tags": ["pos", "web", "api", "fintech"],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
-        "image": "/assets/images/pos-preview.svg"
+        "image": "/assets/images/pos-preview.svg",
+        "caseStudy": {
+          "problem": "18 branches operated with manual records, no electronic payment integration and no centralized sales control.",
+          "solution": "React POS system with real-time order management and Credinbanco API integration for card terminal payments.",
+          "impact": "System live across all 18 branches from day one with digital payments fully integrated.",
+          "gallery": ["/assets/images/pos-preview.svg"]
+        }
       },
       {
         "id": "punteo",
@@ -61,7 +78,13 @@
         "stack": ["React", "Render", "Vercel", "APIs"],
         "tags": ["fintech", "web", "api"],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
-        "image": "/assets/images/punteo-preview.svg"
+        "image": "/assets/images/punteo-preview.svg",
+        "caseStudy": {
+          "problem": "Bank reconciliation was entirely manual, taking several hours per period and prone to human error.",
+          "solution": "Web tool that automatically cross-references Credinbanco vouchers against the bank statement and highlights discrepancies in real time.",
+          "impact": "Reconciliation time reduced from hours to minutes per accounting period.",
+          "gallery": ["/assets/images/punteo-preview.svg"]
+        }
       },
       {
         "id": "erp",
@@ -70,7 +93,13 @@
         "stack": ["Java SE", "MySQL", "Swing", "MVC"],
         "tags": ["erp"],
         "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
-        "image": "/assets/images/erp-800.webp"
+        "image": "/assets/images/erp-800.webp",
+        "caseStudy": {
+          "problem": "Small food distribution businesses lacked an integrated system for sales, inventory and customer management.",
+          "solution": "Desktop ERP in Java MVC with Swing UI, JDBC/MySQL persistence and Excel export using Apache POI.",
+          "impact": "Functional system with sales, inventory, customer and exportable Excel reports modules.",
+          "gallery": ["/assets/images/erp-800.webp"]
+        }
       },
       {
         "id": "facturas",
@@ -79,7 +108,13 @@
         "stack": ["Python", "FastAPI", "PostgreSQL", "OpenCV", "OCR"],
         "tags": ["api", "python"],
         "repo": "https://github.com/otpvayne/facturas-app",
-        "image": "/assets/images/facturas-preview.svg"
+        "image": "/assets/images/facturas-preview.svg",
+        "caseStudy": {
+          "problem": "Manual invoice processing for data extraction was slow, repetitive and not scalable for high volumes.",
+          "solution": "Python backend with FastAPI that processes invoice images using OCR and computer vision to extract NIT, date, total and line items.",
+          "impact": "Automated processing with over 94% accuracy on key extracted fields.",
+          "gallery": ["/assets/images/facturas-preview.svg"]
+        }
       },
       {
         "id": "portafolio",
@@ -89,7 +124,13 @@
         "tags": ["web"],
         "live": "https://portafolio-sandy-phi-49.vercel.app/",
         "repo": "https://github.com/otpvayne/portafolio-next",
-        "image": "/assets/images/portafolio-preview.svg"
+        "image": "/assets/images/portafolio-preview.svg",
+        "caseStudy": {
+          "problem": "Needed a modern, bilingual, high-performance portfolio that reflected my technical capabilities.",
+          "solution": "Next.js 15 with App Router, next-intl for i18n, Tailwind v4, Framer Motion and Resend for the contact form.",
+          "impact": "Portfolio deployed on Vercel with ES/EN support, fluid animations and interactive WebGL background.",
+          "gallery": ["/assets/images/portafolio-preview.svg"]
+        }
       }
     ]
   },
@@ -97,7 +138,7 @@
     "title": "Experience",
     "items": [
       {
-        "date": "2025 – Present",
+        "date": "2025 – 2026",
         "role": "Software Developer",
         "company": "Casa del Kumis",
         "bullets": [
@@ -141,13 +182,14 @@
   },
   "contact": {
     "title": "Let's build something",
-    "subtitle": "Do you have an idea, a product to launch or a system to improve? I can help you turn it into reliable, scalable software.",
+    "subtitle": "You have an idea, a product to launch or a system to improve. I can help you turn it into reliable, scalable software.",
     "copyEmail": "Copy email",
-    "copied": "Copied!",
+    "copied": "Copied",
     "email": "Email",
     "whatsapp": "WhatsApp",
     "basedIn": "Based in",
-    "location": "Colombia (UTC-5)"
+    "location": "Colombia (UTC-5)",
+    "orEmail": "Or write me directly"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -159,20 +201,20 @@
   },
   "contactPage": {
     "title": "Let's talk",
-    "subtitle": "Do you have an idea or project? Let's build it with quality, performance and a UX people will love.",
+    "subtitle": "You have an idea or project. Let's build it with quality, performance and a UX people will love.",
     "highlights": [
-      "Response within 24–48h",
-      "Product-oriented approach",
-      "Iterative and measurable deliveries"
+      "**Response within 24–48h** — no delays",
+      "**Product-oriented approach** — I understand the business",
+      "**Iterative deliveries** — measurable results from day one"
     ],
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "send": "Send message",
     "sending": "Sending...",
-    "success": "Message sent! I'll get back to you soon.",
+    "success": "Message sent. I'll get back to you soon.",
     "error": "Something went wrong. Please try again.",
-    "privacy": "By submitting you accept basic data processing for contact purposes.",
+    "privacy": "Your data is used only to respond to you.",
     "nameError": "Please enter your name",
     "emailError": "Invalid email address",
     "messageError": "Message too short (min. 10 characters)"

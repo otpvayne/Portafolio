@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────
+   Design tokens
+───────────────────────────────────────── */
 :root {
-  --bg: #0a0a0f;
-  --bg-card: #12121a;
+  --bg:       #0a0a0f;
+  --bg-card:  #12121a;
   --bg-card2: #1a1a26;
-  --accent: #7c6af7;
-  --accent2: #a78bfa;
-  --text: #e2e2f0;
+  --accent:   #7c6af7;
+  --accent2:  #a78bfa;
+  --text:     #e2e2f0;
   --text-muted: #8888aa;
-  --border: #2a2a3d;
-  --radius: 12px;
+  --border:   #2a2a3d;
+  --radius:   12px;
 }
 
+/* ─────────────────────────────────────────
+   Reset & Base
+───────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -26,46 +32,135 @@ body {
 
 ::selection { background: var(--accent); color: white; }
 
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
 
-/* Typing cursor */
+/* ─────────────────────────────────────────
+   Typing cursor
+───────────────────────────────────────── */
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .cursor { display:inline-block; animation: blink 1s step-end infinite; }
 
-/* Hero background */
-.hero-bg {
-  background-image: url('/assets/images/mi-fondo.gif');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Skill bar animation */
-@keyframes fillBar {
-  from { width: 0; }
-}
+/* ─────────────────────────────────────────
+   Skill bar fill animation (legacy fallback)
+───────────────────────────────────────── */
+@keyframes fillBar { from { width: 0; } }
 .skill-bar-fill { animation: fillBar 1s ease forwards; }
 
-/* Timeline connector */
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0; bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  transform: translateX(-50%);
+/* ─────────────────────────────────────────
+   Card glow on hover
+───────────────────────────────────────── */
+.card-glow {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
-
-/* Card glow on hover */
 .card-glow:hover {
-  box-shadow: 0 0 24px 2px color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: 0 0 28px 2px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
-/* Glass card */
+/* ─────────────────────────────────────────
+   Glass card
+───────────────────────────────────────── */
 .glass {
-  background: color-mix(in srgb, var(--bg-card) 80%, transparent);
+  background: color-mix(in srgb, var(--bg-card) 85%, transparent);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
 }
+
+/* ─────────────────────────────────────────
+   SpotlightCard / GlowCard
+───────────────────────────────────────── */
+.glow-card {
+  background: color-mix(in srgb, var(--bg-card) 85%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: border-color;
+}
+
+.glow-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    calc(var(--size, 280) * 1px) calc(var(--size, 280) * 1px) at
+    calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
+    hsl(var(--hue, 260) 80% 65% / 0.10),
+    transparent 100%
+  );
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+[data-glow=""] .glow-inner,
+.glow-card .glow-inner {
+  border-radius: inherit;
+}
+
+/* Spotlight border glow */
+.glow-card::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    calc(var(--size, 280) * 0.7px) calc(var(--size, 280) * 0.7px) at
+    calc(var(--x, -999) * 1px) calc(var(--y, -999) * 1px),
+    hsl(var(--hue, 260) 80% 65% / 0.35),
+    transparent 100%
+  );
+  background-attachment: fixed;
+  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  z-index: 0;
+}
+
+/* Ensure children render above inner layer */
+.glow-card > *:not(.glow-inner) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─────────────────────────────────────────
+   Mobile menu transition
+───────────────────────────────────────── */
+@media (max-width: 767px) {
+  .mobile-nav-enter {
+    animation: slideDown 0.22s ease forwards;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ─────────────────────────────────────────
+   Responsive utilities
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Prevent text overflow in cards */
+  .glass p, .glow-card p { word-break: break-word; }
+
+  /* Hero title */
+  h1.text-7xl { font-size: 2.5rem; letter-spacing: 0.1em; }
+
+  /* Section padding reduction */
+  section { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* ─────────────────────────────────────────
+   Gallery scroll inside modal
+───────────────────────────────────────── */
+.gallery-strip {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.gallery-strip::-webkit-scrollbar { display: none; }
+.gallery-strip > * { scroll-snap-align: start; flex-shrink: 0; }
