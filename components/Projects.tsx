@@ -51,8 +51,8 @@ export default function Projects() {
             </h2>
             <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
           </div>
-          <div className="rounded-[28px] border border-[var(--line)] bg-white/65 px-5 py-4 text-sm text-[var(--text-muted)] shadow-sm backdrop-blur-sm">
-            <span className="font-semibold text-[var(--text)]">{t("featuredLabel")}</span> {t("featuredBody")}
+          <div className="rounded-[28px] border border-[var(--border-light)] bg-white/80 px-5 py-4 text-sm text-[var(--text-muted)] shadow-sm backdrop-blur-sm transition-colors hover:border-[var(--border-medium)]">
+            <span className="font-medium text-[var(--text)]">{t("featuredLabel")}</span> {t("featuredBody")}
           </div>
         </div>
 
@@ -80,7 +80,7 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-col gap-5 p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
                       {t("featuredBadge")}
                     </p>
                     <ArrowUpRight size={18} className="text-[var(--text-muted)]" />
@@ -93,7 +93,7 @@ export default function Projects() {
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[var(--line)] bg-white/70 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
                       >
                         {item}
                       </span>
@@ -111,10 +111,10 @@ export default function Projects() {
               key={key}
               onClick={() => setActive(key)}
               aria-pressed={active === key}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+              className={`rounded-full px-4 py-2.5 text-sm font-medium transition-all ${
                 active === key
-                  ? "bg-[var(--surface-ink)] text-white"
-                  : "border border-[var(--line)] bg-white/72 text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
+                  ? "bg-[var(--surface-ink)] text-white shadow-md"
+                  : "border border-[var(--border-light)] bg-white/85 text-[var(--text)] hover:border-[var(--accent)] hover:bg-white"
               }`}
             >
               {t(`filters.${key}`)}
@@ -164,7 +164,7 @@ export default function Projects() {
                       {project.stack.slice(0, 4).map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-[var(--line)] bg-white/75 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                          className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
                         >
                           {item}
                         </span>

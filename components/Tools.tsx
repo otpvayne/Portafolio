@@ -60,7 +60,7 @@ export default function Tools() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {capabilities.map((item) => (
-              <div key={item} className="rounded-[24px] border border-[var(--line)] bg-white/62 px-4 py-4 text-sm leading-6 text-[var(--text-muted)]">
+              <div key={item} className="rounded-[24px] border border-[var(--border-light)] bg-white/85 px-4 py-4 text-sm leading-6 text-[var(--text)] transition-colors hover:border-[var(--border-medium)]">
                 {item}
               </div>
             ))}
@@ -72,10 +72,10 @@ export default function Tools() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+              className={`rounded-full px-4 py-2.5 text-sm font-medium transition-all ${
                 tab === key
-                  ? "bg-[var(--surface-ink)] text-white"
-                  : "border border-[var(--line)] bg-white/72 text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
+                  ? "bg-[var(--surface-ink)] text-white shadow-md"
+                  : "border border-[var(--border-light)] bg-white/85 text-[var(--text)] hover:border-[var(--accent)] hover:bg-white"
               }`}
             >
               {t(`tabs.${key}`)}

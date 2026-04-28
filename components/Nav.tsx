@@ -70,7 +70,7 @@ export default function Nav() {
             />
           </div>
           <div className="hidden sm:block">
-            <p className="text-sm font-semibold text-[var(--text)]">Diego Medina</p>
+            <p className="text-sm font-medium text-[var(--text)]">Diego Medina</p>
             <p className="text-xs text-[var(--text-muted)]">{t("tagline")}</p>
           </div>
         </a>

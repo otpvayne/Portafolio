@@ -43,15 +43,15 @@ export default function Contact() {
               </div>
 
               <div className="rounded-[28px] bg-[var(--surface-ink)] p-6 text-white">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/65">{t("responseLabel")}</p>
-                <p className="mt-4 text-lg leading-8 text-white/82">{t("responseBody")}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/85">{t("responseLabel")}</p>
+                <p className="mt-4 text-lg leading-8 text-white/95">{t("responseBody")}</p>
               </div>
 
               <ul className="grid gap-3">
                 {process.map((item) => (
                   <li
                     key={item}
-                    className="rounded-[22px] border border-[var(--line)] bg-white/68 px-4 py-4 text-sm leading-7 text-[var(--text-muted)]"
+                    className="rounded-[22px] border border-[var(--border-light)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)] transition-colors hover:border-[var(--border-medium)]"
                   >
                     {item}
                   </li>
@@ -65,12 +65,12 @@ export default function Contact() {
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[18px] bg-[var(--surface-ink)] text-white">
                     <Mail size={18} />
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">{t("email")}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">{t("email")}</p>
                   <p className="mt-3 break-all text-sm leading-7 text-[var(--text)]">{EMAIL}</p>
                   <div className="mt-5 flex gap-3">
                     <button
                       onClick={copyEmail}
-                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-white/85 px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
+                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[var(--border-light)] bg-white/85 px-4 py-3 text-sm font-medium text-[var(--text)] transition-all hover:border-[var(--accent)] hover:bg-white"
                     >
                       {copied ? <Check size={15} /> : <Copy size={15} />}
                       {copied ? t("copied") : t("copyEmail")}
@@ -82,7 +82,7 @@ export default function Contact() {
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[18px] bg-[#128c7e] text-white">
                     <MessageCircle size={18} />
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">WhatsApp</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">WhatsApp</p>
                   <p className="mt-3 text-sm leading-7 text-[var(--text)]">+57 301 747 2421</p>
                   <a
                     href={`https://wa.me/${WA_NUMBER}?text=Hola%20Diego%2C%20vi%20tu%20portafolio`}
@@ -99,7 +99,7 @@ export default function Contact() {
               <div className="glass rounded-[28px] p-5">
                 <div className="grid gap-5 sm:grid-cols-[0.8fr_1.2fr] sm:items-center">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
                       {t("basedIn")}
                     </p>
                     <div className="mt-3 flex items-center gap-3 text-[var(--text)]">

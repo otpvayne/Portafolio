@@ -56,12 +56,12 @@ export default function Experience() {
                   <div className="panel rounded-[30px] p-6 sm:p-7">
                     <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
                       <div className="space-y-4">
-                        <span className="inline-flex rounded-full bg-[var(--surface-ink)] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-white">
+                        <span className="inline-flex rounded-full bg-[var(--surface-ink)] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white">
                           {item.date}
                         </span>
                         <div>
                           <h3 className="text-2xl font-bold text-[var(--text)]">{item.role}</h3>
-                          <p className="mt-2 text-base font-semibold text-[var(--accent-strong)]">{item.company}</p>
+                          <p className="mt-2 text-base font-medium text-[var(--accent-strong)]">{item.company}</p>
                         </div>
                       </div>
 
@@ -70,7 +70,7 @@ export default function Experience() {
                           {item.bullets.map((bullet) => (
                             <li
                               key={bullet}
-                              className="flex gap-3 rounded-2xl border border-[var(--line)] bg-white/68 px-4 py-4 text-sm leading-7 text-[var(--text-muted)]"
+                              className="flex gap-3 rounded-2xl border border-[var(--border-light)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)] transition-colors hover:border-[var(--border-medium)]"
                             >
                               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
                               <span>{bullet}</span>
@@ -82,7 +82,7 @@ export default function Experience() {
                           {item.stack.map((tool) => (
                             <span
                               key={tool}
-                              className="rounded-full border border-[var(--line)] bg-white/75 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                              className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
                             >
                               {tool}
                             </span>
