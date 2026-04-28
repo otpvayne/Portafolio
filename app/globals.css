@@ -1,20 +1,48 @@
 @import "tailwindcss";
 
 :root {
+  /* Base Colors */
   --bg: #f5efe6;
   --bg-elevated: rgba(255, 252, 247, 0.84);
   --surface: #fffaf2;
   --surface-strong: #f1e6d7;
   --surface-ink: #1f2937;
+
+  /* Text Colors - Improved Contrast */
   --text: #172033;
-  --text-muted: #5f6778;
+  --text-muted: #4a5568;
+  --text-muted-dark: #3a4350;
+
+  /* Borders - Consistent Scale */
   --line: rgba(23, 32, 51, 0.12);
   --line-strong: rgba(23, 32, 51, 0.22);
+  --border-light: rgba(23, 32, 51, 0.12);
+  --border-medium: rgba(23, 32, 51, 0.18);
+  --border-strong: rgba(23, 32, 51, 0.28);
+
+  /* Overlay/Transparency Scale */
+  --overlay-light: rgba(255, 255, 255, 0.4);
+  --overlay-medium: rgba(255, 255, 255, 0.75);
+  --overlay-strong: rgba(255, 255, 255, 0.9);
+
+  /* Accents */
   --accent: #b45309;
   --accent-strong: #8a3f08;
   --accent-soft: #f59e0b;
   --accent-alt: #0f766e;
+  --accent-green: #10b981;
+
+  /* Effects */
   --shadow: 0 24px 80px rgba(30, 41, 59, 0.12);
+  --shadow-md: 0 20px 40px rgba(30, 41, 59, 0.08);
+  --shadow-lg: 0 28px 60px rgba(30, 41, 59, 0.12);
+
+  /* Spacing Scale */
+  --gap-sm: 0.5rem;
+  --gap-md: 1rem;
+  --gap-lg: 1.5rem;
+  --gap-xl: 2rem;
+
   --radius: 24px;
 }
 
@@ -36,7 +64,7 @@ body {
     linear-gradient(180deg, #fbf7f0 0%, #f5efe6 42%, #efe6da 100%);
   color: var(--text);
   font-family: "Sora", sans-serif;
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
 }
 
@@ -103,9 +131,9 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-strong);
 }
@@ -118,17 +146,29 @@ img {
 }
 
 .panel {
-  background: linear-gradient(180deg, rgba(255, 252, 247, 0.9), rgba(255, 248, 240, 0.82));
-  border: 1px solid rgba(23, 32, 51, 0.08);
-  box-shadow: var(--shadow);
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.95), rgba(255, 248, 240, 0.88));
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
   backdrop-filter: blur(16px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
 }
 
 .glass {
-  background: linear-gradient(180deg, rgba(255, 251, 245, 0.86), rgba(251, 243, 232, 0.78));
-  border: 1px solid rgba(23, 32, 51, 0.08);
-  box-shadow: 0 18px 50px rgba(30, 41, 59, 0.08);
+  background: linear-gradient(180deg, rgba(255, 251, 245, 0.95), rgba(251, 243, 232, 0.88));
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
   backdrop-filter: blur(18px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-glow {
@@ -142,6 +182,68 @@ img {
   transform: translateY(-4px);
   border-color: rgba(180, 83, 9, 0.28);
   box-shadow: 0 26px 60px rgba(138, 63, 8, 0.12);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--surface-ink);
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--overlay-medium);
+  color: var(--text);
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--text);
+  font-weight: 600;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-tertiary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: rgba(180, 83, 9, 0.05);
 }
 
 .soft-ring {

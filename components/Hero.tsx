@@ -66,7 +66,7 @@ export default function Hero() {
             transition={{ duration: 0.82, delay: 0.08 }}
             className="max-w-3xl space-y-6"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--text-muted)]">
+            <p className="text-sm font-medium uppercase tracking-[0.25em] text-[var(--text-muted)]">
               Diego Medina
             </p>
             <h1 className="max-w-3xl text-5xl font-extrabold tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
@@ -120,7 +120,7 @@ export default function Hero() {
             {highlights.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white/55 px-4 py-3 backdrop-blur-sm"
+                className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white/75 px-4 py-3 backdrop-blur-sm"
               >
                 <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" />
                 <span>{item}</span>
