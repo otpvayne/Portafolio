@@ -150,7 +150,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               <div className="space-y-8 p-6 sm:p-8">
                 <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                   <div className="max-w-2xl space-y-3">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
                       {t("caseStudy")}
                     </p>
                     <h2 className="text-3xl font-bold tracking-tight text-[var(--text)]">{project.title}</h2>
@@ -162,7 +162,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                         href={project.live}
                         target="_blank"
                         rel="noopener"
-                        className="inline-flex items-center gap-2 rounded-full bg-[var(--surface-ink)] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--accent-strong)]"
+                        className="inline-flex items-center gap-2 rounded-full bg-[var(--surface-ink)] px-4 py-3 text-sm font-medium text-white transition-all hover:bg-[var(--accent-strong)]"
                       >
                         <ExternalLink size={15} />
                         {t("live")}
@@ -173,7 +173,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                         href={project.repo}
                         target="_blank"
                         rel="noopener"
-                        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
+                        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-3 text-sm font-medium text-[var(--text)] transition-all hover:border-[var(--accent)]"
                       >
                         <Github size={15} />
                         {t("repo")}
@@ -194,19 +194,19 @@ export default function ProjectModal({ project, onClose }: Props) {
                         className={`rounded-[26px] p-5 ${
                           index === 1
                             ? "bg-[var(--surface-ink)] text-white"
-                            : "border border-[var(--line)] bg-white/72"
+                            : "border border-[var(--line)] bg-white/85"
                         }`}
                       >
                         <p
-                          className={`text-xs font-bold uppercase tracking-[0.18em] ${
-                            index === 1 ? "text-white/62" : "text-[var(--accent-strong)]"
+                          className={`text-xs font-bold uppercase tracking-[0.12em] ${
+                            index === 1 ? "text-white/85" : "text-[var(--accent-strong)]"
                           }`}
                         >
                           {item.label}
                         </p>
                         <p
                           className={`mt-3 text-sm leading-7 ${
-                            index === 1 ? "text-white/82" : "text-[var(--text-muted)]"
+                            index === 1 ? "text-white/95" : "text-[var(--text)]"
                           }`}
                         >
                           {item.text}
@@ -217,14 +217,14 @@ export default function ProjectModal({ project, onClose }: Props) {
                 )}
 
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
                     {t("stackLabel")}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
                       >
                         {item}
                       </span>

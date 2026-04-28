@@ -51,7 +51,7 @@ export default function Projects() {
             </h2>
             <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
           </div>
-          <div className="rounded-[28px] border border-[var(--line)] bg-white/65 px-5 py-4 text-sm text-[var(--text-muted)] shadow-sm backdrop-blur-sm">
+          <div className="rounded-[28px] border border-[var(--line)] bg-white/85 px-5 py-4 text-sm text-[var(--text-muted)] shadow-sm backdrop-blur-sm">
             <span className="font-semibold text-[var(--text)]">{t("featuredLabel")}</span> {t("featuredBody")}
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-col gap-5 p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
                       {t("featuredBadge")}
                     </p>
                     <ArrowUpRight size={18} className="text-[var(--text-muted)]" />
@@ -93,7 +93,7 @@ export default function Projects() {
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[var(--line)] bg-white/70 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
                       >
                         {item}
                       </span>
@@ -164,7 +164,7 @@ export default function Projects() {
                       {project.stack.slice(0, 4).map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-[var(--line)] bg-white/75 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
+                          className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
                         >
                           {item}
                         </span>
@@ -176,7 +176,7 @@ export default function Projects() {
                         <button
                           type="button"
                           onClick={() => setSelected(project)}
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)] transition-colors hover:text-[var(--accent)]"
+                          className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-strong)] transition-colors hover:text-[var(--accent)]"
                         >
                           {t("openCaseStudy")}
                           <ArrowUpRight size={15} />

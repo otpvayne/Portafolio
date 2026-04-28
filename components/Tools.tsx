@@ -60,7 +60,7 @@ export default function Tools() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {capabilities.map((item) => (
-              <div key={item} className="rounded-[24px] border border-[var(--line)] bg-white/62 px-4 py-4 text-sm leading-6 text-[var(--text-muted)]">
+              <div key={item} className="rounded-[24px] border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-6 text-[var(--text-muted)]">
                 {item}
               </div>
             ))}

@@ -56,7 +56,7 @@ export default function About() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-[24px] border border-[var(--line)] bg-white/60 p-5">
+                <div key={stat.label} className="rounded-[24px] border border-[var(--line)] bg-white/80 p-5">
                   <p className="text-2xl font-extrabold text-[var(--surface-ink)]">{stat.value}</p>
                   <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{stat.label}</p>
                 </div>
@@ -67,7 +67,7 @@ export default function About() {
               {CHIPS.map((chip) => (
                 <li
                   key={chip}
-                  className="rounded-full border border-[var(--line)] bg-white/72 px-4 py-2 text-sm font-medium text-[var(--text)]"
+                  className="rounded-full border border-[var(--line)] bg-white/85 px-4 py-2.5 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:bg-white"
                 >
                   {chip}
                 </li>
@@ -102,17 +102,17 @@ export default function About() {
 
               <div className="flex flex-col justify-between gap-4">
                 <div className="rounded-[28px] bg-[var(--surface-ink)] p-6 text-white">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/65">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/85">
                     {t("focusTitle")}
                   </p>
-                  <p className="mt-4 text-lg leading-8 text-white/82">{t("focusBody")}</p>
+                  <p className="mt-4 text-lg leading-8 text-white/95">{t("focusBody")}</p>
                 </div>
 
-                <div className="rounded-[28px] border border-[var(--line)] bg-white/72 p-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                <div className="rounded-[28px] border border-[var(--line)] bg-white/85 p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
                     {t("approachTitle")}
                   </p>
-                  <p className="mt-4 text-base leading-7 text-[var(--text-muted)]">{t("approachBody")}</p>
+                  <p className="mt-4 text-base leading-7 text-[var(--text)]">{t("approachBody")}</p>
                 </div>
 
                 <div className="flex gap-2">
