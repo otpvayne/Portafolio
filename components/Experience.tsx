@@ -15,9 +15,9 @@ export default function Experience() {
   const items = t.raw("items") as ExperienceItem[];
 
   return (
-    <section id="experience" className="py-40 px-4 sm:px-6 relative">
+    <section id="experience" className="py-48 px-4 sm:px-8 lg:px-16 relative">
       {/* Subtle separator top */}
-      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+      <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
 
       <div className="w-full max-w-5xl mx-auto">
         <motion.h2
@@ -87,7 +87,7 @@ export default function Experience() {
       </div>
 
       {/* Subtle separator bottom */}
-      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+      <div className="absolute bottom-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

@@ -34,7 +34,7 @@ export default function Hero() {
   }, [displayed, deleting, wordIndex]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-8 lg:px-16 overflow-hidden">
       {/* WebGL nebula background */}
       <div className="absolute inset-0 z-0">
         <CelestialSphere

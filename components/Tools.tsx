@@ -43,9 +43,9 @@ export default function Tools() {
   const [tab, setTab] = useState<Tabs>("mainstack");
 
   return (
-    <section id="tools" className="py-40 px-4 sm:px-6 bg-[var(--bg-card)]/30 relative">
+    <section id="tools" className="py-48 px-4 sm:px-8 lg:px-16 bg-[var(--bg-card)]/30 relative">
       {/* Subtle separator top */}
-      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+      <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
 
       <div className="w-full max-w-6xl mx-auto">
         <motion.h2
@@ -112,7 +112,7 @@ export default function Tools() {
       </div>
 
       {/* Subtle separator bottom */}
-      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+      <div className="absolute bottom-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

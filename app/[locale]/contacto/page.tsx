@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main className="min-h-screen pt-28 pb-20 px-4 sm:px-6">
+      <main className="min-h-screen pt-28 pb-20 px-4 sm:px-8 lg:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
 

@@ -18,9 +18,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-40 px-4 sm:px-6 overflow-hidden">
+    <section id="contact" className="relative py-48 px-4 sm:px-8 lg:px-16 overflow-hidden">
       {/* Subtle separator top */}
-      <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+      <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
 
       {/* Subtle radial glow */}
       <div
@@ -150,7 +150,7 @@ export default function Contact() {
       </div>
 
       {/* Subtle separator bottom */}
-      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+      <div className="absolute bottom-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }

@@ -8,8 +8,8 @@ export default function FaqPage() {
   return (
     <>
       <Nav />
-      <main className="min-h-screen pt-24 pb-16 px-6">
-        <div className="max-w-3xl mx-auto">
+      <main className="min-h-screen pt-24 pb-16 px-4 sm:px-8 lg:px-16">
+        <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold text-white mb-3">{t("title")}</h1>
           <p className="text-[var(--text-muted)] mb-10">{t("subtitle")}</p>
           <FaqClient />
