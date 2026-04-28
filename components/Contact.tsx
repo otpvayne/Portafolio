@@ -51,7 +51,7 @@ export default function Contact() {
                 {process.map((item) => (
                   <li
                     key={item}
-                    className="rounded-[22px] border border-[var(--line)] bg-white/68 px-4 py-4 text-sm leading-7 text-[var(--text-muted)]"
+                    className="rounded-[22px] border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)] break-words overflow-hidden"
                   >
                     {item}
                   </li>
@@ -65,8 +65,8 @@ export default function Contact() {
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[18px] bg-[var(--surface-ink)] text-white">
                     <Mail size={18} />
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">{t("email")}</p>
-                  <p className="mt-3 break-all text-sm leading-7 text-[var(--text)]">{EMAIL}</p>
+                  <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">{t("email")}</p>
+                  <p className="mt-3 overflow-hidden text-ellipsis text-sm leading-7 text-[var(--text)]">{EMAIL}</p>
                   <div className="mt-5 flex gap-3">
                     <button
                       onClick={copyEmail}

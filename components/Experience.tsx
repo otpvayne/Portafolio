@@ -70,10 +70,10 @@ export default function Experience() {
                           {item.bullets.map((bullet) => (
                             <li
                               key={bullet}
-                              className="flex gap-3 rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)]"
+                              className="flex gap-3 rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)] overflow-hidden"
                             >
                               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
-                              <span>{bullet}</span>
+                              <span className="break-words">{bullet}</span>
                             </li>
                           ))}
                         </ul>

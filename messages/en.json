@@ -12,7 +12,7 @@
   "hero": {
     "eyebrow": "Available for products, internal tools and system design",
     "headline": "Software that looks sharp, works hard and solves real operational problems.",
-    "subheadline": "I design and build web experiences, internal systems and business workflows with strong UX judgment, reliable engineering and product clarity.",
+    "subheadline": "Web experiences, internal systems and workflows designed for clarity, reliability and impact.",
     "primaryCta": "View projects",
     "resume": "Download resume",
     "photoTitle": "Frontend, backend and product thinking in one practice.",
@@ -34,7 +34,7 @@
   "about": {
     "kicker": "Profile",
     "title": "I do not just ship features. I shape the full experience around the problem.",
-    "body": "I am a full stack software engineer focused on turning real needs into software that feels clear, useful and sustainable. I care about more than whether it runs: it should also be easy to understand, pleasant to use and practical to operate.",
+    "body": "Full stack engineer turning real needs into clear, useful and sustainable software.",
     "slides": [
       "Frontend with visual judgment and conversion awareness",
       "Backend focused on workflows, integrations and data",
@@ -42,9 +42,9 @@
       "Engineering built to scale without unnecessary noise"
     ],
     "focusTitle": "What I optimize for",
-    "focusBody": "Taking vague or messy problems, structuring them and turning them into software that makes sense both for the end user and for the team maintaining it later.",
+    "focusBody": "Messy problems → clear software: sense for users, maintainability for teams.",
     "approachTitle": "How I work",
-    "approachBody": "I usually start with the business need, define the main flow and then refine structure, visual language and interaction details until the product feels more coherent and trustworthy.",
+    "approachBody": "Business need → main flow → structure and details → coherent product.",
     "stats": [
       { "value": "UI + DX", "label": "care for both end-user experience and developer experience" },
       { "value": "Build fast", "label": "concrete iteration speed without muddy architecture" },
@@ -54,7 +54,7 @@
   "projects": {
     "kicker": "Selected work",
     "title": "Projects shaped around impact, operations and experience.",
-    "intro": "A mix of commercial software, internal tools and personal systems where the goal was not just building faster, but improving the whole workflow.",
+    "intro": "Commercial software, internal tools and systems where we improved the whole workflow.",
     "featuredLabel": "The thread across most of my work:",
     "featuredBody": "clear interfaces, process automation and systems shaped by business reality.",
     "featuredBadge": "Featured case",
@@ -174,16 +174,15 @@
   "experience": {
     "kicker": "Experience",
     "title": "Real operating context, not isolated demo work.",
-    "intro": "I have worked in situations where software affects sales, operations, reconciliation, response times and business visibility. That changes how you decide what to build and how to ship it.",
+    "intro": "Software that affects sales, operations and visibility. That changes how we decide to build.",
     "items": [
       {
         "date": "2025 - 2026",
         "role": "Software Developer",
         "company": "Casa del Kumis",
         "bullets": [
-          "POS in production across 18 branches with Credinbanco integration for card terminal payments.",
-          "Bank reconciliation tooling that matches vouchers against statements and cuts operational time dramatically.",
-          "Responsive website with SEO improvements, optimized media and mobile-first decisions."
+          "POS across 18 branches + Credinbanco payments",
+          "Bank reconciliation automation"
         ],
         "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
       },
@@ -192,9 +191,8 @@
         "role": "Java Developer",
         "company": "Personal Project",
         "bullets": [
-          "ERP to manage sales, inventory and clients under an MVC structure.",
-          "Desktop UI with Swing, JDBC persistence and Excel export support.",
-          "Exploration of operational notifications for sales follow-up."
+          "ERP sales + inventory with Java MVC",
+          "Desktop UI with Swing and Excel export"
         ],
         "stack": ["Java", "MySQL", "JDBC", "Swing"]
       },
@@ -203,8 +201,8 @@
         "role": "Freelance Web Developer",
         "company": "Independent",
         "bullets": [
-          "Custom web solutions for small businesses and commerce-oriented MVPs.",
-          "Component systems and visual tokens to improve UI consistency at scale."
+          "Custom web solutions for MVPs",
+          "Components and design tokens"
         ],
         "stack": ["React", "Tailwind", "MongoDB"]
       }
@@ -213,7 +211,7 @@
   "tools": {
     "kicker": "Capabilities",
     "title": "Technology selected with judgment, not trend chasing.",
-    "intro": "I work comfortably across interface, APIs, data and deployment. The stack changes with the problem, but the goal stays the same: clarity, speed of use and a maintainable foundation.",
+    "intro": "Frontend, backend, data and deployment. Stack chosen for the problem, goal is constant: clarity and speed.",
     "capabilities": [
       "Frontend shaped for rhythm, hierarchy and serious responsive behavior.",
       "Backend for workflows, integrations and operational automation.",
@@ -233,7 +231,7 @@
     "title": "If there is an idea, product or stuck system, we can move it forward.",
     "subtitle": "I work best when a product needs structure, a digital experience needs sharper UX or an internal flow needs to stop wasting time.",
     "responseLabel": "Working style",
-    "responseBody": "I usually respond quickly, turn the problem into something concrete and outline a sensible direction before writing a lot of code.",
+    "responseBody": "Quick response, concrete problem, clear direction before code.",
     "copyEmail": "Copy email",
     "copied": "Copied",
     "email": "Email",
@@ -243,9 +241,9 @@
     "basedIn": "Based in",
     "location": "Colombia (UTC-5)",
     "process": [
-      "First I understand the flow, priority and expected impact.",
-      "Then I propose a practical way forward without unnecessary decoration.",
-      "Finally we turn that idea into something useful, visible and well executed."
+      "Understand flow and priorities",
+      "Propose clear direction",
+      "Turn idea into real output"
     ]
   },
   "faq": {

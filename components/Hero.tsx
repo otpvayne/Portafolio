@@ -120,10 +120,10 @@ export default function Hero() {
             {highlights.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white/75 px-4 py-3 backdrop-blur-sm"
+                className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white/75 px-4 py-3 backdrop-blur-sm overflow-hidden"
               >
-                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" />
-                <span>{item}</span>
+                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" shrink-0 />
+                <span className="break-words">{item}</span>
               </li>
             ))}
           </motion.ul>

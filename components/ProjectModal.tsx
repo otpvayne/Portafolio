@@ -191,21 +191,21 @@ export default function ProjectModal({ project, onClose }: Props) {
                     ].map((item, index) => (
                       <div
                         key={item.label}
-                        className={`rounded-[26px] p-5 ${
+                        className={`rounded-[26px] p-5 overflow-hidden ${
                           index === 1
                             ? "bg-[var(--surface-ink)] text-white"
                             : "border border-[var(--line)] bg-white/85"
                         }`}
                       >
                         <p
-                          className={`text-xs font-bold uppercase tracking-[0.12em] ${
+                          className={`truncate text-xs font-bold uppercase tracking-[0.12em] ${
                             index === 1 ? "text-white/85" : "text-[var(--accent-strong)]"
                           }`}
                         >
                           {item.label}
                         </p>
                         <p
-                          className={`mt-3 text-sm leading-7 ${
+                          className={`mt-3 text-sm leading-7 break-words ${
                             index === 1 ? "text-white/95" : "text-[var(--text)]"
                           }`}
                         >

@@ -12,7 +12,7 @@
   "hero": {
     "eyebrow": "Disponible para construir productos y sistemas",
     "headline": "Software que se ve bien, funciona mejor y resuelve problemas reales.",
-    "subheadline": "Diseno y desarrollo experiencias web, herramientas internas y flujos operativos con enfoque en negocio, claridad de uso y buena ejecucion tecnica.",
+    "subheadline": "Experiencias web, herramientas y flujos operativos con foco en negocio, claridad y ejecucion.",
     "primaryCta": "Ver proyectos",
     "resume": "Descargar CV",
     "photoTitle": "Frontend, backend y producto en una sola mesa.",
@@ -34,7 +34,7 @@
   "about": {
     "kicker": "Perfil",
     "title": "No solo desarrollo features. Diseno experiencias completas alrededor del problema.",
-    "body": "Soy ingeniero de software full stack y trabajo convirtiendo necesidades reales en productos claros, utiles y sostenibles. Me interesa que la solucion no solo compile: tambien debe ser facil de entender, agradable de usar y viable para operar.",
+    "body": "Full stack enfocado en convertir necesidades reales en productos claros, utiles y sostenibles.",
     "slides": [
       "Frontend con criterio visual y foco en conversion",
       "Backend orientado a procesos, integraciones y datos",
@@ -42,9 +42,9 @@
       "Ingenieria pensada para escalar sin ruido"
     ],
     "focusTitle": "Mi foco",
-    "focusBody": "Tomar problemas confusos, ordenarlos y convertirlos en software con una experiencia entendible para quien lo usa y una base tecnica firme para quien lo mantiene.",
+    "focusBody": "Problemas confusos a software claro: experiencia usable, base tecnica firme.",
     "approachTitle": "Como trabajo",
-    "approachBody": "Suelo empezar por la necesidad del negocio, aterrizar el flujo principal y luego refinar estructura, lenguaje visual y detalles de interaccion para que el producto gane solidez.",
+    "approachBody": "Necesidad → flujo principal → estructura y detalles visuales → producto solido.",
     "stats": [
       { "value": "UI + DX", "label": "experiencia para usuario final y para el equipo que mantiene el codigo" },
       { "value": "Build fast", "label": "iteraciones concretas sin sacrificar claridad arquitectonica" },
@@ -54,7 +54,7 @@
   "projects": {
     "kicker": "Trabajo seleccionado",
     "title": "Proyectos con foco en impacto, operacion y experiencia.",
-    "intro": "Una mezcla de software comercial, herramientas internas y productos propios donde lo importante no fue solo desarrollar, sino resolver mejor el flujo completo.",
+    "intro": "Software comercial, herramientas internas y productos donde resolvemos mejor el flujo completo.",
     "featuredLabel": "Lo que mas se repite en mi trabajo:",
     "featuredBody": "interfaces claras, automatizacion de procesos y sistemas con criterio de negocio.",
     "featuredBadge": "Caso destacado",
@@ -174,16 +174,15 @@
   "experience": {
     "kicker": "Experiencia",
     "title": "Contexto real, no solo practica aislada.",
-    "intro": "He trabajado en escenarios donde el software afecta ventas, operacion, conciliacion, tiempos de respuesta y visibilidad del negocio. Eso cambia la forma de decidir que construir y como entregarlo.",
+    "intro": "Software que afecta ventas, operacion y visibilidad. Eso cambia como decidimos construir.",
     "items": [
       {
         "date": "2025 - 2026",
         "role": "Software Developer",
         "company": "Casa del Kumis",
         "bullets": [
-          "POS en produccion en 18 sucursales con integracion de Credinbanco para pagos con datafono.",
-          "Herramienta de conciliacion bancaria que cruza vouchers con extractos y reduce tiempos operativos.",
-          "Sitio web responsive con mejoras SEO, medios optimizados y foco mobile-first."
+          "POS en 18 sucursales + pagos Credinbanco",
+          "Conciliacion bancaria automatizada"
         ],
         "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
       },
@@ -192,9 +191,8 @@
         "role": "Java Developer",
         "company": "Proyecto Propio",
         "bullets": [
-          "ERP para gestionar ventas, inventario y clientes bajo patron MVC.",
-          "UI de escritorio con Swing, persistencia JDBC y exportacion a Excel.",
-          "Exploracion de notificaciones operativas para seguimiento de ventas."
+          "ERP ventas + inventario con Java MVC",
+          "Desktop UI con Swing y exportacion Excel"
         ],
         "stack": ["Java", "MySQL", "JDBC", "Swing"]
       },
@@ -203,8 +201,8 @@
         "role": "Freelance Web Developer",
         "company": "Independiente",
         "bullets": [
-          "Soluciones web personalizadas para pequenas empresas y MVPs comerciales.",
-          "Sistemas de componentes y tokens visuales para aumentar consistencia UI."
+          "Web personalizadas para MVPs comerciales",
+          "Componentes y tokens visuales"
         ],
         "stack": ["React", "Tailwind", "MongoDB"]
       }
@@ -213,7 +211,7 @@
   "tools": {
     "kicker": "Capacidades",
     "title": "Tecnologia elegida con criterio, no por moda.",
-    "intro": "Me muevo bien entre interfaz, APIs, datos y despliegue. El stack cambia segun el problema, pero la prioridad se mantiene: claridad, velocidad de uso y base sostenible.",
+    "intro": "Frontend, backend, datos y despliegue. Stack elegido segun el problema, prioridad constante: claridad y velocidad.",
     "capabilities": [
       "Frontend enfocado en ritmo visual, claridad y responsive serio.",
       "Backend para procesos, integraciones y automatizacion operativa.",
@@ -233,7 +231,7 @@
     "title": "Si hay una idea, un producto o un sistema atascado, podemos moverlo.",
     "subtitle": "Trabajo bien cuando hace falta ordenar, construir y elevar la calidad de una experiencia digital sin perder el foco en negocio.",
     "responseLabel": "Forma de trabajo",
-    "responseBody": "Suelo responder rapido, bajar el problema a algo concreto y proponer una ruta de trabajo entendible antes de escribir demasiado codigo.",
+    "responseBody": "Respuesta rapida, problema concreto, ruta clara antes de escribir codigo.",
     "copyEmail": "Copiar correo",
     "copied": "Copiado",
     "email": "Correo",
@@ -243,9 +241,9 @@
     "basedIn": "Ubicacion",
     "location": "Colombia (UTC-5)",
     "process": [
-      "Primero entiendo el flujo, la prioridad y el impacto esperado.",
-      "Luego propongo una forma de avanzar sin adornos innecesarios.",
-      "Finalmente convertimos esa idea en una entrega util y visible."
+      "Entender flujo y prioridades",
+      "Proponer avance claro",
+      "Convertir en entrega util"
     ]
   },
   "faq": {
