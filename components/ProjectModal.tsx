@@ -82,7 +82,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           >
             <div
               onClick={(event) => event.stopPropagation()}
-              className="panel relative max-h-[92vh] w-full overflow-y-auto rounded-t-[32px] border border-[var(--line)] md:max-w-5xl md:rounded-[36px]"
+              className="card-base relative max-h-[92vh] w-full overflow-y-auto rounded-t-[var(--radius-xl)] md:max-w-5xl md:rounded-[var(--radius-xl)]"
             >
               <button
                 onClick={onClose}
@@ -93,7 +93,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               </button>
 
               {gallery.length > 0 && (
-                <div className="relative aspect-[16/9] overflow-hidden bg-[var(--surface-ink)]">
+                <div className="relative aspect-[16/9] overflow-hidden bg-[var(--color-primary)]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={imgIndex}
@@ -150,11 +150,11 @@ export default function ProjectModal({ project, onClose }: Props) {
               <div className="space-y-8 p-6 sm:p-8">
                 <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                   <div className="max-w-2xl space-y-3">
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
                       {t("caseStudy")}
                     </p>
-                    <h2 className="text-3xl font-bold tracking-tight text-[var(--text)]">{project.title}</h2>
-                    <p className="text-base leading-8 text-[var(--text-muted)]">{project.description}</p>
+                    <h2 className="text-3xl font-bold tracking-tight text-[var(--color-text-primary)]">{project.title}</h2>
+                    <p className="text-base leading-8 text-[var(--color-text-secondary)]">{project.description}</p>
                   </div>
                   <div className="flex flex-wrap gap-3">
                     {project.live && (
@@ -162,7 +162,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                         href={project.live}
                         target="_blank"
                         rel="noopener"
-                        className="inline-flex items-center gap-2 rounded-full bg-[var(--surface-ink)] px-4 py-3 text-sm font-medium text-white transition-all hover:bg-[var(--accent-strong)]"
+                        className="btn-primary inline-flex gap-2 !text-sm"
                       >
                         <ExternalLink size={15} />
                         {t("live")}
@@ -173,7 +173,7 @@ export default function ProjectModal({ project, onClose }: Props) {
                         href={project.repo}
                         target="_blank"
                         rel="noopener"
-                        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-3 text-sm font-medium text-[var(--text)] transition-all hover:border-[var(--accent)]"
+                        className="btn-secondary inline-flex gap-2 !text-sm"
                       >
                         <Github size={15} />
                         {t("repo")}
@@ -191,22 +191,22 @@ export default function ProjectModal({ project, onClose }: Props) {
                     ].map((item, index) => (
                       <div
                         key={item.label}
-                        className={`rounded-[26px] p-5 overflow-hidden ${
+                        className={`rounded-[var(--radius-md)] p-5 overflow-hidden ${
                           index === 1
-                            ? "bg-[var(--surface-ink)] text-white"
-                            : "border border-[var(--line)] bg-white/85"
+                            ? "bg-[var(--color-primary)] text-white"
+                            : "border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)]"
                         }`}
                       >
                         <p
                           className={`truncate text-xs font-bold uppercase tracking-[0.12em] ${
-                            index === 1 ? "text-white/85" : "text-[var(--accent-strong)]"
+                            index === 1 ? "text-white/85" : "text-[var(--color-primary)]"
                           }`}
                         >
                           {item.label}
                         </p>
                         <p
                           className={`mt-3 text-sm leading-7 break-words ${
-                            index === 1 ? "text-white/95" : "text-[var(--text)]"
+                            index === 1 ? "text-white/95" : "text-[var(--color-text-primary)]"
                           }`}
                         >
                           {item.text}
@@ -217,14 +217,14 @@ export default function ProjectModal({ project, onClose }: Props) {
                 )}
 
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
                     {t("stackLabel")}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
+                        className="chip"
                       >
                         {item}
                       </span>

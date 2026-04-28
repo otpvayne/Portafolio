@@ -52,15 +52,15 @@ export default function Tools() {
         <div className="mb-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
           <div className="space-y-5">
             <span className="eyebrow">{t("kicker")}</span>
-            <h2 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
               {t("title")}
             </h2>
-            <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
+            <p className="text-lg leading-8 text-[var(--color-text-secondary)]">{t("intro")}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
             {capabilities.map((item) => (
-              <div key={item} className="rounded-[24px] border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-6 text-[var(--text-muted)]">
+              <div key={item} className="rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-4 text-sm leading-6 text-[var(--color-text-secondary)]">
                 {item}
               </div>
             ))}
@@ -72,11 +72,7 @@ export default function Tools() {
             <button
               key={key}
               onClick={() => setTab(key)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
-                tab === key
-                  ? "bg-[var(--surface-ink)] text-white"
-                  : "border border-[var(--line)] bg-white/72 text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
-              }`}
+              className={tab === key ? "btn-primary !text-sm" : "btn-secondary !text-sm"}
             >
               {t(`tabs.${key}`)}
             </button>
@@ -98,26 +94,26 @@ export default function Tools() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.04 }}
-                className="glass card-glow rounded-[28px] p-5"
+                className="card-base p-5"
               >
                 <div className="mb-5 flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-[20px] bg-white/90 shadow-sm">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-[var(--radius-md)] bg-white/90 shadow-sm">
                     <i className={`${tool.icon} text-3xl`} />
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-[var(--text)]">{tool.name}</p>
-                    <p className="text-sm text-[var(--text-muted)]">{t("confidenceLabel")}</p>
+                    <p className="text-lg font-semibold text-[var(--color-text-primary)]">{tool.name}</p>
+                    <p className="text-sm text-[var(--color-text-secondary)]">{t("confidenceLabel")}</p>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-[var(--text-muted)]">{t("coverageLabel")}</span>
-                    <span className="font-semibold text-[var(--surface-ink)]">{tool.level}%</span>
+                    <span className="text-[var(--color-text-secondary)]">{t("coverageLabel")}</span>
+                    <span className="font-semibold text-[var(--color-primary)]">{tool.level}%</span>
                   </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-[var(--surface-strong)]">
+                  <div className="h-2 overflow-hidden rounded-full bg-[var(--color-surface-muted)]">
                     <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-[var(--accent)] via-[var(--accent-soft)] to-[var(--accent-alt)]"
+                      className="h-full rounded-full bg-[var(--color-accent)]"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${tool.level}%` }}
                       viewport={{ once: true }}

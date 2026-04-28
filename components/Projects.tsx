@@ -51,8 +51,8 @@ export default function Projects() {
             </h2>
             <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
           </div>
-          <div className="rounded-[28px] border border-[var(--line)] bg-white/85 px-5 py-4 text-sm text-[var(--text-muted)] shadow-sm backdrop-blur-sm">
-            <span className="font-semibold text-[var(--text)]">{t("featuredLabel")}</span> {t("featuredBody")}
+          <div className="card-base px-5 py-4 text-sm text-[var(--color-text-secondary)]">
+            <span className="font-semibold text-[var(--color-text-primary)]">{t("featuredLabel")}</span> {t("featuredBody")}
           </div>
         </div>
 
@@ -111,11 +111,7 @@ export default function Projects() {
               key={key}
               onClick={() => setActive(key)}
               aria-pressed={active === key}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
-                active === key
-                  ? "bg-[var(--surface-ink)] text-white"
-                  : "border border-[var(--line)] bg-white/72 text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
-              }`}
+              className={active === key ? "btn-primary !text-sm" : "btn-secondary !text-sm"}
             >
               {t(`filters.${key}`)}
             </button>

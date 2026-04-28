@@ -56,9 +56,9 @@ export default function About() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-[24px] border border-[var(--line)] bg-white/80 p-5">
-                  <p className="text-2xl font-extrabold text-[var(--surface-ink)]">{stat.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{stat.label}</p>
+                <div key={stat.label} className="card-base p-5">
+                  <p className="text-2xl font-extrabold text-[var(--color-primary)]">{stat.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -67,7 +67,7 @@ export default function About() {
               {CHIPS.map((chip) => (
                 <li
                   key={chip}
-                  className="rounded-full border border-[var(--line)] bg-white/85 px-4 py-2.5 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:bg-white"
+                  className="chip"
                 >
                   {chip}
                 </li>
@@ -101,18 +101,18 @@ export default function About() {
               </div>
 
               <div className="flex flex-col justify-between gap-4">
-                <div className="rounded-[28px] bg-[var(--surface-ink)] p-6 text-white overflow-hidden">
-                  <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-white/85">
+                <div className="card-base bg-[var(--color-primary)] text-white p-6">
+                  <p className="text-label text-white">
                     {t("focusTitle")}
                   </p>
-                  <p className="mt-4 text-lg leading-8 text-white/95 break-words">{t("focusBody")}</p>
+                  <p className="mt-4 text-lg leading-8">{t("focusBody")}</p>
                 </div>
 
-                <div className="rounded-[28px] border border-[var(--line)] bg-white/85 p-6 overflow-hidden">
-                  <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
+                <div className="card-base p-6">
+                  <p className="text-label">
                     {t("approachTitle")}
                   </p>
-                  <p className="mt-4 text-base leading-7 text-[var(--text)] break-words">{t("approachBody")}</p>
+                  <p className="mt-4 text-base leading-7 text-[var(--color-text-secondary)]">{t("approachBody")}</p>
                 </div>
 
                 <div className="flex gap-2">

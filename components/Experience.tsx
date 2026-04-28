@@ -26,15 +26,15 @@ export default function Experience() {
         <div className="mb-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="space-y-5">
             <span className="eyebrow">{t("kicker")}</span>
-            <h2 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
               {t("title")}
             </h2>
           </div>
-          <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
+          <p className="max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)]">{t("intro")}</p>
         </div>
 
         <div className="relative pl-0 lg:pl-10">
-          <div className="absolute bottom-0 left-3 top-10 hidden w-px bg-gradient-to-b from-[var(--accent)] via-[var(--line-strong)] to-transparent lg:block" />
+          <div className="absolute bottom-0 left-3 top-10 hidden w-px bg-gradient-to-b from-[var(--color-accent)] via-[var(--color-surface-dark)] to-transparent lg:block" />
 
           <div className="grid gap-6">
             {items.map((item, index) => {
@@ -49,19 +49,19 @@ export default function Experience() {
                   transition={{ delay: index * 0.08 }}
                   className="relative lg:pl-12"
                 >
-                  <span className="absolute left-0 top-9 hidden h-7 w-7 items-center justify-center rounded-full border border-[var(--line)] bg-white text-[var(--accent-strong)] shadow-sm lg:inline-flex">
+                  <span className="absolute left-0 top-9 hidden h-7 w-7 items-center justify-center rounded-full border border-[var(--color-surface-muted)] bg-white text-[var(--color-primary)] shadow-sm lg:inline-flex">
                     <Icon size={15} />
                   </span>
 
-                  <div className="panel rounded-[30px] p-6 sm:p-7">
+                  <div className="card-base p-6 sm:p-7">
                     <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
                       <div className="space-y-4">
-                        <span className="inline-flex rounded-full bg-[var(--surface-ink)] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white">
+                        <span className="inline-flex rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white">
                           {item.date}
                         </span>
                         <div>
-                          <h3 className="text-2xl font-bold text-[var(--text)]">{item.role}</h3>
-                          <p className="mt-2 text-base font-medium text-[var(--accent-strong)]">{item.company}</p>
+                          <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{item.role}</h3>
+                          <p className="mt-2 text-base font-medium text-[var(--color-primary)]">{item.company}</p>
                         </div>
                       </div>
 
@@ -70,9 +70,9 @@ export default function Experience() {
                           {item.bullets.map((bullet) => (
                             <li
                               key={bullet}
-                              className="flex gap-3 rounded-2xl border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)] overflow-hidden"
+                              className="flex gap-3 rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-4 text-sm leading-7 text-[var(--color-text-primary)] overflow-hidden"
                             >
-                              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--accent)]" />
+                              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]" />
                               <span className="break-words">{bullet}</span>
                             </li>
                           ))}
@@ -82,7 +82,7 @@ export default function Experience() {
                           {item.stack.map((tool) => (
                             <span
                               key={tool}
-                              className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
+                              className="chip"
                             >
                               {tool}
                             </span>

@@ -96,7 +96,7 @@ export default function Hero() {
           >
             <a
               href={`${rootPath}/#projects`}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--surface-ink)] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-[var(--accent-strong)]"
+              className="btn-primary inline-flex gap-2"
             >
               {t("primaryCta")}
               <ArrowRight size={16} />
@@ -104,7 +104,7 @@ export default function Hero() {
             <a
               href="/assets/docs/CV_Diego_Medina_v2.pdf"
               download
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line-strong)] bg-white/70 px-6 py-3.5 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)] hover:bg-white"
+              className="btn-secondary inline-flex gap-2"
             >
               <Download size={16} />
               {t("resume")}
@@ -120,10 +120,10 @@ export default function Hero() {
             {highlights.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-[var(--line)] bg-white/75 px-4 py-3 backdrop-blur-sm overflow-hidden"
+                className="chip-accent !px-4 !py-3"
               >
-                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" shrink-0 />
-                <span className="break-words">{item}</span>
+                <span className="h-2 w-2 rounded-full bg-current" />
+                {item}
               </li>
             ))}
           </motion.ul>

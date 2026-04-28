@@ -30,7 +30,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="panel overflow-hidden rounded-[36px] p-6 sm:p-8 lg:p-10"
+          className="card-base overflow-hidden p-6 sm:p-8 lg:p-10"
         >
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="space-y-6">
@@ -42,9 +42,9 @@ export default function Contact() {
                 <p className="max-w-xl text-lg leading-8 text-[var(--text-muted)]">{t("subtitle")}</p>
               </div>
 
-              <div className="rounded-[28px] bg-[var(--surface-ink)] p-6 text-white">
-                <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/85">{t("responseLabel")}</p>
-                <p className="mt-4 text-lg leading-8 text-white/95">{t("responseBody")}</p>
+              <div className="rounded-[var(--radius-xl)] bg-[var(--color-primary)] p-6 text-white">
+                <p className="text-label text-white">{t("responseLabel")}</p>
+                <p className="mt-4 text-lg leading-8">{t("responseBody")}</p>
               </div>
 
               <ul className="grid gap-3">
@@ -61,16 +61,16 @@ export default function Contact() {
 
             <div className="grid gap-4">
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="glass rounded-[28px] p-5">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[18px] bg-[var(--surface-ink)] text-white">
+                <div className="card-base p-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] text-white">
                     <Mail size={18} />
                   </div>
-                  <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">{t("email")}</p>
+                  <p className="text-label">{t("email")}</p>
                   <p className="mt-3 overflow-hidden text-ellipsis text-sm leading-7 text-[var(--text)]">{EMAIL}</p>
                   <div className="mt-5 flex gap-3">
                     <button
                       onClick={copyEmail}
-                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[var(--line)] bg-white/85 px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
+                      className="btn-secondary flex-1 text-sm"
                     >
                       {copied ? <Check size={15} /> : <Copy size={15} />}
                       {copied ? t("copied") : t("copyEmail")}
@@ -78,11 +78,11 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="glass rounded-[28px] p-5">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[18px] bg-[#128c7e] text-white">
+                <div className="card-base p-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent)] text-white">
                     <MessageCircle size={18} />
                   </div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">WhatsApp</p>
+                  <p className="text-label text-[var(--color-accent)]">WhatsApp</p>
                   <p className="mt-3 text-sm leading-7 text-[var(--text)]">+57 301 747 2421</p>
                   <a
                     href={`https://wa.me/${WA_NUMBER}?text=Hola%20Diego%2C%20vi%20tu%20portafolio`}
