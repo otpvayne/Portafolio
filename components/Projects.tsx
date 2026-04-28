@@ -68,7 +68,7 @@ export default function Projects() {
               transition={{ delay: index * 0.08 }}
               className="panel group rounded-[32px] text-left"
             >
-              <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
+              <div className="grid gap-0 lg:grid-cols-2">
                 <div className="relative min-h-[260px] overflow-hidden">
                   <Image
                     src={project.image}
@@ -80,14 +80,14 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-col gap-5 p-6">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)] break-words">
                       {t("featuredBadge")}
                     </p>
-                    <ArrowUpRight size={18} className="text-[var(--text-muted)]" />
+                    <ArrowUpRight size={18} className="text-[var(--text-muted)] flex-shrink-0" />
                   </div>
                   <div className="space-y-3">
-                    <h3 className="text-2xl font-bold tracking-tight text-[var(--text)]">{project.title}</h3>
-                    <p className="text-sm leading-7 text-[var(--text-muted)]">{project.description}</p>
+                    <h3 className="text-2xl font-bold tracking-tight text-[var(--text)] break-words">{project.title}</h3>
+                    <p className="text-sm leading-7 text-[var(--text-muted)] break-words">{project.description}</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((item) => (

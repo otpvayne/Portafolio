@@ -148,7 +148,7 @@ export default function Hero() {
             </div>
 
             <div className="relative z-10 grid gap-4">
-              <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
+              <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
                 <div className="glass rounded-[28px] p-5">
                   <div className="relative h-[320px] overflow-hidden rounded-[24px] bg-[var(--surface-strong)]">
                     <Image
@@ -167,9 +167,9 @@ export default function Hero() {
 
                 <div className="flex flex-col gap-4">
                   {metrics.map((item) => (
-                    <div key={item.label} className="glass rounded-[24px] p-5">
-                      <p className="text-3xl font-extrabold text-[var(--surface-ink)]">{item.value}</p>
-                      <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{item.label}</p>
+                    <div key={item.label} className="glass rounded-[24px] p-5 min-h-[80px] flex flex-col justify-center">
+                      <p className="text-3xl font-extrabold text-[var(--surface-ink)] break-words">{item.value}</p>
+                      <p className="mt-2 text-sm leading-6 text-[var(--text-muted)] break-words">{item.label}</p>
                     </div>
                   ))}
                 </div>

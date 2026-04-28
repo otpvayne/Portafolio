@@ -60,13 +60,13 @@ export default function Contact() {
             </div>
 
             <div className="grid gap-4">
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 lg:grid-cols-2">
                 <div className="card-base p-5">
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] text-white">
                     <Mail size={18} />
                   </div>
                   <p className="text-label">{t("email")}</p>
-                  <p className="mt-3 text-sm leading-7 text-[var(--text)]">{EMAIL}</p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--text)] break-words">{EMAIL}</p>
                   <div className="mt-5 flex gap-3">
                     <button
                       onClick={copyEmail}
@@ -83,7 +83,7 @@ export default function Contact() {
                     <MessageCircle size={18} />
                   </div>
                   <p className="text-label text-[var(--color-accent)]">WhatsApp</p>
-                  <p className="mt-3 text-sm leading-7 text-[var(--text)]">+57 301 747 2421</p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--text)] break-words">+57 301 747 2421</p>
                   <a
                     href={`https://wa.me/${WA_NUMBER}?text=Hola%20Diego%2C%20vi%20tu%20portafolio`}
                     target="_blank"
