@@ -52,9 +52,9 @@ export default function Nav() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 lg:px-20">
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-6 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-3 transition-all duration-300 sm:px-8 ${
           scrolled
             ? "border-[var(--line)] bg-[var(--bg-elevated)] shadow-[0_18px_45px_rgba(15,23,42,0.12)] backdrop-blur-xl"
             : "border-transparent bg-white/55 backdrop-blur-md"
