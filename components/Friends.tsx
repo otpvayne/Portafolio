@@ -16,7 +16,7 @@ export default function Friends() {
   const items = t.raw("items") as FriendItem[];
 
   return (
-    <section className="px-4 pb-18 pt-8 sm:px-6 lg:px-8">
+    <section className="px-4 py-32 sm:px-8 lg:px-20">
       <div className="section-shell">
         <div className="rounded-[30px] border border-[var(--line)] bg-white/55 p-6 backdrop-blur-sm">
           <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">

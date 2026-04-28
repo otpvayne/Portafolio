@@ -39,7 +39,7 @@ export default function Projects() {
   const visible = active === "all" ? projects : projects.filter((project) => project.tags.includes(active));
 
   return (
-    <section id="projects" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="projects" className="px-4 py-48 sm:px-8 lg:px-20">
       <div className="section-shell">
         <div className="section-divider mb-12" />
 

@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="px-4 pb-10 pt-2 sm:px-6 lg:px-8">
+    <footer className="px-4 py-12 sm:px-8 lg:px-20">
       <div className="section-shell">
         <div className="section-divider mb-6" />
         <div className="flex flex-col gap-3 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">

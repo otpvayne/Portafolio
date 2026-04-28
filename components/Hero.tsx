@@ -48,7 +48,7 @@ export default function Hero() {
   }, [deleting, displayed, wordIndex]);
 
   return (
-    <section className="relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8 lg:pb-28 lg:pt-32">
+    <section className="relative overflow-hidden px-4 pb-32 pt-28 sm:px-8 lg:px-20 lg:pb-40 lg:pt-36">
       <div className="section-shell grid min-h-[calc(100vh-7rem)] items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="relative z-10">
           <motion.div

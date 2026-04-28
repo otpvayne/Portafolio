@@ -11,7 +11,7 @@ export default function FaqPage() {
   return (
     <>
       <Nav />
-      <main className="px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <main className="px-4 pb-32 pt-32 sm:px-8 lg:px-20">
         <div className="section-shell">
           <div className="section-divider mb-12" />
 

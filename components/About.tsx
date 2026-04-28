@@ -35,7 +35,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="about" className="px-4 py-48 sm:px-8 lg:px-20">
       <div className="section-shell">
         <div className="section-divider mb-12" />
 
