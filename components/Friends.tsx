@@ -1,13 +1,14 @@
 "use client";
+
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 type FriendItem = { name: string; role: string; url: string; theme: string };
 
 const THEME_STYLES: Record<string, string> = {
-  ice: "from-blue-500/10 to-cyan-500/10 border-blue-500/30 hover:border-blue-400/60",
-  sunset: "from-orange-500/10 to-pink-500/10 border-orange-500/30 hover:border-orange-400/60",
+  ice: "from-cyan-500/10 via-white to-blue-500/10",
+  sunset: "from-orange-500/10 via-white to-rose-500/10",
 };
 
 export default function Friends() {
@@ -15,32 +16,40 @@ export default function Friends() {
   const items = t.raw("items") as FriendItem[];
 
   return (
-    <section className="py-12 px-6">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-center text-xs uppercase tracking-widest text-[var(--text-muted)] mb-6">{t("title")}</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {items.map((f, i) => (
-            <motion.a
-              key={i}
-              href={f.url}
-              target="_blank"
-              rel="noopener"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`flex-1 max-w-xs flex items-center gap-4 p-4 rounded-2xl border bg-gradient-to-br ${THEME_STYLES[f.theme] || THEME_STYLES.ice} transition-all`}
-            >
-              <div className="w-10 h-10 rounded-full bg-[var(--bg-card2)] flex items-center justify-center text-lg font-bold text-[var(--accent2)]">
-                {f.name[0]}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-white truncate">{f.name}</p>
-                <p className="text-xs text-[var(--text-muted)]">{f.role}</p>
-              </div>
-              <ExternalLink size={14} className="text-[var(--text-muted)] shrink-0" />
-            </motion.a>
-          ))}
+    <section className="px-4 pb-18 pt-8 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="rounded-[30px] border border-[var(--line)] bg-white/55 p-6 backdrop-blur-sm">
+          <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+              {t("title")}
+            </p>
+            <p className="text-sm text-[var(--text-muted)]">{t("subtitle")}</p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {items.map((friend, index) => (
+              <motion.a
+                key={friend.name}
+                href={friend.url}
+                target="_blank"
+                rel="noopener"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: index * 0.08 }}
+                className={`group flex items-center gap-4 rounded-[24px] border border-[var(--line)] bg-gradient-to-r ${THEME_STYLES[friend.theme] || THEME_STYLES.ice} p-4 transition-all hover:-translate-y-1 hover:border-[var(--accent)]`}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--surface-ink)] text-sm font-bold text-white">
+                  {friend.name.slice(0, 1)}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-base font-semibold text-[var(--text)]">{friend.name}</p>
+                  <p className="text-sm text-[var(--text-muted)]">{friend.role}</p>
+                </div>
+                <ArrowUpRight size={18} className="text-[var(--text-muted)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </motion.a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

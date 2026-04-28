@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, ExternalLink, Github, X } from "lucide-react";
 
 type CaseStudy = {
   problem: string;
@@ -30,126 +31,114 @@ interface Props {
 export default function ProjectModal({ project, onClose }: Props) {
   const t = useTranslations("projects");
   const [imgIndex, setImgIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const isOpen = !!project;
   const gallery = project?.caseStudy?.gallery ?? [];
 
-  // Prevent body scroll when open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!project) {
       document.body.style.overflow = "";
+      return;
     }
-    return () => { document.body.style.overflow = ""; };
-  }, [isOpen]);
 
-  // Escape key
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [project]);
+
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  // Reset image index when project changes
-  useEffect(() => { setImgIndex(0); }, [project?.id]);
+  useEffect(() => {
+    setImgIndex(0);
+  }, [project?.id]);
 
-  const prev = () => setImgIndex((i) => (i - 1 + gallery.length) % gallery.length);
-  const next = () => setImgIndex((i) => (i + 1) % gallery.length);
+  const prev = () => setImgIndex((value) => (value - 1 + gallery.length) % gallery.length);
+  const next = () => setImgIndex((value) => (value + 1) % gallery.length);
 
   return (
     <AnimatePresence>
-      {isOpen && project && (
+      {project && (
         <>
-          {/* Backdrop */}
           <motion.div
-            className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-[rgba(23,32,51,0.56)] backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
           />
 
-          {/* Panel */}
           <motion.div
-            className="fixed inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center z-50 p-0 md:p-6"
-            initial={{ opacity: 0, y: 60 }}
+            className="fixed inset-0 z-50 flex items-end p-0 md:items-center md:justify-center md:p-6"
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 60 }}
-            transition={{ type: "spring", damping: 28, stiffness: 300 }}
+            exit={{ opacity: 0, y: 30 }}
+            transition={{ type: "spring", stiffness: 320, damping: 28 }}
           >
             <div
-              ref={scrollRef}
-              className="relative w-full md:max-w-4xl max-h-[92vh] md:max-h-[90vh] overflow-y-auto rounded-t-3xl md:rounded-3xl bg-[var(--bg-card)] border border-[var(--border)]"
-              style={{ scrollbarWidth: "thin" }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={(event) => event.stopPropagation()}
+              className="panel relative max-h-[92vh] w-full overflow-y-auto rounded-t-[32px] border border-[var(--line)] md:max-w-5xl md:rounded-[36px]"
             >
-              {/* Drag handle (mobile) */}
-              <div className="flex justify-center pt-3 pb-1 md:hidden">
-                <div className="w-10 h-1 rounded-full bg-[var(--border)]" />
-              </div>
-
-              {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-[var(--bg-card2)] border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)] hover:text-white hover:border-[var(--accent)] transition-all"
                 aria-label={t("close")}
+                className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.68)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)]"
               >
-                <X size={14} />
+                <X size={16} />
               </button>
 
-              {/* Image gallery */}
               {gallery.length > 0 && (
-                <div className="relative w-full aspect-video overflow-hidden bg-[var(--bg)]">
+                <div className="relative aspect-[16/9] overflow-hidden bg-[var(--surface-ink)]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={imgIndex}
                       className="absolute inset-0"
                       initial={{ opacity: 0, scale: 1.03 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.97 }}
-                      transition={{ duration: 0.35 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.3 }}
                     >
                       <Image
                         src={gallery[imgIndex]}
-                        alt={`${project.title} screenshot ${imgIndex + 1}`}
+                        alt={`${project.title} image ${imgIndex + 1}`}
                         fill
                         className="object-cover"
                       />
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-card)] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.84)] via-transparent to-transparent" />
 
-                  {/* Navigation arrows */}
                   {gallery.length > 1 && (
                     <>
                       <button
                         onClick={prev}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-all"
+                        className="absolute left-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.6)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)]"
                       >
                         <ChevronLeft size={18} />
                       </button>
                       <button
                         onClick={next}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition-all"
+                        className="absolute right-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.6)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)]"
                       >
                         <ChevronRight size={18} />
                       </button>
                     </>
                   )}
 
-                  {/* Dot indicators */}
                   {gallery.length > 1 && (
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-                      {gallery.map((_, i) => (
+                    <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 gap-2">
+                      {gallery.map((item, index) => (
                         <button
-                          key={i}
-                          onClick={() => setImgIndex(i)}
-                          className={`rounded-full transition-all ${
-                            i === imgIndex ? "w-5 h-1.5 bg-[var(--accent)]" : "w-1.5 h-1.5 bg-white/30"
+                          key={`${item}-${index}`}
+                          onClick={() => setImgIndex(index)}
+                          className={`h-2 rounded-full transition-all ${
+                            index === imgIndex ? "w-10 bg-white" : "w-5 bg-white/40"
                           }`}
                         />
                       ))}
@@ -158,27 +147,25 @@ export default function ProjectModal({ project, onClose }: Props) {
                 </div>
               )}
 
-              {/* Content */}
-              <div className="p-6 md:p-8 space-y-6">
-                {/* Title + links */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-mono text-[var(--accent2)] mb-1 uppercase tracking-widest">
+              <div className="space-y-8 p-6 sm:p-8">
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                  <div className="max-w-2xl space-y-3">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
                       {t("caseStudy")}
                     </p>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                      {project.title}
-                    </h2>
+                    <h2 className="text-3xl font-bold tracking-tight text-[var(--text)]">{project.title}</h2>
+                    <p className="text-base leading-8 text-[var(--text-muted)]">{project.description}</p>
                   </div>
-                  <div className="flex gap-2 shrink-0">
+                  <div className="flex flex-wrap gap-3">
                     {project.live && (
                       <a
                         href={project.live}
                         target="_blank"
                         rel="noopener"
-                        className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-[var(--accent)] text-white hover:bg-[var(--accent2)] transition-colors"
+                        className="inline-flex items-center gap-2 rounded-full bg-[var(--surface-ink)] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--accent-strong)]"
                       >
-                        <ExternalLink size={12} /> {t("live")}
+                        <ExternalLink size={15} />
+                        {t("live")}
                       </a>
                     )}
                     {project.repo && (
@@ -186,40 +173,60 @@ export default function ProjectModal({ project, onClose }: Props) {
                         href={project.repo}
                         target="_blank"
                         rel="noopener"
-                        className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)] transition-all"
+                        className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
                       >
-                        <Github size={12} /> {t("repo")}
+                        <Github size={15} />
+                        {t("repo")}
                       </a>
                     )}
                   </div>
                 </div>
 
-                {/* Problem / Solution / Impact */}
                 {project.caseStudy && (
-                  <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="grid gap-4 md:grid-cols-3">
                     {[
-                      { label: t("problem"), text: project.caseStudy.problem, color: "text-red-400", bg: "bg-red-500/5 border-red-500/20" },
-                      { label: t("solution"), text: project.caseStudy.solution, color: "text-[var(--accent2)]", bg: "bg-[var(--accent)]/5 border-[var(--accent)]/20" },
-                      { label: t("impact"), text: project.caseStudy.impact, color: "text-green-400", bg: "bg-green-500/5 border-green-500/20" },
-                    ].map(({ label, text, color, bg }) => (
-                      <div key={label} className={`rounded-xl p-4 border ${bg}`}>
-                        <p className={`text-xs font-bold uppercase tracking-wider mb-2 ${color}`}>{label}</p>
-                        <p className="text-sm text-[var(--text-muted)] leading-relaxed">{text}</p>
+                      { label: t("problem"), text: project.caseStudy.problem },
+                      { label: t("solution"), text: project.caseStudy.solution },
+                      { label: t("impact"), text: project.caseStudy.impact },
+                    ].map((item, index) => (
+                      <div
+                        key={item.label}
+                        className={`rounded-[26px] p-5 ${
+                          index === 1
+                            ? "bg-[var(--surface-ink)] text-white"
+                            : "border border-[var(--line)] bg-white/72"
+                        }`}
+                      >
+                        <p
+                          className={`text-xs font-bold uppercase tracking-[0.18em] ${
+                            index === 1 ? "text-white/62" : "text-[var(--accent-strong)]"
+                          }`}
+                        >
+                          {item.label}
+                        </p>
+                        <p
+                          className={`mt-3 text-sm leading-7 ${
+                            index === 1 ? "text-white/82" : "text-[var(--text-muted)]"
+                          }`}
+                        >
+                          {item.text}
+                        </p>
                       </div>
                     ))}
                   </div>
                 )}
 
-                {/* Stack */}
                 <div>
-                  <p className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-3">Stack</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map((s) => (
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+                    {t("stackLabel")}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.stack.map((item) => (
                       <span
-                        key={s}
-                        className="px-3 py-1 rounded-full text-xs font-semibold bg-[var(--bg-card2)] border border-[var(--border)] text-[var(--accent2)]"
+                        key={item}
+                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-semibold text-[var(--text)]"
                       >
-                        {s}
+                        {item}
                       </span>
                     ))}
                   </div>

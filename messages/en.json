@@ -5,24 +5,59 @@
     "experience": "Experience",
     "stack": "Stack",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tagline": "Software engineer building better products",
+    "cta": "Start a conversation"
   },
   "hero": {
-    "role": "SOFTWARE ENGINEER",
-    "resume": "DOWNLOAD CV"
+    "eyebrow": "Available for products, internal tools and system design",
+    "headline": "Software that looks sharp, works hard and solves real operational problems.",
+    "subheadline": "I design and build web experiences, internal systems and business workflows with strong UX judgment, reliable engineering and product clarity.",
+    "primaryCta": "View projects",
+    "resume": "Download resume",
+    "photoTitle": "Frontend, backend and product thinking in one practice.",
+    "photoBody": "I care equally about experience, architecture and delivery quality.",
+    "snapshotLabel": "Snapshot",
+    "snapshotBody": "My work ranges from commercial websites to POS software, reconciliation tools and OCR-based automation for operational teams.",
+    "highlights": [
+      "Clean interfaces with actual usability, not just surface polish.",
+      "Internal systems that reduce friction in day-to-day operations.",
+      "Comfort moving across UI, APIs, data and deployment.",
+      "Remote and bilingual collaboration with clear delivery rhythm."
+    ],
+    "metrics": [
+      { "value": "18", "label": "branches using production software" },
+      { "value": "ES / EN", "label": "bilingual portfolio and communication" },
+      { "value": "Full stack", "label": "from interfaces to logic and integrations" }
+    ]
   },
   "about": {
-    "title": "About Me",
-    "body": "Full stack software engineer with experience building web applications and custom systems across diverse contexts. I specialize in spotting real-world needs and turning them into effective, user-focused software. I combine technical excellence with strategic thinking, integrating agile practices, architectural design, and clean, testable code. I work as an independent developer and enjoy building products that solve real-world problems.",
+    "kicker": "Profile",
+    "title": "I do not just ship features. I shape the full experience around the problem.",
+    "body": "I am a full stack software engineer focused on turning real needs into software that feels clear, useful and sustainable. I care about more than whether it runs: it should also be easy to understand, pleasant to use and practical to operate.",
     "slides": [
-      "Frontend — UI/UX with React",
-      "Backend — APIs with Node.js",
-      "DevOps — Docker & CI/CD",
-      "Data — SQL / NoSQL"
+      "Frontend with visual judgment and conversion awareness",
+      "Backend focused on workflows, integrations and data",
+      "Product thinking with iterative delivery and clear priorities",
+      "Engineering built to scale without unnecessary noise"
+    ],
+    "focusTitle": "What I optimize for",
+    "focusBody": "Taking vague or messy problems, structuring them and turning them into software that makes sense both for the end user and for the team maintaining it later.",
+    "approachTitle": "How I work",
+    "approachBody": "I usually start with the business need, define the main flow and then refine structure, visual language and interaction details until the product feels more coherent and trustworthy.",
+    "stats": [
+      { "value": "UI + DX", "label": "care for both end-user experience and developer experience" },
+      { "value": "Build fast", "label": "concrete iteration speed without muddy architecture" },
+      { "value": "Impact first", "label": "visible outcomes and lower friction over vanity work" }
     ]
   },
   "projects": {
-    "title": "Projects",
+    "kicker": "Selected work",
+    "title": "Projects shaped around impact, operations and experience.",
+    "intro": "A mix of commercial software, internal tools and personal systems where the goal was not just building faster, but improving the whole workflow.",
+    "featuredLabel": "The thread across most of my work:",
+    "featuredBody": "clear interfaces, process automation and systems shaped by business reality.",
+    "featuredBadge": "Featured case",
     "filters": {
       "all": "All",
       "web": "Web",
@@ -32,198 +67,222 @@
       "api": "API",
       "python": "Python"
     },
-    "caseStudy": "Case Study",
+    "caseStudy": "Case study",
     "live": "Live",
     "repo": "Repository",
     "close": "Close",
-    "problem": "The Problem",
-    "solution": "The Solution",
+    "problem": "Problem",
+    "solution": "Solution",
     "impact": "Impact",
-    "gallery": "Screenshots",
+    "gallery": "Gallery",
+    "openCaseStudy": "Open case study",
+    "stackLabel": "Stack",
     "items": [
       {
         "id": "kumis",
-        "title": "Casa del Kumis — Website",
-        "description": "Responsive landing and informational site focused on brand identity, catalog and on-page SEO.",
+        "title": "Casa del Kumis - Website",
+        "description": "Responsive website focused on brand presence, product catalog clarity and local SEO performance.",
         "stack": ["HTML", "CSS", "JavaScript", "SEO"],
         "tags": ["web", "landing"],
         "live": "https://pagina-web-demo.onrender.com/index.html",
         "image": "/assets/images/kumis-800.webp",
         "caseStudy": {
-          "problem": "The company needed a professional digital presence with a product catalog and optimization for local searches.",
-          "solution": "Responsive site with HTML/CSS/JS, optimized WebP images, semantic structure and meta tags for on-page SEO.",
-          "impact": "Active digital presence with Lighthouse scores above 90 in performance and accessibility.",
+          "problem": "The company needed a stronger digital presence with better product visibility and more credibility online.",
+          "solution": "A responsive website with semantic structure, optimized media and clearer commercial storytelling.",
+          "impact": "A more polished digital presence with improved mobile reading, stronger performance and better SEO foundations.",
           "gallery": ["/assets/images/kumis-800.webp", "/assets/images/kumis-1200.webp"]
         }
       },
       {
         "id": "pos",
-        "title": "POS — Casa del Kumis",
-        "description": "Point-of-sale system running in production across 18 branches. Billing integrated with Credinbanco API for card payments via payment terminal.",
+        "title": "POS - Casa del Kumis",
+        "description": "Point-of-sale software running across 18 branches with Credinbanco payment integration.",
         "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
         "tags": ["pos", "web", "api", "fintech"],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
         "image": "/assets/images/pos-preview.svg",
         "caseStudy": {
-          "problem": "18 branches operated with manual records, no electronic payment integration and no centralized sales control.",
-          "solution": "React POS system with real-time order management and Credinbanco API integration for card terminal payments.",
-          "impact": "System live across all 18 branches from day one with digital payments fully integrated.",
+          "problem": "Branches relied on manual records, had weak centralized visibility and lacked robust electronic payment flows.",
+          "solution": "A React POS system with operational tooling and direct Credinbanco integration for card terminal payments.",
+          "impact": "Production software used across all 18 branches with much more consistent day-to-day operations.",
           "gallery": ["/assets/images/pos-preview.svg"]
         }
       },
       {
         "id": "punteo",
         "title": "Bank Reconciliation Tool",
-        "description": "Financial tool that cross-references payment vouchers against bank statements in detail to verify everything is in order.",
+        "description": "A financial reconciliation tool that cross-checks vouchers against bank statements in minutes.",
         "stack": ["React", "Render", "Vercel", "APIs"],
         "tags": ["fintech", "web", "api"],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
         "image": "/assets/images/punteo-preview.svg",
         "caseStudy": {
-          "problem": "Bank reconciliation was entirely manual, taking several hours per period and prone to human error.",
-          "solution": "Web tool that automatically cross-references Credinbanco vouchers against the bank statement and highlights discrepancies in real time.",
-          "impact": "Reconciliation time reduced from hours to minutes per accounting period.",
+          "problem": "Bank reconciliation was manual, slow and highly error-prone each accounting period.",
+          "solution": "A web tool that automates the matching between Credinbanco vouchers and bank statements.",
+          "impact": "The process dropped from hours to minutes and made operational auditing much easier.",
           "gallery": ["/assets/images/punteo-preview.svg"]
         }
       },
       {
         "id": "erp",
-        "title": "ERP — Food Sales System",
-        "description": "Java MVC ERP system for managing sales, customers, inventory and reports. Actively in development.",
+        "title": "ERP - Food Sales System",
+        "description": "Java MVC ERP for sales, clients, inventory and reporting in businesses with daily operational pressure.",
         "stack": ["Java SE", "MySQL", "Swing", "MVC"],
         "tags": ["erp"],
         "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
         "image": "/assets/images/erp-800.webp",
         "caseStudy": {
-          "problem": "Small food distribution businesses lacked an integrated system for sales, inventory and customer management.",
-          "solution": "Desktop ERP in Java MVC with Swing UI, JDBC/MySQL persistence and Excel export using Apache POI.",
-          "impact": "Functional system with sales, inventory, customer and exportable Excel reports modules.",
+          "problem": "Small distribution businesses lacked an integrated system for sales, inventory and customer management.",
+          "solution": "A desktop ERP built with Java MVC, JDBC/MySQL persistence and Excel export support.",
+          "impact": "A functional operational base with core modules already connected for commercial management.",
           "gallery": ["/assets/images/erp-800.webp"]
         }
       },
       {
         "id": "facturas",
-        "title": "Facturas App — Invoice OCR",
-        "description": "Thesis backend: processes invoice images with computer vision pipelines and extracts key fields (NIT, total, date) using OCR and FastAPI.",
+        "title": "Facturas App - Invoice OCR",
+        "description": "Thesis backend that processes invoice images and extracts key fields using OCR, computer vision and FastAPI.",
         "stack": ["Python", "FastAPI", "PostgreSQL", "OpenCV", "OCR"],
         "tags": ["api", "python"],
         "repo": "https://github.com/otpvayne/facturas-app",
         "image": "/assets/images/facturas-preview.svg",
         "caseStudy": {
-          "problem": "Manual invoice processing for data extraction was slow, repetitive and not scalable for high volumes.",
-          "solution": "Python backend with FastAPI that processes invoice images using OCR and computer vision to extract NIT, date, total and line items.",
-          "impact": "Automated processing with over 94% accuracy on key extracted fields.",
+          "problem": "Manual invoice processing was slow, repetitive and difficult to scale for higher volumes.",
+          "solution": "A Python pipeline to preprocess images, detect text and extract NIT, date, total and line items.",
+          "impact": "Automation with accuracy above 94 percent on key extracted fields.",
           "gallery": ["/assets/images/facturas-preview.svg"]
         }
       },
       {
         "id": "portafolio",
         "title": "Personal Portfolio",
-        "description": "This portfolio: Next.js 15 with i18n (ES/EN), Framer Motion, Tailwind v4 and email delivery via Resend. Deployed on Vercel.",
+        "description": "This portfolio built with Next.js 15, i18n, Framer Motion, Tailwind v4 and a Resend-powered contact flow.",
         "stack": ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
         "tags": ["web"],
         "live": "https://portafolio-sandy-phi-49.vercel.app/",
         "repo": "https://github.com/otpvayne/portafolio-next",
         "image": "/assets/images/portafolio-preview.svg",
         "caseStudy": {
-          "problem": "Needed a modern, bilingual, high-performance portfolio that reflected my technical capabilities.",
-          "solution": "Next.js 15 with App Router, next-intl for i18n, Tailwind v4, Framer Motion and Resend for the contact form.",
-          "impact": "Portfolio deployed on Vercel with ES/EN support, fluid animations and interactive WebGL background.",
+          "problem": "I needed a modern bilingual presence that reflected both technical depth and visual judgment.",
+          "solution": "A portfolio with App Router, next-intl, stronger interaction design and clearer storytelling around work and capability.",
+          "impact": "A site that can present work, start conversations and communicate value far more effectively.",
           "gallery": ["/assets/images/portafolio-preview.svg"]
         }
       }
     ]
   },
   "experience": {
-    "title": "Experience",
+    "kicker": "Experience",
+    "title": "Real operating context, not isolated demo work.",
+    "intro": "I have worked in situations where software affects sales, operations, reconciliation, response times and business visibility. That changes how you decide what to build and how to ship it.",
     "items": [
       {
-        "date": "2025 – 2026",
+        "date": "2025 - 2026",
         "role": "Software Developer",
         "company": "Casa del Kumis",
         "bullets": [
-          "POS system deployed across 18 active branches with Credinbanco API integration for card payments via terminal.",
-          "Bank reconciliation tool (punteo) that automatically matches vouchers against bank statements to detect discrepancies.",
-          "Maintained company website with SEO optimization, WebP media and mobile-first responsive design."
+          "POS in production across 18 branches with Credinbanco integration for card terminal payments.",
+          "Bank reconciliation tooling that matches vouchers against statements and cuts operational time dramatically.",
+          "Responsive website with SEO improvements, optimized media and mobile-first decisions."
         ],
         "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
       },
       {
-        "date": "2024 – 2025",
+        "date": "2024 - 2025",
         "role": "Java Developer",
         "company": "Personal Project",
         "bullets": [
-          "Built ERP to manage sales, inventory and customers (Java MVC + MySQL).",
-          "Desktop UI with Swing; JDBC persistence and Excel export (POI).",
-          "Experimental WhatsApp notifications on successful sales."
+          "ERP to manage sales, inventory and clients under an MVC structure.",
+          "Desktop UI with Swing, JDBC persistence and Excel export support.",
+          "Exploration of operational notifications for sales follow-up."
         ],
         "stack": ["Java", "MySQL", "JDBC", "Swing"]
       },
       {
-        "date": "2023 – 2024",
+        "date": "2023 - 2024",
         "role": "Freelance Web Developer",
         "company": "Independent",
         "bullets": [
-          "Custom web solutions for small businesses (landing + e-commerce MVPs).",
-          "Component systems and design tokens to scale UI consistency."
+          "Custom web solutions for small businesses and commerce-oriented MVPs.",
+          "Component systems and visual tokens to improve UI consistency at scale."
         ],
         "stack": ["React", "Tailwind", "MongoDB"]
       }
     ]
   },
   "tools": {
-    "title": "Tools & Technologies",
+    "kicker": "Capabilities",
+    "title": "Technology selected with judgment, not trend chasing.",
+    "intro": "I work comfortably across interface, APIs, data and deployment. The stack changes with the problem, but the goal stays the same: clarity, speed of use and a maintainable foundation.",
+    "capabilities": [
+      "Frontend shaped for rhythm, hierarchy and serious responsive behavior.",
+      "Backend for workflows, integrations and operational automation.",
+      "End-to-end delivery from architecture through deployment."
+    ],
     "tabs": {
-      "mainstack": "Main Stack",
+      "mainstack": "Main stack",
       "frontend": "Frontend",
       "backend": "Backend",
       "devops": "DevOps"
-    }
+    },
+    "confidenceLabel": "working confidence",
+    "coverageLabel": "Coverage"
   },
   "contact": {
-    "title": "Let's build something",
-    "subtitle": "You have an idea, a product to launch or a system to improve. I can help you turn it into reliable, scalable software.",
+    "kicker": "Contact",
+    "title": "If there is an idea, product or stuck system, we can move it forward.",
+    "subtitle": "I work best when a product needs structure, a digital experience needs sharper UX or an internal flow needs to stop wasting time.",
+    "responseLabel": "Working style",
+    "responseBody": "I usually respond quickly, turn the problem into something concrete and outline a sensible direction before writing a lot of code.",
     "copyEmail": "Copy email",
     "copied": "Copied",
     "email": "Email",
-    "whatsapp": "WhatsApp",
+    "emailCta": "Send an email",
+    "formCta": "Open contact form",
+    "whatsapp": "Open WhatsApp",
     "basedIn": "Based in",
     "location": "Colombia (UTC-5)",
-    "orEmail": "Or write me directly"
+    "process": [
+      "First I understand the flow, priority and expected impact.",
+      "Then I propose a practical way forward without unnecessary decoration.",
+      "Finally we turn that idea into something useful, visible and well executed."
+    ]
   },
   "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Everything you need to know about how I work.",
+    "kicker": "FAQ",
+    "title": "Frequently asked questions",
+    "subtitle": "Quick answers about timing, collaboration style and the kinds of projects where I am most useful.",
     "expandAll": "Expand all",
     "collapseAll": "Collapse all",
     "searchPlaceholder": "Search question...",
     "noResults": "No questions found."
   },
   "contactPage": {
-    "title": "Let's talk",
-    "subtitle": "You have an idea or project. Let's build it with quality, performance and a UX people will love.",
+    "title": "Let us talk with context and direction.",
+    "subtitle": "If you have an idea, a system that needs improvement or a product experience that feels weak, we can turn it into something clearer, stronger and better executed.",
     "highlights": [
-      "**Response within 24–48h** — no delays",
-      "**Product-oriented approach** — I understand the business",
-      "**Iterative deliveries** — measurable results from day one"
+      "**Reply within 24 to 48h** with a clearer direction",
+      "**Product perspective** to understand the business and not only the stack",
+      "**Iterative delivery** so progress becomes visible early"
     ],
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "send": "Send message",
     "sending": "Sending...",
-    "success": "Message sent. I'll get back to you soon.",
+    "success": "Message sent. I will get back to you soon.",
     "error": "Something went wrong. Please try again.",
     "privacy": "Your data is used only to respond to you.",
     "nameError": "Please enter your name",
-    "emailError": "Invalid email address",
-    "messageError": "Message too short (min. 10 characters)"
+    "emailError": "Please enter a valid email",
+    "messageError": "Message is too short (min. 10 characters)"
   },
   "footer": {
     "rights": "All rights reserved."
   },
   "friends": {
-    "title": "Fellow developers",
+    "title": "Fellow portfolios",
+    "subtitle": "I also like pointing to other developers doing thoughtful work.",
     "visit": "Visit",
     "items": [
       {
@@ -234,7 +293,7 @@
       },
       {
         "name": "Santiago",
-        "role": "Full Stack · Scrum",
+        "role": "Full Stack | Scrum",
         "url": "https://ninonkn.github.io/Portafolio-Nino/?utm_source=monkey&utm_medium=banner&utm_campaign=portafolio2025",
         "theme": "sunset"
       }

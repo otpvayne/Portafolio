@@ -9,9 +9,9 @@ interface GlowCardProps {
 }
 
 const colorMap = {
-  blue:   { base: 220, spread: 180 },
-  purple: { base: 260, spread: 260 },
-  green:  { base: 140, spread: 180 },
+  blue: { base: 190, spread: 90 },
+  purple: { base: 28, spread: 22 },
+  green: { base: 150, spread: 80 },
 };
 
 export function GlowCard({ children, className = "", glowColor = "purple" }: GlowCardProps) {

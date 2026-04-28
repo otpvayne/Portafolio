@@ -1,121 +1,136 @@
 "use client";
+
 import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Search } from "lucide-react";
 
 const FAQS_ES = [
-  { q: "¿Cuánto cuesta un proyecto?",            a: "Depende del alcance, tecnología y plazos. Ofrezco presupuestos personalizados y gratuitos. Escríbeme y en 24h tienes una estimación clara." },
-  { q: "¿Trabajas de forma remota?",             a: "Sí, 100% remoto. Trabajo con equipos en Colombia, Latinoamérica y Europa sin ningún problema." },
-  { q: "¿Cuánto tiempo tarda un proyecto?",      a: "Un MVP sencillo puede estar listo en 2–4 semanas. Una plataforma completa toma entre 2 y 4 meses según complejidad." },
-  { q: "¿Qué tecnologías usas?",                 a: "React, TypeScript, Node.js, Express, FastAPI, PostgreSQL, MongoDB y Docker, entre otras. Elijo el stack según las necesidades reales del proyecto." },
-  { q: "¿Puedo contratarte solo para consultoría?", a: "Sí. Ofrezco sesiones de consultoría técnica para revisión de arquitectura, code review o asesoría en elección de stack." },
-  { q: "¿Tienes experiencia con integraciones de pago?", a: "Sí. Integré la API de Credinbanco para pagos con datáfono, actualmente en producción en 18 sucursales." },
+  {
+    q: "Cuanto cuesta un proyecto?",
+    a: "Depende del alcance, la complejidad y el tiempo esperado. Trabajo con estimaciones claras y propuestas por etapas para que la inversion tenga sentido.",
+  },
+  {
+    q: "Trabajas de forma remota?",
+    a: "Si. Trabajo de forma remota con equipos en Colombia y fuera de ella, manteniendo entregas, seguimiento y comunicacion constante.",
+  },
+  {
+    q: "Cuanto tiempo tarda un proyecto?",
+    a: "Un MVP sencillo puede estar listo en 2 a 4 semanas. Un sistema con mas flujos, integraciones o paneles administrativos suele requerir 2 a 4 meses.",
+  },
+  {
+    q: "Que tecnologias usas?",
+    a: "React, TypeScript, Next.js, Node.js, Express, FastAPI, PostgreSQL, MongoDB, Docker y Java, segun el problema real que haya que resolver.",
+  },
+  {
+    q: "Puedo contratarte solo para consultoria?",
+    a: "Si. Tambien hago revisiones de arquitectura, auditorias UI, apoyo tecnico puntual y refinamiento de producto para equipos que ya estan construyendo.",
+  },
+  {
+    q: "Has trabajado con integraciones de pago?",
+    a: "Si. Integre la API de Credinbanco para pagos con datafono en un sistema POS operativo en 18 sucursales.",
+  },
 ];
 
 const FAQS_EN = [
-  { q: "How much does a project cost?",          a: "It depends on scope, technology and deadlines. I offer free personalized quotes — reach out and I'll give you a clear estimate within 24h." },
-  { q: "Do you work remotely?",                  a: "Yes, 100% remote. I work with teams in Colombia, Latin America and Europe without any issues." },
-  { q: "How long does it take to build a project?", a: "A simple MVP can be ready in 2–4 weeks. A full platform takes 2–4 months depending on complexity." },
-  { q: "What technologies do you use?",          a: "React, TypeScript, Node.js, Express, FastAPI, PostgreSQL, MongoDB, Docker and more. I choose the stack based on the project's real needs." },
-  { q: "Can I hire you just for consulting?",    a: "Yes. I offer technical consulting sessions for architecture review, code review or stack advice." },
-  { q: "Do you have experience with payment integrations?", a: "Yes. I've integrated the Credinbanco API for card terminal payments, currently running in production across 18 branches." },
+  {
+    q: "How much does a project cost?",
+    a: "It depends on scope, complexity and timeline. I work with clear estimates and phased proposals so the investment stays grounded in value.",
+  },
+  {
+    q: "Do you work remotely?",
+    a: "Yes. I work remotely with teams in Colombia and abroad, with clear communication, delivery checkpoints and steady follow-through.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "A focused MVP can be ready in 2 to 4 weeks. A fuller platform with integrations, back-office tooling or custom workflows usually takes 2 to 4 months.",
+  },
+  {
+    q: "What technologies do you use?",
+    a: "React, TypeScript, Next.js, Node.js, Express, FastAPI, PostgreSQL, MongoDB, Docker and Java, depending on the actual problem being solved.",
+  },
+  {
+    q: "Can I hire you only for consulting?",
+    a: "Yes. I also support architecture reviews, UI audits, technical decision making and focused product guidance for existing teams.",
+  },
+  {
+    q: "Do you have payment integration experience?",
+    a: "Yes. I integrated the Credinbanco API for card terminal payments inside a POS system currently used across 18 branches.",
+  },
 ];
 
 export default function FaqClient() {
   const t = useTranslations("faq");
+  const locale = useLocale();
   const [search, setSearch] = useState("");
-  const [open, setOpen] = useState<number | null>(null);
-
-  const isEn =
-    typeof document !== "undefined" && document.documentElement.lang === "en";
-  const faqs = isEn ? FAQS_EN : FAQS_ES;
+  const [open, setOpen] = useState<number | null>(0);
+  const faqs = locale === "en" ? FAQS_EN : FAQS_ES;
 
   const filtered = faqs.filter(
-    (f) =>
-      f.q.toLowerCase().includes(search.toLowerCase()) ||
-      f.a.toLowerCase().includes(search.toLowerCase())
+    (item) =>
+      item.q.toLowerCase().includes(search.toLowerCase()) ||
+      item.a.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="space-y-6">
-      {/* Search */}
-      <div className="relative">
-        <Search
-          size={15}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]"
-        />
-        <input
-          type="search"
-          placeholder={t("searchPlaceholder")}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-10 pr-4 py-3.5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 transition-all text-sm"
-        />
+      <div className="panel rounded-[28px] p-4">
+        <div className="relative">
+          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)]" />
+          <input
+            type="search"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder={t("searchPlaceholder")}
+            className="w-full rounded-[20px] border border-[var(--line)] bg-white/82 py-3.5 pl-11 pr-4 text-sm text-[var(--text)] outline-none transition-all focus:border-[var(--accent)] focus:bg-white"
+          />
+        </div>
       </div>
 
-      {/* No results */}
       {filtered.length === 0 && (
-        <p className="text-center text-[var(--text-muted)] py-12 text-sm">
+        <p className="rounded-[24px] border border-[var(--line)] bg-white/62 px-5 py-8 text-center text-sm text-[var(--text-muted)]">
           {t("noResults")}
         </p>
       )}
 
-      {/* FAQ items */}
-      <div className="space-y-3">
-        {filtered.map((f, i) => {
-          const num = String(i + 1).padStart(2, "0");
-          const isOpen = open === i;
+      <div className="grid gap-4">
+        {filtered.map((item, index) => {
+          const isOpen = open === index;
+          const num = String(index + 1).padStart(2, "0");
 
           return (
             <motion.div
-              key={i}
+              key={item.q}
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className={`glass rounded-2xl overflow-hidden transition-all ${
-                isOpen ? "border-[var(--accent)]/30" : "hover:border-[var(--border)]"
-              }`}
+              transition={{ delay: index * 0.04 }}
+              className="panel overflow-hidden rounded-[28px]"
             >
               <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="w-full flex items-center gap-4 px-5 py-4 text-left group"
+                onClick={() => setOpen(isOpen ? null : index)}
+                className="flex w-full items-center gap-4 px-5 py-5 text-left"
                 aria-expanded={isOpen}
               >
-                {/* Number badge */}
-                <span className="shrink-0 w-7 h-7 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center text-[10px] font-bold text-[var(--accent2)] font-mono">
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--surface-ink)] text-xs font-bold text-white">
                   {num}
                 </span>
-
-                <span className="flex-1 font-semibold text-white text-sm leading-snug pr-2">
-                  {f.q}
-                </span>
-
-                <motion.span
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.22 }}
-                  className="shrink-0"
-                >
-                  <ChevronDown
-                    size={16}
-                    className={`transition-colors ${
-                      isOpen ? "text-[var(--accent)]" : "text-[var(--text-muted)]"
-                    }`}
-                  />
+                <span className="flex-1 text-base font-semibold text-[var(--text)]">{item.q}</span>
+                <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                  <ChevronDown size={18} className="text-[var(--text-muted)]" />
                 </motion.span>
               </button>
 
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {isOpen && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    transition={{ duration: 0.24 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-5 pl-16 text-sm text-[var(--text-muted)] leading-relaxed">
-                      {f.a}
+                    <p className="px-5 pb-5 pl-[4.6rem] text-sm leading-7 text-[var(--text-muted)]">
+                      {item.a}
                     </p>
                   </motion.div>
                 )}

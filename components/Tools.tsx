@@ -1,75 +1,84 @@
 "use client";
+
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 type Tool = { icon: string; name: string; level: number };
 type Tabs = "mainstack" | "frontend" | "backend" | "devops";
 
 const TOOLS: Record<Tabs, Tool[]> = {
   mainstack: [
-    { icon: "devicon-html5-plain colored",        name: "HTML5",         level: 95 },
-    { icon: "devicon-css3-plain colored",         name: "CSS3",          level: 90 },
-    { icon: "devicon-javascript-plain colored",   name: "JavaScript",    level: 90 },
-    { icon: "devicon-typescript-plain colored",   name: "TypeScript",    level: 80 },
-    { icon: "devicon-react-original colored",     name: "React",         level: 78 },
-    { icon: "devicon-nodejs-plain colored",       name: "Node.js",       level: 88 },
-    { icon: "devicon-postgresql-plain colored",   name: "PostgreSQL",    level: 85 },
-    { icon: "devicon-python-plain colored",       name: "Python",        level: 72 },
+    { icon: "devicon-typescript-plain colored", name: "TypeScript", level: 86 },
+    { icon: "devicon-react-original colored", name: "React", level: 82 },
+    { icon: "devicon-nextjs-plain", name: "Next.js", level: 79 },
+    { icon: "devicon-nodejs-plain colored", name: "Node.js", level: 85 },
+    { icon: "devicon-postgresql-plain colored", name: "PostgreSQL", level: 84 },
+    { icon: "devicon-python-plain colored", name: "Python", level: 72 },
   ],
   frontend: [
-    { icon: "devicon-tailwindcss-plain colored",  name: "Tailwind CSS",  level: 90 },
-    { icon: "devicon-nextjs-plain",               name: "Next.js",       level: 78 },
-    { icon: "devicon-vitejs-plain colored",       name: "Vite",          level: 70 },
-    { icon: "devicon-framermotion-original",      name: "Framer Motion", level: 68 },
+    { icon: "devicon-html5-plain colored", name: "HTML5", level: 95 },
+    { icon: "devicon-css3-plain colored", name: "CSS3", level: 91 },
+    { icon: "devicon-tailwindcss-plain colored", name: "Tailwind CSS", level: 90 },
+    { icon: "devicon-vitejs-plain colored", name: "Vite", level: 74 },
+    { icon: "devicon-framermotion-original", name: "Framer Motion", level: 70 },
   ],
   backend: [
-    { icon: "devicon-nodejs-plain colored",       name: "Node.js",       level: 88 },
-    { icon: "devicon-express-original",           name: "Express",       level: 85 },
-    { icon: "devicon-fastapi-plain colored",      name: "FastAPI",       level: 74 },
-    { icon: "devicon-nestjs-plain colored",       name: "NestJS",        level: 56 },
+    { icon: "devicon-express-original", name: "Express", level: 84 },
+    { icon: "devicon-fastapi-plain colored", name: "FastAPI", level: 74 },
+    { icon: "devicon-java-plain colored", name: "Java", level: 73 },
+    { icon: "devicon-mysql-plain colored", name: "MySQL", level: 79 },
+    { icon: "devicon-mongodb-plain colored", name: "MongoDB", level: 72 },
   ],
   devops: [
-    { icon: "devicon-git-plain colored",          name: "Git",           level: 90 },
-    { icon: "devicon-github-original",            name: "GitHub",        level: 95 },
-    { icon: "devicon-docker-plain colored",       name: "Docker",        level: 62 },
-    { icon: "devicon-vercel-original",            name: "Vercel",        level: 86 },
-    { icon: "devicon-linux-plain colored",        name: "Linux CLI",     level: 52 },
+    { icon: "devicon-git-plain colored", name: "Git", level: 90 },
+    { icon: "devicon-github-original", name: "GitHub", level: 94 },
+    { icon: "devicon-docker-plain colored", name: "Docker", level: 64 },
+    { icon: "devicon-vercel-original", name: "Vercel", level: 87 },
+    { icon: "devicon-linux-plain colored", name: "Linux CLI", level: 58 },
   ],
 };
 
 export default function Tools() {
   const t = useTranslations("tools");
   const [tab, setTab] = useState<Tabs>("mainstack");
+  const capabilities = t.raw("capabilities") as string[];
 
   return (
-    <section id="tools" className="py-48 px-4 sm:px-8 lg:px-16 bg-[var(--bg-card)]/30 relative">
-      {/* Subtle separator top */}
-      <div className="absolute top-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
+    <section id="tools" className="px-4 py-24 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="section-divider mb-12" />
 
-      <div className="w-full max-w-6xl mx-auto">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          {t("title")}
-        </motion.h2>
+        <div className="mb-12 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+          <div className="space-y-5">
+            <span className="eyebrow">{t("kicker")}</span>
+            <h2 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+              {t("title")}
+            </h2>
+            <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
+          </div>
 
-        {/* Tab bar */}
-        <div className="flex justify-center gap-3 flex-wrap mb-16">
-          {(["mainstack", "frontend", "backend", "devops"] as Tabs[]).map((k) => (
+          <div className="grid gap-3 sm:grid-cols-3">
+            {capabilities.map((item) => (
+              <div key={item} className="rounded-[24px] border border-[var(--line)] bg-white/62 px-4 py-4 text-sm leading-6 text-[var(--text-muted)]">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-8 flex flex-wrap gap-3">
+          {(["mainstack", "frontend", "backend", "devops"] as Tabs[]).map((key) => (
             <button
-              key={k}
-              onClick={() => setTab(k)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                tab === k
-                  ? "bg-[var(--accent)] text-white shadow-[0_0_16px_var(--accent)]/30"
-                  : "border border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--accent2)]"
+              key={key}
+              onClick={() => setTab(key)}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                tab === key
+                  ? "bg-[var(--surface-ink)] text-white"
+                  : "border border-[var(--line)] bg-white/72 text-[var(--text-muted)] hover:border-[var(--accent)] hover:text-[var(--text)]"
               }`}
             >
-              {t(`tabs.${k}`)}
+              {t(`tabs.${key}`)}
             </button>
           ))}
         </div>
@@ -77,42 +86,50 @@ export default function Tools() {
         <AnimatePresence mode="wait">
           <motion.div
             key={tab}
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.28 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3"
           >
-            {TOOLS[tab].map((tool, i) => (
-              <motion.div
+            {TOOLS[tab].map((tool, index) => (
+              <motion.article
                 key={tool.name}
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.04 }}
-                className="glass rounded-2xl p-5 flex flex-col items-center gap-4 card-glow group"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.04 }}
+                className="glass card-glow rounded-[28px] p-5"
               >
-                <i className={`${tool.icon} text-5xl transition-transform duration-300 group-hover:scale-110`} />
-                <div className="w-full text-center">
-                  <p className="text-sm font-semibold text-white mb-1">{tool.name}</p>
-                  <p className="text-xs text-[var(--text-muted)] mb-2">{tool.level}%</p>
-                  <div className="w-full h-1.5 rounded-full bg-[var(--border)] overflow-hidden">
+                <div className="mb-5 flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-[20px] bg-white/90 shadow-sm">
+                    <i className={`${tool.icon} text-3xl`} />
+                  </div>
+                  <div>
+                    <p className="text-lg font-semibold text-[var(--text)]">{tool.name}</p>
+                    <p className="text-sm text-[var(--text-muted)]">{t("confidenceLabel")}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-[var(--text-muted)]">{t("coverageLabel")}</span>
+                    <span className="font-semibold text-[var(--surface-ink)]">{tool.level}%</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-[var(--surface-strong)]">
                     <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent2)]"
+                      className="h-full rounded-full bg-gradient-to-r from-[var(--accent)] via-[var(--accent-soft)] to-[var(--accent-alt)]"
                       initial={{ width: 0 }}
                       whileInView={{ width: `${tool.level}%` }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.9, ease: "easeOut", delay: i * 0.05 }}
+                      transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.04 }}
                     />
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         </AnimatePresence>
       </div>
-
-      {/* Subtle separator bottom */}
-      <div className="absolute bottom-0 left-12 right-12 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent" />
     </section>
   );
 }
