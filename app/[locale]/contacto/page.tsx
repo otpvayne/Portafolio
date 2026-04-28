@@ -23,10 +23,10 @@ export default function ContactPage() {
             <section className="space-y-7">
               <span className="eyebrow">Contact</span>
               <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+                <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
                   {t("title")}
                 </h1>
-                <p className="max-w-xl text-lg leading-8 text-[var(--text-muted)]">{t("subtitle")}</p>
+                <p className="max-w-xl text-lg leading-8 text-[var(--color-text-secondary)]">{t("subtitle")}</p>
               </div>
 
               <ul className="grid gap-4">
@@ -36,15 +36,15 @@ export default function ContactPage() {
                   return (
                     <li
                       key={highlight}
-                      className="flex gap-4 rounded-[24px] border border-[var(--line)] bg-white/68 p-4"
+                      className="flex gap-4 rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-sm)] p-4"
                     >
-                      <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] bg-[var(--surface-ink)] text-white">
+                      <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] text-white">
                         <Icon size={16} />
                       </span>
                       <span
-                        className="text-sm leading-7 text-[var(--text-muted)]"
+                        className="text-sm leading-7 text-[var(--color-text-secondary)]"
                         dangerouslySetInnerHTML={{
-                          __html: highlight.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--text)]">$1</strong>'),
+                          __html: highlight.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--color-text-primary)]">$1</strong>'),
                         }}
                       />
                     </li>
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 })}
               </ul>
 
-              <div className="rounded-[28px] bg-[var(--surface-ink)] p-6 text-white">
+              <div className="rounded-[var(--radius-xl)] bg-[var(--color-primary)] p-6 text-white">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/65">Direct links</p>
                 <div className="mt-5 grid gap-3">
                   <a

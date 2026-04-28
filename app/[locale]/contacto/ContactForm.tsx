@@ -59,7 +59,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="panel rounded-[32px] p-6 sm:p-8">
+    <form onSubmit={handleSubmit} noValidate className="card-base p-6 sm:p-8">
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="space-y-6">
@@ -71,7 +71,7 @@ export default function ContactForm() {
             required
             minLength={2}
             maxLength={100}
-            className="w-full rounded-[20px] border border-[var(--line)] bg-white/80 px-4 py-3.5 text-sm text-[var(--text)] outline-none transition-all focus:border-[var(--accent)] focus:bg-white"
+            className="w-full rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-3.5 text-sm text-[var(--color-text-primary)] outline-none transition-all focus:border-[var(--color-accent)] focus:bg-white"
           />
         </Field>
 
@@ -81,7 +81,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
-            className="w-full rounded-[20px] border border-[var(--line)] bg-white/80 px-4 py-3.5 text-sm text-[var(--text)] outline-none transition-all focus:border-[var(--accent)] focus:bg-white"
+            className="w-full rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-3.5 text-sm text-[var(--color-text-primary)] outline-none transition-all focus:border-[var(--color-accent)] focus:bg-white"
           />
         </Field>
 
@@ -105,7 +105,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--surface-ink)] px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-[var(--accent-strong)] disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-primary w-full"
         >
           {status === "loading" ? (
             <>
@@ -120,7 +120,7 @@ export default function ContactForm() {
           )}
         </button>
 
-        <p className="text-sm leading-7 text-[var(--text-muted)]">{t("privacy")}</p>
+        <p className="text-sm leading-7 text-[var(--color-text-secondary)]">{t("privacy")}</p>
       </div>
     </form>
   );
@@ -139,7 +139,7 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="text-sm font-semibold text-[var(--text)]">
+      <label htmlFor={id} className="text-sm font-semibold text-[var(--color-text-primary)]">
         {label}
       </label>
       {children}

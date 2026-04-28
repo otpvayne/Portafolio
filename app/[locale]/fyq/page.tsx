@@ -17,8 +17,8 @@ export default function FaqPage() {
 
           <section className="space-y-5">
             <span className="eyebrow">{t("kicker")}</span>
-            <h1 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">{t("title")}</h1>
-            <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)]">{t("subtitle")}</p>
+            <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">{t("title")}</h1>
+            <p className="max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)]">{t("subtitle")}</p>
           </section>
 
           <div className="mt-10">
