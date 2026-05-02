@@ -59,7 +59,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="card-base p-6 sm:p-8">
+    <form onSubmit={handleSubmit} noValidate className="card-base p-6 sm:p-8 rounded-2xl">
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="space-y-6">
@@ -71,7 +71,8 @@ export default function ContactForm() {
             required
             minLength={2}
             maxLength={100}
-            className="w-full rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-3.5 text-sm text-[var(--color-text-primary)] outline-none transition-all focus:border-[var(--color-accent)] focus:bg-white"
+            placeholder="Tu nombre"
+            className="input-field w-full"
           />
         </Field>
 
@@ -81,7 +82,8 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
-            className="w-full rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-3.5 text-sm text-[var(--color-text-primary)] outline-none transition-all focus:border-[var(--color-accent)] focus:bg-white"
+            placeholder="tu@email.com"
+            className="input-field w-full"
           />
         </Field>
 
@@ -93,34 +95,45 @@ export default function ContactForm() {
             required
             minLength={10}
             maxLength={1000}
-            className="w-full resize-none rounded-[20px] border border-[var(--line)] bg-white/80 px-4 py-3.5 text-sm leading-7 text-[var(--text)] outline-none transition-all focus:border-[var(--accent)] focus:bg-white"
+            placeholder="Cuéntame sobre tu proyecto..."
+            className="input-field w-full resize-none"
           />
         </Field>
       </div>
 
-      <div className="mt-6 space-y-4">
-        {status === "success" && <p className="text-sm text-emerald-700">{t("success")}</p>}
-        {status === "error" && <p className="text-sm text-red-700">{t("error")}</p>}
+      <div className="mt-8 space-y-4">
+        {status === "success" && (
+          <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+            <p className="text-sm font-medium text-emerald-800">{t("success")}</p>
+          </div>
+        )}
+        {status === "error" && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+            <p className="text-sm font-medium text-red-800">{t("error")}</p>
+          </div>
+        )}
 
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="btn-primary w-full"
+          className="btn-primary w-full justify-center gap-2 disabled:opacity-60"
         >
           {status === "loading" ? (
             <>
-              <Loader2 size={16} className="animate-spin" />
-              {t("sending")}
+              <Loader2 size={16} className="animate-spin flex-shrink-0" />
+              <span>{t("sending")}</span>
             </>
           ) : (
             <>
-              <Send size={16} />
-              {t("send")}
+              <Send size={16} className="flex-shrink-0" />
+              <span>{t("send")}</span>
             </>
           )}
         </button>
 
-        <p className="text-sm leading-7 text-[var(--color-text-secondary)]">{t("privacy")}</p>
+        <p className="text-xs leading-relaxed text-[var(--color-text-secondary)]">
+          {t("privacy")}
+        </p>
       </div>
     </form>
   );

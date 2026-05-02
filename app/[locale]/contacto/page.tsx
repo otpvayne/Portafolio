@@ -15,36 +15,40 @@ export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main className="px-4 pb-32 pt-32 sm:px-8 lg:px-20">
+      <main className="px-4 pb-20 pt-12 sm:px-8 lg:px-20 lg:pb-32 lg:pt-16">
         <div className="section-shell">
           <div className="section-divider mb-12" />
 
-          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-            <section className="space-y-7">
-              <span className="eyebrow">Contact</span>
+          <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-start">
+            {/* Left Column */}
+            <section className="space-y-8">
               <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
+                <span className="eyebrow">Contact</span>
+                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
                   {t("title")}
                 </h1>
-                <p className="max-w-xl text-lg leading-8 text-[var(--color-text-secondary)]">{t("subtitle")}</p>
+                <p className="text-lg leading-relaxed text-[var(--color-text-secondary)]">
+                  {t("subtitle")}
+                </p>
               </div>
 
-              <ul className="grid gap-4">
+              {/* Highlights */}
+              <ul className="space-y-3">
                 {highlights.map((highlight, index) => {
                   const Icon = ICONS[index] ?? CheckCircle2;
 
                   return (
                     <li
                       key={highlight}
-                      className="flex gap-4 rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-sm)] p-4"
+                      className="card-base flex gap-4 p-4 sm:p-5 rounded-xl"
                     >
-                      <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] text-white">
-                        <Icon size={16} />
+                      <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)] text-white">
+                        <Icon size={18} />
                       </span>
                       <span
-                        className="text-sm leading-7 text-[var(--color-text-secondary)]"
+                        className="text-sm leading-relaxed text-[var(--color-text-secondary)]"
                         dangerouslySetInnerHTML={{
-                          __html: highlight.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[var(--color-text-primary)]">$1</strong>'),
+                          __html: highlight.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-[var(--color-text-primary)]">$1</strong>'),
                         }}
                       />
                     </li>
@@ -52,39 +56,47 @@ export default function ContactPage() {
                 })}
               </ul>
 
-              <div className="rounded-[var(--radius-xl)] bg-[var(--color-primary)] p-6 text-white">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/65">Direct links</p>
-                <div className="mt-5 grid gap-3">
+              {/* Direct Links */}
+              <div className="card-base bg-[var(--color-primary)] text-white p-6 sm:p-8 rounded-2xl space-y-6">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/80">
+                    Direct Links
+                  </p>
+                </div>
+                <div className="space-y-4">
                   <a
                     href="mailto:generalboomsycol@gmail.com"
-                    className="inline-flex items-center gap-3 text-sm text-white/82 transition-colors hover:text-white"
+                    className="flex items-center gap-3 text-sm text-white/85 transition-colors hover:text-white break-all"
                   >
-                    <Mail size={16} />
-                    generalboomsycol@gmail.com
+                    <Mail size={18} className="flex-shrink-0" />
+                    <span>generalboomsycol@gmail.com</span>
                   </a>
                   <a
                     href="https://linkedin.com/in/diego-medina-software"
                     target="_blank"
                     rel="noopener"
-                    className="inline-flex items-center gap-3 text-sm text-white/82 transition-colors hover:text-white"
+                    className="flex items-center gap-3 text-sm text-white/85 transition-colors hover:text-white break-all"
                   >
-                    <Linkedin size={16} />
-                    linkedin.com/in/diego-medina-software
+                    <Linkedin size={18} className="flex-shrink-0" />
+                    <span>linkedin.com/in/diego-medina-software</span>
                   </a>
                   <a
                     href="https://github.com/otpvayne"
                     target="_blank"
                     rel="noopener"
-                    className="inline-flex items-center gap-3 text-sm text-white/82 transition-colors hover:text-white"
+                    className="flex items-center gap-3 text-sm text-white/85 transition-colors hover:text-white break-all"
                   >
-                    <Github size={16} />
-                    github.com/otpvayne
+                    <Github size={18} className="flex-shrink-0" />
+                    <span>github.com/otpvayne</span>
                   </a>
                 </div>
               </div>
             </section>
 
-            <ContactForm />
+            {/* Right Column: Form */}
+            <div className="lg:sticky lg:top-20">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </main>

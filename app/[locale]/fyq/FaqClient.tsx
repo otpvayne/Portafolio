@@ -74,26 +74,31 @@ export default function FaqClient() {
 
   return (
     <div className="space-y-6">
-      <div className="card-base p-4">
+      {/* Search */}
+      <div className="card-base p-4 rounded-xl">
         <div className="relative">
-          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)]" />
+          <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)] flex-shrink-0" />
           <input
             type="search"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder={t("searchPlaceholder")}
-            className="w-full rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-lg)] py-3.5 pl-11 pr-4 text-sm text-[var(--color-text-primary)] outline-none transition-all focus:border-[var(--color-accent)] focus:bg-white"
+            className="input-field w-full pl-11"
           />
         </div>
       </div>
 
+      {/* No Results */}
       {filtered.length === 0 && (
-        <p className="rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-sm)] px-5 py-8 text-center text-sm text-[var(--color-text-secondary)]">
-          {t("noResults")}
-        </p>
+        <div className="card-base p-8 sm:p-12 rounded-xl text-center">
+          <p className="text-sm text-[var(--color-text-secondary)]">
+            {t("noResults")}
+          </p>
+        </div>
       )}
 
-      <div className="grid gap-4">
+      {/* FAQ Items */}
+      <div className="space-y-3">
         {filtered.map((item, index) => {
           const isOpen = open === index;
           const num = String(index + 1).padStart(2, "0");
@@ -104,19 +109,25 @@ export default function FaqClient() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.04 }}
-              className="card-base overflow-hidden"
+              className="card-base rounded-xl overflow-visible"
             >
               <button
                 onClick={() => setOpen(isOpen ? null : index)}
-                className="flex w-full items-center gap-4 px-5 py-5 text-left"
+                className="flex w-full items-center gap-4 p-5 sm:p-6 text-left hover:bg-[var(--color-surface-light)] transition-colors"
                 aria-expanded={isOpen}
               >
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-xs font-bold text-white">
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] text-xs font-bold text-white">
                   {num}
                 </span>
-                <span className="flex-1 text-base font-semibold text-[var(--color-text-primary)]">{item.q}</span>
-                <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                  <ChevronDown size={18} className="text-[var(--color-text-secondary)]" />
+                <span className="flex-1 text-base sm:text-lg font-semibold text-[var(--color-text-primary)]">
+                  {item.q}
+                </span>
+                <motion.span
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex-shrink-0"
+                >
+                  <ChevronDown size={20} className="text-[var(--color-text-secondary)]" />
                 </motion.span>
               </button>
 
@@ -129,9 +140,11 @@ export default function FaqClient() {
                     transition={{ duration: 0.24 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-5 pl-[4.6rem] text-sm leading-7 text-[var(--color-text-secondary)]">
-                      {item.a}
-                    </p>
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-[var(--color-surface-muted)]">
+                      <p className="ml-14 text-sm sm:text-base leading-relaxed text-[var(--color-text-secondary)]">
+                        {item.a}
+                      </p>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

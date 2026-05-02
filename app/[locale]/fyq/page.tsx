@@ -11,17 +11,23 @@ export default function FaqPage() {
   return (
     <>
       <Nav />
-      <main className="px-4 pb-32 pt-32 sm:px-8 lg:px-20">
+      <main className="px-4 pb-20 pt-12 sm:px-8 lg:px-20 lg:pb-32 lg:pt-16">
         <div className="section-shell">
           <div className="section-divider mb-12" />
 
-          <section className="space-y-5">
+          <section className="space-y-6 mb-12">
             <span className="eyebrow">{t("kicker")}</span>
-            <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">{t("title")}</h1>
-            <p className="max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)]">{t("subtitle")}</p>
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
+                {t("title")}
+              </h1>
+              <p className="text-lg leading-relaxed text-[var(--color-text-secondary)] max-w-3xl">
+                {t("subtitle")}
+              </p>
+            </div>
           </section>
 
-          <div className="mt-10">
+          <div className="max-w-3xl mx-auto">
             <FaqClient />
           </div>
         </div>
