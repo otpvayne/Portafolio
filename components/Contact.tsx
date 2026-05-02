@@ -22,7 +22,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="px-4 py-64 sm:px-8 lg:px-20">
+    <section id="contact" className="px-4 py-28 sm:px-8 lg:px-20 lg:py-40">
       <div className="section-shell">
         <div className="section-divider mb-12" />
 
@@ -30,28 +30,41 @@ export default function Contact() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="card-base p-6 sm:p-8 lg:p-10"
+          className="space-y-12"
         >
-          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          {/* Header */}
+          <div className="space-y-6">
+            <span className="eyebrow">{t("kicker")}</span>
+            <div className="space-y-4 max-w-2xl">
+              <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--text)]">
+                {t("title")}
+              </h2>
+              <p className="text-lg leading-relaxed text-[var(--text-muted)]">
+                {t("subtitle")}
+              </p>
+            </div>
+          </div>
+
+          {/* Content Grid */}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* Left: Process & Info */}
             <div className="space-y-6">
-              <span className="eyebrow">{t("kicker")}</span>
-              <div className="space-y-4">
-                <h2 className="max-w-xl text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
-                  {t("title")}
-                </h2>
-                <p className="max-w-xl text-lg leading-8 text-[var(--text-muted)]">{t("subtitle")}</p>
+              {/* Response Info */}
+              <div className="card-base bg-[var(--color-primary)] text-white p-6 sm:p-8 rounded-2xl">
+                <p className="text-xs font-bold uppercase tracking-widest text-white/90">
+                  {t("responseLabel")}
+                </p>
+                <p className="mt-4 text-base sm:text-lg leading-relaxed">
+                  {t("responseBody")}
+                </p>
               </div>
 
-              <div className="rounded-[var(--radius-xl)] bg-[var(--color-primary)] p-6 text-white">
-                <p className="text-label text-white">{t("responseLabel")}</p>
-                <p className="mt-4 text-lg leading-8">{t("responseBody")}</p>
-              </div>
-
-              <ul className="grid gap-3">
+              {/* Process List */}
+              <ul className="space-y-3">
                 {process.map((item) => (
                   <li
                     key={item}
-                    className="rounded-[22px] border border-[var(--line)] bg-white/85 px-4 py-4 text-sm leading-7 text-[var(--text)] break-words"
+                    className="card-base p-4 text-sm leading-relaxed text-[var(--text)] break-words rounded-xl"
                   >
                     {item}
                   </li>
@@ -59,92 +72,113 @@ export default function Contact() {
               </ul>
             </div>
 
-            <div className="grid gap-4">
-              <div className="grid gap-4 lg:grid-cols-2">
-                <div className="card-base p-5">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] text-white">
-                    <Mail size={18} />
+            {/* Right: Contact Cards */}
+            <div className="space-y-4">
+              {/* Email & WhatsApp */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Email Card */}
+                <div className="card-base p-5 sm:p-6 rounded-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-primary)] text-white mb-4">
+                    <Mail size={20} className="flex-shrink-0" />
                   </div>
-                  <p className="text-label">{t("email")}</p>
-                  <p className="mt-3 text-sm leading-7 text-[var(--text)] break-words">{EMAIL}</p>
-                  <div className="mt-5 flex gap-3">
-                    <button
-                      onClick={copyEmail}
-                      className="btn-secondary flex-1 text-sm"
-                    >
-                      {copied ? <Check size={15} /> : <Copy size={15} />}
-                      {copied ? t("copied") : t("copyEmail")}
-                    </button>
-                  </div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
+                    {t("email")}
+                  </p>
+                  <p className="mt-3 text-sm break-words text-[var(--text)]">
+                    {EMAIL}
+                  </p>
+                  <button
+                    onClick={copyEmail}
+                    className="btn-secondary w-full mt-4 text-xs sm:text-sm gap-2 justify-center"
+                  >
+                    {copied ? (
+                      <>
+                        <Check size={14} className="flex-shrink-0" />
+                        <span>{t("copied")}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={14} className="flex-shrink-0" />
+                        <span>{t("copyEmail")}</span>
+                      </>
+                    )}
+                  </button>
                 </div>
 
-                <div className="card-base p-5">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-accent)] text-white">
-                    <MessageCircle size={18} />
+                {/* WhatsApp Card */}
+                <div className="card-base p-5 sm:p-6 rounded-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-accent)] text-white mb-4">
+                    <MessageCircle size={20} className="flex-shrink-0" />
                   </div>
-                  <p className="text-label text-[var(--color-accent)]">WhatsApp</p>
-                  <p className="mt-3 text-sm leading-7 text-[var(--text)] break-words">+57 301 747 2421</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                    WhatsApp
+                  </p>
+                  <p className="mt-3 text-sm break-words text-[var(--text)]">
+                    +57 301 747 2421
+                  </p>
                   <a
                     href={`https://wa.me/${WA_NUMBER}?text=Hola%20Diego%2C%20vi%20tu%20portafolio`}
                     target="_blank"
                     rel="noopener"
-                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#128c7e] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[#0f766e]"
+                    className="w-full mt-4 inline-flex items-center justify-center gap-2 btn-primary text-xs sm:text-sm"
                   >
-                    {t("whatsapp")}
-                    <MoveRight size={15} />
+                    <span>{t("whatsapp")}</span>
+                    <MoveRight size={14} className="flex-shrink-0" />
                   </a>
                 </div>
               </div>
 
-              <div className="glass rounded-[28px] p-5">
-                <div className="grid gap-5 sm:grid-cols-[0.8fr_1.2fr] sm:items-center">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)]">
-                      {t("basedIn")}
-                    </p>
-                    <div className="mt-3 flex items-center gap-3 text-[var(--text)]">
-                      <MapPin size={17} className="text-[var(--accent)]" />
-                      <span className="text-sm font-medium">{t("location")}</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href="mailto:generalboomsycol@gmail.com?subject=Proyecto"
-                      className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white/85 px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
-                    >
-                      <Mail size={15} />
-                      {t("emailCta")}
-                    </a>
-                    <a
-                      href={`${rootPath}/contacto`}
-                      className="inline-flex items-center gap-2 rounded-full bg-[var(--surface-ink)] px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--accent-strong)]"
-                    >
-                      {t("formCta")}
-                      <MoveRight size={15} />
-                    </a>
-                  </div>
+              {/* Location Card */}
+              <div className="card-base p-5 sm:p-6 rounded-xl">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
+                  {t("basedIn")}
+                </p>
+                <div className="mt-4 flex items-center gap-3 text-[var(--text)]">
+                  <MapPin size={18} className="text-[var(--color-accent)] flex-shrink-0" />
+                  <span className="text-sm font-medium">{t("location")}</span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="https://github.com/otpvayne"
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white/78 px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
-                >
-                  <Github size={16} />
-                  GitHub
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/diego-medina-software/"
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white/78 px-4 py-3 text-sm font-semibold text-[var(--text)] transition-all hover:border-[var(--accent)]"
-                >
-                  <Linkedin size={16} />
-                  LinkedIn
-                </a>
+              {/* Social & Form Links */}
+              <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <a
+                    href="mailto:generalboomsycol@gmail.com?subject=Proyecto"
+                    className="inline-flex items-center justify-center gap-2 btn-secondary text-xs sm:text-sm"
+                  >
+                    <Mail size={16} className="flex-shrink-0" />
+                    <span className="break-words">{t("emailCta")}</span>
+                  </a>
+                  <a
+                    href={`${rootPath}/contacto`}
+                    className="inline-flex items-center justify-center gap-2 btn-primary text-xs sm:text-sm whitespace-nowrap"
+                  >
+                    <span>{t("formCta")}</span>
+                    <MoveRight size={16} className="flex-shrink-0" />
+                  </a>
+                </div>
+
+                {/* Social Links */}
+                <div className="flex gap-3">
+                  <a
+                    href="https://github.com/otpvayne"
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex flex-1 items-center justify-center gap-2 btn-secondary text-xs sm:text-sm"
+                  >
+                    <Github size={16} className="flex-shrink-0" />
+                    <span className="hidden sm:inline">GitHub</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/diego-medina-software/"
+                    target="_blank"
+                    rel="noopener"
+                    className="inline-flex flex-1 items-center justify-center gap-2 btn-secondary text-xs sm:text-sm"
+                  >
+                    <Linkedin size={16} className="flex-shrink-0" />
+                    <span className="hidden sm:inline">LinkedIn</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -39,24 +39,28 @@ export default function Projects() {
   const visible = active === "all" ? projects : projects.filter((project) => project.tags.includes(active));
 
   return (
-    <section id="projects" className="px-4 py-56 sm:px-8 lg:px-20">
+    <section id="projects" className="px-4 py-28 sm:px-8 lg:px-20 lg:py-40">
       <div className="section-shell">
         <div className="section-divider mb-12" />
 
-        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl space-y-5">
+        {/* Header */}
+        <div className="mb-12 space-y-6">
+          <div className="space-y-4">
             <span className="eyebrow">{t("kicker")}</span>
-            <h2 className="text-4xl font-bold tracking-tight text-[var(--text)] sm:text-5xl">
+            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--text)]">
               {t("title")}
             </h2>
-            <p className="text-lg leading-8 text-[var(--text-muted)]">{t("intro")}</p>
+            <p className="text-lg leading-relaxed text-[var(--text-muted)] max-w-2xl">
+              {t("intro")}
+            </p>
           </div>
-          <div className="card-base px-5 py-4 text-sm text-[var(--color-text-secondary)]">
-            <span className="font-semibold text-[var(--color-text-primary)]">{t("featuredLabel")}</span> {t("featuredBody")}
+          <div className="card-base px-5 py-4 rounded-lg text-sm text-[var(--color-text-secondary)]">
+            <span className="font-semibold text-[var(--color-text-primary)]">{t("featuredLabel")}:</span> {t("featuredBody")}
           </div>
         </div>
 
-        <div className="mb-10 grid gap-5 lg:grid-cols-2">
+        {/* Featured Projects */}
+        <div className="mb-12 space-y-4">
           {featured.map((project, index) => (
             <motion.button
               key={project.id}
@@ -66,34 +70,45 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08 }}
-              className="panel group rounded-[32px] text-left"
+              className="card-base group rounded-2xl overflow-hidden text-left hover:shadow-md transition-shadow w-full"
             >
               <div className="grid gap-0 lg:grid-cols-2">
-                <div className="relative min-h-[260px] overflow-hidden">
+                {/* Image */}
+                <div className="relative h-64 sm:h-80 lg:h-auto min-h-[260px] overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.76)] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.8)] via-transparent to-transparent" />
                 </div>
-                <div className="flex flex-col gap-5 p-6">
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-strong)] break-words">
-                      {t("featuredBadge")}
-                    </p>
-                    <ArrowUpRight size={18} className="text-[var(--text-muted)] flex-shrink-0" />
+
+                {/* Content */}
+                <div className="flex flex-col justify-between gap-6 p-5 sm:p-7 lg:p-8">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
+                        {t("featuredBadge")}
+                      </p>
+                      <ArrowUpRight size={20} className="text-[var(--text-muted)] flex-shrink-0" />
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text)]">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm sm:text-base leading-relaxed text-[var(--text-muted)]">
+                        {project.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-bold tracking-tight text-[var(--text)] break-words">{project.title}</h3>
-                    <p className="text-sm leading-7 text-[var(--text-muted)] break-words">{project.description}</p>
-                  </div>
+
+                  {/* Stack */}
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[var(--line)] bg-white/85 px-3 py-1.5 text-xs font-medium text-[var(--text)]"
+                        className="chip text-xs"
                       >
                         {item}
                       </span>
@@ -105,20 +120,22 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="mb-10 flex flex-wrap gap-3">
+        {/* Filter Buttons */}
+        <div className="mb-12 flex flex-wrap gap-2">
           {FILTER_KEYS.map((key) => (
             <button
               key={key}
               onClick={() => setActive(key)}
               aria-pressed={active === key}
-              className={active === key ? "btn-primary !text-sm" : "btn-secondary !text-sm"}
+              className={active === key ? "btn-primary text-xs sm:text-sm" : "btn-secondary text-xs sm:text-sm"}
             >
               {t(`filters.${key}`)}
             </button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {visible.map((project, index) => (
               <motion.div

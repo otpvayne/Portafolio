@@ -48,109 +48,112 @@ export default function Hero() {
   }, [deleting, displayed, wordIndex]);
 
   return (
-    <section className="relative overflow-hidden px-4 pb-32 pt-28 sm:px-8 lg:px-20 lg:pb-40 lg:pt-36">
-      <div className="section-shell grid min-h-[calc(100vh-7rem)] items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="mb-6"
-          >
-            <span className="eyebrow">{t("eyebrow")}</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.82, delay: 0.08 }}
-            className="max-w-3xl space-y-6"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--text-muted)]">
-              Diego Medina
-            </p>
-            <h1 className="max-w-3xl text-5xl font-extrabold tracking-tight text-[var(--text)] sm:text-6xl lg:text-7xl">
-              {t("headline")}
-            </h1>
-            <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)] sm:text-xl">
-              {t("subheadline")}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.82, delay: 0.16 }}
-            className="mt-7 flex min-h-8 items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--accent-strong)] sm:text-base"
-          >
-            <Sparkles size={16} />
-            <span>{displayed}</span>
-            <span className="cursor text-[var(--accent)]">|</span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.82, delay: 0.24 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-          >
-            <a
-              href={`${rootPath}/#projects`}
-              className="btn-primary inline-flex gap-2"
+    <section className="relative overflow-hidden px-4 py-28 sm:px-8 lg:px-20 lg:py-40">
+      <div className="section-shell">
+        <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
+          {/* Left Column: Content */}
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="mb-6"
             >
-              {t("primaryCta")}
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href="/assets/docs/CV_Diego_Medina_v2.pdf"
-              download
-              className="btn-secondary inline-flex gap-2"
-            >
-              <Download size={16} />
-              {t("resume")}
-            </a>
-          </motion.div>
+              <span className="eyebrow">{t("eyebrow")}</span>
+            </motion.div>
 
-          <motion.ul
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.82, delay: 0.32 }}
-            className="mt-10 grid gap-3 text-sm text-[var(--text-muted)] sm:grid-cols-2"
-          >
-            {highlights.map((item) => (
-              <li
-                key={item}
-                className="chip-accent !px-4 !py-3"
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.82, delay: 0.08 }}
+              className="space-y-6"
+            >
+              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--text-muted)]">
+                Diego Medina
+              </p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[var(--text)] leading-tight">
+                {t("headline")}
+              </h1>
+              <p className="text-lg sm:text-xl leading-relaxed text-[var(--text-muted)]">
+                {t("subheadline")}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.82, delay: 0.16 }}
+              className="mt-8 flex items-center gap-3 text-sm sm:text-base font-semibold uppercase tracking-wider text-[var(--accent-strong)]"
+            >
+              <Sparkles size={18} className="flex-shrink-0" />
+              <span className="whitespace-nowrap">{displayed}</span>
+              <span className="cursor text-[var(--accent)]">|</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.82, delay: 0.24 }}
+              className="mt-10 flex flex-col sm:flex-row gap-4 flex-wrap"
+            >
+              <a
+                href={`${rootPath}/#projects`}
+                className="btn-primary inline-flex gap-2 whitespace-nowrap"
               >
-                <span className="h-2 w-2 rounded-full bg-current" />
-                {item}
-              </li>
-            ))}
-          </motion.ul>
-        </div>
+                {t("primaryCta")}
+                <ArrowRight size={16} className="flex-shrink-0" />
+              </a>
+              <a
+                href="/assets/docs/CV_Diego_Medina_v2.pdf"
+                download
+                className="btn-secondary inline-flex gap-2 whitespace-nowrap"
+              >
+                <Download size={16} className="flex-shrink-0" />
+                {t("resume")}
+              </a>
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.88, delay: 0.18 }}
-          className="relative z-10"
-        >
-          <div className="panel soft-ring relative rounded-[32px] p-4 sm:p-5">
-            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[var(--accent-soft)]/18 blur-3xl" />
-            <div className="absolute bottom-0 left-0 right-0 top-0 opacity-65">
-              <CelestialSphere
-                hue={34}
-                speed={0.22}
-                zoom={1.15}
-                particleSize={2.4}
-                className="h-full w-full"
-              />
-            </div>
+            <motion.ul
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.82, delay: 0.32 }}
+              className="mt-10 flex flex-col sm:grid sm:grid-cols-2 gap-3 text-sm"
+            >
+              {highlights.map((item) => (
+                <li
+                  key={item}
+                  className="chip-accent px-4 py-3 flex items-center gap-3"
+                >
+                  <span className="h-2 w-2 rounded-full bg-current flex-shrink-0" />
+                  <span className="break-words">{item}</span>
+                </li>
+              ))}
+            </motion.ul>
+          </div>
 
-            <div className="relative z-10 grid gap-4">
-              <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="glass rounded-[28px] p-5">
-                  <div className="relative h-[320px] overflow-hidden rounded-[24px] bg-[var(--surface-strong)]">
+          {/* Right Column: Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.88, delay: 0.18 }}
+            className="relative z-10"
+          >
+            <div className="panel soft-ring relative rounded-3xl p-4 sm:p-6 bg-white/95 backdrop-blur">
+              <div className="absolute -right-20 -top-20 w-56 h-56 rounded-full bg-[var(--accent-soft)]/10 blur-3xl" />
+              <div className="absolute inset-0 opacity-50 rounded-3xl overflow-hidden">
+                <CelestialSphere
+                  hue={34}
+                  speed={0.22}
+                  zoom={1.15}
+                  particleSize={2.4}
+                  className="w-full h-full"
+                />
+              </div>
+
+              <div className="relative z-10 space-y-4">
+                {/* Photo Card */}
+                <div className="glass rounded-2xl p-4 sm:p-5">
+                  <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[var(--surface-strong)]">
                     <Image
                       src="/assets/images/me-4.webp"
                       alt="Diego Medina portrait"
@@ -158,32 +161,41 @@ export default function Hero() {
                       priority
                       className="object-cover"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(23,32,51,0.88)] to-transparent p-5">
-                      <p className="text-sm font-semibold text-white">{t("photoTitle")}</p>
-                      <p className="mt-1 text-sm text-white/74">{t("photoBody")}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.9)] via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white">
+                      <p className="text-sm font-semibold">{t("photoTitle")}</p>
+                      <p className="text-xs text-white/70 mt-1">{t("photoBody")}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-2 gap-4">
                   {metrics.map((item) => (
-                    <div key={item.label} className="glass rounded-[24px] p-5 min-h-[80px] flex flex-col justify-center">
-                      <p className="text-3xl font-extrabold text-[var(--surface-ink)] break-words">{item.value}</p>
-                      <p className="mt-2 text-sm leading-6 text-[var(--text-muted)] break-words">{item.label}</p>
+                    <div key={item.label} className="glass rounded-xl p-4 flex flex-col justify-center min-h-[100px]">
+                      <p className="text-2xl sm:text-3xl font-extrabold text-[var(--surface-ink)] break-words leading-tight">
+                        {item.value}
+                      </p>
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-2 break-words">
+                        {item.label}
+                      </p>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              <div className="glass rounded-[28px] p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
-                  {t("snapshotLabel")}
-                </p>
-                <p className="mt-3 text-base leading-7 text-[var(--text-muted)]">{t("snapshotBody")}</p>
+                {/* Snapshot Card */}
+                <div className="glass rounded-2xl p-4 sm:p-5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent-strong)]">
+                    {t("snapshotLabel")}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)] break-words">
+                    {t("snapshotBody")}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
