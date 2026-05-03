@@ -126,15 +126,34 @@
         "id": "punteo",
         "title": "Software de Punteo",
         "description": "Herramienta de conciliación bancaria que cruza vouchers con extractos para detectar diferencias en minutos.",
-        "stack": ["React", "Render", "Vercel", "APIs"],
+        "stack": ["React", "Vite", "Tailwind", "NestJS", "Prisma", "PostgreSQL", "Tesseract.js", "Google Cloud Vision", "XLSX", "Recharts", "JWT", "Render", "Vercel"],
         "tags": ["fintech", "web", "api"],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
-        "image": "/assets/images/punteo-preview.svg",
+        "image": "/assets/images/Sofware-punteo/dashboard.webp",
         "caseStudy": {
-          "problem": "La conciliación bancaria era manual, lenta y propensa a errores humanos por período.",
-          "solution": "Herramienta web que automatiza el cruce entre vouchers de Credinbanco y extractos bancarios.",
-          "impact": "El proceso bajo de horas a minutos y mejoró mucho la capacidad de auditoría operativa.",
-          "gallery": ["/assets/images/punteo-preview.svg"]
+          "description": "Casa del Kumis operaba con tres fuentes de datos distintas que nadie cruzaba:\n\nLos vouchers físicos de datafono se acumulaban sin procesar. Los reportes de Redeban llegaban en Excel pero no se comparaban contra nada. Los extractos bancarios se consultaban por separado. El resultado: descuadres que se descubrían semanas después, transacciones pendientes sin resolver, comisiones que no coincidían con lo esperado.\n\nCruzar estas tres fuentes manualmente era un proceso lento, propenso a errores y sin trazabilidad.",
+          "problem": "Casa del Kumis operaba con tres fuentes de datos distintas que nadie cruzaba. Los vouchers físicos de datafono se acumulaban sin procesar. Los reportes de Redeban llegaban en Excel pero no se comparaban contra nada. Los extractos bancarios se consultaban por separado.",
+          "techChallenge": "Construir un sistema que tomara tres fuentes de datos heterogéneas — imágenes de vouchers físicos, archivos Excel de Redeban, archivos Excel de extractos bancarios — y las cruzara automáticamente para encontrar coincidencias, diferencias y transacciones pendientes. El desafío no era solo la integración de datos. Era extraer información de vouchers físicos por OCR, normalizar formatos de Excel distintos, implementar lógica de conciliación que considerara tasas de comisión, retenciones y márgenes de error configurables.",
+          "whatBuilt": "El sistema funciona en flujos separados pero integrados.\n\n**Carga de vouchers:** El usuario sube imágenes de vouchers físicos. El sistema extrae automáticamente la fecha, el monto, el número de autorización y la sucursal usando OCR. Cada voucher queda en estado \"draft\" para permitir correcciones manuales antes de confirmarlo.\n\n**Importación de Redeban:** Se sube el archivo Excel de liquidación Redeban con fecha de conciliación. El sistema valida que los códigos de comercio existan, parsea cada línea y almacena los registros diferenciados por sucursal.\n\n**Importación de banco:** Se carga el extracto bancario Excel con los movimientos diarios. El sistema normaliza los formatos, identifica comisiones y retenciones, y calcula el neto disponible.\n\n**Motor de conciliación:** El sistema cruza las tres fuentes: suma total de vouchers confirmados vs. total neto del banco, suma de vouchers vs. suma de Redeban, identifica transacciones que están en una fuente pero no en otra, calcula diferencias y las clasifica por causa: comisión, retención, abono al día siguiente, etc.\n\n**Dashboard y reportes:** El panel muestra un resumen ejecutivo de cada conciliación: totales, diferencias, causa de las diferencias, y un listado detallado de cada transacción por sucursal. Se puede exportar a PDF diario para auditoría.",
+          "solution": "Herramienta web que automatiza el cruce entre vouchers de Credinbanco, reportes de Redeban y extractos bancarios, con OCR de vouchers, normalización de datos heterogéneos e inteligencia de clasificación de diferencias.",
+          "result": "El sistema está en producción procesando conciliaciones diarias de Casa del Kumis. Ha identificado discrepancias que antes pasaban desapercibidas y ha automatizado un proceso que antes tomaba horas manuales. La trazabilidad completa (auditoría por usuario, timestamps en cada cambio, reportes exportables) da a la administración visibilidad total del flujo de dinero.",
+          "impact": "El proceso bajo de horas a minutos y mejoró mucho la capacidad de auditoría operativa. Ha identificado descuadres recurrentes en comisiones y automatizado la trazabilidad.",
+          "gallery": [
+            "/assets/images/Sofware-punteo/autenticacion.webp",
+            "/assets/images/Sofware-punteo/dashboard.webp",
+            "/assets/images/Sofware-punteo/gestion-vouchers.webp",
+            "/assets/images/Sofware-punteo/crear-voucher.webp",
+            "/assets/images/Sofware-punteo/detalle-voucher.webp",
+            "/assets/images/Sofware-punteo/listado-conciliaciones.webp",
+            "/assets/images/Sofware-punteo/resumen-conciliacion.webp",
+            "/assets/images/Sofware-punteo/gestion-redeban.webp",
+            "/assets/images/Sofware-punteo/detalle-redeban.webp",
+            "/assets/images/Sofware-punteo/gestion-banco.webp",
+            "/assets/images/Sofware-punteo/detalle-banco.webp",
+            "/assets/images/Sofware-punteo/gestion-sucursales.webp",
+            "/assets/images/Sofware-punteo/gestion-usuarios.webp",
+            "/assets/images/Sofware-punteo/parametros-sistema.webp"
+          ]
         }
       },
       {
