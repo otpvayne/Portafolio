@@ -106,7 +106,7 @@ export default function About() {
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.85)] via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white text-center">
                       <p className="text-sm font-semibold break-words">{slides[index]}</p>
                     </div>
                   </div>

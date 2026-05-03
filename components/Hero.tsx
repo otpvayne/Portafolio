@@ -162,7 +162,7 @@ export default function Hero() {
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.9)] via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-white text-center">
                       <p className="text-sm font-semibold">{t("photoTitle")}</p>
                       <p className="text-xs text-white/70 mt-1">{t("photoBody")}</p>
                     </div>
