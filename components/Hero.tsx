@@ -150,7 +150,7 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="relative z-10 space-y-6">
+              <div className="relative z-10 space-y-8">
                 {/* Photo Card */}
                 <div className="glass rounded-2xl card-px-sm">
                   <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[var(--surface-strong)]">
