@@ -11,6 +11,10 @@ type CaseStudy = {
   solution: string;
   impact: string;
   gallery: string[];
+  description?: string;
+  techChallenge?: string;
+  whatBuilt?: string;
+  result?: string;
 };
 
 type Project = {
@@ -105,26 +109,39 @@ export default function ProjectModal({ project, onClose }: Props) {
                     >
                       <Image
                         src={gallery[imgIndex]}
-                        alt={`${project.title} image ${imgIndex + 1}`}
+                        alt={`${project.title} screenshot ${imgIndex + 1} of ${gallery.length}`}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 90vw"
+                        quality={80}
+                        priority={imgIndex === 0}
+                        loading={imgIndex === 0 ? "eager" : "lazy"}
                       />
                     </motion.div>
                   </AnimatePresence>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[rgba(23,32,51,0.84)] via-transparent to-transparent" />
 
+                  {/* Counter */}
+                  <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-[rgba(23,32,51,0.7)] px-3 py-1.5 text-xs font-medium text-white">
+                    <span>{imgIndex + 1}</span>
+                    <span className="text-white/60">/</span>
+                    <span>{gallery.length}</span>
+                  </div>
+
                   {gallery.length > 1 && (
                     <>
                       <button
                         onClick={prev}
-                        className="absolute left-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.6)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)]"
+                        aria-label="Imagen anterior"
+                        className="absolute left-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.6)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)] focus:outline-none focus:ring-2 focus:ring-white"
                       >
                         <ChevronLeft size={18} />
                       </button>
                       <button
                         onClick={next}
-                        className="absolute right-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.6)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)]"
+                        aria-label="Siguiente imagen"
+                        className="absolute right-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[rgba(23,32,51,0.6)] text-white transition-all hover:bg-[rgba(23,32,51,0.86)] focus:outline-none focus:ring-2 focus:ring-white"
                       >
                         <ChevronRight size={18} />
                       </button>
@@ -137,8 +154,10 @@ export default function ProjectModal({ project, onClose }: Props) {
                         <button
                           key={`${item}-${index}`}
                           onClick={() => setImgIndex(index)}
-                          className={`h-2 rounded-full transition-all ${
-                            index === imgIndex ? "w-10 bg-white" : "w-5 bg-white/40"
+                          aria-label={`Ir a imagen ${index + 1}`}
+                          aria-current={index === imgIndex ? "true" : "false"}
+                          className={`h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-white ${
+                            index === imgIndex ? "w-10 bg-white" : "w-5 bg-white/40 hover:bg-white/60"
                           }`}
                         />
                       ))}
@@ -183,36 +202,91 @@ export default function ProjectModal({ project, onClose }: Props) {
                 </div>
 
                 {project.caseStudy && (
-                  <div className="grid gap-4 md:grid-cols-3">
-                    {[
-                      { label: t("problem"), text: project.caseStudy.problem },
-                      { label: t("solution"), text: project.caseStudy.solution },
-                      { label: t("impact"), text: project.caseStudy.impact },
-                    ].map((item, index) => (
-                      <div
-                        key={item.label}
-                        className={`rounded-[var(--radius-md)] p-5 ${
-                          index === 1
-                            ? "bg-[var(--color-primary)] text-white"
-                            : "border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)]"
-                        }`}
-                      >
-                        <p
-                          className={`truncate text-xs font-bold uppercase tracking-[0.12em] ${
-                            index === 1 ? "text-white/85" : "text-[var(--color-primary)]"
-                          }`}
-                        >
-                          {item.label}
-                        </p>
-                        <p
-                          className={`mt-3 text-sm leading-7 break-words ${
-                            index === 1 ? "text-white/95" : "text-[var(--color-text-primary)]"
-                          }`}
-                        >
-                          {item.text}
+                  <div className="space-y-8">
+                    {/* Introduction Description */}
+                    {project.caseStudy.description && (
+                      <div className="space-y-3">
+                        <p className="text-sm leading-7 text-[var(--color-text-secondary)] whitespace-pre-wrap">
+                          {project.caseStudy.description}
                         </p>
                       </div>
-                    ))}
+                    )}
+
+                    {/* Problem & Tech Challenge */}
+                    {(project.caseStudy.problem || project.caseStudy.techChallenge) && (
+                      <div className="space-y-4">
+                        {project.caseStudy.problem && (
+                          <div className="rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] p-5">
+                            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+                              {t("problem")}
+                            </p>
+                            <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words">
+                              {project.caseStudy.problem}
+                            </p>
+                          </div>
+                        )}
+                        {project.caseStudy.techChallenge && (
+                          <div className="rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] p-5">
+                            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+                              Reto Técnico
+                            </p>
+                            <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words">
+                              {project.caseStudy.techChallenge}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* What Was Built */}
+                    {project.caseStudy.whatBuilt && (
+                      <div className="rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] p-5">
+                        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+                          Lo que construí
+                        </p>
+                        <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words whitespace-pre-wrap">
+                          {project.caseStudy.whatBuilt}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Solution & Impact Grid */}
+                    {(project.caseStudy.solution || project.caseStudy.impact) && (
+                      <div className="grid gap-4 md:grid-cols-2">
+                        {project.caseStudy.solution && (
+                          <div className="rounded-[var(--radius-md)] bg-[var(--color-primary)] p-5 text-white">
+                            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/85">
+                              {t("solution")}
+                            </p>
+                            <p className="mt-3 text-sm leading-7 text-white/95 break-words">
+                              {project.caseStudy.solution}
+                            </p>
+                          </div>
+                        )}
+                        {project.caseStudy.impact && (
+                          <div className="rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] p-5">
+                            <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
+                              {t("impact")}
+                            </p>
+                            <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words">
+                              {project.caseStudy.impact}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Result */}
+                    {project.caseStudy.result && (
+                      <div className="rounded-[var(--radius-md)] border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 p-5">
+                        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-accent)]">
+                          Resultado
+                        </p>
+                        <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words">
+                          {project.caseStudy.result}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
 

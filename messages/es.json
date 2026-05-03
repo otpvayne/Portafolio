@@ -97,15 +97,29 @@
         "id": "pos",
         "title": "POS - Casa del Kumis",
         "description": "Sistema de punto de venta en produccion para 18 sucursales con pagos integrados mediante API de Credinbanco.",
-        "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
+        "stack": ["Next.js 14", "TypeScript", "React", "Vite", "Tailwind", "NestJS 11", "Prisma", "PostgreSQL", "Supabase", "Tesseract.js", "Google Cloud Vision", "JWT", "Vercel", "Render"],
         "tags": ["pos", "web", "api", "fintech"],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
         "image": "/assets/images/pos-preview.svg",
         "caseStudy": {
-          "problem": "Las sucursales operaban con registros manuales, baja visibilidad centralizada e integración limitada para pagos electrónicos.",
+          "description": "Casa del Kumis llevaba años pagando por software de gestión externo. El problema no era solo el costo — era la dependencia. Cada vez que el proveedor subía precios, la empresa no tenía opción. Cada vez que necesitaban una funcionalidad específica para su operación, tenían que esperar a que el proveedor la desarrollara, si es que lo hacía.\n\nLa decisión fue construir su propio sistema. Uno que se adaptara exactamente a cómo opera la cadena, sin intermediarios.",
+          "problem": "La cadena tiene múltiples sucursales distribuidas. Cada una necesitaba su propio punto de venta, con control de turnos, inventario independiente y reportes por sede. Además, el negocio manejaba un volumen considerable de transacciones con datafono, y cruzar manualmente los vouchers físicos contra los reportes bancarios tomaba horas y generaba errores.",
+          "techChallenge": "El sistema tenía que resolver dos cosas al mismo tiempo: la operación diaria en caja y el control financiero de la administración.",
+          "whatBuilt": "El sistema quedó dividido en dos partes que se complementan.\n\n**Punto de venta:** El cajero inicia sesión, selecciona su sucursal y abre el turno registrando el efectivo inicial en caja. Desde ahí puede vender, consultar el inventario disponible, cobrar por efectivo, tarjeta, transferencia o QR, y generar el ticket impreso con los datos de la empresa y el detalle de la venta. Al cierre del turno, el sistema calcula automáticamente la diferencia entre lo esperado y lo contado. Si hay un turno que quedó abierto del día anterior, el sistema lo detecta y obliga a resolverlo antes de continuar — un detalle pequeño que en la práctica evita muchos descuadres.\n\n**Panel de administración:** Desde el panel, el administrador gestiona el catálogo de productos con precios configurables por sucursal, activa o desactiva sedes, revisa la auditoría de turnos de todos los cajeros, consulta reportes de ventas por rango de fechas y método de pago, y exporta los datos a CSV. El sistema de conciliación bancaria, que vive en un repositorio separado, cruza automáticamente los vouchers físicos digitalizados por OCR contra los reportes de Redeban y los extractos bancarios, generando un reporte de transacciones coincidentes, pendientes y con diferencias.",
           "solution": "Se construyo un POS en React con gestion operativa y conexion a Credinbanco para pagos con datafono.",
+          "result": "El sistema está en producción en las sucursales de Casa del Kumis desde inicios de 2026. Actualmente estoy replicando e implementando una versión adaptada para una segunda empresa del sector de alimentos, Empanadas JK.",
           "impact": "Sistema en uso real desde el día uno en 18 sucursales con una operación mucho más consistente.",
-          "gallery": ["/assets/images/pos-preview.svg"]
+          "gallery": [
+            "/assets/images/casa-kumis/seleccion-sucursal.webp",
+            "/assets/images/casa-kumis/punto-venta.webp",
+            "/assets/images/casa-kumis/modal-cobro.webp",
+            "/assets/images/casa-kumis/ticket-impreso.webp",
+            "/assets/images/casa-kumis/cierre-turno.webp",
+            "/assets/images/casa-kumis/panel-admin.webp",
+            "/assets/images/casa-kumis/gestion-productos.webp",
+            "/assets/images/casa-kumis/reportes.webp",
+            "/assets/images/casa-kumis/auditoria-turnos.webp"
+          ]
         }
       },
       {
