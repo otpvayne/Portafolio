@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main className="px-4 pb-20 pt-40 sm:px-8 sm:pt-48 lg:px-20 lg:pb-32" style={{ paddingTop: 'clamp(160px, 20vw, 240px)' }}>
+      <main className="px-4 pb-20 pt-40 sm:px-8 sm:pt-48 lg:px-20 lg:pb-32" style={{ paddingTop: 'clamp(128px, 16vw, 192px)' }}>
         <div className="section-shell">
           <div className="section-divider mb-12" />
 
