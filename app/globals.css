@@ -579,7 +579,7 @@ img {
 
 /* Color Classes for Text */
 .text-white-base {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 /* ============================================================================
