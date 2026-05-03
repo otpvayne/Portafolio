@@ -45,7 +45,7 @@ export default function Tools() {
   const capabilities = t.raw("capabilities") as string[];
 
   return (
-    <section id="tools" className="px-4 py-56 sm:px-8 lg:px-20">
+    <section id="tools" className="px-4 sm:px-8 lg:px-20" style={{ paddingTop: '40px', paddingBottom: '30px' }}>
       <div className="section-shell">
         <div className="section-divider mb-12" />
 
