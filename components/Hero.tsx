@@ -48,7 +48,7 @@ export default function Hero() {
   }, [deleting, displayed, wordIndex]);
 
   return (
-    <section className="relative overflow-hidden px-4 pt-24 pb-28 sm:px-8 sm:pt-28 sm:pb-28 lg:px-20 lg:pt-32 lg:pb-40">
+    <section className="relative overflow-hidden px-4 pt-32 pb-28 sm:px-8 sm:pt-40 sm:pb-28 lg:px-20 lg:pt-48 lg:pb-40">
       <div className="section-shell">
         <div className="grid gap-normal lg:grid-cols-2 items-center">
           {/* Left Column: Content */}
