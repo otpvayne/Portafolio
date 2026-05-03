@@ -50,11 +50,11 @@ export default function Contact() {
             {/* Left: Process & Info */}
             <div className="space-y-6">
               {/* Response Info */}
-              <div className="card-base bg-[var(--color-primary)] text-white p-6 sm:p-8 rounded-2xl">
-                <p className="text-xs font-bold uppercase tracking-widest text-white/90">
+              <div className="card-base bg-[var(--color-primary)] card-px-lg rounded-2xl">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-900">
                   {t("responseLabel")}
                 </p>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-gray-900">
                   {t("responseBody")}
                 </p>
               </div>
