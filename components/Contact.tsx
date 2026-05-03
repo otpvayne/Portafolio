@@ -51,10 +51,10 @@ export default function Contact() {
             <div className="space-y-6">
               {/* Response Info */}
               <div className="card-base bg-[var(--color-primary)] card-px-lg rounded-[var(--radius-xl)]">
-                <p className="text-xs font-bold uppercase tracking-widest text-white">
+                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#ffffff' }}>
                   {t("responseLabel")}
                 </p>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed text-white">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed" style={{ color: '#ffffff' }}>
                   {t("responseBody")}
                 </p>
               </div>
