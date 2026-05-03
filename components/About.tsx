@@ -133,11 +133,11 @@ export default function About() {
             {/* Info Cards */}
             <div className="space-y-4">
               {/* Focus Card */}
-              <div className="card-base bg-[var(--color-primary)] text-white p-5 sm:p-6 rounded-2xl">
+              <div className="card-base bg-[var(--color-primary)] p-5 sm:p-6 rounded-2xl">
                 <p className="text-xs font-bold uppercase tracking-widest text-white/90">
                   {t("focusTitle")}
                 </p>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed break-words">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed break-words text-white">
                   {t("focusBody")}
                 </p>
               </div>
