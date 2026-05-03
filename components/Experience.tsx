@@ -23,7 +23,7 @@ export default function Experience() {
       <div className="section-shell">
         <div className="section-divider mb-12" />
 
-        <div className="mb-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="mb-12 grid gap-normal lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="space-y-5">
             <span className="eyebrow">{t("kicker")}</span>
             <h2 className="text-4xl font-bold tracking-tight text-[var(--color-text-primary)] sm:text-5xl">
@@ -36,7 +36,7 @@ export default function Experience() {
         <div className="relative pl-0 lg:pl-10">
           <div className="absolute bottom-0 left-3 top-10 hidden w-px bg-gradient-to-b from-[var(--color-accent)] via-[var(--color-surface-dark)] to-transparent lg:block" />
 
-          <div className="grid gap-6">
+          <div className="grid gap-normal">
             {items.map((item, index) => {
               const Icon = ICONS[index % ICONS.length];
 
@@ -53,8 +53,8 @@ export default function Experience() {
                     <Icon size={15} />
                   </span>
 
-                  <div className="card-base p-6 sm:p-7">
-                    <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+                  <div className="card-base card-px-md">
+                    <div className="grid gap-normal lg:grid-cols-[0.72fr_1.28fr]">
                       <div className="space-y-4">
                         <span className="inline-flex rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white">
                           {item.date}
@@ -66,14 +66,14 @@ export default function Experience() {
                       </div>
 
                       <div className="space-y-5">
-                        <ul className="grid gap-3">
+                        <ul className="grid gap-tight">
                           {item.bullets.map((bullet) => (
                             <li
                               key={bullet}
                               className="flex gap-3 rounded-[var(--radius-md)] border border-[var(--color-surface-muted)] bg-white/[var(--opacity-md)] px-4 py-4 text-sm leading-7 text-[var(--color-text-primary)]"
                             >
                               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]" />
-                              <span className="break-words">{bullet}</span>
+                              <span>{bullet}</span>
                             </li>
                           ))}
                         </ul>

@@ -59,7 +59,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="card-base p-6 sm:p-8 rounded-2xl">
+    <form onSubmit={handleSubmit} noValidate className="card-base card-px-lg rounded-2xl">
       <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="space-y-6">

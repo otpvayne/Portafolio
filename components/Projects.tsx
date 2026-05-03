@@ -85,7 +85,7 @@ export default function Projects() {
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col justify-between gap-6 p-5 sm:p-7 lg:p-8">
+                <div className="flex flex-col justify-between gap-6 card-px-lg">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between gap-3">
                       <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)]">
@@ -135,7 +135,7 @@ export default function Projects() {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-normal">
           <AnimatePresence mode="popLayout">
             {visible.map((project, index) => (
               <motion.div
@@ -167,7 +167,7 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className="flex h-full flex-col gap-5 p-6">
+                  <div className="flex h-full flex-col gap-5 card-px-md">
                     <div className="space-y-3">
                       <h3 className="text-xl font-bold tracking-tight text-[var(--text)]">{project.title}</h3>
                       <p className="text-sm leading-7 text-[var(--text-muted)]">{project.description}</p>
