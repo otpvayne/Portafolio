@@ -12,29 +12,29 @@
   "hero": {
     "eyebrow": "Disponible para construir productos y sistemas",
     "headline": "Software que se ve bien, funciona mejor y resuelve problemas reales.",
-    "subheadline": "Experiencias web, herramientas y flujos operativos con foco en negocio, claridad y ejecucion.",
+    "subheadline": "Experiencias web, herramientas y flujos operativos con foco en negocio, claridad y ejecución.",
     "primaryCta": "Ver proyectos",
     "resume": "Descargar CV",
     "photoTitle": "Frontend, backend y producto en una sola mesa.",
-    "photoBody": "Trabajo con la misma atencion en experiencia, arquitectura y entrega.",
+    "photoBody": "Trabajo con la misma atención en experiencia, arquitectura y entrega.",
     "snapshotLabel": "Snapshot",
-    "snapshotBody": "He construido desde sitios con foco comercial hasta POS, herramientas de conciliacion e iniciativas OCR para automatizar trabajo operativo.",
+    "snapshotBody": "He construido desde sitios con foco comercial hasta POS, herramientas de conciliación e iniciativas OCR para automatizar trabajo operativo.",
     "highlights": [
-      "Interfaces limpias, rapidas y hechas para usarse de verdad.",
-      "Sistemas internos que reducen friccion en operacion diaria.",
+      "Interfaces limpias, rápidas y hechas para usarse de verdad.",
+      "Sistemas internos que reducen fricción en operación diaria.",
       "Capacidad para moverme entre UI, APIs, datos y despliegue.",
       "Trabajo bilingue y remoto con foco en entregas claras."
     ],
     "metrics": [
       { "value": "18", "label": "sucursales usando software en produccion" },
       { "value": "ES / EN", "label": "portafolio y comunicacion bilingue" },
-      { "value": "Full stack", "label": "de la interfaz a la logica e integraciones" }
+      { "value": "Full stack", "label": "de la interfaz a la lógica e integraciones" }
     ]
   },
   "about": {
     "kicker": "Perfil",
-    "title": "No solo desarrollo features. Diseno experiencias completas alrededor del problema.",
-    "body": "Full stack enfocado en convertir necesidades reales en productos claros, utiles y sostenibles.",
+    "title": "No solo desarrollo features. Diseño experiencias completas alrededor del problema.",
+    "body": "Full stack enfocado en convertir necesidades reales en productos claros, útiles y sostenibles.",
     "slides": [
       "Frontend con criterio visual y foco en conversion",
       "Backend orientado a procesos, integraciones y datos",
@@ -42,9 +42,9 @@
       "Ingenieria pensada para escalar sin ruido"
     ],
     "focusTitle": "Mi foco",
-    "focusBody": "Problemas confusos a software claro: experiencia usable, base tecnica firme.",
-    "approachTitle": "Como trabajo",
-    "approachBody": "Necesidad → flujo principal → estructura y detalles visuales → producto solido.",
+    "focusBody": "Problemas confusos a software claro: experiencia usable, base técnica firme.",
+    "approachTitle": "Cómo trabajo",
+    "approachBody": "Necesidad → flujo principal → estructura y detalles visuales → producto sólido.",
     "stats": [
       { "value": "UI + DX", "label": "experiencia para usuario final y para el equipo que mantiene el codigo" },
       { "value": "Build fast", "label": "iteraciones concretas sin sacrificar claridad arquitectonica" },
@@ -55,7 +55,7 @@
     "kicker": "Trabajo seleccionado",
     "title": "Proyectos con foco en impacto, operacion y experiencia.",
     "intro": "Software comercial, herramientas internas y productos donde resolvemos mejor el flujo completo.",
-    "featuredLabel": "Lo que mas se repite en mi trabajo:",
+    "featuredLabel": "Lo que más se repite en mi trabajo:",
     "featuredBody": "interfaces claras, automatizacion de procesos y sistemas con criterio de negocio.",
     "featuredBadge": "Caso destacado",
     "filters": {
@@ -72,7 +72,7 @@
     "repo": "Repositorio",
     "close": "Cerrar",
     "problem": "Problema",
-    "solution": "Solucion",
+    "solution": "Solución",
     "impact": "Impacto",
     "gallery": "Capturas",
     "openCaseStudy": "Abrir caso",
@@ -81,15 +81,15 @@
       {
         "id": "kumis",
         "title": "Casa del Kumis - Sitio Web",
-        "description": "Sitio responsive con foco en identidad, catalogo y SEO local para fortalecer presencia digital y contacto comercial.",
+        "description": "Sitio responsive con foco en identidad, catálogo y SEO local para fortalecer presencia digital y contacto comercial.",
         "stack": ["HTML", "CSS", "JavaScript", "SEO"],
         "tags": ["web", "landing"],
         "live": "https://pagina-web-demo.onrender.com/index.html",
         "image": "/assets/images/kumis-800.webp",
         "caseStudy": {
-          "problem": "La empresa necesitaba presencia digital profesional con catalogo de productos y mejor visibilidad en busquedas locales.",
-          "solution": "Sitio responsive con estructura semantica, medios optimizados y una presentacion mas clara de marca y productos.",
-          "impact": "Presencia digital activa con buen rendimiento, mejor lectura mobile y una base mas fuerte para SEO on-page.",
+          "problem": "La empresa necesitaba presencia digital profesional con catálogo de productos y mejor visibilidad en búsquedas locales.",
+          "solution": "Sitio responsive con estructura semántica, medios optimizados y una presentación más clara de marca y productos.",
+          "impact": "Presencia digital activa con buen rendimiento, mejor lectura mobile y una base más fuerte para SEO on-page.",
           "gallery": ["/assets/images/kumis-800.webp", "/assets/images/kumis-1200.webp"]
         }
       },
@@ -102,24 +102,24 @@
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
         "image": "/assets/images/pos-preview.svg",
         "caseStudy": {
-          "problem": "Las sucursales operaban con registros manuales, baja visibilidad centralizada e integracion limitada para pagos electronicos.",
+          "problem": "Las sucursales operaban con registros manuales, baja visibilidad centralizada e integración limitada para pagos electrónicos.",
           "solution": "Se construyo un POS en React con gestion operativa y conexion a Credinbanco para pagos con datafono.",
-          "impact": "Sistema en uso real desde el dia uno en 18 sucursales con una operacion mucho mas consistente.",
+          "impact": "Sistema en uso real desde el día uno en 18 sucursales con una operación mucho más consistente.",
           "gallery": ["/assets/images/pos-preview.svg"]
         }
       },
       {
         "id": "punteo",
         "title": "Software de Punteo",
-        "description": "Herramienta de conciliacion bancaria que cruza vouchers con extractos para detectar diferencias en minutos.",
+        "description": "Herramienta de conciliación bancaria que cruza vouchers con extractos para detectar diferencias en minutos.",
         "stack": ["React", "Render", "Vercel", "APIs"],
         "tags": ["fintech", "web", "api"],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
         "image": "/assets/images/punteo-preview.svg",
         "caseStudy": {
-          "problem": "La conciliacion bancaria era manual, lenta y propensa a errores humanos por periodo.",
+          "problem": "La conciliación bancaria era manual, lenta y propensa a errores humanos por período.",
           "solution": "Herramienta web que automatiza el cruce entre vouchers de Credinbanco y extractos bancarios.",
-          "impact": "El proceso bajo de horas a minutos y mejoro mucho la capacidad de auditoria operativa.",
+          "impact": "El proceso bajo de horas a minutos y mejoró mucho la capacidad de auditoría operativa.",
           "gallery": ["/assets/images/punteo-preview.svg"]
         }
       },
@@ -164,8 +164,8 @@
         "image": "/assets/images/portafolio-preview.svg",
         "caseStudy": {
           "problem": "Necesitaba una presencia profesional moderna y bilingue que reflejara capacidad tecnica y criterio visual.",
-          "solution": "Portafolio con App Router, next-intl, animacion cuidada y una narrativa mas clara sobre proyectos y capacidades.",
-          "impact": "Sitio listo para mostrar trabajo, abrir conversaciones y comunicar valor con mucha mas fuerza.",
+          "solution": "Portafolio con App Router, next-intl, animación cuidada y una narrativa más clara sobre proyectos y capacidades.",
+          "impact": "Sitio listo para mostrar trabajo, abrir conversaciones y comunicar valor con mucha más fuerza.",
           "gallery": ["/assets/images/portafolio-preview.svg"]
         }
       }
@@ -214,7 +214,7 @@
     "intro": "Frontend, backend, datos y despliegue. Stack elegido segun el problema, prioridad constante: claridad y velocidad.",
     "capabilities": [
       "Frontend enfocado en ritmo visual, claridad y responsive serio.",
-      "Backend para procesos, integraciones y automatizacion operativa.",
+      "Backend para procesos, integraciones y automatización operativa.",
       "Entrega completa desde arquitectura hasta despliegue."
     ],
     "tabs": {
@@ -231,7 +231,7 @@
     "title": "Si hay una idea, un producto o un sistema atascado, podemos moverlo.",
     "subtitle": "Trabajo bien cuando hace falta ordenar, construir y elevar la calidad de una experiencia digital sin perder el foco en negocio.",
     "responseLabel": "Forma de trabajo",
-    "responseBody": "Respuesta rapida, problema concreto, ruta clara antes de escribir codigo.",
+    "responseBody": "Respuesta rápida, problema concreto, ruta clara antes de escribir código.",
     "copyEmail": "Copiar correo",
     "copied": "Copiado",
     "email": "Correo",
@@ -249,7 +249,7 @@
   "faq": {
     "kicker": "FAQ",
     "title": "Preguntas frecuentes",
-    "subtitle": "Respuestas rapidas sobre tiempos, forma de trabajo y el tipo de proyectos donde mejor encajo.",
+    "subtitle": "Respuestas rápidas sobre tiempos, forma de trabajo y el tipo de proyectos donde mejor encajo.",
     "expandAll": "Expandir todo",
     "collapseAll": "Colapsar todo",
     "searchPlaceholder": "Buscar pregunta...",
@@ -257,10 +257,10 @@
   },
   "contactPage": {
     "title": "Hablemos con contexto y foco.",
-    "subtitle": "Si tienes una idea, un sistema que mejorar o una experiencia que se siente floja, podemos convertirlo en algo mas claro, mas solido y mejor ejecutado.",
+    "subtitle": "Si tienes una idea, un sistema que mejorar o una experiencia que se siente floja, podemos convertirlo en algo más claro, más sólido y mejor ejecutado.",
     "highlights": [
       "**Respuesta en 24 a 48h** con propuesta clara",
-      "**Vision de producto** para entender negocio y no solo tecnologia",
+      "**Visión de producto** para entender negocio y no solo tecnología",
       "**Entrega iterativa** para mostrar avance real desde temprano"
     ],
     "name": "Nombre",
