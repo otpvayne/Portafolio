@@ -26,9 +26,18 @@
       "Remote and bilingual collaboration with clear delivery rhythm."
     ],
     "metrics": [
-      { "value": "18", "label": "branches using production software" },
-      { "value": "ES / EN", "label": "bilingual portfolio and communication" },
-      { "value": "Full stack", "label": "from interfaces to logic and integrations" }
+      {
+        "value": "18",
+        "label": "branches using production software"
+      },
+      {
+        "value": "ES / EN",
+        "label": "bilingual portfolio and communication"
+      },
+      {
+        "value": "Full stack",
+        "label": "from interfaces to logic and integrations"
+      }
     ]
   },
   "about": {
@@ -46,9 +55,18 @@
     "approachTitle": "How I work",
     "approachBody": "Business need → main flow → structure and details → coherent product.",
     "stats": [
-      { "value": "UI + DX", "label": "care for both end-user experience and developer experience" },
-      { "value": "Build fast", "label": "concrete iteration speed without muddy architecture" },
-      { "value": "Impact first", "label": "visible outcomes and lower friction over vanity work" }
+      {
+        "value": "UI + DX",
+        "label": "care for both end-user experience and developer experience"
+      },
+      {
+        "value": "Build fast",
+        "label": "concrete iteration speed without muddy architecture"
+      },
+      {
+        "value": "Impact first",
+        "label": "visible outcomes and lower friction over vanity work"
+      }
     ]
   },
   "projects": {
@@ -79,86 +97,157 @@
     "stackLabel": "Stack",
     "items": [
       {
+        "id": "pos",
+        "title": "POS - Casa del Kumis",
+        "description": "Point-of-sale system in production across 18 branches with integrated payments through Credinbanco API.",
+        "stack": ["Next.js 14", "TypeScript", "React", "Vite", "Tailwind", "NestJS 11", "Prisma", "PostgreSQL", "Supabase", "Tesseract.js", "Google Cloud Vision", "JWT", "Vercel", "Render"],
+        "tags": ["pos", "web", "api", "fintech"],
+        "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
+        "image": "/assets/images/casa-kumis/cierre-turno.webp",
+        "caseStudy": {
+          "description": "Casa del Kumis had been paying for external management software for years. The problem wasn't just the cost — it was dependency. Whenever the vendor raised prices, the company had no choice. Whenever they needed a feature specific to their operation, they had to wait for the vendor to build it, if they would at all.\n\nThe decision was made to build their own system. One that adapted exactly to how the chain operates, without intermediaries.",
+          "problem": "The chain has multiple distributed locations. Each needed its own point of sale, with shift control, independent inventory and reports by location. Plus, the business handled significant volume in card transactions, and manually reconciling physical vouchers against bank reports took hours and generated errors.",
+          "techChallenge": "The system had to solve two things simultaneously: day-to-day cash operation and financial control for management.",
+          "whatBuilt": "The system is divided into two complementary parts.\n\n**Point of sale:** The cashier logs in, selects their location and opens the shift by registering initial cash. From there they can sell, check available inventory, accept payment by cash, card, transfer or QR, and print a receipt with company details and transaction info. At shift close, the system automatically calculates the difference between expected and counted cash. If a shift from the previous day is still open, the system detects it and forces resolution before continuing — a small detail that in practice prevents many discrepancies.\n\n**Admin panel:** The administrator manages the product catalog with prices configurable per location, activates or deactivates branches, reviews the audit trail of all cashier shifts, views sales reports by date range and payment method, and exports data to CSV. The bank reconciliation system, which lives in a separate repository, automatically cross-checks physical vouchers digitized by OCR against Redeban reports and bank statements, generating a report of matched, pending and discrepant transactions.",
+          "solution": "Built a React POS system with operational management and Credinbanco integration for card terminal payments.",
+          "result": "The system is in production across Casa del Kumis locations as of early 2026. Currently replicating and implementing an adapted version for Empanadas JK, another food sector business.",
+          "impact": "Live production software from day one across all 18 branches with much more consistent daily operations.",
+          "gallery": [
+            "/assets/images/casa-kumis/seleccion-sucursal.webp",
+            "/assets/images/casa-kumis/punto-venta.webp",
+            "/assets/images/casa-kumis/modal-cobro.webp",
+            "/assets/images/casa-kumis/ticket-impreso.webp",
+            "/assets/images/casa-kumis/cierre-turno.webp",
+            "/assets/images/casa-kumis/panel-admin.webp",
+            "/assets/images/casa-kumis/gestion-productos.webp",
+            "/assets/images/casa-kumis/reportes.webp",
+            "/assets/images/casa-kumis/auditoria-turnos.webp"
+          ]
+        }
+      },
+      {
+        "id": "punteo",
+        "title": "Automated Financial Reconciliation",
+        "description": "Bank reconciliation tool that automatically reconciles three separate data sources to detect discrepancies in minutes.",
+        "stack": ["React", "Vite", "Tailwind", "NestJS", "Prisma", "PostgreSQL", "Tesseract.js", "Google Cloud Vision", "XLSX", "Recharts", "JWT", "Render", "Vercel"],
+        "tags": ["fintech", "web", "api"],
+        "repo": "https://github.com/otpvayne/casa-del-kumis.git",
+        "image": "/assets/images/Sofware-punteo/dashboard.webp",
+        "caseStudy": {
+          "description": "Casa del Kumis operated with three separate data sources that nobody cross-checked:\n\nPhysical card terminal vouchers piled up unprocessed. Redeban reports arrived in Excel but weren't compared against anything. Bank statements were checked separately. The result: discrepancies discovered weeks later, pending transactions unresolved, commissions that didn't match expectations.\n\nCross-referencing these three sources manually was a slow, error-prone process with no audit trail.",
+          "problem": "Casa del Kumis operated with three separate data sources nobody was reconciling. Physical card terminal vouchers accumulated unprocessed. Redeban reports came in Excel but weren't verified against anything. Bank statements were checked independently, resulting in discrepancies discovered weeks later, pending transactions left unresolved, and commission inconsistencies.",
+          "techChallenge": "Build a system that took three heterogeneous data sources — physical voucher images, Redeban Excel files, bank statement Excel files — and automatically cross-referenced them to find matches, differences and pending transactions. The challenge wasn't just data integration. It was extracting voucher information via OCR, normalizing different Excel formats, implementing reconciliation logic that accounts for commission rates, withholdings and configurable error margins.",
+          "whatBuilt": "The system operates through separate but integrated workflows.\n\n**Voucher upload:** Users upload physical voucher images. The system automatically extracts date, amount, authorization number and location using OCR. Each voucher stays in \"draft\" status to allow manual corrections before confirmation.\n\n**Redeban import:** The Redeban liquidation Excel file is uploaded with the reconciliation date. The system validates that merchant codes exist, parses each line and stores records differentiated by location.\n\n**Bank import:** The bank statement Excel is loaded with daily movements. The system normalizes formats, identifies commissions and withholdings, and calculates available net.\n\n**Reconciliation engine:** The system cross-checks all three sources: total confirmed vouchers vs. net bank total, vouchers vs. Redeban total, identifies transactions in one source but not another, calculates differences and classifies them by cause: commission, withholding, next-day credit, etc.\n\n**Dashboard and reports:** The panel shows an executive summary of each reconciliation: totals, differences, cause of differences, and detailed transaction listing by location. Can export to PDF daily for audit.",
+          "solution": "Web tool that automates cross-referencing between physical vouchers via OCR, Redeban liquidation reports and bank statements, with intelligent difference classification and full audit trail.",
+          "result": "The system is in production processing Casa del Kumis daily reconciliations. It has identified discrepancies that previously went unnoticed and automated a process that once took hours manually. Complete traceability — user audit, timestamps on every change, exportable reports — gives management full visibility into cash flow.",
+          "impact": "The process dropped from hours to minutes and greatly improved operational audit capability. Has identified recurring commission discrepancies and automated complete traceability.",
+          "gallery": [
+            "/assets/images/Sofware-punteo/autenticacion.webp",
+            "/assets/images/Sofware-punteo/dashboard.webp",
+            "/assets/images/Sofware-punteo/gestion-vouchers.webp",
+            "/assets/images/Sofware-punteo/crear-voucher.webp",
+            "/assets/images/Sofware-punteo/detalle-voucher.webp",
+            "/assets/images/Sofware-punteo/listado-conciliaciones.webp",
+            "/assets/images/Sofware-punteo/resumen-conciliacion.webp",
+            "/assets/images/Sofware-punteo/gestion-redeban.webp",
+            "/assets/images/Sofware-punteo/detalle-redeban.webp",
+            "/assets/images/Sofware-punteo/gestion-banco.webp",
+            "/assets/images/Sofware-punteo/detalle-banco.webp",
+            "/assets/images/Sofware-punteo/gestion-sucursales.webp",
+            "/assets/images/Sofware-punteo/gestion-usuarios.webp",
+            "/assets/images/Sofware-punteo/parametros-sistema.webp"
+          ]
+        }
+      },
+      {
         "id": "kumis",
         "title": "Casa del Kumis - Website",
         "description": "Responsive website focused on brand presence, product catalog clarity and local SEO performance.",
-        "stack": ["HTML", "CSS", "JavaScript", "SEO"],
-        "tags": ["web", "landing"],
+        "stack": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "SEO"
+        ],
+        "tags": [
+          "web",
+          "landing"
+        ],
         "live": "https://pagina-web-demo.onrender.com/index.html",
         "image": "/assets/images/kumis-800.webp",
         "caseStudy": {
           "problem": "The company needed a stronger digital presence with better product visibility and more credibility online.",
           "solution": "A responsive website with semantic structure, optimized media and clearer commercial storytelling.",
           "impact": "A more polished digital presence with improved mobile reading, stronger performance and better SEO foundations.",
-          "gallery": ["/assets/images/kumis-800.webp", "/assets/images/kumis-1200.webp"]
-        }
-      },
-      {
-        "id": "pos",
-        "title": "POS - Casa del Kumis",
-        "description": "Point-of-sale software running across 18 branches with Credinbanco payment integration.",
-        "stack": ["React", "SQL", "Vercel", "Credinbanco API"],
-        "tags": ["pos", "web", "api", "fintech"],
-        "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
-        "image": "/assets/images/pos-preview.svg",
-        "caseStudy": {
-          "problem": "Branches relied on manual records, had weak centralized visibility and lacked robust electronic payment flows.",
-          "solution": "A React POS system with operational tooling and direct Credinbanco integration for card terminal payments.",
-          "impact": "Production software used across all 18 branches with much more consistent day-to-day operations.",
-          "gallery": ["/assets/images/pos-preview.svg"]
-        }
-      },
-      {
-        "id": "punteo",
-        "title": "Bank Reconciliation Tool",
-        "description": "A financial reconciliation tool that cross-checks vouchers against bank statements in minutes.",
-        "stack": ["React", "Render", "Vercel", "APIs"],
-        "tags": ["fintech", "web", "api"],
-        "repo": "https://github.com/otpvayne/casa-del-kumis.git",
-        "image": "/assets/images/punteo-preview.svg",
-        "caseStudy": {
-          "problem": "Bank reconciliation was manual, slow and highly error-prone each accounting period.",
-          "solution": "A web tool that automates the matching between Credinbanco vouchers and bank statements.",
-          "impact": "The process dropped from hours to minutes and made operational auditing much easier.",
-          "gallery": ["/assets/images/punteo-preview.svg"]
+          "gallery": [
+            "/assets/images/kumis-800.webp",
+            "/assets/images/kumis-1200.webp"
+          ]
         }
       },
       {
         "id": "erp",
         "title": "ERP - Food Sales System",
         "description": "Java MVC ERP for sales, clients, inventory and reporting in businesses with daily operational pressure.",
-        "stack": ["Java SE", "MySQL", "Swing", "MVC"],
-        "tags": ["erp"],
+        "stack": [
+          "Java SE",
+          "MySQL",
+          "Swing",
+          "MVC"
+        ],
+        "tags": [
+          "erp"
+        ],
         "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
         "image": "/assets/images/erp-800.webp",
         "caseStudy": {
           "problem": "Small distribution businesses lacked an integrated system for sales, inventory and customer management.",
           "solution": "A desktop ERP built with Java MVC, JDBC/MySQL persistence and Excel export support.",
           "impact": "A functional operational base with core modules already connected for commercial management.",
-          "gallery": ["/assets/images/erp-800.webp"]
+          "gallery": [
+            "/assets/images/erp-800.webp"
+          ]
         }
       },
       {
         "id": "facturas",
         "title": "Facturas App - Invoice OCR",
         "description": "Thesis backend that processes invoice images and extracts key fields using OCR, computer vision and FastAPI.",
-        "stack": ["Python", "FastAPI", "PostgreSQL", "OpenCV", "OCR"],
-        "tags": ["api", "python"],
+        "stack": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "OpenCV",
+          "OCR"
+        ],
+        "tags": [
+          "api",
+          "python"
+        ],
         "repo": "https://github.com/otpvayne/facturas-app",
         "image": "/assets/images/facturas-preview.svg",
         "caseStudy": {
           "problem": "Manual invoice processing was slow, repetitive and difficult to scale for higher volumes.",
           "solution": "A Python pipeline to preprocess images, detect text and extract NIT, date, total and line items.",
           "impact": "Automation with accuracy above 94 percent on key extracted fields.",
-          "gallery": ["/assets/images/facturas-preview.svg"]
+          "gallery": [
+            "/assets/images/facturas-preview.svg"
+          ]
         }
       },
       {
         "id": "portafolio",
         "title": "Personal Portfolio",
         "description": "This portfolio built with Next.js 15, i18n, Framer Motion, Tailwind v4 and a Resend-powered contact flow.",
-        "stack": ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-        "tags": ["web"],
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind",
+          "Framer Motion"
+        ],
+        "tags": [
+          "web"
+        ],
         "live": "https://portafolio-sandy-phi-49.vercel.app/",
         "repo": "https://github.com/otpvayne/portafolio-next",
         "image": "/assets/images/portafolio-preview.svg",
@@ -166,7 +255,9 @@
           "problem": "I needed a modern bilingual presence that reflected both technical depth and visual judgment.",
           "solution": "A portfolio with App Router, next-intl, stronger interaction design and clearer storytelling around work and capability.",
           "impact": "A site that can present work, start conversations and communicate value far more effectively.",
-          "gallery": ["/assets/images/portafolio-preview.svg"]
+          "gallery": [
+            "/assets/images/portafolio-preview.svg"
+          ]
         }
       }
     ]
@@ -184,7 +275,14 @@
           "POS across 18 branches + Credinbanco payments",
           "Bank reconciliation automation"
         ],
-        "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
+        "stack": [
+          "React",
+          "SQL",
+          "Vercel",
+          "Render",
+          "REST APIs",
+          "HTML/CSS/JS"
+        ]
       },
       {
         "date": "2024 - 2025",
@@ -194,7 +292,12 @@
           "ERP sales + inventory with Java MVC",
           "Desktop UI with Swing and Excel export"
         ],
-        "stack": ["Java", "MySQL", "JDBC", "Swing"]
+        "stack": [
+          "Java",
+          "MySQL",
+          "JDBC",
+          "Swing"
+        ]
       },
       {
         "date": "2023 - 2024",
@@ -204,7 +307,11 @@
           "Custom web solutions for MVPs",
           "Components and design tokens"
         ],
-        "stack": ["React", "Tailwind", "MongoDB"]
+        "stack": [
+          "React",
+          "Tailwind",
+          "MongoDB"
+        ]
       }
     ]
   },

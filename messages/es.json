@@ -26,9 +26,18 @@
       "Trabajo bilingue y remoto con foco en entregas claras."
     ],
     "metrics": [
-      { "value": "18", "label": "sucursales usando software en produccion" },
-      { "value": "ES / EN", "label": "portafolio y comunicacion bilingue" },
-      { "value": "Full stack", "label": "de la interfaz a la lógica e integraciones" }
+      {
+        "value": "18",
+        "label": "sucursales usando software en produccion"
+      },
+      {
+        "value": "ES / EN",
+        "label": "portafolio y comunicacion bilingue"
+      },
+      {
+        "value": "Full stack",
+        "label": "de la interfaz a la lógica e integraciones"
+      }
     ]
   },
   "about": {
@@ -46,9 +55,18 @@
     "approachTitle": "Cómo trabajo",
     "approachBody": "Necesidad → flujo principal → estructura y detalles visuales → producto sólido.",
     "stats": [
-      { "value": "UI + DX", "label": "experiencia para usuario final y para el equipo que mantiene el codigo" },
-      { "value": "Build fast", "label": "iteraciones concretas sin sacrificar claridad arquitectonica" },
-      { "value": "Impact first", "label": "prioridad en resultados visibles y friccion reducida" }
+      {
+        "value": "UI + DX",
+        "label": "experiencia para usuario final y para el equipo que mantiene el codigo"
+      },
+      {
+        "value": "Build fast",
+        "label": "iteraciones concretas sin sacrificar claridad arquitectonica"
+      },
+      {
+        "value": "Impact first",
+        "label": "prioridad en resultados visibles y friccion reducida"
+      }
     ]
   },
   "projects": {
@@ -79,26 +97,31 @@
     "stackLabel": "Stack",
     "items": [
       {
-        "id": "kumis",
-        "title": "Casa del Kumis - Sitio Web",
-        "description": "Sitio responsive con foco en identidad, catálogo y SEO local para fortalecer presencia digital y contacto comercial.",
-        "stack": ["HTML", "CSS", "JavaScript", "SEO"],
-        "tags": ["web", "landing"],
-        "live": "https://pagina-web-demo.onrender.com/index.html",
-        "image": "/assets/images/kumis-800.webp",
-        "caseStudy": {
-          "problem": "La empresa necesitaba presencia digital profesional con catálogo de productos y mejor visibilidad en búsquedas locales.",
-          "solution": "Sitio responsive con estructura semántica, medios optimizados y una presentación más clara de marca y productos.",
-          "impact": "Presencia digital activa con buen rendimiento, mejor lectura mobile y una base más fuerte para SEO on-page.",
-          "gallery": ["/assets/images/kumis-800.webp", "/assets/images/kumis-1200.webp"]
-        }
-      },
-      {
         "id": "pos",
         "title": "POS - Casa del Kumis",
         "description": "Sistema de punto de venta en produccion para 18 sucursales con pagos integrados mediante API de Credinbanco.",
-        "stack": ["Next.js 14", "TypeScript", "React", "Vite", "Tailwind", "NestJS 11", "Prisma", "PostgreSQL", "Supabase", "Tesseract.js", "Google Cloud Vision", "JWT", "Vercel", "Render"],
-        "tags": ["pos", "web", "api", "fintech"],
+        "stack": [
+          "Next.js 14",
+          "TypeScript",
+          "React",
+          "Vite",
+          "Tailwind",
+          "NestJS 11",
+          "Prisma",
+          "PostgreSQL",
+          "Supabase",
+          "Tesseract.js",
+          "Google Cloud Vision",
+          "JWT",
+          "Vercel",
+          "Render"
+        ],
+        "tags": [
+          "pos",
+          "web",
+          "api",
+          "fintech"
+        ],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
         "image": "/assets/images/casa-kumis/cierre-turno.webp",
         "caseStudy": {
@@ -126,8 +149,26 @@
         "id": "punteo",
         "title": "Software de Punteo",
         "description": "Herramienta de conciliación bancaria que cruza vouchers con extractos para detectar diferencias en minutos.",
-        "stack": ["React", "Vite", "Tailwind", "NestJS", "Prisma", "PostgreSQL", "Tesseract.js", "Google Cloud Vision", "XLSX", "Recharts", "JWT", "Render", "Vercel"],
-        "tags": ["fintech", "web", "api"],
+        "stack": [
+          "React",
+          "Vite",
+          "Tailwind",
+          "NestJS",
+          "Prisma",
+          "PostgreSQL",
+          "Tesseract.js",
+          "Google Cloud Vision",
+          "XLSX",
+          "Recharts",
+          "JWT",
+          "Render",
+          "Vercel"
+        ],
+        "tags": [
+          "fintech",
+          "web",
+          "api"
+        ],
         "repo": "https://github.com/otpvayne/casa-del-kumis.git",
         "image": "/assets/images/Sofware-punteo/dashboard.webp",
         "caseStudy": {
@@ -157,41 +198,94 @@
         }
       },
       {
+        "id": "kumis",
+        "title": "Casa del Kumis - Sitio Web",
+        "description": "Sitio responsive con foco en identidad, catálogo y SEO local para fortalecer presencia digital y contacto comercial.",
+        "stack": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "SEO"
+        ],
+        "tags": [
+          "web",
+          "landing"
+        ],
+        "live": "https://pagina-web-demo.onrender.com/index.html",
+        "image": "/assets/images/kumis-800.webp",
+        "caseStudy": {
+          "problem": "La empresa necesitaba presencia digital profesional con catálogo de productos y mejor visibilidad en búsquedas locales.",
+          "solution": "Sitio responsive con estructura semántica, medios optimizados y una presentación más clara de marca y productos.",
+          "impact": "Presencia digital activa con buen rendimiento, mejor lectura mobile y una base más fuerte para SEO on-page.",
+          "gallery": [
+            "/assets/images/kumis-800.webp",
+            "/assets/images/kumis-1200.webp"
+          ]
+        }
+      },
+      {
         "id": "erp",
         "title": "ERP - Ventas de Alimentos",
         "description": "ERP en Java MVC para ventas, clientes, inventario y reportes, pensado para negocios con operacion diaria intensa.",
-        "stack": ["Java SE", "MySQL", "Swing", "MVC"],
-        "tags": ["erp"],
+        "stack": [
+          "Java SE",
+          "MySQL",
+          "Swing",
+          "MVC"
+        ],
+        "tags": [
+          "erp"
+        ],
         "repo": "https://github.com/otpvayne/ERP-ventas-de-alimentos.git",
         "image": "/assets/images/erp-800.webp",
         "caseStudy": {
           "problem": "Pequenas empresas de distribucion no contaban con un sistema integrado para ventas, inventario y clientes.",
           "solution": "ERP de escritorio con Java MVC, persistencia JDBC/MySQL y exportacion de reportes a Excel.",
           "impact": "Base funcional con modulos clave ya conectados para gestionar operacion comercial.",
-          "gallery": ["/assets/images/erp-800.webp"]
+          "gallery": [
+            "/assets/images/erp-800.webp"
+          ]
         }
       },
       {
         "id": "facturas",
         "title": "Facturas App - OCR de Facturas",
         "description": "Backend de tesis que procesa imagenes de facturas y extrae campos clave usando OCR, vision por computadora y FastAPI.",
-        "stack": ["Python", "FastAPI", "PostgreSQL", "OpenCV", "OCR"],
-        "tags": ["api", "python"],
+        "stack": [
+          "Python",
+          "FastAPI",
+          "PostgreSQL",
+          "OpenCV",
+          "OCR"
+        ],
+        "tags": [
+          "api",
+          "python"
+        ],
         "repo": "https://github.com/otpvayne/facturas-app",
         "image": "/assets/images/facturas-preview.svg",
         "caseStudy": {
           "problem": "El procesamiento manual de facturas era lento, repetitivo y dificil de escalar para volumenes altos.",
           "solution": "Pipeline en Python para preprocesar, detectar texto y extraer NIT, fecha, total e items desde imagenes.",
           "impact": "Automatizacion con precision superior al 94 por ciento en campos clave.",
-          "gallery": ["/assets/images/facturas-preview.svg"]
+          "gallery": [
+            "/assets/images/facturas-preview.svg"
+          ]
         }
       },
       {
         "id": "portafolio",
         "title": "Portafolio Personal",
         "description": "Este mismo portafolio en Next.js 15 con i18n, Framer Motion, Tailwind v4 y formulario conectado a Resend.",
-        "stack": ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-        "tags": ["web"],
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind",
+          "Framer Motion"
+        ],
+        "tags": [
+          "web"
+        ],
         "live": "https://portafolio-sandy-phi-49.vercel.app/",
         "repo": "https://github.com/otpvayne/portafolio-next",
         "image": "/assets/images/portafolio-preview.svg",
@@ -199,7 +293,9 @@
           "problem": "Necesitaba una presencia profesional moderna y bilingue que reflejara capacidad tecnica y criterio visual.",
           "solution": "Portafolio con App Router, next-intl, animación cuidada y una narrativa más clara sobre proyectos y capacidades.",
           "impact": "Sitio listo para mostrar trabajo, abrir conversaciones y comunicar valor con mucha más fuerza.",
-          "gallery": ["/assets/images/portafolio-preview.svg"]
+          "gallery": [
+            "/assets/images/portafolio-preview.svg"
+          ]
         }
       }
     ]
@@ -217,7 +313,14 @@
           "POS en 18 sucursales + pagos Credinbanco",
           "Conciliacion bancaria automatizada"
         ],
-        "stack": ["React", "SQL", "Vercel", "Render", "REST APIs", "HTML/CSS/JS"]
+        "stack": [
+          "React",
+          "SQL",
+          "Vercel",
+          "Render",
+          "REST APIs",
+          "HTML/CSS/JS"
+        ]
       },
       {
         "date": "2024 - 2025",
@@ -227,7 +330,12 @@
           "ERP ventas + inventario con Java MVC",
           "Desktop UI con Swing y exportacion Excel"
         ],
-        "stack": ["Java", "MySQL", "JDBC", "Swing"]
+        "stack": [
+          "Java",
+          "MySQL",
+          "JDBC",
+          "Swing"
+        ]
       },
       {
         "date": "2023 - 2024",
@@ -237,7 +345,11 @@
           "Web personalizadas para MVPs comerciales",
           "Componentes y tokens visuales"
         ],
-        "stack": ["React", "Tailwind", "MongoDB"]
+        "stack": [
+          "React",
+          "Tailwind",
+          "MongoDB"
+        ]
       }
     ]
   },
