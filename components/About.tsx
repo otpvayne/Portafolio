@@ -137,7 +137,7 @@ export default function About() {
                 <p className="text-xs font-bold uppercase tracking-widest text-white/90">
                   {t("focusTitle")}
                 </p>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed break-words text-white">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed break-words text-white-force">
                   {t("focusBody")}
                 </p>
               </div>

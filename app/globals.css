@@ -703,6 +703,10 @@ textarea.input-field {
    UTILITY PATTERNS
    ============================================================================ */
 
+.text-white-force {
+  color: #ffffff !important;
+}
+
 .gallery-strip {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
