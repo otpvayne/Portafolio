@@ -109,7 +109,7 @@
 * {
   box-sizing: border-box;
   /* margin: 0; */ /* Allow natural margins for better spacing */
-  padding: 0;
+  /* padding: 0; */ /* Allow padding utilities to work properly */
 }
 
 html {
