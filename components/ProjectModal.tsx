@@ -6,6 +6,11 @@ import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ExternalLink, Github, X } from "lucide-react";
 
+// Función para procesar Markdown básico (**text** → <strong>)
+function parseMarkdown(text: string) {
+  return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+}
+
 type CaseStudy = {
   problem: string;
   solution: string;
@@ -61,6 +66,15 @@ export default function ProjectModal({ project, onClose }: Props) {
   useEffect(() => {
     setImgIndex(0);
   }, [project?.id]);
+
+  // Precargar la siguiente imagen para transiciones rápidas
+  useEffect(() => {
+    if (gallery.length <= 1) return;
+
+    const nextIndex = (imgIndex + 1) % gallery.length;
+    const img = new window.Image();
+    img.src = gallery[nextIndex];
+  }, [imgIndex, gallery]);
 
   const prev = () => setImgIndex((value) => (value - 1 + gallery.length) % gallery.length);
   const next = () => setImgIndex((value) => (value + 1) % gallery.length);
@@ -206,9 +220,12 @@ export default function ProjectModal({ project, onClose }: Props) {
                     {/* Introduction Description */}
                     {project.caseStudy.description && (
                       <div className="space-y-3">
-                        <p className="text-sm leading-7 text-[var(--color-text-secondary)] whitespace-pre-wrap">
-                          {project.caseStudy.description}
-                        </p>
+                        <div
+                          className="text-sm leading-7 text-[var(--color-text-secondary)] whitespace-pre-wrap"
+                          dangerouslySetInnerHTML={{
+                            __html: parseMarkdown(project.caseStudy.description)
+                          }}
+                        />
                       </div>
                     )}
 
@@ -244,9 +261,12 @@ export default function ProjectModal({ project, onClose }: Props) {
                         <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-primary)]">
                           Lo que construí
                         </p>
-                        <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words whitespace-pre-wrap">
-                          {project.caseStudy.whatBuilt}
-                        </p>
+                        <div
+                          className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words whitespace-pre-wrap"
+                          dangerouslySetInnerHTML={{
+                            __html: parseMarkdown(project.caseStudy.whatBuilt)
+                          }}
+                        />
                       </div>
                     )}
 
@@ -282,9 +302,12 @@ export default function ProjectModal({ project, onClose }: Props) {
                         <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-accent)]">
                           Resultado
                         </p>
-                        <p className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words">
-                          {project.caseStudy.result}
-                        </p>
+                        <div
+                          className="mt-3 text-sm leading-7 text-[var(--color-text-primary)] break-words"
+                          dangerouslySetInnerHTML={{
+                            __html: parseMarkdown(project.caseStudy.result)
+                          }}
+                        />
                       </div>
                     )}
                   </div>
