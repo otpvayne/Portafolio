@@ -48,7 +48,7 @@ export default function Hero() {
   }, [deleting, displayed, wordIndex]);
 
   return (
-    <section className="relative overflow-hidden px-4 py-28 sm:px-8 lg:px-20 lg:py-40">
+    <section className="relative overflow-hidden px-4 pt-24 pb-28 sm:px-8 sm:pt-28 sm:pb-28 lg:px-20 lg:pt-32 lg:pb-40">
       <div className="section-shell">
         <div className="grid gap-normal lg:grid-cols-2 items-center">
           {/* Left Column: Content */}
@@ -150,7 +150,7 @@ export default function Hero() {
                 />
               </div>
 
-              <div className="relative z-10 space-y-4">
+              <div className="relative z-10 space-y-6">
                 {/* Photo Card */}
                 <div className="glass rounded-2xl card-px-sm">
                   <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[var(--surface-strong)]">
@@ -172,7 +172,7 @@ export default function Hero() {
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-2 gap-4">
                   {metrics.map((item) => (
-                    <div key={item.label} className="glass rounded-xl p-4 flex flex-col justify-center min-h-[100px]">
+                    <div key={item.label} className="glass rounded-xl px-4 py-6 flex flex-col justify-center min-h-[120px]">
                       <p className="text-2xl sm:text-3xl font-extrabold text-[var(--surface-ink)] leading-tight">
                         {item.value}
                       </p>
@@ -184,11 +184,11 @@ export default function Hero() {
                 </div>
 
                 {/* Snapshot Card */}
-                <div className="glass rounded-2xl card-px-sm">
+                <div className="glass rounded-2xl card-px-md">
                   <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent-strong)]">
                     {t("snapshotLabel")}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">
+                  <p className="mt-4 text-sm leading-relaxed text-[var(--text-muted)]">
                     {t("snapshotBody")}
                   </p>
                 </div>
