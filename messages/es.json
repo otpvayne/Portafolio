@@ -100,7 +100,7 @@
         "stack": ["Next.js 14", "TypeScript", "React", "Vite", "Tailwind", "NestJS 11", "Prisma", "PostgreSQL", "Supabase", "Tesseract.js", "Google Cloud Vision", "JWT", "Vercel", "Render"],
         "tags": ["pos", "web", "api", "fintech"],
         "repo": "https://github.com/otpvayne/Casa-del-kumis-POS.git",
-        "image": "/assets/images/pos-preview.svg",
+        "image": "/assets/images/casa-kumis/cierre-turno.webp",
         "caseStudy": {
           "description": "Casa del Kumis llevaba años pagando por software de gestión externo. El problema no era solo el costo — era la dependencia. Cada vez que el proveedor subía precios, la empresa no tenía opción. Cada vez que necesitaban una funcionalidad específica para su operación, tenían que esperar a que el proveedor la desarrollara, si es que lo hacía.\n\nLa decisión fue construir su propio sistema. Uno que se adaptara exactamente a cómo opera la cadena, sin intermediarios.",
           "problem": "La cadena tiene múltiples sucursales distribuidas. Cada una necesitaba su propio punto de venta, con control de turnos, inventario independiente y reportes por sede. Además, el negocio manejaba un volumen considerable de transacciones con datafono, y cruzar manualmente los vouchers físicos contra los reportes bancarios tomaba horas y generaba errores.",
