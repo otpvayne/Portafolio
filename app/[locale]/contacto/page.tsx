@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <Nav />
-      <main className="px-4 pb-20 pt-28 sm:px-8 sm:pt-32 lg:px-20 lg:pb-32 lg:pt-40">
+      <main className="px-4 pb-20 pt-32 sm:px-8 sm:pt-36 lg:px-20 lg:pb-32 lg:pt-48">
         <div className="section-shell">
           <div className="section-divider mb-12" />
 
