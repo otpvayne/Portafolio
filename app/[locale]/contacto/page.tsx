@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="section-shell">
           <div className="section-divider mb-12" />
 
-          <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-normal lg:grid-cols-2 lg:items-start">
             {/* Left Column */}
             <section className="space-y-8">
               <div className="space-y-4">
@@ -40,7 +40,7 @@ export default function ContactPage() {
                   return (
                     <li
                       key={highlight}
-                      className="card-base flex gap-4 p-4 sm:p-5 rounded-xl"
+                      className="card-base flex gap-4 card-px-sm rounded-xl"
                     >
                       <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)] text-white">
                         <Icon size={18} />
@@ -57,7 +57,7 @@ export default function ContactPage() {
               </ul>
 
               {/* Direct Links */}
-              <div className="card-base bg-[var(--color-primary)] text-white p-6 sm:p-8 rounded-2xl space-y-6">
+              <div className="card-base bg-[var(--color-primary)] text-white card-px-lg rounded-2xl space-y-6">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-white/80">
                     Direct Links

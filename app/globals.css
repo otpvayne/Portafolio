@@ -504,6 +504,85 @@ img {
 }
 
 /* ============================================================================
+   PADDING & GAP STANDARDS (Single Source of Truth)
+   ============================================================================ */
+
+/* Card Padding Levels - Use ONLY these 4 classes for card padding */
+.card-px-sm {
+  padding: 16px;
+}
+@media (min-width: 640px) {
+  .card-px-sm {
+    padding: 20px;
+  }
+}
+
+.card-px-md {
+  padding: 20px;
+}
+@media (min-width: 640px) {
+  .card-px-md {
+    padding: 24px;
+  }
+}
+
+.card-px-lg {
+  padding: 24px;
+}
+@media (min-width: 640px) {
+  .card-px-lg {
+    padding: 32px;
+  }
+}
+
+.card-px-xl {
+  padding: 32px;
+}
+@media (min-width: 640px) {
+  .card-px-xl {
+    padding: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .card-px-xl {
+    padding: 48px;
+  }
+}
+
+/* Grid Gap Levels - Use ONLY these 3 classes for grid gaps */
+.gap-tight {
+  gap: 16px;
+}
+@media (min-width: 1024px) {
+  .gap-tight {
+    gap: 20px;
+  }
+}
+
+.gap-normal {
+  gap: 24px;
+}
+@media (min-width: 1024px) {
+  .gap-normal {
+    gap: 32px;
+  }
+}
+
+.gap-loose {
+  gap: 32px;
+}
+@media (min-width: 1024px) {
+  .gap-loose {
+    gap: 40px;
+  }
+}
+
+/* Color Classes for Text */
+.text-white-base {
+  color: #ffffff;
+}
+
+/* ============================================================================
    CHIP & BADGE COMPONENTS
    ============================================================================ */
 

@@ -50,7 +50,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden px-4 py-28 sm:px-8 lg:px-20 lg:py-40">
       <div className="section-shell">
-        <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
+        <div className="grid gap-normal lg:grid-cols-2 items-center">
           {/* Left Column: Content */}
           <div className="relative z-10">
             <motion.div
@@ -125,7 +125,7 @@ export default function Hero() {
                   className="chip-accent px-4 py-3 flex items-center gap-3"
                 >
                   <span className="h-2 w-2 rounded-full bg-current flex-shrink-0" />
-                  <span className="break-words">{item}</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </motion.ul>
@@ -138,7 +138,7 @@ export default function Hero() {
             transition={{ duration: 0.88, delay: 0.18 }}
             className="relative z-10"
           >
-            <div className="panel soft-ring relative rounded-3xl p-4 sm:p-6 bg-white/95 backdrop-blur">
+            <div className="panel soft-ring relative rounded-3xl card-px-md bg-white/95 backdrop-blur">
               <div className="absolute -right-20 -top-20 w-56 h-56 rounded-full bg-[var(--accent-soft)]/10 blur-3xl" />
               <div className="absolute inset-0 opacity-50 rounded-3xl overflow-hidden">
                 <CelestialSphere
@@ -152,7 +152,7 @@ export default function Hero() {
 
               <div className="relative z-10 space-y-4">
                 {/* Photo Card */}
-                <div className="glass rounded-2xl p-4 sm:p-5">
+                <div className="glass rounded-2xl card-px-sm">
                   <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-[var(--surface-strong)]">
                     <Image
                       src="/assets/images/me-4.webp"
@@ -173,10 +173,10 @@ export default function Hero() {
                 <div className="grid grid-cols-2 gap-4">
                   {metrics.map((item) => (
                     <div key={item.label} className="glass rounded-xl p-4 flex flex-col justify-center min-h-[100px]">
-                      <p className="text-2xl sm:text-3xl font-extrabold text-[var(--surface-ink)] break-words leading-tight">
+                      <p className="text-2xl sm:text-3xl font-extrabold text-[var(--surface-ink)] leading-tight">
                         {item.value}
                       </p>
-                      <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-2 break-words">
+                      <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-2">
                         {item.label}
                       </p>
                     </div>
@@ -184,11 +184,11 @@ export default function Hero() {
                 </div>
 
                 {/* Snapshot Card */}
-                <div className="glass rounded-2xl p-4 sm:p-5">
+                <div className="glass rounded-2xl card-px-sm">
                   <p className="text-xs font-bold uppercase tracking-widest text-[var(--accent-strong)]">
                     {t("snapshotLabel")}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)] break-words">
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">
                     {t("snapshotBody")}
                   </p>
                 </div>

@@ -58,9 +58,9 @@ export default function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-tight">
               {stats.map((stat) => (
-                <div key={stat.label} className="card-base p-5 sm:p-6">
+                <div key={stat.label} className="card-base card-px-sm">
                   <p className="text-3xl sm:text-4xl font-extrabold text-[var(--color-primary)]">
                     {stat.value}
                   </p>
@@ -87,10 +87,10 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.1 }}
-            className="grid gap-6 lg:gap-8 lg:grid-cols-2 items-start"
+            className="grid gap-normal lg:grid-cols-2 items-start"
           >
             {/* Carousel */}
-            <div className="card-base p-4 sm:p-6 rounded-2xl">
+            <div className="card-base card-px-md rounded-2xl">
               <div className="relative w-full aspect-square sm:aspect-video rounded-xl overflow-hidden bg-[var(--surface-strong)]">
                 {SLIDES.map((slide, index) => (
                   <div
@@ -133,17 +133,17 @@ export default function About() {
             {/* Info Cards */}
             <div className="space-y-4">
               {/* Focus Card */}
-              <div className="card-base bg-[var(--color-primary)] p-5 sm:p-6 rounded-2xl">
+              <div className="card-base bg-[var(--color-primary)] card-px-md rounded-2xl">
                 <p className="text-xs font-bold uppercase tracking-widest text-white/90">
                   {t("focusTitle")}
                 </p>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed break-words text-white-force">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-white-base">
                   {t("focusBody")}
                 </p>
               </div>
 
               {/* Approach Card */}
-              <div className="card-base p-5 sm:p-6 rounded-2xl">
+              <div className="card-base card-px-md rounded-2xl">
                 <p className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">
                   {t("approachTitle")}
                 </p>
