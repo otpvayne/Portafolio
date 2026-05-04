@@ -8,34 +8,34 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Campos requeridos" }, { status: 400 });
     }
 
-    const RESEND_API_KEY = process.env.RESEND_API_KEY;
-    const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "generalboomsycol@gmail.com";
+    const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-    if (!RESEND_API_KEY) {
-      // En desarrollo sin clave Resend, solo logueamos
+    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
       console.log("📩 Nuevo mensaje de contacto:", { name, email, message });
       return NextResponse.json({ ok: true });
     }
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "Portafolio <onboarding@resend.dev>",
-        to: [TO_EMAIL],
-        reply_to: email,
-        subject: `[Portafolio] Nuevo mensaje de ${name}`,
-        text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
-      }),
-    });
+    // Enviar a Telegram
+    const telegramMessage = `📬 <b>Nuevo mensaje de contacto</b>\n\n<b>Nombre:</b> ${name}\n<b>Email:</b> ${email}\n\n<b>Mensaje:</b>\n${message}`;
 
-    if (!res.ok) {
-      const err = await res.text();
-      console.error("Resend error:", err);
-      return NextResponse.json({ error: "Email no enviado" }, { status: 500 });
+    const telegramRes = await fetch(
+      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: telegramMessage,
+          parse_mode: "HTML",
+        }),
+      }
+    );
+
+    if (!telegramRes.ok) {
+      const err = await telegramRes.text();
+      console.error("Telegram error:", err);
+      return NextResponse.json({ error: "Mensaje no enviado a Telegram" }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });
