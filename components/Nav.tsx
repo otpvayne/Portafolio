@@ -63,10 +63,10 @@ export default function Nav() {
         <a href={rootPath} className="flex items-center gap-3">
           <div className="relative h-11 w-11 overflow-hidden rounded-full border border-[var(--color-surface-muted)] bg-white shadow-sm">
             <Image
-              src="/assets/images/logo.webp"
+              src="/assets/logo.svg"
               alt="Logo Diego Medina"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
           <div className="hidden sm:block">
