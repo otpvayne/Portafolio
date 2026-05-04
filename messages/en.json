@@ -363,6 +363,7 @@
     "noResults": "No questions found."
   },
   "contactPage": {
+    "contactLabel": "Contact",
     "title": "Let us talk with context and direction.",
     "subtitle": "If you have an idea, a system that needs improvement or a product experience that feels weak, we can turn it into something clearer, stronger and better executed.",
     "highlights": [
@@ -370,6 +371,7 @@
       "**Product perspective** to understand the business and not only the stack",
       "**Iterative delivery** so progress becomes visible early"
     ],
+    "directLinksLabel": "Direct Links",
     "name": "Name",
     "email": "Email",
     "message": "Message",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { CheckCircle2, Clock, Github, Linkedin, Mail, Zap } from "lucide-react";
+import { CheckCircle2, Clock, Zap } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ContactForm from "./ContactForm";
@@ -23,7 +23,7 @@ export default function ContactPage() {
             {/* Left Column */}
             <section className="space-y-8">
               <div className="space-y-4">
-                <span className="eyebrow">Contact</span>
+                <span className="eyebrow">{t("contactLabel")}</span>
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[var(--color-text-primary)]">
                   {t("title")}
                 </h1>
@@ -55,42 +55,6 @@ export default function ContactPage() {
                   );
                 })}
               </ul>
-
-              {/* Direct Links */}
-              <div className="card-base bg-[var(--color-primary)] text-white card-px-lg rounded-2xl space-y-6">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-white/80">
-                    Direct Links
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <a
-                    href="mailto:generalboomsycol@gmail.com"
-                    className="flex items-center gap-3 text-sm text-white/85 transition-colors hover:text-white break-all"
-                  >
-                    <Mail size={18} className="flex-shrink-0" />
-                    <span>generalboomsycol@gmail.com</span>
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/diego-medina-software"
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center gap-3 text-sm text-white/85 transition-colors hover:text-white break-all"
-                  >
-                    <Linkedin size={18} className="flex-shrink-0" />
-                    <span>linkedin.com/in/diego-medina-software</span>
-                  </a>
-                  <a
-                    href="https://github.com/otpvayne"
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center gap-3 text-sm text-white/85 transition-colors hover:text-white break-all"
-                  >
-                    <Github size={18} className="flex-shrink-0" />
-                    <span>github.com/otpvayne</span>
-                  </a>
-                </div>
-              </div>
             </section>
 
             {/* Right Column: Form */}

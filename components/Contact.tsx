@@ -139,45 +139,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Direct Links */}
-              <div className="card-base bg-[var(--color-primary)] card-px-lg rounded-[var(--radius-xl)] space-y-6">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                    Direct Links
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <a
-                    href="mailto:generalboomsycol@gmail.com"
-                    className="flex items-center gap-3 text-sm transition-colors break-all hover:opacity-100"
-                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
-                  >
-                    <Mail size={18} className="flex-shrink-0" />
-                    <span>generalboomsycol@gmail.com</span>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/diego-medina-software/"
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center gap-3 text-sm transition-colors break-all hover:opacity-100"
-                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
-                  >
-                    <Linkedin size={18} className="flex-shrink-0" />
-                    <span>linkedin.com/in/diego-medina-software</span>
-                  </a>
-                  <a
-                    href="https://github.com/otpvayne"
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center gap-3 text-sm transition-colors break-all hover:opacity-100"
-                    style={{ color: 'rgba(255, 255, 255, 0.85)' }}
-                  >
-                    <Github size={18} className="flex-shrink-0" />
-                    <span>github.com/otpvayne</span>
-                  </a>
-                </div>
-              </div>
-
               {/* Social & Form Links */}
               <div className="space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

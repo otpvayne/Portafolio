@@ -401,6 +401,7 @@
     "noResults": "No se encontraron preguntas."
   },
   "contactPage": {
+    "contactLabel": "Contacto",
     "title": "Hablemos con contexto y foco.",
     "subtitle": "Si tienes una idea, un sistema que mejorar o una experiencia que se siente floja, podemos convertirlo en algo más claro, más sólido y mejor ejecutado.",
     "highlights": [
@@ -408,6 +409,7 @@
       "**Visión de producto** para entender negocio y no solo tecnología",
       "**Entrega iterativa** para mostrar avance real desde temprano"
     ],
+    "directLinksLabel": "Enlaces directos",
     "name": "Nombre",
     "email": "Correo",
     "message": "Mensaje",
