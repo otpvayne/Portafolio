@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Loader2, Send } from "lucide-react";
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "success" | "error" | "rateLimited";
 
 export default function ContactForm() {
   const t = useTranslations("contactPage");
@@ -51,8 +51,14 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      setStatus(response.ok ? "success" : "error");
-      if (response.ok) form.reset();
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+      } else if (response.status === 429) {
+        setStatus("rateLimited");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -112,10 +118,15 @@ export default function ContactForm() {
             <p className="text-sm font-medium text-red-800">{t("error")}</p>
           </div>
         )}
+        {status === "rateLimited" && (
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <p className="text-sm font-medium text-amber-800">{t("rateLimited")}</p>
+          </div>
+        )}
 
         <button
           type="submit"
-          disabled={status === "loading" || status === "success"}
+          disabled={status === "loading" || status === "success" || status === "rateLimited"}
           className="btn-primary w-full justify-center gap-2 disabled:opacity-60"
         >
           {status === "loading" ? (

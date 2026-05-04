@@ -382,7 +382,9 @@
     "privacy": "Your data is used only to respond to you.",
     "nameError": "Please enter your name",
     "emailError": "Please enter a valid email",
-    "messageError": "Message is too short (min. 10 characters)"
+    "messageError": "Message is too short (min. 10 characters)",
+    "rateLimited": "You've reached the message limit. Try again in one hour.",
+    "suspiciousContent": "The message contains suspicious content. Please review and try again."
   },
   "footer": {
     "rights": "All rights reserved."

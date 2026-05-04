@@ -420,7 +420,9 @@
     "privacy": "Tus datos se usan unicamente para responderte.",
     "nameError": "Escribe tu nombre",
     "emailError": "Correo no valido",
-    "messageError": "Mensaje muy corto (min. 10 caracteres)"
+    "messageError": "Mensaje muy corto (min. 10 caracteres)",
+    "rateLimited": "Has alcanzado el límite de mensajes. Intenta de nuevo en una hora.",
+    "suspiciousContent": "El mensaje contiene contenido sospechoso. Por favor, revisa e intenta de nuevo."
   },
   "footer": {
     "rights": "Todos los derechos reservados."
